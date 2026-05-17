@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.cibertec.salesservices.SalesServicesApplicationTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-05-17T15:52:44" hostname="Mac" time="0.534">
+  <properties/>
+  <testcase name="contextLoads()" classname="com.cibertec.salesservices.SalesServicesApplicationTests" time="0.534"/>
+  <system-out><![CDATA[10:52:41.347 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.cibertec.salesservices.SalesServicesApplicationTests]: SalesServicesApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+10:52:41.568 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.cibertec.salesservices.SalesServicesApplication for test class com.cibertec.salesservices.SalesServicesApplicationTests
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v3.2.5)
+
+2026-05-17T10:52:42.290-05:00  INFO 55655 --- [sales-services] [    Test worker] c.c.s.SalesServicesApplicationTests      : Starting SalesServicesApplicationTests using Java 17.0.13 with PID 55655 (started by ronaldcastillo in /Users/ronaldcastillo/Files/Dev/Cibertec/DESARROLLO-DE-APLICACIONES-WEB-II/backend/sales-services)
+2026-05-17T10:52:42.291-05:00  INFO 55655 --- [sales-services] [    Test worker] c.c.s.SalesServicesApplicationTests      : No active profile set, falling back to 1 default profile: "default"
+2026-05-17T10:52:44.319-05:00  INFO 55655 --- [sales-services] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=44e531fb-ecba-3845-9884-7843757fe326
+2026-05-17T10:52:44.890-05:00  INFO 55655 --- [sales-services] [    Test worker] c.c.s.SalesServicesApplicationTests      : Started SalesServicesApplicationTests in 2.921 seconds (process running for 5.404)
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
