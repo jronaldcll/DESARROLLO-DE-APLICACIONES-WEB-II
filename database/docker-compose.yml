@@ -1,0 +1,31 @@
+services:
+  db:
+    image: ${DB_IMAGE}
+    container_name: ${DB_HOST}
+    restart: always
+    volumes:
+      - my-db:/var/lib/mysql
+    ports:
+      - "${DB_PORT}:3306"
+    environment:
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWD}
+    networks:
+      - net-mobile  
+
+  phpmyadmin:
+    image: ${DB_IMAGE_PHPMA}
+    container_name: ${DB_HOST_PHPMA}
+    ports:
+      - "${DB_PORT_PHPMA}:80"
+    depends_on:
+      - db
+    networks:
+      - net-mobile  
+volumes:
+  my-db:
+networks:
+  net-mobile:
+    name: net-mobile  
