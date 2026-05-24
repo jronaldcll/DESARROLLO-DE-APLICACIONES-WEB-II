@@ -1,0 +1,23 @@
+dosservices:
+
+  # ============================================================
+  # 🐇 RABBITMQ
+  # Puerto 5672  → tu Spring Boot se conecta aquí (AMQP)
+  # Puerto 15672 → Management Console (browser)
+  #                http://localhost:15672
+  #                usuario: guest / contraseña: guest
+  # ============================================================
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: ligo-rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+
+volumes:
+  rabbitmq_data:

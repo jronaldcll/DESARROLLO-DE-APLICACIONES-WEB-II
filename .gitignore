@@ -1,1 +1,27 @@
+# OS / editor
+.DS_Store
+.idea/
+*.iml
+.vscode/
+
+# Env files
 .env
+.env.*
+!.env.example
+
+# Java / Gradle / Spring Boot
+**/.gradle/
+**/build/
+**/bin/
+*.class
+*.jar
+*.war
+*.ear
+
+# Logs
+*.log
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3

@@ -1,0 +1,21 @@
+package com.cibertec.salesservices.rabbitmq;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
+import org.springframework.stereotype.Component;
+
+// @Component registra este consumidor en el contenedor Spring.
+// En AWS sería similar a una Lambda disparada por una cola SQS.
+@Component
+public class StockLowAlertConsumer {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(StockLowAlertConsumer.class);
+
+	// @RabbitListener crea un listener sobre la cola indicada.
+	// En AWS esto equivale al trigger de SQS sobre una Lambda consumidora.
+	@RabbitListener(queues = RabbitMQConfig.STOCK_LOW_QUEUE)
+	public void onStockLow(StockLowAlertEvent event) {
+		LOGGER.warn("[sales-services] Alerta de stock bajo recibida: {}", event);
+	}
+}

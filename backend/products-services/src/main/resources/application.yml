@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: products-services
+  datasource:
+    url: jdbc:mysql://localhost:5510/appdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Lima
+    username: app
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      auto-offset-reset: earliest
+      properties:
+        spring.json.trusted.packages: "com.cibertec.productsservices.kafka,com.cibertec.salesservices.kafka"
+        spring.json.use.type.headers: false
+        spring.json.value.default.type: "com.cibertec.productsservices.kafka.StockMovementEvent"
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+server:
+  port: 8081

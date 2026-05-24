@@ -1,0 +1,282 @@
+{
+  "info": {
+    "_postman_id": "b6d532f1-fcc2-45cd-8b4a-cibertec-flows",
+    "name": "Cibertec Microservices Flows",
+    "description": "Coleccion para probar los tres flujos del monorepo: Kafka, RabbitMQ y Feign entre microservicios.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "0. Health And Seed",
+      "item": [
+        {
+          "name": "List Products",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{products_base_url}}/products",
+              "host": [
+                "{{products_base_url}}"
+              ],
+              "path": [
+                "products"
+              ]
+            },
+            "description": "Verifica que products-services arranco y que hay datos semilla."
+          }
+        },
+        {
+          "name": "List Sales",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{sales_base_url}}/sales",
+              "host": [
+                "{{sales_base_url}}"
+              ],
+              "path": [
+                "sales"
+              ]
+            },
+            "description": "Verifica que sales-services arranco y que hay datos semilla."
+          }
+        }
+      ]
+    },
+    {
+      "name": "1. Kafka Flow",
+      "item": [
+        {
+          "name": "Create Sale - Kafka Stock Movement",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "const body = pm.response.json();",
+                  "pm.environment.set('last_sale_id', body.saleId);",
+                  "pm.test('Sale status is PENDING', function () {",
+                  "    pm.expect(body.status).to.eql('PENDING');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": 1,\n  \"quantity\": 2,\n  \"customerId\": 3001\n}"
+            },
+            "url": {
+              "raw": "{{sales_base_url}}/sales",
+              "host": [
+                "{{sales_base_url}}"
+              ],
+              "path": [
+                "sales"
+              ]
+            },
+            "description": "Publica un evento en Kafka topic stock-movements usando productId como key."
+          }
+        },
+        {
+          "name": "Get Last Sale",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{sales_base_url}}/sales/{{last_sale_id}}",
+              "host": [
+                "{{sales_base_url}}"
+              ],
+              "path": [
+                "sales",
+                "{{last_sale_id}}"
+              ]
+            },
+            "description": "Consulta la venta creada por el flujo Kafka."
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. RabbitMQ Flow",
+      "item": [
+        {
+          "name": "Create Sale - Rabbit Reserve",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "const body = pm.response.json();",
+                  "pm.environment.set('last_rabbit_sale_id', body.saleId);",
+                  "pm.test('Rabbit sale status is PENDING', function () {",
+                  "    pm.expect(body.status).to.eql('PENDING');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": 1,\n  \"quantity\": 4,\n  \"customerId\": 4001\n}"
+            },
+            "url": {
+              "raw": "{{sales_base_url}}/sales/rabbit-reserve",
+              "host": [
+                "{{sales_base_url}}"
+              ],
+              "path": [
+                "sales",
+                "rabbit-reserve"
+              ]
+            },
+            "description": "Publica StockReserveEvent por RabbitMQ. Si el stock final queda menor a 5, products-services emitira una alerta a stock-low-queue."
+          }
+        },
+        {
+          "name": "Get Last Rabbit Sale",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{sales_base_url}}/sales/{{last_rabbit_sale_id}}",
+              "host": [
+                "{{sales_base_url}}"
+              ],
+              "path": [
+                "sales",
+                "{{last_rabbit_sale_id}}"
+              ]
+            },
+            "description": "Consulta la venta creada por RabbitMQ."
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Feign Flow",
+      "item": [
+        {
+          "name": "Get Sale Details Through Feign",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{sales_base_url}}/sales/{{feign_sale_id}}/details",
+              "host": [
+                "{{sales_base_url}}"
+              ],
+              "path": [
+                "sales",
+                "{{feign_sale_id}}",
+                "details"
+              ]
+            },
+            "description": "Caso de uso sincrono donde sales-services llama a products-services via Feign para enriquecer la venta con el producto."
+          }
+        }
+      ]
+    },
+    {
+      "name": "4. Optional Product Setup",
+      "item": [
+        {
+          "name": "Create Product",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Teclado Mecanico\",\n  \"price\": 250.00,\n  \"stock\": 12\n}"
+            },
+            "url": {
+              "raw": "{{products_base_url}}/products",
+              "host": [
+                "{{products_base_url}}"
+              ],
+              "path": [
+                "products"
+              ]
+            },
+            "description": "Crea un producto nuevo si quieres probar con IDs adicionales."
+          }
+        },
+        {
+          "name": "Get Product By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{products_base_url}}/products/{{product_id}}",
+              "host": [
+                "{{products_base_url}}"
+              ],
+              "path": [
+                "products",
+                "{{product_id}}"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "sales_base_url",
+      "value": "http://localhost:8082"
+    },
+    {
+      "key": "products_base_url",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "product_id",
+      "value": "1"
+    },
+    {
+      "key": "feign_sale_id",
+      "value": "100"
+    },
+    {
+      "key": "last_sale_id",
+      "value": ""
+    },
+    {
+      "key": "last_rabbit_sale_id",
+      "value": ""
+    }
+  ]
+}

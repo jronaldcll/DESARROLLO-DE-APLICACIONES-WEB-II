@@ -1,11 +1,10 @@
 package com.cibertec.salesservices.dto;
 
-import java.math.BigDecimal;
-
 public record SaleResponse(
 		Long saleId,
+		Long productId,
 		Integer quantity,
-		BigDecimal total,
-		ProductResponse product
+		Long customerId,
+		String status
 ) {
 }

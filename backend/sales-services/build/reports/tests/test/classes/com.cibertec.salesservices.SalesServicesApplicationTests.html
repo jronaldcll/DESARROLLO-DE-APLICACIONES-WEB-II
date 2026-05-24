@@ -41,7 +41,7 @@
 </td>
 <td>
 <div class="infoBox" id="duration">
-<div class="counter">0.534s</div>
+<div class="counter">0.264s</div>
 <p>duration</p>
 </div>
 </td>
@@ -79,7 +79,7 @@
 </thead>
 <tr>
 <td class="success">contextLoads()</td>
-<td class="success">0.534s</td>
+<td class="success">0.264s</td>
 <td class="success">passed</td>
 </tr>
 </table>
@@ -87,8 +87,8 @@
 <div id="tab1" class="tab">
 <h2>Standard output</h2>
 <span class="code">
-<pre>10:52:41.347 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.cibertec.salesservices.SalesServicesApplicationTests]: SalesServicesApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-10:52:41.568 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.cibertec.salesservices.SalesServicesApplication for test class com.cibertec.salesservices.SalesServicesApplicationTests
+<pre>18:30:18.224 [Test worker] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.cibertec.salesservices.SalesServicesApplicationTests]: SalesServicesApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:30:18.263 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.cibertec.salesservices.SalesServicesApplication for test class com.cibertec.salesservices.SalesServicesApplicationTests
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -98,10 +98,106 @@
  =========|_|==============|___/=/_/_/_/
  :: Spring Boot ::                (v3.2.5)
 
-2026-05-17T10:52:42.290-05:00  INFO 55655 --- [sales-services] [    Test worker] c.c.s.SalesServicesApplicationTests      : Starting SalesServicesApplicationTests using Java 17.0.13 with PID 55655 (started by ronaldcastillo in /Users/ronaldcastillo/Files/Dev/Cibertec/DESARROLLO-DE-APLICACIONES-WEB-II/backend/sales-services)
-2026-05-17T10:52:42.291-05:00  INFO 55655 --- [sales-services] [    Test worker] c.c.s.SalesServicesApplicationTests      : No active profile set, falling back to 1 default profile: &quot;default&quot;
-2026-05-17T10:52:44.319-05:00  INFO 55655 --- [sales-services] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=44e531fb-ecba-3845-9884-7843757fe326
-2026-05-17T10:52:44.890-05:00  INFO 55655 --- [sales-services] [    Test worker] c.c.s.SalesServicesApplicationTests      : Started SalesServicesApplicationTests in 2.921 seconds (process running for 5.404)
+2026-05-23T18:30:18.454-05:00  INFO 15565 --- [sales-services] [    Test worker] c.c.s.SalesServicesApplicationTests      : Starting SalesServicesApplicationTests using Java 17.0.13 with PID 15565 (started by ronaldcastillo in /Users/ronaldcastillo/Files/Dev/Cibertec/DESARROLLO-DE-APLICACIONES-WEB-II/backend/sales-services)
+2026-05-23T18:30:18.455-05:00  INFO 15565 --- [sales-services] [    Test worker] c.c.s.SalesServicesApplicationTests      : No active profile set, falling back to 1 default profile: &quot;default&quot;
+2026-05-23T18:30:18.763-05:00  INFO 15565 --- [sales-services] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-23T18:30:18.781-05:00  INFO 15565 --- [sales-services] [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 15 ms. Found 1 JPA repository interface.
+2026-05-23T18:30:18.860-05:00  INFO 15565 --- [sales-services] [    Test worker] o.s.cloud.context.scope.GenericScope     : BeanFactory id=b7eee880-fa22-35f5-81e2-a96750ad4280
+2026-05-23T18:30:18.973-05:00  INFO 15565 --- [sales-services] [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-23T18:30:18.990-05:00  INFO 15565 --- [sales-services] [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2026-05-23T18:30:19.002-05:00  INFO 15565 --- [sales-services] [    Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2026-05-23T18:30:19.084-05:00  INFO 15565 --- [sales-services] [    Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-23T18:30:19.093-05:00  INFO 15565 --- [sales-services] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-23T18:30:19.158-05:00  INFO 15565 --- [sales-services] [    Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@7b1c501d
+2026-05-23T18:30:19.159-05:00  INFO 15565 --- [sales-services] [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-23T18:30:19.449-05:00  INFO 15565 --- [sales-services] [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+Hibernate: create table sales (sale_id bigint not null auto_increment, customer_id bigint not null, product_id bigint not null, quantity integer not null, status varchar(30) not null, primary key (sale_id)) engine=InnoDB
+2026-05-23T18:30:19.487-05:00  INFO 15565 --- [sales-services] [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-23T18:30:19.723-05:00  WARN 15565 --- [sales-services] [    Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-23T18:30:19.988-05:00  INFO 15565 --- [sales-services] [    Test worker] o.a.k.clients.admin.AdminClientConfig    : AdminClientConfig values: 
+	auto.include.jmx.reporter = true
+	bootstrap.servers = [localhost:9092]
+	client.dns.lookup = use_all_dns_ips
+	client.id = 
+	connections.max.idle.ms = 300000
+	default.api.timeout.ms = 60000
+	metadata.max.age.ms = 300000
+	metric.reporters = []
+	metrics.num.samples = 2
+	metrics.recording.level = INFO
+	metrics.sample.window.ms = 30000
+	receive.buffer.bytes = 65536
+	reconnect.backoff.max.ms = 1000
+	reconnect.backoff.ms = 50
+	request.timeout.ms = 30000
+	retries = 2147483647
+	retry.backoff.ms = 100
+	sasl.client.callback.handler.class = null
+	sasl.jaas.config = null
+	sasl.kerberos.kinit.cmd = /usr/bin/kinit
+	sasl.kerberos.min.time.before.relogin = 60000
+	sasl.kerberos.service.name = null
+	sasl.kerberos.ticket.renew.jitter = 0.05
+	sasl.kerberos.ticket.renew.window.factor = 0.8
+	sasl.login.callback.handler.class = null
+	sasl.login.class = null
+	sasl.login.connect.timeout.ms = null
+	sasl.login.read.timeout.ms = null
+	sasl.login.refresh.buffer.seconds = 300
+	sasl.login.refresh.min.period.seconds = 60
+	sasl.login.refresh.window.factor = 0.8
+	sasl.login.refresh.window.jitter = 0.05
+	sasl.login.retry.backoff.max.ms = 10000
+	sasl.login.retry.backoff.ms = 100
+	sasl.mechanism = GSSAPI
+	sasl.oauthbearer.clock.skew.seconds = 30
+	sasl.oauthbearer.expected.audience = null
+	sasl.oauthbearer.expected.issuer = null
+	sasl.oauthbearer.jwks.endpoint.refresh.ms = 3600000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.max.ms = 10000
+	sasl.oauthbearer.jwks.endpoint.retry.backoff.ms = 100
+	sasl.oauthbearer.jwks.endpoint.url = null
+	sasl.oauthbearer.scope.claim.name = scope
+	sasl.oauthbearer.sub.claim.name = sub
+	sasl.oauthbearer.token.endpoint.url = null
+	security.protocol = PLAINTEXT
+	security.providers = null
+	send.buffer.bytes = 131072
+	socket.connection.setup.timeout.max.ms = 30000
+	socket.connection.setup.timeout.ms = 10000
+	ssl.cipher.suites = null
+	ssl.enabled.protocols = [TLSv1.2, TLSv1.3]
+	ssl.endpoint.identification.algorithm = https
+	ssl.engine.factory.class = null
+	ssl.key.password = null
+	ssl.keymanager.algorithm = SunX509
+	ssl.keystore.certificate.chain = null
+	ssl.keystore.key = null
+	ssl.keystore.location = null
+	ssl.keystore.password = null
+	ssl.keystore.type = JKS
+	ssl.protocol = TLSv1.3
+	ssl.provider = null
+	ssl.secure.random.implementation = null
+	ssl.trustmanager.algorithm = PKIX
+	ssl.truststore.certificates = null
+	ssl.truststore.location = null
+	ssl.truststore.password = null
+	ssl.truststore.type = JKS
+
+2026-05-23T18:30:20.036-05:00  INFO 15565 --- [sales-services] [    Test worker] o.a.kafka.common.utils.AppInfoParser     : Kafka version: 3.6.2
+2026-05-23T18:30:20.036-05:00  INFO 15565 --- [sales-services] [    Test worker] o.a.kafka.common.utils.AppInfoParser     : Kafka commitId: c4deed513057c94e
+2026-05-23T18:30:20.036-05:00  INFO 15565 --- [sales-services] [    Test worker] o.a.kafka.common.utils.AppInfoParser     : Kafka startTimeMs: 1779579020035
+2026-05-23T18:30:20.140-05:00  INFO 15565 --- [sales-services] [| adminclient-1] o.a.kafka.common.utils.AppInfoParser     : App info kafka.admin.client for adminclient-1 unregistered
+2026-05-23T18:30:20.142-05:00  INFO 15565 --- [sales-services] [| adminclient-1] o.apache.kafka.common.metrics.Metrics    : Metrics scheduler closed
+2026-05-23T18:30:20.142-05:00  INFO 15565 --- [sales-services] [| adminclient-1] o.apache.kafka.common.metrics.Metrics    : Closing reporter org.apache.kafka.common.metrics.JmxReporter
+2026-05-23T18:30:20.142-05:00  INFO 15565 --- [sales-services] [| adminclient-1] o.apache.kafka.common.metrics.Metrics    : Metrics reporters closed
+2026-05-23T18:30:20.144-05:00  INFO 15565 --- [sales-services] [    Test worker] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [localhost:5672]
+2026-05-23T18:30:20.164-05:00  INFO 15565 --- [sales-services] [    Test worker] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#11a0c708:0/SimpleConnection@32fefbe6 [delegate=amqp://guest@127.0.0.1:5672/, localPort=61843]
+2026-05-23T18:30:20.196-05:00  INFO 15565 --- [sales-services] [    Test worker] c.c.s.SalesServicesApplicationTests      : Started SalesServicesApplicationTests in 1.883 seconds (process running for 2.283)
+Hibernate: select count(*) from sales s1_0
+Hibernate: insert into sales (customer_id,product_id,quantity,status) values (?,?,?,?)
+Hibernate: insert into sales (customer_id,product_id,quantity,status) values (?,?,?,?)
 </pre>
 </span>
 </div>
@@ -113,7 +209,7 @@
 <input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
 </label>
 </div>Generated by 
-<a href="http://www.gradle.org">Gradle 8.7</a> at May 17, 2026, 10:52:45 AM</p>
+<a href="http://www.gradle.org">Gradle 8.7</a> at May 23, 2026, 6:30:21 PM</p>
 </div>
 </div>
 </body>

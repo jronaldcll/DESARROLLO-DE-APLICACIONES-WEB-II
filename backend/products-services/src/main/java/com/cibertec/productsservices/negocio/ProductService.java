@@ -9,6 +9,8 @@ import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
+// @Service registra lógica de negocio del catálogo y stock.
+// En AWS este código viviría dentro de una Lambda o un servicio contenedorizado consumidor.
 @Service
 public class ProductService {
 
@@ -42,9 +44,9 @@ public class ProductService {
 
 		Product updatedProduct = new Product(
 				id,
-				product.name(),
-				product.price(),
-				product.stock()
+				product.getName(),
+				product.getPrice(),
+				product.getStock()
 		);
 		return mapToResponse(productRepository.save(updatedProduct));
 	}
@@ -56,12 +58,30 @@ public class ProductService {
 		productRepository.deleteById(id);
 	}
 
+	public synchronized int decreaseStock(Long productId, Integer quantity) {
+		Product product = productRepository.findById(productId)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Producto no encontrado"));
+
+		if (product.getStock() < quantity) {
+			throw new ResponseStatusException(HttpStatus.CONFLICT, "Stock insuficiente para procesar el movimiento");
+		}
+
+		Product updatedProduct = new Product(
+				product.getId(),
+				product.getName(),
+				product.getPrice(),
+				product.getStock() - quantity
+		);
+		productRepository.save(updatedProduct);
+		return updatedProduct.getStock();
+	}
+
 	private ProductResponse mapToResponse(Product product) {
 		return new ProductResponse(
-				product.id(),
-				product.name(),
-				product.price(),
-				product.stock()
+				product.getId(),
+				product.getName(),
+				product.getPrice(),
+				product.getStock()
 		);
 	}
 }
