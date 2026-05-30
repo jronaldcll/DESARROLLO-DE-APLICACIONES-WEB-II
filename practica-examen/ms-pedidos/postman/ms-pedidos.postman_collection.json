@@ -341,7 +341,23 @@
           "response": []
         },
         {
-          "name": "Eliminar venta",
+          "name": "Solicitar anulacion de venta con Kafka",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Solicitud de anulacion aceptada\", function () {",
+                  "  pm.response.to.have.status(202);",
+                  "});",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"saleId\", body.saleId);"
+                ]
+              }
+            }
+          ],
           "request": {
             "method": "DELETE",
             "header": [],
@@ -354,7 +370,30 @@
                 "sales",
                 "{{saleId}}"
               ]
-            }
+            },
+            "description": "Publica una solicitud de anulacion en Kafka. Requiere messaging.kafka.enabled=true en ms-pedidos."
+          },
+          "response": []
+        },
+        {
+          "name": "Ver logs de anulacion en ms-notificaciones",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notificacionesBaseUrl}}/notificaciones/ventas/{{saleId}}/anulaciones/logs",
+              "host": [
+                "{{notificacionesBaseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "ventas",
+                "{{saleId}}",
+                "anulaciones",
+                "logs"
+              ]
+            },
+            "description": "Consulta la evidencia registrada por ms-notificaciones despues de consumir el evento Kafka de anulacion."
           },
           "response": []
         }

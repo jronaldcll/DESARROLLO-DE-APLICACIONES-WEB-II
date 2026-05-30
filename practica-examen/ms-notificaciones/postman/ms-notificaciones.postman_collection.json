@@ -291,6 +291,33 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "Logs de anulacion de ventas",
+      "item": [
+        {
+          "name": "Listar logs por venta",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notificaciones/ventas/{{saleId}}/anulaciones/logs",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "ventas",
+                "{{saleId}}",
+                "anulaciones",
+                "logs"
+              ]
+            },
+            "description": "Consulta la evidencia generada cuando ms-notificaciones consume la solicitud Kafka de anulacion."
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "variable": [
@@ -304,6 +331,10 @@
     },
     {
       "key": "productId",
+      "value": "1"
+    },
+    {
+      "key": "saleId",
       "value": "1"
     }
   ]

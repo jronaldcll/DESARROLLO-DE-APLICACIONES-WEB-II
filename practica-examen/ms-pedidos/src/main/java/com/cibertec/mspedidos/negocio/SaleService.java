@@ -9,6 +9,8 @@ import com.cibertec.mspedidos.dto.ProductResponse;
 import com.cibertec.mspedidos.client.NotificationClient;
 import com.cibertec.mspedidos.client.ProductClient;
 import com.cibertec.mspedidos.entidades.Sale;
+import com.cibertec.mspedidos.kafka.SaleCancellationProducer;
+import com.cibertec.mspedidos.kafka.SaleCancellationRequestedEvent;
 import com.cibertec.mspedidos.rabbitmq.PurchaseEmailEvent;
 import com.cibertec.mspedidos.rabbitmq.PurchaseEmailProducer;
 import com.cibertec.mspedidos.repositorio.SaleRepository;
@@ -31,6 +33,7 @@ public class SaleService {
 	private final ProductClient productClient;
 	private final NotificationClient notificationClient;
 	private final ObjectProvider<PurchaseEmailProducer> purchaseEmailProducer;
+	private final ObjectProvider<SaleCancellationProducer> saleCancellationProducer;
 	private final Long mensajeConfirmacionId;
 
 	public SaleService(
@@ -38,12 +41,14 @@ public class SaleService {
 			ProductClient productClient,
 			NotificationClient notificationClient,
 			ObjectProvider<PurchaseEmailProducer> purchaseEmailProducer,
+			ObjectProvider<SaleCancellationProducer> saleCancellationProducer,
 			@Value("${notificaciones.mensaje-confirmacion-id:1}") Long mensajeConfirmacionId
 	) {
 		this.saleRepository = saleRepository;
 		this.productClient = productClient;
 		this.notificationClient = notificationClient;
 		this.purchaseEmailProducer = purchaseEmailProducer;
+		this.saleCancellationProducer = saleCancellationProducer;
 		this.mensajeConfirmacionId = mensajeConfirmacionId;
 	}
 
@@ -98,11 +103,25 @@ public class SaleService {
 		return buildSaleResponse(saleRepository.save(sale));
 	}
 
-	public void deleteSale(Long saleId) {
-		if (!saleRepository.existsById(saleId)) {
-			throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Venta no encontrada");
+	public SaleResponse deleteSale(Long saleId) {
+		Sale sale = saleRepository.findById(saleId)
+				.orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Venta no encontrada"));
+
+		SaleCancellationProducer producer = saleCancellationProducer.getIfAvailable();
+		if (producer == null) {
+			throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "Kafka no está habilitado");
 		}
-		saleRepository.deleteById(saleId);
+
+		producer.publish(new SaleCancellationRequestedEvent(
+				sale.getSaleId(),
+				sale.getProductId(),
+				sale.getQuantity(),
+				sale.getCustomerId(),
+				sale.getStatus(),
+				Instant.now()
+		));
+
+		return buildSaleResponse(sale);
 	}
 
 	private SaleResponse buildSaleResponse(Sale sale) {

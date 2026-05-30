@@ -2,10 +2,12 @@ package com.cibertec.msnotificaciones.rest;
 
 import com.cibertec.msnotificaciones.dto.ProductResponse;
 import com.cibertec.msnotificaciones.dto.MensajeNotificacionResponse;
+import com.cibertec.msnotificaciones.dto.SaleCancellationLogResponse;
 import com.cibertec.msnotificaciones.entidades.MensajeNotificacion;
 import com.cibertec.msnotificaciones.entidades.Product;
 import com.cibertec.msnotificaciones.negocio.MensajeNotificacionService;
 import com.cibertec.msnotificaciones.negocio.ProductService;
+import com.cibertec.msnotificaciones.negocio.SaleCancellationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +26,14 @@ public class NotificacionesController {
 
 	private final ProductService productService;
 	private final MensajeNotificacionService mensajeNotificacionService;
+	private final SaleCancellationService saleCancellationService;
 
 	public NotificacionesController(ProductService productService,
-									MensajeNotificacionService mensajeNotificacionService) {
+									MensajeNotificacionService mensajeNotificacionService,
+									SaleCancellationService saleCancellationService) {
 		this.productService = productService;
 		this.mensajeNotificacionService = mensajeNotificacionService;
+		this.saleCancellationService = saleCancellationService;
 	}
 
 	@GetMapping
@@ -54,6 +59,11 @@ public class NotificacionesController {
 	@GetMapping("/mensajes/{id}")
 	public MensajeNotificacionResponse getMensajeActivoById(@PathVariable Long id) {
 		return mensajeNotificacionService.getMensajeActivoById(id);
+	}
+
+	@GetMapping("/ventas/{saleId}/anulaciones/logs")
+	public List<SaleCancellationLogResponse> getSaleCancellationLogs(@PathVariable Long saleId) {
+		return saleCancellationService.getLogsBySaleId(saleId);
 	}
 
 	@PutMapping("/{id}")

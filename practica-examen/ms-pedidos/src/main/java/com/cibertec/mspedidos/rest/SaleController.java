@@ -74,7 +74,6 @@ public class SaleController {
 
 	@DeleteMapping("/sales/{id}")
 	public ResponseEntity<?> deleteSale(@PathVariable Long id) {
-		saleService.deleteSale(id);
-		return ResponseEntity.noContent().build();
+		return ResponseEntity.accepted().body(saleService.deleteSale(id));
 	}
 }

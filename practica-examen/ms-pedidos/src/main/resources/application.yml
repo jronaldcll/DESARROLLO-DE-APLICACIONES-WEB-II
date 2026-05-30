@@ -29,7 +29,7 @@ notificaciones:
 
 messaging:
   kafka:
-    enabled: false
+    enabled: true
   rabbitmq:
     enabled: true
     stock:
