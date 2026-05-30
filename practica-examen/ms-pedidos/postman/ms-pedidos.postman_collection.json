@@ -1,0 +1,421 @@
+{
+  "info": {
+    "_postman_id": "3a6b4d29-798e-4f5b-a368-60203ffbd2f7",
+    "name": "ms-pedidos",
+    "description": "Coleccion para probar ms-pedidos y la integracion Feign con ms-notificaciones.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Preparacion - ms-notificaciones",
+      "item": [
+        {
+          "name": "Registrar mensaje Pedido confirmado",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Mensaje registrado\", function () {",
+                  "  pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+                  "});",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"mensajeId\", body.id);"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Pedido confirmado\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{notificacionesBaseUrl}}/notificaciones/mensajes",
+              "host": [
+                "{{notificacionesBaseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "mensajes"
+              ]
+            },
+            "description": "Crea el mensaje que ms-pedidos consultara despues de registrar una venta. El id se guarda en la variable mensajeId."
+          },
+          "response": [
+            {
+              "name": "200 - Mensaje registrado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombre\": \"Pedido confirmado\",\n  \"activo\": true\n}"
+                },
+                "url": {
+                  "raw": "{{notificacionesBaseUrl}}/notificaciones/mensajes",
+                  "host": [
+                    "{{notificacionesBaseUrl}}"
+                  ],
+                  "path": [
+                    "notificaciones",
+                    "mensajes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"nombre\": \"Pedido confirmado\",\n  \"activo\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Buscar mensaje por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{notificacionesBaseUrl}}/notificaciones/mensajes/{{mensajeId}}",
+              "host": [
+                "{{notificacionesBaseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "mensajes",
+                "{{mensajeId}}"
+              ]
+            },
+            "description": "Valida directamente que ms-notificaciones responda el payload esperado."
+          },
+          "response": [
+            {
+              "name": "200 - Mensaje encontrado",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{notificacionesBaseUrl}}/notificaciones/mensajes/{{mensajeId}}",
+                  "host": [
+                    "{{notificacionesBaseUrl}}"
+                  ],
+                  "path": [
+                    "notificaciones",
+                    "mensajes",
+                    "{{mensajeId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"nombre\": \"Pedido confirmado\",\n  \"activo\": true\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Ventas",
+      "item": [
+        {
+          "name": "Registrar venta y devolver mensaje",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "pm.test(\"Venta registrada\", function () {",
+                  "  pm.response.to.have.status(200);",
+                  "});",
+                  "",
+                  "const body = pm.response.json();",
+                  "pm.collectionVariables.set(\"saleId\", body.saleId);",
+                  "",
+                  "pm.test(\"Incluye mensaje de notificacion\", function () {",
+                  "  pm.expect(body.mensaje).to.be.an(\"object\");",
+                  "  pm.expect(body.mensaje.id).to.eql(Number(pm.collectionVariables.get(\"mensajeId\")));",
+                  "  pm.expect(body.mensaje.nombre).to.eql(\"Pedido confirmado\");",
+                  "  pm.expect(body.mensaje.activo).to.eql(true);",
+                  "});"
+                ]
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": {{productId}},\n  \"quantity\": 2,\n  \"customerId\": {{customerId}},\n  \"correo\": \"{{correo}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sales",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales"
+              ]
+            },
+            "description": "Registra una venta en ms-pedidos. Despues consulta ms-notificaciones por el mensaje configurado y lo devuelve en el campo mensaje."
+          },
+          "response": [
+            {
+              "name": "200 - Venta con mensaje",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"productId\": 1,\n  \"quantity\": 2,\n  \"customerId\": 1,\n  \"correo\": \"cliente@correo.com\"\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/sales",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "sales"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"saleId\": 1,\n  \"productId\": 1,\n  \"quantity\": 2,\n  \"customerId\": 1,\n  \"status\": \"PENDING\",\n  \"mensaje\": {\n    \"id\": 1,\n    \"nombre\": \"Pedido confirmado\",\n    \"activo\": true\n  }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Listar ventas",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sales",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar venta por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sales/{{saleId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales",
+                "{{saleId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Detalle de venta con producto",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sales/{{saleId}}/details",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales",
+                "{{saleId}}",
+                "details"
+              ]
+            },
+            "description": "Endpoint existente de comunicacion sincrona por Feign para obtener producto y total."
+          },
+          "response": []
+        },
+        {
+          "name": "Registrar venta con Rabbit reserve",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": {{productId}},\n  \"quantity\": 1,\n  \"customerId\": {{customerId}},\n  \"correo\": \"{{correo}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sales/rabbit-reserve",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales",
+                "rabbit-reserve"
+              ]
+            },
+            "description": "Flujo alternativo RabbitMQ. Mantiene la respuesta original de venta sin mensaje."
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar venta",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productId\": {{productId}},\n  \"quantity\": 3,\n  \"customerId\": {{customerId}},\n  \"correo\": \"{{correo}}\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/sales/{{saleId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales",
+                "{{saleId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar venta",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/sales/{{saleId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "sales",
+                "{{saleId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8082",
+      "type": "string"
+    },
+    {
+      "key": "notificacionesBaseUrl",
+      "value": "http://localhost:8081",
+      "type": "string"
+    },
+    {
+      "key": "mensajeId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "saleId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "productId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "customerId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "correo",
+      "value": "cliente@correo.com",
+      "type": "string"
+    }
+  ]
+}

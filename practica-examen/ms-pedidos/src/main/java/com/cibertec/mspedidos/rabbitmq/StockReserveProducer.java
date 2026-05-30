@@ -3,11 +3,13 @@ package com.cibertec.mspedidos.rabbitmq;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Component;
 
 // @Component registra un productor reutilizable en Spring.
 // En AWS sería equivalente a código publicador hacia SNS o SQS desde una Lambda.
 @Component
+@ConditionalOnProperty(name = "messaging.rabbitmq.stock.enabled", havingValue = "true")
 public class StockReserveProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(StockReserveProducer.class);

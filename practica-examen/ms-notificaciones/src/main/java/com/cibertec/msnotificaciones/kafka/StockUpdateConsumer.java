@@ -3,12 +3,14 @@ package com.cibertec.msnotificaciones.kafka;
 import com.cibertec.msnotificaciones.negocio.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 // @Component registra este consumer dentro del contenedor de Spring.
 // En AWS se parece a una Lambda suscrita a un stream de Kinesis.
 @Component
+@ConditionalOnProperty(name = "messaging.consumers.enabled", havingValue = "true")
 public class StockUpdateConsumer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(StockUpdateConsumer.class);

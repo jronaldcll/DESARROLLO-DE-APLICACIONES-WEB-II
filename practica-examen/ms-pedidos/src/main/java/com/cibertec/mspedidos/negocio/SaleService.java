@@ -2,15 +2,18 @@ package com.cibertec.mspedidos.negocio;
 
 import com.cibertec.mspedidos.dto.SaleRequest;
 import com.cibertec.mspedidos.dto.SaleResponse;
+import com.cibertec.mspedidos.dto.MensajeNotificacionResponse;
+import com.cibertec.mspedidos.dto.SaleWithNotificationResponse;
 import com.cibertec.mspedidos.dto.SaleWithProductResponse;
 import com.cibertec.mspedidos.dto.ProductResponse;
+import com.cibertec.mspedidos.client.NotificationClient;
 import com.cibertec.mspedidos.client.ProductClient;
 import com.cibertec.mspedidos.entidades.Sale;
-import com.cibertec.mspedidos.kafka.StockMovementProducer;
-import com.cibertec.mspedidos.kafka.StockMovementEvent;
-import com.cibertec.mspedidos.rabbitmq.StockReserveEvent;
-import com.cibertec.mspedidos.rabbitmq.StockReserveProducer;
+import com.cibertec.mspedidos.rabbitmq.PurchaseEmailEvent;
+import com.cibertec.mspedidos.rabbitmq.PurchaseEmailProducer;
 import com.cibertec.mspedidos.repositorio.SaleRepository;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -25,20 +28,23 @@ import java.util.List;
 public class SaleService {
 
 	private final SaleRepository saleRepository;
-	private final StockMovementProducer stockMovementProducer;
-	private final StockReserveProducer stockReserveProducer;
 	private final ProductClient productClient;
+	private final NotificationClient notificationClient;
+	private final ObjectProvider<PurchaseEmailProducer> purchaseEmailProducer;
+	private final Long mensajeConfirmacionId;
 
 	public SaleService(
 			SaleRepository saleRepository,
-			StockMovementProducer stockMovementProducer,
-			StockReserveProducer stockReserveProducer,
-			ProductClient productClient
+			ProductClient productClient,
+			NotificationClient notificationClient,
+			ObjectProvider<PurchaseEmailProducer> purchaseEmailProducer,
+			@Value("${notificaciones.mensaje-confirmacion-id:1}") Long mensajeConfirmacionId
 	) {
 		this.saleRepository = saleRepository;
-		this.stockMovementProducer = stockMovementProducer;
-		this.stockReserveProducer = stockReserveProducer;
 		this.productClient = productClient;
+		this.notificationClient = notificationClient;
+		this.purchaseEmailProducer = purchaseEmailProducer;
+		this.mensajeConfirmacionId = mensajeConfirmacionId;
 	}
 
 	public SaleResponse getSaleById(Long saleId) {
@@ -71,31 +77,11 @@ public class SaleService {
 		);
 	}
 
-	public SaleResponse createSale(SaleRequest request) {
+	public SaleWithNotificationResponse createSale(SaleRequest request) {
 		Sale storedSale = savePendingSale(request);
-
-		stockMovementProducer.publish(new StockMovementEvent(
-				storedSale.getSaleId(),
-				storedSale.getProductId(),
-				storedSale.getQuantity(),
-				storedSale.getCustomerId(),
-				Instant.now()
-		));
-
-		return buildSaleResponse(storedSale);
-	}
-
-	public SaleResponse createSaleWithRabbitReserve(SaleRequest request) {
-		Sale storedSale = savePendingSale(request);
-
-		stockReserveProducer.publish(new StockReserveEvent(
-				storedSale.getSaleId(),
-				storedSale.getProductId(),
-				storedSale.getQuantity(),
-				storedSale.getCustomerId()
-		));
-
-		return buildSaleResponse(storedSale);
+		MensajeNotificacionResponse mensaje = notificationClient.getMensajeById(mensajeConfirmacionId);
+		publishPurchaseEmail(storedSale, request.correo(), mensaje);
+		return buildSaleWithNotificationResponse(storedSale, mensaje);
 	}
 
 	public SaleResponse updateSale(Long saleId, SaleRequest request) {
@@ -129,7 +115,21 @@ public class SaleService {
 		);
 	}
 
-	private Sale savePendingSale(SaleRequest request) {
+	private SaleWithNotificationResponse buildSaleWithNotificationResponse(
+			Sale sale,
+			MensajeNotificacionResponse mensaje
+	) {
+		return new SaleWithNotificationResponse(
+				sale.getSaleId(),
+				sale.getProductId(),
+				sale.getQuantity(),
+				sale.getCustomerId(),
+				sale.getStatus(),
+				mensaje
+		);
+	}
+
+	Sale savePendingSale(SaleRequest request) {
 		Sale sale = Sale.builder()
 				.productId(request.productId())
 				.quantity(request.quantity())
@@ -137,5 +137,22 @@ public class SaleService {
 				.status("PENDING")
 				.build();
 		return saleRepository.save(sale);
+	}
+
+	private void publishPurchaseEmail(Sale sale, String correo, MensajeNotificacionResponse mensajeNotificacion) {
+		PurchaseEmailProducer producer = purchaseEmailProducer.getIfAvailable();
+		if (producer == null) {
+			throw new ResponseStatusException(HttpStatus.SERVICE_UNAVAILABLE, "RabbitMQ no está habilitado");
+		}
+
+		producer.publish(new PurchaseEmailEvent(
+				sale.getSaleId(),
+				sale.getCustomerId(),
+				correo,
+				mensajeNotificacion.id(),
+				mensajeNotificacion.nombre(),
+				"Gracias por su compra. Su pedido fue registrado correctamente.",
+				Instant.now()
+		));
 	}
 }

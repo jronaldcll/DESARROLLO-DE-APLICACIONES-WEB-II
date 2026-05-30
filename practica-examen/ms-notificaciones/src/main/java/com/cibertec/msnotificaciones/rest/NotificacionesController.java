@@ -1,7 +1,10 @@
 package com.cibertec.msnotificaciones.rest;
 
 import com.cibertec.msnotificaciones.dto.ProductResponse;
+import com.cibertec.msnotificaciones.dto.MensajeNotificacionResponse;
+import com.cibertec.msnotificaciones.entidades.MensajeNotificacion;
 import com.cibertec.msnotificaciones.entidades.Product;
+import com.cibertec.msnotificaciones.negocio.MensajeNotificacionService;
 import com.cibertec.msnotificaciones.negocio.ProductService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -20,9 +23,12 @@ import java.util.List;
 public class NotificacionesController {
 
 	private final ProductService productService;
+	private final MensajeNotificacionService mensajeNotificacionService;
 
-	public NotificacionesController(ProductService productService) {
+	public NotificacionesController(ProductService productService,
+									MensajeNotificacionService mensajeNotificacionService) {
 		this.productService = productService;
+		this.mensajeNotificacionService = mensajeNotificacionService;
 	}
 
 	@GetMapping
@@ -38,6 +44,16 @@ public class NotificacionesController {
 	@PostMapping
 	public ProductResponse create(@RequestBody Product product) {
 		return productService.createProduct(product);
+	}
+
+	@PostMapping("/mensajes")
+	public MensajeNotificacionResponse registrarMensaje(@RequestBody MensajeNotificacion mensajeNotificacion) {
+		return mensajeNotificacionService.registrarMensaje(mensajeNotificacion);
+	}
+
+	@GetMapping("/mensajes/{id}")
+	public MensajeNotificacionResponse getMensajeActivoById(@PathVariable Long id) {
+		return mensajeNotificacionService.getMensajeActivoById(id);
 	}
 
 	@PutMapping("/{id}")

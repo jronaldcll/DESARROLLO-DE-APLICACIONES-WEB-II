@@ -15,14 +15,22 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfig {
 
 	public static final String STOCK_EXCHANGE = "stock-exchange";
+	public static final String NOTIFICATION_EXCHANGE = "notification-exchange";
 	public static final String STOCK_RESERVE_QUEUE = "stock-reserve-queue";
 	public static final String STOCK_LOW_QUEUE = "stock-low-queue";
+	public static final String PURCHASE_EMAIL_QUEUE = "purchase-email-queue";
 	public static final String STOCK_RESERVE_ROUTING_KEY = "stock.reserve";
 	public static final String STOCK_LOW_ROUTING_KEY = "stock.low";
+	public static final String PURCHASE_EMAIL_ROUTING_KEY = "email.purchase.thanks";
 
 	@Bean
 	public DirectExchange stockExchange() {
 		return new DirectExchange(STOCK_EXCHANGE);
+	}
+
+	@Bean
+	public DirectExchange notificationExchange() {
+		return new DirectExchange(NOTIFICATION_EXCHANGE);
 	}
 
 	@Bean
@@ -33,6 +41,11 @@ public class RabbitMQConfig {
 	@Bean
 	public Queue stockLowQueue() {
 		return new Queue(STOCK_LOW_QUEUE);
+	}
+
+	@Bean
+	public Queue purchaseEmailQueue() {
+		return new Queue(PURCHASE_EMAIL_QUEUE);
 	}
 
 	@Bean
@@ -47,6 +60,13 @@ public class RabbitMQConfig {
 		return BindingBuilder.bind(stockLowQueue)
 				.to(stockExchange)
 				.with(STOCK_LOW_ROUTING_KEY);
+	}
+
+	@Bean
+	public Binding purchaseEmailBinding(Queue purchaseEmailQueue, DirectExchange notificationExchange) {
+		return BindingBuilder.bind(purchaseEmailQueue)
+				.to(notificationExchange)
+				.with(PURCHASE_EMAIL_ROUTING_KEY);
 	}
 
 	@Bean

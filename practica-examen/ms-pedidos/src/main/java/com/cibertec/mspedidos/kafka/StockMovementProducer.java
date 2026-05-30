@@ -2,12 +2,14 @@ package com.cibertec.mspedidos.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 
 // @Component registra esta clase como dependencia de Spring.
 // En AWS el equivalente práctico sería una pieza reutilizable dentro de una Lambda productora.
 @Component
+@ConditionalOnProperty(name = "messaging.kafka.enabled", havingValue = "true")
 public class StockMovementProducer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(StockMovementProducer.class);

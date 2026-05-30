@@ -1,0 +1,310 @@
+{
+  "info": {
+    "_postman_id": "8b232797-c093-4e45-9d13-0f29957eec75",
+    "name": "ms-notificaciones",
+    "description": "Coleccion para probar los endpoints del microservicio ms-notificaciones.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Mensajes de notificacion",
+      "item": [
+        {
+          "name": "Registrar mensaje activo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Pedido confirmado\",\n  \"activo\": true\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notificaciones/mensajes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "mensajes"
+              ]
+            },
+            "description": "Registra un mensaje de notificacion. Si no se envia activo, el servicio lo registra como true."
+          },
+          "response": [
+            {
+              "name": "201/200 - Mensaje registrado",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"nombre\": \"Pedido confirmado\",\n  \"activo\": true\n}"
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/notificaciones/mensajes",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notificaciones",
+                    "mensajes"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"nombre\": \"Pedido confirmado\",\n  \"activo\": true\n}"
+            }
+          ]
+        },
+        {
+          "name": "Registrar mensaje inactivo",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Mensaje deshabilitado\",\n  \"activo\": false\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notificaciones/mensajes",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "mensajes"
+              ]
+            },
+            "description": "Registra un mensaje inactivo para validar que el GET por id responda 404."
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar mensaje activo por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notificaciones/mensajes/{{mensajeId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "mensajes",
+                "{{mensajeId}}"
+              ]
+            },
+            "description": "Retorna el mensaje solo si existe y esta activo."
+          },
+          "response": [
+            {
+              "name": "200 - Mensaje activo encontrado",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/notificaciones/mensajes/{{mensajeId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notificaciones",
+                    "mensajes",
+                    "{{mensajeId}}"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 1,\n  \"nombre\": \"Pedido confirmado\",\n  \"activo\": true\n}"
+            },
+            {
+              "name": "404 - Mensaje no encontrado o inactivo",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/notificaciones/mensajes/{{mensajeId}}",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "notificaciones",
+                    "mensajes",
+                    "{{mensajeId}}"
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"timestamp\": \"2026-05-29T19:55:00.000+00:00\",\n  \"status\": 404,\n  \"error\": \"Not Found\",\n  \"path\": \"/notificaciones/mensajes/99\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Productos existentes",
+      "item": [
+        {
+          "name": "Listar productos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notificaciones",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notificaciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Buscar producto por id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notificaciones/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Crear producto",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Teclado mecanico\",\n  \"price\": 180.00,\n  \"stock\": 15\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notificaciones",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notificaciones"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar producto",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Teclado mecanico RGB\",\n  \"price\": 220.00,\n  \"stock\": 20\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/notificaciones/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar producto",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/notificaciones/{{productId}}",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "notificaciones",
+                "{{productId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081"
+    },
+    {
+      "key": "mensajeId",
+      "value": "1"
+    },
+    {
+      "key": "productId",
+      "value": "1"
+    }
+  ]
+}

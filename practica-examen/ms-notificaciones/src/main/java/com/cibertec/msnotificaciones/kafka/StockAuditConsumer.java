@@ -2,12 +2,14 @@ package com.cibertec.msnotificaciones.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 // @Component registra este consumidor de auditoria.
 // En AWS esto equivale a otro proceso consumidor independiente sobre Kinesis.
 @Component
+@ConditionalOnProperty(name = "messaging.consumers.enabled", havingValue = "true")
 public class StockAuditConsumer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(StockAuditConsumer.class);

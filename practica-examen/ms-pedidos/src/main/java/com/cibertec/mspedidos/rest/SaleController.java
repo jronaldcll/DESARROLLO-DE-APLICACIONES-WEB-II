@@ -2,8 +2,12 @@ package com.cibertec.mspedidos.rest;
 
 import com.cibertec.mspedidos.dto.SaleRequest;
 import com.cibertec.mspedidos.dto.SaleResponse;
+import com.cibertec.mspedidos.dto.SaleWithNotificationResponse;
 import com.cibertec.mspedidos.dto.SaleWithProductResponse;
+import com.cibertec.mspedidos.negocio.SaleReserveService;
 import com.cibertec.mspedidos.negocio.SaleService;
+import org.springframework.beans.factory.ObjectProvider;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,9 +25,11 @@ import java.util.List;
 public class SaleController {
 
 	private final SaleService saleService;
+	private final ObjectProvider<SaleReserveService> saleReserveService;
 
-	public SaleController(SaleService saleService) {
+	public SaleController(SaleService saleService, ObjectProvider<SaleReserveService> saleReserveService) {
 		this.saleService = saleService;
+		this.saleReserveService = saleReserveService;
 	}
 
 	@GetMapping("/sales")
@@ -46,7 +52,7 @@ public class SaleController {
 	// @PostMapping asocia el método al POST /sales.
 	// En AWS sería un route POST de API Gateway hacia una Lambda.
 	@PostMapping("/sales")
-	public ResponseEntity<SaleResponse> createSale(@RequestBody SaleRequest request) {
+	public ResponseEntity<SaleWithNotificationResponse> createSale(@RequestBody SaleRequest request) {
 		return ResponseEntity.ok(saleService.createSale(request));
 	}
 
@@ -54,7 +60,11 @@ public class SaleController {
 	// el descuento de stock sobre la misma venta.
 	@PostMapping("/sales/rabbit-reserve")
 	public ResponseEntity<SaleResponse> createSaleWithRabbitReserve(@RequestBody SaleRequest request) {
-		return ResponseEntity.ok(saleService.createSaleWithRabbitReserve(request));
+		SaleReserveService reserveService = saleReserveService.getIfAvailable();
+		if (reserveService == null) {
+			return ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build();
+		}
+		return ResponseEntity.ok(reserveService.createSaleWithRabbitReserve(request));
 	}
 
 	@PutMapping("/sales/{id}")

@@ -2,12 +2,14 @@ package com.cibertec.msnotificaciones.kafka;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
 // @Component registra este procesador de reportes.
 // En AWS sería equivalente a otra Lambda consumiendo el mismo stream con su propio checkpoint.
 @Component
+@ConditionalOnProperty(name = "messaging.consumers.enabled", havingValue = "true")
 public class StockReportingConsumer {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(StockReportingConsumer.class);

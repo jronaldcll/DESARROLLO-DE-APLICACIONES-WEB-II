@@ -1,6 +1,7 @@
 package com.cibertec.mspedidos.kafka;
 
 import org.apache.kafka.clients.admin.NewTopic;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.TopicBuilder;
@@ -8,6 +9,7 @@ import org.springframework.kafka.config.TopicBuilder;
 // @Configuration registra beans de infraestructura en Spring.
 // En AWS esto equivale a declarar recursos de streaming con IaC, por ejemplo un stream de Kinesis.
 @Configuration
+@ConditionalOnProperty(name = "messaging.kafka.enabled", havingValue = "true")
 public class KafkaTopicConfig {
 
 	public static final String STOCK_MOVEMENTS_TOPIC = "stock-movements";
