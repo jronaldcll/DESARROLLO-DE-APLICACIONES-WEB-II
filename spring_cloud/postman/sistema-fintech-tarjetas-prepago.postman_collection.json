@@ -1,0 +1,285 @@
+{
+  "info": {
+    "name": "Sistema Fintech Tarjetas Prepago",
+    "_postman_id": "91c137b8-2aa1-4be9-bb1c-7e7a52a90101",
+    "description": "Pruebas para Eureka, ms-cuentas, ms-recargas y api-gateway.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "eurekaUrl",
+      "value": "http://localhost:8761"
+    },
+    {
+      "key": "cuentasUrl",
+      "value": "http://localhost:8300"
+    },
+    {
+      "key": "recargasUrl",
+      "value": "http://localhost:8100"
+    },
+    {
+      "key": "gatewayUrl",
+      "value": "http://localhost:8762"
+    }
+  ],
+  "item": [
+    {
+      "name": "01 - Eureka dashboard",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{eurekaUrl}}",
+          "host": [
+            "{{eurekaUrl}}"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Dashboard responde 200', function () {",
+              "  pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "02 - Eureka servicios registrados",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "{{eurekaUrl}}/eureka/apps",
+          "host": [
+            "{{eurekaUrl}}"
+          ],
+          "path": [
+            "eureka",
+            "apps"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Eureka responde 200', function () {",
+              "  pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Los 3 servicios estan registrados', function () {",
+              "  var body = pm.response.text();",
+              "  pm.expect(body).to.include('MS-CUENTAS');",
+              "  pm.expect(body).to.include('MS-RECARGAS');",
+              "  pm.expect(body).to.include('API-GATEWAY');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "03 - ms-cuentas saldo 001",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{cuentasUrl}}/cuentas/saldo/001",
+          "host": [
+            "{{cuentasUrl}}"
+          ],
+          "path": [
+            "cuentas",
+            "saldo",
+            "001"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Saldo 001 correcto', function () {",
+              "  pm.response.to.have.status(200);",
+              "  var json = pm.response.json();",
+              "  pm.expect(json.cuenta).to.eql('001');",
+              "  pm.expect(json.saldo).to.eql(350.0);",
+              "  pm.expect(json.disponible).to.eql(true);",
+              "  pm.expect(json.instancia).to.eql('8300');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "04 - ms-recargas aprobada 001 por 100",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{recargasUrl}}/recargas/procesar/001/100",
+          "host": [
+            "{{recargasUrl}}"
+          ],
+          "path": [
+            "recargas",
+            "procesar",
+            "001",
+            "100"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Recarga aprobada', function () {",
+              "  pm.response.to.have.status(200);",
+              "  var json = pm.response.json();",
+              "  pm.expect(json.cuenta).to.eql('001');",
+              "  pm.expect(json.monto_solicitado).to.eql(100.0);",
+              "  pm.expect(json.saldo_disponible).to.eql(350.0);",
+              "  pm.expect(json.recarga_aprobada).to.eql(true);",
+              "  pm.expect(json.motivo).to.eql('Saldo suficiente');",
+              "  pm.expect(json.atendido_por).to.eql('8300');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "05 - ms-recargas rechazada 003 por 50",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{recargasUrl}}/recargas/procesar/003/50",
+          "host": [
+            "{{recargasUrl}}"
+          ],
+          "path": [
+            "recargas",
+            "procesar",
+            "003",
+            "50"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Recarga rechazada por saldo insuficiente', function () {",
+              "  pm.response.to.have.status(200);",
+              "  var json = pm.response.json();",
+              "  pm.expect(json.cuenta).to.eql('003');",
+              "  pm.expect(json.monto_solicitado).to.eql(50.0);",
+              "  pm.expect(json.saldo_disponible).to.eql(0.0);",
+              "  pm.expect(json.recarga_aprobada).to.eql(false);",
+              "  pm.expect(json.motivo).to.eql('Saldo insuficiente');",
+              "  pm.expect(json.atendido_por).to.eql('8300');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "06 - Gateway cuentas saldo 002",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{gatewayUrl}}/cuentas/saldo/002",
+          "host": [
+            "{{gatewayUrl}}"
+          ],
+          "path": [
+            "cuentas",
+            "saldo",
+            "002"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Gateway enruta a ms-cuentas', function () {",
+              "  pm.response.to.have.status(200);",
+              "  var json = pm.response.json();",
+              "  pm.expect(json.cuenta).to.eql('002');",
+              "  pm.expect(json.saldo).to.eql(120.5);",
+              "  pm.expect(json.disponible).to.eql(true);",
+              "  pm.expect(json.instancia).to.eql('8300');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "07 - Gateway recarga 001 por 50",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{gatewayUrl}}/recargas/procesar/001/50",
+          "host": [
+            "{{gatewayUrl}}"
+          ],
+          "path": [
+            "recargas",
+            "procesar",
+            "001",
+            "50"
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Gateway enruta a ms-recargas', function () {",
+              "  pm.response.to.have.status(200);",
+              "  var json = pm.response.json();",
+              "  pm.expect(json.cuenta).to.eql('001');",
+              "  pm.expect(json.monto_solicitado).to.eql(50.0);",
+              "  pm.expect(json.saldo_disponible).to.eql(350.0);",
+              "  pm.expect(json.recarga_aprobada).to.eql(true);",
+              "  pm.expect(json.motivo).to.eql('Saldo suficiente');",
+              "  pm.expect(json.atendido_por).to.eql('8300');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+}
