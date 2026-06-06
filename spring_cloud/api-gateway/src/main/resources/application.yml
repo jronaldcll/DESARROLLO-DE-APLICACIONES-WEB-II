@@ -15,6 +15,10 @@ spring:
           uri: lb://ms-recargas
           predicates:
             - Path=/recargas/**
+        - id: ms-notificaciones
+          uri: lb://ms-notificaciones
+          predicates:
+            - Path=/notificaciones/**            -
 
 eureka:
   client:
