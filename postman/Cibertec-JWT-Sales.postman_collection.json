@@ -1,0 +1,222 @@
+{
+  "info": {
+    "_postman_id": "3e715a2d-1e23-4a51-91f4-cibertec-jwt-sales",
+    "name": "Cibertec JWT Sales",
+    "description": "Coleccion para probar el flujo REST con usuarios, login JWT y endpoint de ventas protegido.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Usuarios Publicos",
+      "item": [
+        {
+          "name": "Crear Usuario",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 201 or user already exists', function () {",
+                  "    pm.expect([201, 409]).to.include(pm.response.code);",
+                  "});",
+                  "if (pm.response.code === 201) {",
+                  "    const body = pm.response.json();",
+                  "    pm.environment.set('jwt_user_id', body.id);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"email\": \"admin@demo.com\",\n  \"password\": \"secret123\",\n  \"role\": \"ADMIN\"\n}"
+            },
+            "url": {
+              "raw": "{{jwt_base_url}}/users",
+              "host": [
+                "{{jwt_base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Crea un usuario. Este endpoint es publico para poder registrar el primer usuario."
+          }
+        },
+        {
+          "name": "Login - Obtener JWT",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "const body = pm.response.json();",
+                  "pm.environment.set('jwt_token', body.token);",
+                  "pm.test('Token exists', function () {",
+                  "    pm.expect(body.token).to.be.a('string').and.not.empty;",
+                  "    pm.expect(body.tokenType).to.eql('Bearer');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"secret123\"\n}"
+            },
+            "url": {
+              "raw": "{{jwt_base_url}}/auth/login",
+              "host": [
+                "{{jwt_base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            },
+            "description": "Valida credenciales y guarda automaticamente el token en jwt_token."
+          }
+        }
+      ]
+    },
+    {
+      "name": "2. Ventas Protegidas",
+      "item": [
+        {
+          "name": "Listar Ventas Sin Token - Debe Fallar",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{jwt_base_url}}/sales",
+              "host": [
+                "{{jwt_base_url}}"
+              ],
+              "path": [
+                "sales"
+              ]
+            },
+            "description": "Prueba negativa: Spring Security debe responder 403 porque no se envio JWT."
+          }
+        },
+        {
+          "name": "Listar Ventas Con JWT",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test('Status code is 200', function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test('Response is an array', function () {",
+                  "    pm.expect(pm.response.json()).to.be.an('array');",
+                  "});"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{jwt_base_url}}/sales",
+              "host": [
+                "{{jwt_base_url}}"
+              ],
+              "path": [
+                "sales"
+              ]
+            },
+            "description": "Lista ventas de ejemplo usando el token JWT generado en el login."
+          }
+        }
+      ]
+    },
+    {
+      "name": "3. Usuarios Protegidos",
+      "item": [
+        {
+          "name": "Listar Usuarios Con JWT",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{jwt_base_url}}/users",
+              "host": [
+                "{{jwt_base_url}}"
+              ],
+              "path": [
+                "users"
+              ]
+            },
+            "description": "Lista los usuarios registrados. Requiere JWT."
+          }
+        },
+        {
+          "name": "Actualizar Usuario Con JWT",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{jwt_token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin\",\n  \"email\": \"admin@demo.com\",\n  \"password\": \"secret123\",\n  \"role\": \"ADMIN\"\n}"
+            },
+            "url": {
+              "raw": "{{jwt_base_url}}/users/{{jwt_user_id}}",
+              "host": [
+                "{{jwt_base_url}}"
+              ],
+              "path": [
+                "users",
+                "{{jwt_user_id}}"
+              ]
+            },
+            "description": "Actualiza un usuario existente. Usa jwt_user_id guardado al crear usuario."
+          }
+        }
+      ]
+    }
+  ]
+}

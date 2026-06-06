@@ -25,7 +25,6 @@ public class JwtService {
 		this.secretKey = Keys.hmacShaKeyFor(secret.getBytes(StandardCharsets.UTF_8));
 		this.expirationMinutes = expirationMinutes;
 	}
-
 	public String generateToken(AppUser user) {
 		Instant now = Instant.now();
 
@@ -38,6 +37,7 @@ public class JwtService {
 				.signWith(secretKey)
 				.compact();
 	}
+
 
 	public String extractUsername(String token) {
 		return parseClaims(token).getSubject();
