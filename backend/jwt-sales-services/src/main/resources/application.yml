@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: jwt-sales-services
+  datasource:
+    url: jdbc:mysql://localhost:5510/appdb?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=America/Lima
+    username: app
+    password: password
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+server:
+  port: 8083
+
+app:
+  jwt:
+    secret: "cibertec-demo-jwt-secret-key-2026-minimo-32-caracteres"
+    expiration-minutes: 60
