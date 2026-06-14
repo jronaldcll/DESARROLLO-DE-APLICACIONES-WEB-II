@@ -1,0 +1,4 @@
+com/cibertec/resiliencia/inventario/dto/DemoStateResponse.class
+com/cibertec/resiliencia/inventario/rest/InventarioController.class
+com/cibertec/resiliencia/inventario/dto/StockResponse.class
+com/cibertec/resiliencia/inventario/MsInventarioApplication.class

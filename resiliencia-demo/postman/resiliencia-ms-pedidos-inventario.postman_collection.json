@@ -1,0 +1,387 @@
+{
+  "info": {
+    "_postman_id": "b5ab77d5-51dd-40b4-85e5-8dba10cd5f20",
+    "name": "Resiliencia - ms-pedidos y ms-inventario",
+    "description": "Coleccion didactica sin Eureka, RabbitMQ ni Kafka. Muestra el mismo flujo sin resiliencia y con Resilience4j Circuit Breaker + fallback.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "00 - Estado de inventario",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{inventarioBaseUrl}}/inventario/demo/estado",
+          "host": [
+            "{{inventarioBaseUrl}}"
+          ],
+          "path": [
+            "inventario",
+            "demo",
+            "estado"
+          ]
+        },
+        "description": "Muestra si la falla o demora de ms-inventario esta activa."
+      },
+      "response": []
+    },
+    {
+      "name": "01 - Preparar inventario sano",
+      "item": [
+        {
+          "name": "Desactivar falla",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{inventarioBaseUrl}}/inventario/demo/falla/false",
+              "host": [
+                "{{inventarioBaseUrl}}"
+              ],
+              "path": [
+                "inventario",
+                "demo",
+                "falla",
+                "false"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Quitar demora",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{inventarioBaseUrl}}/inventario/demo/demora/0",
+              "host": [
+                "{{inventarioBaseUrl}}"
+              ],
+              "path": [
+                "inventario",
+                "demo",
+                "demora",
+                "0"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Consultar stock directo",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{inventarioBaseUrl}}/inventario/{{productoId}}",
+              "host": [
+                "{{inventarioBaseUrl}}"
+              ],
+              "path": [
+                "inventario",
+                "{{productoId}}"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "02 - Version 1 SIN resiliencia",
+      "item": [
+        {
+          "name": "Pedido OK sin resiliencia",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productoId\": {{productoId}},\n  \"cantidad\": 2,\n  \"clienteId\": {{clienteId}}\n}"
+            },
+            "url": {
+              "raw": "{{pedidosBaseUrl}}/pedidos/sin-resiliencia",
+              "host": [
+                "{{pedidosBaseUrl}}"
+              ],
+              "path": [
+                "pedidos",
+                "sin-resiliencia"
+              ]
+            },
+            "description": "Flujo normal: ms-pedidos llama a ms-inventario y confirma el pedido."
+          },
+          "response": []
+        },
+        {
+          "name": "Activar falla de inventario",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{inventarioBaseUrl}}/inventario/demo/falla/true",
+              "host": [
+                "{{inventarioBaseUrl}}"
+              ],
+              "path": [
+                "inventario",
+                "demo",
+                "falla",
+                "true"
+              ]
+            },
+            "description": "Simula ms-inventario caido."
+          },
+          "response": []
+        },
+        {
+          "name": "Pedido falla sin resiliencia",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productoId\": {{productoId}},\n  \"cantidad\": 2,\n  \"clienteId\": {{clienteId}}\n}"
+            },
+            "url": {
+              "raw": "{{pedidosBaseUrl}}/pedidos/sin-resiliencia",
+              "host": [
+                "{{pedidosBaseUrl}}"
+              ],
+              "path": [
+                "pedidos",
+                "sin-resiliencia"
+              ]
+            },
+            "description": "Sin fallback. La excepcion de Feign termina como error tecnico al usuario."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "03 - Version 2 CON resiliencia",
+      "item": [
+        {
+          "name": "Pedido con fallback",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productoId\": {{productoId}},\n  \"cantidad\": 2,\n  \"clienteId\": {{clienteId}}\n}"
+            },
+            "url": {
+              "raw": "{{pedidosBaseUrl}}/pedidos/con-resiliencia",
+              "host": [
+                "{{pedidosBaseUrl}}"
+              ],
+              "path": [
+                "pedidos",
+                "con-resiliencia"
+              ]
+            },
+            "description": "Con Resilience4j. Aunque inventario falle, el usuario recibe una respuesta degradada."
+          },
+          "response": []
+        },
+        {
+          "name": "Repetir 5 veces para abrir el Circuit Breaker",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productoId\": {{productoId}},\n  \"cantidad\": 2,\n  \"clienteId\": {{clienteId}}\n}"
+            },
+            "url": {
+              "raw": "{{pedidosBaseUrl}}/pedidos/con-resiliencia",
+              "host": [
+                "{{pedidosBaseUrl}}"
+              ],
+              "path": [
+                "pedidos",
+                "con-resiliencia"
+              ]
+            },
+            "description": "Ejecuta esta solicitud varias veces. Con slidingWindowSize 5, el Circuit Breaker abre rapido para la demo."
+          },
+          "response": []
+        },
+        {
+          "name": "Estado de Circuit Breakers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{pedidosBaseUrl}}/actuator/circuitbreakers",
+              "host": [
+                "{{pedidosBaseUrl}}"
+              ],
+              "path": [
+                "actuator",
+                "circuitbreakers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Eventos de Circuit Breakers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{pedidosBaseUrl}}/actuator/circuitbreakerevents",
+              "host": [
+                "{{pedidosBaseUrl}}"
+              ],
+              "path": [
+                "actuator",
+                "circuitbreakerevents"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "04 - Simular timeout",
+      "item": [
+        {
+          "name": "Desactivar falla",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{inventarioBaseUrl}}/inventario/demo/falla/false",
+              "host": [
+                "{{inventarioBaseUrl}}"
+              ],
+              "path": [
+                "inventario",
+                "demo",
+                "falla",
+                "false"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Activar demora de 2 segundos",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{inventarioBaseUrl}}/inventario/demo/demora/2000",
+              "host": [
+                "{{inventarioBaseUrl}}"
+              ],
+              "path": [
+                "inventario",
+                "demo",
+                "demora",
+                "2000"
+              ]
+            },
+            "description": "ms-pedidos tiene readTimeout de 1000ms, por eso esta llamada provoca timeout desde Feign."
+          },
+          "response": []
+        },
+        {
+          "name": "Pedido con resiliencia ante timeout",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"productoId\": {{productoId}},\n  \"cantidad\": 2,\n  \"clienteId\": {{clienteId}}\n}"
+            },
+            "url": {
+              "raw": "{{pedidosBaseUrl}}/pedidos/con-resiliencia",
+              "host": [
+                "{{pedidosBaseUrl}}"
+              ],
+              "path": [
+                "pedidos",
+                "con-resiliencia"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Quitar demora",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{inventarioBaseUrl}}/inventario/demo/demora/0",
+              "host": [
+                "{{inventarioBaseUrl}}"
+              ],
+              "path": [
+                "inventario",
+                "demo",
+                "demora",
+                "0"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "pedidosBaseUrl",
+      "value": "http://localhost:8090",
+      "type": "string"
+    },
+    {
+      "key": "inventarioBaseUrl",
+      "value": "http://localhost:8091",
+      "type": "string"
+    },
+    {
+      "key": "productoId",
+      "value": "1",
+      "type": "string"
+    },
+    {
+      "key": "clienteId",
+      "value": "9001",
+      "type": "string"
+    }
+  ]
+}

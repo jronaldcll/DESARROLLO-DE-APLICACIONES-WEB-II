@@ -1,0 +1,7 @@
+com/cibertec/resiliencia/pedidos/service/PedidoService.class
+com/cibertec/resiliencia/pedidos/rest/PedidoController.class
+com/cibertec/resiliencia/pedidos/dto/PedidoRequest.class
+com/cibertec/resiliencia/pedidos/dto/StockResponse.class
+com/cibertec/resiliencia/pedidos/dto/PedidoResponse.class
+com/cibertec/resiliencia/pedidos/client/InventarioClient.class
+com/cibertec/resiliencia/pedidos/MsPedidosApplication.class
