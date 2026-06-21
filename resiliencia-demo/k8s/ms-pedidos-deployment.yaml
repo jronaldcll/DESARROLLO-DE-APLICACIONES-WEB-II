@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-pedidos
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-pedidos
+  template:
+    metadata:
+      labels:
+        app: ms-pedidos
+    spec:
+      containers:
+      - name: ms-pedidos
+        image: ms-pedidos:1.0
+        imagePullPolicy: Never
+        env:
+        - name: INVENTARIO_BASE_URL
+          value: http://ms-inventario-svc:8091
+        ports:
+        - containerPort: 8090
