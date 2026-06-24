@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-sm-12">
+    <div class="d-flex justify-content-between mt-2 mb-2">
+      <div><span class="fw-bold">{{ completedHours }}</span> Hours</div>
+      <div>Expected: {{ expectedHours }}</div>
+    </div>
+    <div class="progress project-bar mb-2">
+      @for (bar of progressBars; track bar) {
+        <div class="progress-bar" [ngClass]="bar.color"
+          [style.width.%]="bar.percentage">
+        </div>
+      }
+    </div>
+  </div>
+  <div class="col-sm-12">
+    <div class="search-project">
+      <div class="columnHeader light-bg">
+        <div class="column">Task Name</div>
+        <div class="column">Completed</div>
+      </div>
+      @for (task of tasks; track task) {
+        <div class="project-source">
+          <div><span><i class="fa fa-circle" [ngClass]="task.color"></i></span>{{ task.name }}</div>
+          <div>{{ task.completed }}%</div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

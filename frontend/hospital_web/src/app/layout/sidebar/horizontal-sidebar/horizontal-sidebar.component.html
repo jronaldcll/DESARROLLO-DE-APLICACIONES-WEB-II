@@ -1,0 +1,42 @@
+<div class="top-sidebar">
+  <div class="horizontal-menu-wrapper" [ngClass]="{'has-left-arrow': showLeftArrow, 'has-right-arrow': showRightArrow}">
+    <!-- Left Scroll Button -->
+    @if (showLeftArrow) {
+    <button class="scroll-btn left-btn" (click)="scrollLeftDir()" aria-label="Scroll Left">
+      <i class="material-icons">chevron_left</i>
+    </button>
+    }
+    
+    <!-- Viewport Container -->
+    <div #scrollContainer class="horizontal-menu" (scroll)="onScroll($event)">
+      <ul class="horizontal-list">
+        @for (sidebarItem of sidebarItems; track sidebarItem) {
+          <ng-template [ngxPermissionsOnly]="sidebarItem.role">
+            <li (mouseenter)="onMouseEnter($event)" [routerLinkActive]="sidebarItem.submenu.length !== 0 ? 'active' : 'active-top'">
+              <a [routerLink]="sidebarItem.class === '' ? [sidebarItem.path] : null" [ngClass]="[sidebarItem.class]">
+                <i [ngClass]="[sidebarItem.iconType]" style="vertical-align: middle; margin-right: 5px; font-size: 18px;">{{sidebarItem.icon}}</i>
+                <span>{{sidebarItem.title | translate}}</span>
+              </a>
+              @if (sidebarItem.submenu.length > 0) {
+                <ul class="ml-menu">
+                  @for (subItem of sidebarItem.submenu; track subItem) {
+                    <li routerLinkActive="active">
+                      <a [routerLink]="[subItem.path]">{{subItem.title | translate}}</a>
+                    </li>
+                  }
+                </ul>
+              }
+            </li>
+          </ng-template>
+        }
+      </ul>
+    </div>
+    
+    <!-- Right Scroll Button -->
+    @if (showRightArrow) {
+    <button class="scroll-btn right-btn" (click)="scrollRightDir()" aria-label="Scroll Right">
+      <i class="material-icons">chevron_right</i>
+    </button>
+    }
+  </div>
+</div>

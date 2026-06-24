@@ -1,0 +1,26 @@
+<mat-card class="blood-card glass-card">
+  <mat-card-header>
+    <div class="header-container w-100 d-flex justify-content-between align-items-center">
+      <mat-card-title>Blood Bank Reserves</mat-card-title>
+      <div class="header-icon"><mat-icon>bloodtype</mat-icon></div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="blood-grid">
+      @for (r of reserves; track r.group) {
+        <div class="reserve-item" [ngClass]="r.status.toLowerCase()">
+          <div class="reserve-content">
+            <div class="blood-type-box">
+              <span class="blood-type">{{r.group}}</span>
+            </div>
+            <div class="reserve-info">
+              <div class="unit-count">{{r.units}} <span class="unit-label">Units</span></div>
+              <div class="status-indicator">{{r.status}}</div>
+            </div>
+          </div>
+          <div class="wave-bg"></div>
+        </div>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>

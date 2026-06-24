@@ -1,0 +1,41 @@
+<mat-card class="equipment-card glass-card h-100">
+  <mat-card-header>
+    <mat-card-title>Maintenance Schedule</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="p-0">
+    <div class="maintenance-list">
+      <ng-scrollbar style="height: 300px" visibility="hover">
+        @for (m of machines; track m.name) {
+          <div
+            class="maintenance-item pt-3 pb-3 border-bottom border-dark border-opacity-10 transition-hover">
+            <div class="d-flex align-items-center">
+              <div class="icon-box me-3" [ngClass]="m.color + '-glow'">
+                <mat-icon>{{ m.name.includes('MRI') ? 'visibility' : m.name.includes('Ventilator') ? 'air' :
+                  'medical_services' }}</mat-icon>
+              </div>
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between align-items-center mb-1">
+                  <span class="fw-bold text-dark">{{m.name}}</span>
+                  <span class="badge rounded-pill"
+                    [ngClass]="'bg-' + (m.health > 80 ? 'success' : m.health > 50 ? 'warning' : 'danger') + '-subtle text-' + (m.health > 80 ? 'success' : m.health > 50 ? 'warning' : 'danger')">
+                    {{m.status}}
+                  </span>
+                </div>
+                <div class="progress-container mt-2">
+                  <div class="d-flex justify-content-between small mb-1">
+                    <span class="text-muted">Stability</span>
+                    <span class="fw-bold">{{m.health}}%</span>
+                  </div>
+                  <div class="progress-track">
+                    <div class="progress-fill" [style.width.%]="m.health"
+                      [ngClass]="'bg-' + (m.health > 80 ? 'success' : m.health > 50 ? 'warning' : 'danger')"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </ng-scrollbar>
+    </div>
+  </mat-card-content>
+</mat-card>

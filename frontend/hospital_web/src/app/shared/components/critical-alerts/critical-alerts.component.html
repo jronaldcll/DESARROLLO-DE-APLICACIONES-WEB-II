@@ -1,0 +1,51 @@
+<mat-card class="critical-alerts-card">
+    <mat-card-header class="header-style">
+        <mat-card-title>
+            Critical Alerts
+            @if (getNewAlertsCount() > 0) {
+            <span class="alert-badge" matBadge="{{ getNewAlertsCount() }}" matBadgeColor="warn"></span>
+            }
+        </mat-card-title>
+        <a mat-button color="primary" href="#" (click)="$event.preventDefault();">
+            View All
+        </a>
+    </mat-card-header>
+
+    <mat-card-content>
+        <ng-scrollbar style="height: 335px" visibility="hover">
+            <div class="alerts-container">
+                @for (alert of alerts(); track alert) {
+                <div class="alert-item" [ngClass]="{ 'new-alert': alert.isNew }">
+                    <div class="alert-header">
+                        <div class="d-flex align-items-center">
+                            <div class="severity-indicator" [ngClass]="alert.severityClass"></div>
+                            <div class="alert-type">{{ alert.alertType }}</div>
+                        </div>
+                        <div class="alert-time">{{ alert.timestamp }}</div>
+                    </div>
+
+                    <div class="alert-content">
+                        <div class="patient-info">
+                            <img class="patient-img" [src]="alert.img" />
+                            <strong>{{ alert.patientName }}</strong>
+                            ({{ alert.roomNumber }})
+                        </div>
+                        <div class="alert-message">{{ alert.message }}</div>
+                    </div>
+
+                    <div class="alert-actions">
+                        <button mat-button color="primary" (click)="markAsRead(alert)">
+                            <mat-icon class="material-icons-outlined">check_circle</mat-icon>
+                            Acknowledge
+                        </button>
+                        <button mat-button color="accent" (click)="viewAlert(alert)">
+                            <mat-icon class="material-icons-outlined">visibility</mat-icon>
+                            View Details
+                        </button>
+                    </div>
+                </div>
+                }
+            </div>
+        </ng-scrollbar>
+    </mat-card-content>
+</mat-card>

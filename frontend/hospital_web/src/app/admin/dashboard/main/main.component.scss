@@ -1,0 +1,60 @@
+
+:host-context(.dark) {
+  .header-menu, .header-style {
+    mat-card-title {
+      color: #ffffff !important;
+    }
+  }
+
+  .quick-actions {
+    button {
+      color: #96a2b4 !important;
+      &[color="primary"] {
+          color: #6fb6ff !important;
+      }
+      &[color="accent"] {
+          color: #ffb16f !important;
+      }
+    }
+  }
+
+  .chart-loader {
+    color: #96a2b4;
+  }
+
+  ::ng-deep {
+    .dark {
+      mat-card {
+        background: #1a202e !important;
+        color: #96a2b4 !important;
+        
+        mat-card-header {
+           mat-card-title {
+               color: #ffffff !important;
+           }
+        }
+      }
+      
+      .glass-card {
+        background: rgba(30, 35, 50, 0.7) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+        
+        .mat-mdc-card-title, mat-card-title, h5, h6, .h5, .h6 {
+            color: #ffffff !important;
+        }
+      }
+    }
+  }
+
+  // Apex Charts labels for Main Dashboard
+  ::ng-deep .apexcharts-canvas {
+    .apexcharts-xaxis-label, .apexcharts-yaxis-label, .apexcharts-legend-text, .apexcharts-title-text {
+      fill: #96a2b4 !important;
+    }
+    .apexcharts-gridline {
+        stroke: rgba(150, 162, 180, 0.1);
+    }
+  }
+}

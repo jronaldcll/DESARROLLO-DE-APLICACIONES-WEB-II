@@ -1,0 +1,372 @@
+<div class="card">
+  <div class="materialTableHeader">
+    <div class="left">
+      <ul class="header-buttons-left ms-0">
+        <li class="tbl-title">
+          <h2>{{ title() }}</h2>
+        </li>
+        <li class="tbl-search-box">
+          <label for="search-input"><i class="material-icons search-icon">search</i></label>
+          <input id="search-input" placeholder="Search" type="text" #filter (keyup)="applyFilter($event)"
+            class="browser-default search-field" aria-label="Search box">
+        </li>
+      </ul>
+    </div>
+    <div class="right">
+      <div class="right-side-btn">
+        @if (showBulkDelete() && showCheckbox()) {
+        <button mat-icon-button [hidden]="!selection.hasValue()" (click)="removeSelectedRows()"
+          class="tbl-header-btn col-red" matTooltip="Delete">
+          <mat-icon>delete_outline</mat-icon>
+        </button>
+        }
+
+        <app-table-show-hide-column [columnDefinitions]="columnDefinitions()"></app-table-show-hide-column>
+
+        @if (showAdd()) {
+        <button mat-icon-button (click)="onAdd()" class="tbl-header-btn col-green" matTooltip="Add">
+          <mat-icon>add_circle_outline</mat-icon>
+        </button>
+        }
+        @if (showRefresh()) {
+        <button mat-icon-button (click)="onRefresh()" class="tbl-header-btn col-brown" matTooltip="Refresh">
+          <mat-icon>refresh</mat-icon>
+        </button>
+        }
+        @if (showExport()) {
+        <button mat-icon-button (click)="exportExcel()" class="tbl-header-btn col-blue" matTooltip="Xlsx Download">
+          <mat-icon class="material-icons-outlined">file_download</mat-icon>
+        </button>
+        }
+      </div>
+    </div>
+  </div>
+  <div class="overflow-auto">
+    <div class="responsive_table">
+      <div class="table-scroll">
+        <table mat-table [dataSource]="dataSource()" matSort class="mat-cell advance-table">
+          <!-- Checkbox Column -->
+          @if (showCheckbox()) {
+          <ng-container matColumnDef="select">
+            <mat-header-cell *matHeaderCellDef>
+              <mat-checkbox (change)="$event ? masterToggle() : null"
+                [checked]="selection.hasValue() && isAllSelected()" color="primary"
+                [indeterminate]="selection.hasValue() && !isAllSelected()" [ngClass]="'tbl-checkbox'">
+              </mat-checkbox>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row">
+              <mat-checkbox (click)="$event.stopPropagation()" (change)="$event ? selection.toggle(row) : null"
+                [checked]="selection.isSelected(row)" [ngClass]="'tbl-checkbox'" color="primary">
+              </mat-checkbox>
+            </mat-cell>
+          </ng-container>
+          }
+
+          @for (column of columnDefinitions(); track column) {
+          <!-- Skip rendering if column.type is "check" or "actionBtn" -->
+          @if (column.type === 'check' || column.type === 'actionBtn') {
+          <!-- Skip this column -->
+          } @else {
+          @if (column.type === 'nameWithImage') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" [matTooltip]="row[column.def]">
+              <span class="mobile-label">{{ column.label }}:</span>
+              @if (row.img) {
+              <img [src]="row.img" class="table-img" alt="image" />
+              }
+              <span class="truncate-text">
+                {{ row[column.def] }}
+              </span>
+            </mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.type === 'date') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+              <span class="mobile-label">{{ column.label }}:</span>
+              <span class="truncate-text">
+                {{ row[column.def] | date: 'MM/dd/yyyy' }}
+              </span>
+            </mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.type === 'time') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+              <span class="mobile-label">{{ column.label }}:</span><mat-icon
+                class="tbl-icon material-icons-outlined col-indigo">schedule</mat-icon>
+              <span class="truncate-text">
+                {{ row[column.def] }}
+              </span>
+            </mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.type === 'phone') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" [matTooltip]="row[column.def]">
+              <span class="mobile-label">{{ column.label }}:</span> <mat-icon
+                class="tbl-icon material-icons-outlined col-green">call</mat-icon><span class="truncate-text">
+                {{ row[column.def] }}</span></mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.type === 'email') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" [matTooltip]="row[column.def]">
+              <span class="mobile-label">{{ column.label }}:</span> <mat-icon
+                class="tbl-icon material-icons-outlined col-red">mail</mat-icon><span class="truncate-text">
+                {{ row[column.def] }}</span></mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.type === 'address') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" [matTooltip]="row[column.def]">
+              <span class="mobile-label">{{ column.label }}:</span> <mat-icon
+                class="tbl-icon material-icons-outlined col-blue">place</mat-icon><span class="truncate-text">
+                {{ row[column.def] }}</span></mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.type === 'status') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)" 
+              [matTooltip]="column.tooltipField ? row[column.tooltipField] : (column.tooltip ? row[column.def] : '')">
+              <span class="mobile-label">{{ column.label }}:</span>
+              @if (getStatusBadgeClass(row[column.def], column.statusBadgeMap)) {
+              <span [ngClass]="getStatusBadgeClass(row[column.def], column.statusBadgeMap)">{{ row[column.def] }}</span>
+              } @else {
+              <span class="truncate-text">{{ row[column.def] }}</span>
+              }
+            </mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.def === 'gender') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> <span class="truncate-text">{{ column.label
+                }}</span></mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+              <span class="mobile-label">{{ column.label }}:</span>
+              <div>
+                @switch (row.gender.toLowerCase()) {
+                @case ('male') {
+                <div>
+                  <span class="badge badge-solid-green">{{ row.gender }}</span>
+                </div>
+                }
+                @case ('female') {
+                <div>
+                  <span class="badge badge-solid-purple">{{ row.gender }}</span>
+                </div>
+                }
+                @default {
+                <div>
+                  <span class="badge badge-solid-brown">{{ row.gender }}</span>
+                </div>
+                }
+                }
+              </div>
+            </mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.type === 'team') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+              <span class="mobile-label">{{ column.label }}:</span>
+              <span class="truncate-text">
+                @if (row[column.def]?.length > 0) {
+                <ul class="list-unstyled order-list">
+                  @for (member of row[column.def]; track member; let i = $index) {
+                  <li class="avatar avatar-sm" [ngClass]="{'d-none': i >= 3}">
+                    <img class="rounded-circle" [src]="'assets/images/user/' + member.avatar" [alt]="member.name" />
+                  </li>
+                  }
+                  @if (row[column.def].length > 3) {
+                  <li class="avatar avatar-sm">
+                    <span class="badge">+{{row[column.def].length - 3}}</span>
+                  </li>
+                  }
+                </ul>
+                }
+                @if (row[column.def]?.length === 0) {
+                <span class="no-data">No team members</span>
+                }
+              </span>
+            </mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.type === 'progress') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+              <span class="mobile-label">{{ column.label }}:</span>
+              <div class="progress-container">
+                <mat-progress-bar mode="determinate" [value]="row[column.def]"
+                  [color]="row[column.def] >= 75 ? 'primary' : row[column.def] >= 50 ? 'accent' : 'warn'">
+                </mat-progress-bar>
+                <span class="progress-text">{{ row[column.def] }}%</span>
+              </div>
+            </mat-cell>
+          </ng-container>
+          } @else {
+          @if (column.type === 'file') {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+              <span class="mobile-label">{{ column.label }}:</span>
+              <button mat-icon-button (click)="$event.stopPropagation()"
+                (click)="downloadFile(row[column.def], column.def)" matTooltip="Download {{ column.label }}">
+                <mat-icon class="col-red">picture_as_pdf</mat-icon>
+              </button>
+            </mat-cell>
+          </ng-container>
+          } @else {
+          <ng-container [matColumnDef]="column.def">
+            <mat-header-cell *matHeaderCellDef mat-sort-header>
+              <span class="truncate-text">{{ column.label }}</span>
+            </mat-header-cell>
+            <mat-cell *matCellDef="let row" (contextmenu)="onContextMenu($event, row)">
+              <span class="mobile-label">{{ column.label }}:</span>
+              <span class="truncate-text">{{ row[column.def] }}</span>
+            </mat-cell>
+          </ng-container>
+          }
+          }
+          }
+          }
+          }
+          }
+          }
+          }
+          }
+          }
+          }
+          }
+          }
+
+          <!-- actions -->
+          <ng-container matColumnDef="actions">
+            <mat-header-cell class="pr-0" *matHeaderCellDef>Actions</mat-header-cell>
+            <mat-cell *matCellDef="let row; let i=index;" class="pr-0">
+              @if (showEdit()) {
+              <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="onEdit(row)"
+                class="tbl-action-btn">
+                <app-feather-icons [icon]="'edit'" [class]="'tbl-fav-edit'"></app-feather-icons>
+              </button>
+              }
+              @if (showDetails()) {
+              <button mat-icon-button color="primary" (click)="$event.stopPropagation()" (click)="onDetails(row)"
+                class="tbl-action-btn">
+                <app-feather-icons [icon]="'info'" [class]="'tbl-fav-details'"></app-feather-icons>
+              </button>
+              }
+              @if (showDelete()) {
+              <button mat-icon-button color="accent" (click)="$event.stopPropagation()" (click)="onDelete(row)"
+                class="tbl-action-btn">
+                <app-feather-icons [icon]="'trash-2'" [class]="'tbl-fav-delete'"></app-feather-icons>
+              </button>
+              }
+            </mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="getDisplayedColumns()"></mat-header-row>
+          <mat-row [@rowsAnimation]="" *matRowDef="let row; columns: getDisplayedColumns();" (click)="onRowClick(row)"
+            [style.cursor]="enableRowClick() ? 'pointer' : 'default'" matRipple>
+          </mat-row>
+        </table>
+      </div>
+      <!-- Skeleton loader -->
+      <app-skeleton-loader [show]="isLoading()"></app-skeleton-loader>
+      <!-- context menu start -->
+      @if (showContextMenu()) {
+      <div style="visibility: hidden; position: absolute" [style.left]="contextMenuPosition.x"
+        [style.top]="contextMenuPosition.y" [matMenuTriggerFor]="contextMenu">
+      </div>
+      <mat-menu #contextMenu="matMenu">
+        <ng-template matMenuContent let-item="item">
+          @if (showAdd()) {
+          <button mat-menu-item (click)="onAdd()">
+            <mat-icon>add_box</mat-icon>
+            <span>Add Record</span>
+          </button>
+          }
+          @if (showEdit()) {
+          <button mat-menu-item (click)="onEdit(item)">
+            <mat-icon>create</mat-icon>
+            <span>Edit Record</span>
+          </button>
+          }
+          @if (showDelete()) {
+          <button mat-menu-item (click)="onDelete(item)">
+            <mat-icon>delete</mat-icon>
+            <span>Delete Record</span>
+          </button>
+          }
+          @if (showRefresh()) {
+          <button mat-menu-item (click)="onRefresh()">
+            <mat-icon>refresh</mat-icon>
+            <span>Refresh Record</span>
+          </button>
+          }
+          <button mat-menu-item disabled>
+            <mat-icon>no_encryption</mat-icon>
+            <span>Disable</span>
+          </button>
+          <button mat-menu-item [matMenuTriggerFor]="nestedmenu">
+            <mat-icon>list_alt</mat-icon>
+            <span> Nested Menu</span>
+          </button>
+        </ng-template>
+      </mat-menu>
+      <mat-menu #nestedmenu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>mail_outline</mat-icon>
+          <span>Item 1</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>call</mat-icon>
+          <span>Item 2</span>
+        </button>
+        <button mat-menu-item>
+          <mat-icon>chat</mat-icon>
+          <span>Item 3</span>
+        </button>
+      </mat-menu>
+      }
+      <!-- context menu end -->
+
+      @if (!isLoading()) {
+      <div class="no-results" [style.display]="dataSource().data.length === 0 ? '' : 'none'">
+        No results
+      </div>
+      }
+      <mat-paginator #paginator [length]="dataSource().filteredData.length" [pageIndex]="0" [pageSize]="pageSize()"
+        [pageSizeOptions]="pageSizeOptions()">
+      </mat-paginator>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,32 @@
+<mat-card class="inflow-outflow-widget premium-shadow">
+    <mat-card-header class="header-menu">
+        <mat-card-title>Patient Inflow / Outflow</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="row align-items-center">
+            <div class="col-6 text-center">
+                <div class="font-16 text-success mb-1 mt-4 icon-label">
+                    <mat-icon class="bg-light-success rounded-circle p-1">trending_up</mat-icon>
+                    Inflow
+                </div>
+                <div class="font-32 font-b-700 text-success">{{ inflow }}</div>
+                <div class="font-12 text-muted">{{ inflowChange }}</div>
+            </div>
+            <div class="col-6 text-center">
+                <div class="font-16 text-danger mb-1 mt-4 icon-label">
+                    <mat-icon class="bg-light-danger rounded-circle p-1">trending_down</mat-icon>
+                    Outflow
+                </div>
+                <div class="font-32 font-b-700 text-danger">{{ outflow }}</div>
+                <div class="font-12 text-muted">{{ outflowChange }}</div>
+            </div>
+        </div>
+
+        <div class="mt-3">
+            <apx-chart [series]="series" [chart]="chartOptions" [colors]="colors" [stroke]="stroke" [tooltip]="tooltip"
+                [xaxis]="xaxis" [dataLabels]="{ enabled: false }">
+            </apx-chart>
+        </div>
+    </mat-card-content>
+</mat-card>

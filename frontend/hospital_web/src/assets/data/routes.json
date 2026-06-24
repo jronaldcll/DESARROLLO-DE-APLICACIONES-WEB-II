@@ -1,0 +1,325 @@
+{
+  "routes": [
+    {
+      "path": "",
+      "title": "MENUITEMS.MAIN.TEXT",
+      "iconType": "",
+      "icon": "",
+      "class": "",
+      "groupTitle": true,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["ADMIN", "DOCTOR", "PATIENT"],
+      "submenu": []
+    },
+    {
+      "path": "",
+      "title": "MENUITEMS.DASHBOARD.TEXT",
+      "iconType": "material-icons-outlined",
+      "icon": "space_dashboard",
+      "class": "menu-toggle",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["ADMIN"],
+      "submenu": [
+        {
+          "path": "/admin/dashboard/main",
+          "title": "MENUITEMS.DASHBOARD.LIST.DASHBOARD1",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/admin/dashboard/dashboard2",
+          "title": "MENUITEMS.DASHBOARD.LIST.DASHBOARD2",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/admin/dashboard/nurse-dashboard",
+          "title": "MENUITEMS.DASHBOARD.LIST.NURSE-DASHBOARD",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        }
+      ]
+    },
+
+    {
+      "path": "/doctor/dashboard",
+      "title": "MENUITEMS.DASHBOARD.LIST.DOCTOR-DASHBOARD",
+      "iconType": "material-icons-outlined",
+      "icon": "space_dashboard",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["DOCTOR"],
+      "submenu": []
+    },
+
+    {
+      "path": "/patient/dashboard",
+      "title": "MENUITEMS.DASHBOARD.LIST.PATIENT-DASHBOARD",
+      "iconType": "material-icons-outlined",
+      "icon": "space_dashboard",
+      "class": "",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["PATIENT"],
+      "submenu": []
+    },
+
+    {
+      "path": "",
+      "title": "Authentication",
+      "iconType": "material-icons-outlined",
+      "icon": "supervised_user_circle",
+      "class": "menu-toggle",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["ADMIN"],
+      "submenu": [
+        {
+          "path": "/authentication/signin",
+          "title": "MENUITEMS.EXTRA.SIGN_IN",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/authentication/signup",
+          "title": "MENUITEMS.EXTRA.SIGN_UP",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/authentication/forgot-password",
+          "title": "MENUITEMS.EXTRA.FORGOT_PASSWORD",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/authentication/locked",
+          "title": "MENUITEMS.EXTRA.LOCKED",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/authentication/page404",
+          "title": "MENUITEMS.EXTRA.404_NOT_FOUND",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/authentication/page500",
+          "title": "MENUITEMS.EXTRA.500_SERVER_ERROR",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/authentication/two-factor",
+          "title": "MENUITEMS.EXTRA.2_FACTOR_AUTH",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/authentication/maintenance",
+          "title": "MENUITEMS.EXTRA.MAINTENANCE",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/authentication/coming-soon",
+          "title": "MENUITEMS.EXTRA.COMING_SOON",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        }
+      ]
+    },
+    {
+      "path": "",
+      "title": "Extra Pages",
+      "iconType": "material-icons-outlined",
+      "icon": "description",
+      "class": "menu-toggle",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["ADMIN"],
+      "submenu": [
+        {
+          "path": "/extra-pages/blank",
+          "title": "Blank Page",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        }
+      ]
+    },
+    {
+      "path": "",
+      "title": "Multi level Menu",
+      "iconType": "material-icons-outlined",
+      "icon": "slideshow",
+      "class": "menu-toggle",
+      "groupTitle": false,
+      "badge": "",
+      "badgeClass": "",
+      "role": ["ADMIN"],
+      "submenu": [
+        {
+          "path": "/multilevel/first1",
+          "title": "First",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        },
+        {
+          "path": "/",
+          "title": "Second",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-sub-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": [
+            {
+              "path": "/multilevel/secondlevel/second1",
+              "title": "Second 1",
+              "iconType": "",
+              "icon": "",
+              "class": "ml-menu2",
+              "groupTitle": false,
+              "badge": "",
+              "badgeClass": "",
+              "role": [""],
+              "submenu": []
+            },
+            {
+              "path": "/",
+              "title": "Second 2",
+              "iconType": "",
+              "icon": "",
+              "class": "ml-sub-menu2",
+              "groupTitle": false,
+              "badge": "",
+              "badgeClass": "",
+              "role": [""],
+              "submenu": [
+                {
+                  "path": "/multilevel/thirdlevel/third1",
+                  "title": "third 1",
+                  "iconType": "",
+                  "icon": "",
+                  "class": "ml-menu3",
+                  "groupTitle": false,
+                  "badge": "",
+                  "badgeClass": "",
+                  "role": [""],
+                  "submenu": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "path": "/multilevel/first3",
+          "title": "Third",
+          "iconType": "",
+          "icon": "",
+          "class": "ml-menu",
+          "groupTitle": false,
+          "badge": "",
+          "badgeClass": "",
+          "role": [""],
+          "submenu": []
+        }
+      ]
+    }
+  ]
+}

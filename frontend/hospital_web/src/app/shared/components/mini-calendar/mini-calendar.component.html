@@ -1,0 +1,18 @@
+<mat-card>
+    <div class="calendar-wrapper">
+        <mat-calendar [(selected)]="selectedDate" [dateClass]="customDateClass">
+        </mat-calendar>
+
+        <div class="legend">
+            <span class="legend-item">
+                <span class="dot dot-surgery"></span> Surgery
+            </span>
+            <span class="legend-item">
+                <span class="dot dot-polyclinic"></span> Polyclinic
+            </span>
+            <span class="legend-item">
+                <span class="dot dot-evaluation"></span> Evaluation
+            </span>
+        </div>
+    </div>
+</mat-card>

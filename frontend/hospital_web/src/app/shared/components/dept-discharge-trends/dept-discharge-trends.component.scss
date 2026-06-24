@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  height: 100%;
+}
+.display-5 {
+  font-size: 2rem;
+  line-height: 1.2;
+}
+.text-success {
+  color: #4caf50 !important;
+}
+.fw-bold {
+  font-weight: 700;
+}
+.w-50 {
+  width: 50% !important;
+}
+.pt-3 {
+  padding-top: 1rem !important;
+}
+.border-top {
+  border-top: 1px solid !important;
+}
+.border-opacity-10 {
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+:host-context(.dark) {
+  mat-card-title {
+    color: #ffffff;
+  }
+  .display-5 {
+    color: #ffffff;
+  }
+  .text-muted {
+    color: #96a2b4 !important;
+  }
+  .border-opacity-10 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+  }
+}

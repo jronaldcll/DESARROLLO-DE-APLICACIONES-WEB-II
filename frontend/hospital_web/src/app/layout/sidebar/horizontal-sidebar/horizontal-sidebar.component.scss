@@ -1,0 +1,304 @@
+:host {
+  display: none;
+}
+
+:host-context(body.horizontal-layout) {
+  display: block;
+}
+
+/* Reduce gap between content and horizontal menu */
+::ng-deep body.horizontal-layout {
+  section.content {
+    margin-top: 135px !important;
+
+    .content-block {
+      padding: 0 !important;
+    }
+  }
+}
+
+.top-sidebar {
+  padding: 0;
+  height: 60px;
+  background-color: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  .horizontal-menu-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px; /* Aligns with the 15px margin of the page content */
+    transition: padding 0.2s ease-in-out;
+
+    &.has-left-arrow {
+      padding-left: 45px; /* Leave space for left arrow */
+    }
+
+    &.has-right-arrow {
+      padding-right: 45px; /* Leave space for right arrow */
+    }
+  }
+
+  .scroll-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.12);
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 101;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: #555;
+    transition: all 0.2s ease-in-out;
+    padding: 0;
+
+    &:hover {
+      background: #f8f9fa;
+      color: #2979ff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    i {
+      font-size: 24px;
+    }
+  }
+
+  .left-btn {
+    left: 8px;
+  }
+
+  .right-btn {
+    right: 8px;
+  }
+
+  .horizontal-menu {
+    width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    white-space: nowrap;
+    height: 100%;
+  }
+
+  .horizontal-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+
+    li {
+      display: inline-block;
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      /* Reduced space between two menu items in horizontal menu */
+      a {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        padding: 0 10px; /* Reduced from 16px */
+        color: #555;
+        font-size: 14px;
+        font-weight: 500;
+        height: 100%;
+        transition: color 0.25s ease;
+        white-space: nowrap;
+
+        &:hover {
+          color: #2979ff;
+        }
+      }
+
+      &.active > a,
+      &.active-top > a {
+        color: #2979ff;
+        font-weight: 500;
+      }
+
+      /* Fixed positioning to escape overflow-x: hidden viewport clipping */
+      ul.ml-menu {
+        display: none;
+        position: fixed;
+        top: 120px; /* Aligns perfectly below the top-sidebar */
+        min-width: 200px;
+        background: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-radius: 4px;
+        padding: 8px 0;
+        z-index: 99999;
+        text-align: left;
+        margin: 0;
+        list-style: none;
+
+        li {
+          display: block;
+          height: auto;
+
+          a {
+            padding: 8px 16px;
+            display: block;
+            width: 100%;
+            font-size: 13px;
+            font-weight: 400;
+            height: auto;
+
+            &:hover {
+              background-color: #f5f5f5;
+              color: #2979ff;
+            }
+          }
+
+          &.active > a {
+            background-color: rgba(41, 121, 255, 0.08);
+            color: #2979ff;
+            font-weight: 500;
+          }
+        }
+      }
+
+      &:hover {
+        ul.ml-menu {
+          display: block;
+        }
+      }
+    }
+  }
+}
+
+/* Dark Theme Compatibility */
+:host-context(body.dark) {
+  .top-sidebar {
+    background-color: #1a202e;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+    .scroll-btn {
+      background: #1a202e;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #96a2b4;
+
+      &:hover {
+        background: #232b3e;
+        color: #2979ff;
+      }
+    }
+
+    .horizontal-list li {
+      a {
+        color: #96a2b4;
+
+        &:hover {
+          color: #2979ff;
+        }
+      }
+
+      &.active > a,
+      &.active-top > a {
+        color: #2979ff;
+      }
+
+      ul.ml-menu {
+        background: #1a202e;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+
+        &:before,
+        &:after {
+          border-bottom-color: #1a202e !important;
+        }
+
+        li {
+          a {
+            color: #96a2b4;
+
+            &:hover {
+              background-color: #232b3e;
+              color: #2979ff;
+            }
+          }
+
+          &.active > a {
+            background-color: rgba(41, 121, 255, 0.15);
+            color: #2979ff;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* Glassmorphism Theme Compatibility */
+:host-context(body.layout-glassmorphism) {
+  .top-sidebar {
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+
+    .scroll-btn {
+      background: rgba(255, 255, 255, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(8px);
+      color: #333333;
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.8);
+        color: #2979ff;
+      }
+    }
+
+    .horizontal-list li {
+      a {
+        color: #333333;
+
+        &:hover {
+          color: #2979ff;
+        }
+      }
+
+      &.active > a,
+      &.active-top > a {
+        color: #2979ff;
+      }
+
+      ul.ml-menu {
+        background: rgba(255, 255, 255, 0.65);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+
+        &:before,
+        &:after {
+          border-bottom-color: rgba(255, 255, 255, 0.65) !important;
+        }
+
+        li {
+          a {
+            color: #333333;
+
+            &:hover {
+              background-color: rgba(255, 255, 255, 0.45);
+              color: #2979ff;
+            }
+          }
+
+          &.active > a {
+            background-color: rgba(41, 121, 255, 0.2);
+            color: #2979ff;
+          }
+        }
+      }
+    }
+  }
+}
+

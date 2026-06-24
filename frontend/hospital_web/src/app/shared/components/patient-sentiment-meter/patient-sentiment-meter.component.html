@@ -1,0 +1,21 @@
+<mat-card class="sentiment-card glass-card">
+  <mat-card-header>
+    <mat-card-title>Weekly Patient Sentiment</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mt-4">
+    <div class="row text-center">
+      @for (s of sentiments; track s.label) {
+        <div class="col-3">
+          <div class="sentiment-box p-2 rounded">
+            <mat-icon [ngClass]="s.color" class="sentiment-icon">{{s.emoji}}</mat-icon>
+            <div class="h5 fw-bold mb-0 mt-2">{{s.count}}</div>
+            <div class="small text-muted">{{s.label}}</div>
+          </div>
+        </div>
+      }
+    </div>
+    <div class="mt-4 text-center">
+      <span class="badge rounded-pill bg-success px-3 py-2">89% Positive Feedback This Week</span>
+    </div>
+  </mat-card-content>
+</mat-card>

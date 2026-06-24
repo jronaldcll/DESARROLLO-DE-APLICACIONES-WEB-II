@@ -1,0 +1,62 @@
+<button mat-icon-button [matMenuTriggerFor]="notificationMenu" class="nav-notification-icons">
+  <i class="material-icons-outlined icon-color">notifications_active</i>
+  @if (unreadCount > 0) {
+    <span class="notification-badge">{{unreadCount}}</span>
+  }
+</button>
+
+<mat-menu #notificationMenu="matMenu" class="notification-menu">
+  <div class="notification-header">
+    <h6 class="mb-0">Notifications</h6>
+    <a class="notification-mark-as-read" (click)="markAll()">Mark all as read</a>
+  </div>
+  <div class="notification-dropdown">
+    <ng-scrollbar style="height: 350px" visibility="hover">
+      <div class="noti-list">
+        <div class="menu">
+          <div>
+            @for (notification of notifications(); track notification) {
+              <button mat-menu-item onClick="return false;"
+                [ngClass]="[notification.status, isRemoving(notification) ? 'notification-removing' : '']"
+                [@notificationAnimation]="isRemoving(notification) ? 'void' : ''"
+                (click)="markAsRead(notification)">
+                <span class="menu-info">
+                  <div class="notification-content-row">
+                    <span class="table-img msg-user">
+                      @if (notification.userImg) {
+                        <img [src]="notification.userImg" alt="User" class="user-avatar">
+                      } @else {
+                        <i class="material-icons-outlined notification-type-icon"
+                        [ngClass]="[notification.color]">{{notification.icon}}</i>
+                      }
+                    </span>
+                    <div>
+                      <span class="menu-title">{{notification.message}}</span>
+                      <span class="menu-desc">
+                        <i class="material-icons">access_time</i> {{notification.time}}
+                      </span>
+                      @if (notification.actionLabel) {
+                        <button mat-stroked-button color="primary"
+                          class="notification-action-btn mt-2"
+                          (click)="$event.stopPropagation(); onActionClick(notification)">
+                          {{notification.actionLabel}}
+                        </button>
+                      }
+                    </div>
+                  </div>
+                </span>
+                <span class="notification-close"
+                  (click)="$event.stopPropagation(); removeNotification(notification)">
+                  <app-feather-icons [icon]="'x'" [class]="'user-menu-icons'"></app-feather-icons>
+                </span>
+              </button>
+            }
+          </div>
+        </div>
+      </div>
+    </ng-scrollbar>
+  </div>
+  <div class="notification-footer">
+    <a class="notification-read-all" (click)="readAllNotifications()">Read All Notifications</a>
+  </div>
+</mat-menu>

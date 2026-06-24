@@ -1,0 +1,19 @@
+<button mat-icon-button class="col-indigo" [matMenuTriggerFor]="columnMenu" matTooltip="Show/Hide Column">
+    <mat-icon>filter_list</mat-icon>
+</button>
+
+<!-- Mat Menu -->
+<mat-menu #columnMenu="matMenu" class="column-menu show-hide-column" [overlapTrigger]="false">
+    <div style="padding: 0px 15px; max-height: 300px; overflow: auto; min-width: 200px;">
+        <span class="table-column-label">Show/Hide Column</span>
+        <mat-divider></mat-divider>
+
+        @for (cd of columnDefinitions(); track $index) {
+        <div class="mb-1.5">
+            <mat-checkbox [(ngModel)]="cd.visible" color="primary">
+                {{ cd.label }}
+            </mat-checkbox>
+        </div>
+        }
+    </div>
+</mat-menu>

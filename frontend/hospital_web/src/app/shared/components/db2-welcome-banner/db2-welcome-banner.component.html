@@ -1,0 +1,29 @@
+<div class="welcome-banner p-4 rounded-4 shadow-sm mb-4">
+  <div class="row align-items-center">
+    <div class="col-lg-7">
+      <div class="small text-primary fw-bold mb-1 text-uppercase tracking-wider">Good Morning,</div>
+      <h2 class="text-dark fw-bold mb-1">Dr. Alex Thompson</h2>
+      <p class="text-secondary small mb-4">You have a busy schedule today with 12 appointments and 5 surgeries.</p>
+      
+      <div class="d-flex gap-3 flex-wrap">
+        @for (s of stats; track s.label) {
+          <div class="summary-chip d-flex align-items-center p-2 rounded-3" [ngClass]="s.color">
+            <div class="icon-box me-2"><mat-icon class="small-icon">{{s.icon}}</mat-icon></div>
+            <div>
+              <div class="h6 mb-0 fw-bold text-dark">{{s.value}}</div>
+              <div class="tiny-text text-muted fw-bold">{{s.label}}</div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+    <div class="col-lg-5 d-none d-lg-block text-end">
+      <!-- Abstract illustration placeholder -->
+      <div class="banner-illustration">
+        <div class="circle-blob one"></div>
+        <div class="circle-blob two"></div>
+        <mat-icon class="huge-icon">healing</mat-icon>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+.notification-content-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .rtl & {
+    flex-direction: row-reverse;
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .table-img.msg-user {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    height: 40px;
+    width: 40px;
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .notification-type-icon {
+      font-size: 26px;
+      height: 40px;
+      width: 40px;
+    }
+  }
+
+  .menu-title {
+    display: inline-block;
+    vertical-align: middle;
+    
+    .rtl & {
+      display: block;
+      width: 100%;
+      text-align: right;
+    }
+  }
+}
+
+.menu-info {
+  display: flex;
+  flex-direction: column;
+
+  .rtl & {
+    text-align: right;
+  }
+}
+
+.notification-action-btn {
+  min-width: 120px;
+  width: auto;
+  align-self: flex-start;
+  
+  .rtl & {
+    align-self: flex-end;
+    margin-right: auto;
+    margin-left: 0;
+  }
+}

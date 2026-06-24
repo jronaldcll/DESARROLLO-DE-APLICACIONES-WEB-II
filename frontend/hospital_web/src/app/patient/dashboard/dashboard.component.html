@@ -1,0 +1,294 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="'Dashboard'" [items]="[]" [active_item]="'Dashboard'"></app-breadcrumb>
+    </div>
+
+    <!-- Welcome Banner -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="body">
+            <div class="row align-items-center">
+              <div class="col-md-4">
+                <img src="assets/images/pages/welcome.png" alt="" class="w-100">
+              </div>
+              <div class="col-md-8">
+                <p class="font-16 font-b-500 mb-2">Welcome back</p>
+                <div class="font-b-500 font-25 col-blue mb-2">Cara Stevens!</div>
+                <p class="font-16 max-width-600">Your health journey is looking great. All your medical data and
+                  upcoming appointments are consolidated here for your convenience.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/pages/blood-pressure.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <p class="float-end font-b-500">Blood Pressure</p>
+              </div>
+              <div class="col-green">
+                <p class="font-b-600 float-end mb-0 font-18"> 110/70</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-content msl-4 mb-3">
+            <p class="m-b-0 font-12 d-flex"><i class="material-icons col-green psr-2">trending_up</i> 10% Higher Than
+              Last Month</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/pages/heart-rate.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <p class="float-end font-b-500">Pulse Rate</p>
+              </div>
+              <div class="col-green">
+                <p class="font-b-600 float-end mb-0 font-18">72 bpm</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-content msl-4 mb-3">
+            <p class="m-b-0 font-12 d-flex"><i class="material-icons col-orange psr-2">trending_down</i> 02% Lower Than
+              Last Month</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/pages/glucose.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <p class="float-end font-b-500">Glucose Level</p>
+              </div>
+              <div class="col-green">
+                <p class="font-b-600 float-end mb-0 font-18">95 mg/dL</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-content msl-4 mb-3">
+            <p class="m-b-0 font-12 d-flex"><i class="material-icons col-green psr-2">trending_up</i> 05% Higher Than
+              Last Month</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-3 col-sm-12">
+        <div class="card card-statistic-2">
+          <div class="clearfix">
+            <div class="card-icon-only shadow-primary float-start">
+              <img src="assets/images/pages/blood-count.png" alt="">
+            </div>
+            <div class="card-right">
+              <div>
+                <p class="float-end font-b-500">Blood Count</p>
+              </div>
+              <div class="col-green">
+                <p class="font-b-600 float-end mb-0 font-18">9,456/mL</p>
+              </div>
+            </div>
+          </div>
+          <div class="card-content msl-4 mb-3">
+            <p class="m-b-0 font-12 d-flex"><i class="material-icons col-orange psr-2">trending_down</i> 22% Less Than
+              Last Month</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lab Results & Consult Countdown -->
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <app-patient-lab-results [results]="labResults"></app-patient-lab-results>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-patient-consultation-countdown></app-patient-consultation-countdown>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <app-patient-quick-actions class="d-block"></app-patient-quick-actions>
+
+    <!-- Activity & Weight Charts -->
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-patient-health-score></app-patient-health-score>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-patient-weight-chart></app-patient-weight-chart>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-patient-activity-chart></app-patient-activity-chart>
+      </div>
+    </div>
+
+    <!-- Health Score & Resting Heart Rate -->
+    <div class="row mb-4">
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <div class="row">
+          <div class="col-md-6 col-sm-12">
+            <mat-card>
+              <mat-card-header class="header-style">
+                <mat-card-title>Medications List</mat-card-title>
+                <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+              </mat-card-header>
+              <mat-card-content>
+                <ng-scrollbar style="height: 400px" visibility="hover">
+                  <div class="table-responsive">
+                    <app-medicine-list [medicineDataSource]="medicineDataSource"></app-medicine-list>
+                  </div>
+                  <div class="text-center p-t-20"><button mat-stroked-button color="primary">Report Adverse
+                      Effect</button>
+                  </div>
+                </ng-scrollbar>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <mat-card>
+              <mat-card-header class="header-style">
+                <mat-card-title>Resting Heart Rate (Historical)</mat-card-title>
+              </mat-card-header>
+              <mat-card-content>
+                <div class="float-start">
+                  <p class="font-b-500">72 bmp <span class="text-muted font-12">(Average)</span></p>
+                </div>
+                <div class="mb-5">
+                  <apx-chart [series]="restRateChartOptions.series!" [chart]="restRateChartOptions.chart!"
+                    [xaxis]="restRateChartOptions.xaxis!" [stroke]="restRateChartOptions.stroke!"
+                    [colors]="restRateChartOptions.colors!" [dataLabels]="restRateChartOptions.dataLabels!"
+                    [legend]="restRateChartOptions.legend!" [markers]="restRateChartOptions.markers!"
+                    [grid]="restRateChartOptions.grid!" [yaxis]="restRateChartOptions.yaxis!"
+                    [tooltip]="restRateChartOptions.tooltip!" [title]="restRateChartOptions.title!"></apx-chart>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+        <div class="card">
+          <div class="body">
+            <mat-tab-group dynamicHeight>
+              <mat-tab label="Upcoming Appointment">
+                <ul class="list-unstyled list-unstyled-border list-unstyled-noborder">
+                  <li class="app-list">
+                    <img alt="image" class="rounded-circle" width="40" src="assets/images/user/user1.jpg">
+                    <div class="set-flex">
+                      <div class="media-title font-b-500 font-14">Dr.Cara Stevens</div>
+                      <div class="text-job text-muted font-12 mb-0">Radiologist</div>
+                    </div>
+                    <div class="set-flex">
+                      <div class="media-title font-b-500 font-14">12 June '20</div>
+                      <div class="text-job text-muted font-12 mb-0">09:00-10:00</div>
+                    </div>
+                    <div class="set-flex">
+                      <div class="media-title text-muted font-12 mb-0">Treatement</div>
+                      <div class="text-job font-b-500 font-14">CT scans</div>
+                    </div>
+                    <div class="set-flex">
+                      <div class="media-title text-muted font-12 mb-0">Contact Number</div>
+                      <div class="text-job font-b-500 font-14">+123 676545655</div>
+                    </div>
+                    <div class="media-cta">
+                      <td><button mat-icon-button class="col-red"><mat-icon>highlight_off</mat-icon></button></td>
+                    </div>
+                  </li>
+                  <li class="app-list">
+                    <img alt="image" class="rounded-circle" width="40" src="assets/images/user/user2.jpg">
+                    <div class="set-flex">
+                      <div class="media-title font-b-500 font-14">Dr.John Doe</div>
+                      <div class="text-job text-muted font-12 mb-0">Cardiologist</div>
+                    </div>
+                    <div class="set-flex">
+                      <div class="media-title font-b-500 font-14">13 June '20</div>
+                      <div class="text-job text-muted font-12 mb-0">11:00-11:30</div>
+                    </div>
+                    <div class="set-flex">
+                      <div class="media-title text-muted font-12 mb-0">Treatement</div>
+                      <div class="text-job font-b-500 font-14">heart checkup</div>
+                    </div>
+                    <div class="set-flex">
+                      <div class="media-title text-muted font-12 mb-0">Contact Number</div>
+                      <div class="text-job font-b-500 font-14">+123 434656764</div>
+                    </div>
+                    <div class="media-cta">
+                      <td><button mat-icon-button class="col-red"><mat-icon>highlight_off</mat-icon></button></td>
+                    </div>
+                  </li>
+                </ul>
+              </mat-tab>
+              <mat-tab label="Past Appointment">
+                <ul class="list-unstyled user-progress list-unstyled-border list-unstyled-noborder">
+                  <li class="app-list">
+                    <img alt="image" class="rounded-circle" width="40" src="assets/images/user/user7.jpg">
+                    <div class="set-flex">
+                      <div class="media-title font-b-500 font-14">Dr.Jens Brincker</div>
+                      <div class="text-job text-muted font-12 mb-0">Endocrinologist</div>
+                    </div>
+                    <div class="set-flex">
+                      <div class="media-title font-b-500 font-14">23 June '20</div>
+                      <div class="text-job text-muted font-12 mb-0">04:00-05:00</div>
+                    </div>
+                    <div class="set-flex">
+                      <div class="media-title text-muted font-12 mb-0">Treatement</div>
+                      <div class="text-job font-b-500 font-14">Diabetes</div>
+                    </div>
+                    <div class="set-flex">
+                      <div class="media-title text-muted font-12 mb-0">Contact Number</div>
+                      <div class="text-job font-b-500 font-14">+123 45678345</div>
+                    </div>
+                    <div class="media-cta">
+                      <td><button mat-icon-button class="col-green"><mat-icon>check_circle_outline</mat-icon></button>
+                      </td>
+                    </div>
+                  </li>
+                </ul>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+            <app-patient-symptom-log></app-patient-symptom-log>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+            <app-patient-calorie-gauge></app-patient-calorie-gauge>
+          </div>
+        </div>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-patient-upcoming-dose></app-patient-upcoming-dose>
+        <app-patient-appointment-timeline></app-patient-appointment-timeline>
+
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Original Reports List</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <app-report-list [reports]="reports"></app-report-list>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+  </div>
+</section>

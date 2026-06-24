@@ -1,0 +1,10 @@
+<mat-card class="chart-card glass-card h-100">
+  <mat-card-header>
+    <mat-card-title>Weekly Claims Volume</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mt-4">
+    <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [xaxis]="chartOptions.xaxis!"
+      [plotOptions]="chartOptions.plotOptions!" [dataLabels]="chartOptions.dataLabels!"
+      [colors]="chartOptions.colors!" [tooltip]="chartOptions.tooltip!"></apx-chart>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,203 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="'Dashboad'" [items]="[]" [active_item]="'Dashboad'"></app-breadcrumb>
+      <div class="quick-actions">
+        <button mat-button color="primary" [routerLink]="'/admin/patients/add-patient'" class="me-2">
+          <mat-icon>person_add</mat-icon>
+          Add Patient
+        </button>
+        <button mat-button color="accent" [routerLink]="'/admin/appointment/appointment-calendar'">
+          <mat-icon>event</mat-icon>
+          Appointment
+        </button>
+      </div>
+    </div>
+    <!-- Widgets -->
+    <div class="row">
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        @defer (on viewport) {
+        <app-chart-card6 [cardTitle]="'Appointments'" [cardValue]="650" [icon]="'face'" [iconBg]="'#6F42C1'"
+          [chartOptions]="smallChart1Options">
+        </app-chart-card6>
+        } @placeholder {
+        <div class="skeleton-loader-card w-100" style="min-height: 120px;">
+          <div class="skeleton-header"></div>
+          <div class="skeleton-body"></div>
+        </div>
+        }
+      </div>
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        @defer (on viewport) {
+        <app-chart-card6 [cardTitle]="'Operations'" [cardValue]="54" [icon]="'content_cut'" [iconBg]="'#FD7E14'"
+          [chartOptions]="smallChart2Options">
+        </app-chart-card6>
+        } @placeholder {
+        <div class="skeleton-loader-card w-100" style="min-height: 120px;">
+          <div class="skeleton-header"></div>
+          <div class="skeleton-body"></div>
+        </div>
+        }
+      </div>
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        @defer (on viewport) {
+        <app-chart-card6 [cardTitle]="'New Patients'" [cardValue]="129" [icon]="'person_add'" [iconBg]="'#4CAF50'"
+          [chartOptions]="smallChart3Options">
+        </app-chart-card6>
+        } @placeholder {
+        <div class="skeleton-loader-card w-100" style="min-height: 120px;">
+          <div class="skeleton-header"></div>
+          <div class="skeleton-body"></div>
+        </div>
+        }
+      </div>
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        @defer (on viewport) {
+        <app-chart-card6 [cardTitle]="'Earning'" [cardValue]="20125" [icon]="'local_activity'" [iconBg]="'#2196F3'"
+          [chartOptions]="smallChart4Options">
+        </app-chart-card6>
+        } @placeholder {
+        <div class="skeleton-loader-card w-100" style="min-height: 120px;">
+          <div class="skeleton-header"></div>
+          <div class="skeleton-body"></div>
+        </div>
+        }
+      </div>
+    </div>
+    <!-- #END# Widgets -->
+    <div class="row">
+      <div class="col-lg-8 col-md-12 order-lg-1 order-2">
+        <div class="row">
+          <div class="col-lg-6 col-md-12">
+            <app-chart-card5></app-chart-card5>
+          </div>
+          <div class="col-lg-6 col-md-12">
+            <app-monthly-schedule [activityData]="demoActivityData" [selectedDate]="initialDate" [month]="currentMonth"
+              [year]="currentYear" (onDateChange)="handleDateChange($event)">
+            </app-monthly-schedule>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+            <app-staff-on-duty></app-staff-on-duty>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+            <app-lab-report-status></app-lab-report-status>
+          </div>
+        </div>
+        <mat-card>
+          <mat-card-header class="header-menu">
+            <mat-card-title>Hospital Survey</mat-card-title>
+            <mat-form-field appearance="outline" class="header-form-field">
+              <mat-select [(value)]="selectedTimePeriod" (selectionChange)="onTimePeriodChange($event)">
+                <mat-option class="header-select-option" value="Daily">Daily</mat-option>
+                <mat-option class="header-select-option" value="Monthly">Monthly</mat-option>
+                <mat-option class="header-select-option" value="Yearly">Yearly</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </mat-card-header>
+          <mat-card-content>
+            @defer (on viewport) {
+            <apx-chart [series]="areaChartOptions.series!" [chart]="areaChartOptions.chart!"
+              [xaxis]="areaChartOptions.xaxis!" [yaxis]="areaChartOptions.yaxis!" [colors]="areaChartOptions.colors!"
+              [stroke]="areaChartOptions.stroke!" [legend]="areaChartOptions.legend!"
+              [tooltip]="areaChartOptions.tooltip!" [grid]="areaChartOptions.grid!"
+              [dataLabels]="areaChartOptions.dataLabels!"></apx-chart>
+            } @placeholder {
+            <div class="chart-loader">Loading Chart...</div>
+            }
+          </mat-card-content>
+        </mat-card>
+        <div class="row mb-4">
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+            <app-resource-monitor></app-resource-monitor>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+            <app-patient-satisfaction></app-patient-satisfaction>
+          </div>
+        </div>
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Appointments</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 430px" visibility="hover">
+              @defer (on viewport) {
+              <app-patient-tbl-widget></app-patient-tbl-widget>
+              } @placeholder {
+              <div class="p-4 text-center">Loading Appointments...</div>
+              }
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-lg-4 col-md-12 order-lg-2 order-1">
+        <app-smart-insights></app-smart-insights>
+        <app-mini-calendar></app-mini-calendar>
+        <mat-card>
+          <mat-card-content>
+            <app-appointment-card [totalAppointments]="128" [completed]="73" [upcoming]="55">
+            </app-appointment-card>
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-content>
+            @defer (on viewport) {
+            <app-small-card-chart [title]="'Revenue'" [amount]="'$4,589'" [percentageChange]="'+7.5%'"
+              [profitData]="[210, 235, 400, 201, 210, 140, 110, 135, 400]"
+              [chartCategories]="['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep']">
+            </app-small-card-chart>
+            } @placeholder {
+            <div class="loading-placeholder"></div>
+            }
+          </mat-card-content>
+        </mat-card>
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Doctor Status</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 350px" visibility="hover">
+              <app-emp-status></app-emp-status>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+        <app-blood-bank-stock></app-blood-bank-stock>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-avg-wait-time></app-avg-wait-time>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-pharmacy-stats></app-pharmacy-stats>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-ward-bed-status></app-ward-bed-status>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        @defer (on viewport) {
+        <app-operations-tbl-widget></app-operations-tbl-widget>
+        } @placeholder {
+        <div class="loading-placeholder"></div>
+        }
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+        <app-doctor-on-call></app-doctor-on-call>
+      </div>
+      <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+        <app-patient-reviews></app-patient-reviews>
+      </div>
+      <div class="col-xl-4 col-lg-6 col-md-12 col-sm-12">
+        <app-health-advisory></app-health-advisory>
+      </div>
+    </div>
+  </div>
+</section>

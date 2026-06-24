@@ -1,0 +1,143 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.total-revenue {
+  text-align: right;
+
+  .label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #b2bec3;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .value {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #3498db;
+    line-height: 1.2;
+  }
+}
+
+.stream-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stream-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.stream-identity {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon-box {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+
+  &.bed {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.3);
+  }
+  &.medical_services {
+    background: linear-gradient(135deg, #a29bfe, #6c5ce7);
+    box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
+  }
+  &.biotech {
+    background: linear-gradient(135deg, #fab1a0, #e17055);
+    box-shadow: 0 4px 10px rgba(225, 112, 85, 0.3);
+  }
+}
+
+.stream-name {
+  font-weight: 500;
+  font-size: 14px;
+  color: #2d3436;
+}
+
+.stream-value {
+  text-align: right;
+
+  .amount {
+    font-weight: 600;
+    font-size: 15px;
+    color: #2d3436;
+    line-height: 1;
+  }
+
+  .percentage {
+    font-size: 10px;
+    font-weight: 700;
+    color: #b2bec3;
+  }
+}
+
+.progress-wrapper {
+  .progress-rail {
+    height: 8px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.bed {
+      background: #3498db;
+    }
+    &.medical_services {
+      background: #6c5ce7;
+    }
+    &.biotech {
+      background: #e17055;
+    }
+  }
+}
+
+:host-context(.dark) {
+  .stream-name {
+    color: #ffffff;
+  }
+  .stream-value {
+    .amount {
+      color: #ffffff;
+    }
+    .percentage {
+      color: #96a2b4;
+    }
+  }
+  .progress-wrapper {
+    .progress-rail {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  .total-revenue {
+    .label {
+      color: #96a2b4;
+    }
+  }
+}

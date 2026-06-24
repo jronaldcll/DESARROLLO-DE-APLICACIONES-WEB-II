@@ -1,0 +1,134 @@
+[
+  {
+    "doctorId": "D001",
+    "doctorName": "Dr. John Smith",
+    "department": "Cardiology",
+    "specialty": "Pediatric Cardiology",
+    "assignedDate": "2024-02-25T14:22:18Z",
+    "currentAssignmentStatus": "Active",
+    "shiftSchedule": "Mon-Fri, 9 AM - 5 PM",
+    "experienceLevel": "Senior",
+    "img": "assets/images/user/user1.jpg"
+  },
+  {
+    "doctorId": "D002",
+    "doctorName": "Dr. Emily Johnson",
+    "department": "Orthopedics",
+    "specialty": "Sports Medicine",
+    "assignedDate": "2023-12-12T10:15:00Z",
+    "currentAssignmentStatus": "Active",
+    "shiftSchedule": "Mon, Wed, Fri, 8 AM - 4 PM",
+    "experienceLevel": "Consultant",
+    "img": "assets/images/user/user2.jpg"
+  },
+  {
+    "doctorId": "D003",
+    "doctorName": "Dr. Alan Brown",
+    "department": "Neurology",
+    "specialty": "Epilepsy and Seizure Disorders",
+    "assignedDate": "2023-09-01T09:00:00Z",
+    "currentAssignmentStatus": "Pending",
+    "shiftSchedule": "Tue-Thu, 10 AM - 3 PM",
+    "experienceLevel": "Senior",
+    "img": "assets/images/user/user3.jpg"
+  },
+  {
+    "doctorId": "D004",
+    "doctorName": "Dr. Lisa White",
+    "department": "Dermatology",
+    "specialty": "Cosmetic Dermatology",
+    "assignedDate": "2024-01-18T11:45:00Z",
+    "currentAssignmentStatus": "Active",
+    "shiftSchedule": "Mon-Fri, 9 AM - 5 PM",
+    "experienceLevel": "Senior",
+    "img": "assets/images/user/user4.jpg"
+  },
+  {
+    "doctorId": "D005",
+    "doctorName": "Dr. Michael Green",
+    "department": "Pediatrics",
+    "specialty": "Neonatology",
+    "assignedDate": "2023-10-22T12:30:00Z",
+    "currentAssignmentStatus": "Active",
+    "shiftSchedule": "Mon-Fri, 7 AM - 3 PM",
+    "experienceLevel": "Junior",
+    "img": "assets/images/user/user5.jpg"
+  },
+  {
+    "doctorId": "D006",
+    "doctorName": "Dr. Olivia Black",
+    "department": "Cardiology",
+    "specialty": "Adult Cardiology",
+    "assignedDate": "2024-03-05T08:50:00Z",
+    "currentAssignmentStatus": "Active",
+    "shiftSchedule": "Mon-Fri, 9 AM - 6 PM",
+    "experienceLevel": "Consultant",
+    "img": "assets/images/user/user6.jpg"
+  },
+  {
+    "doctorId": "D007",
+    "doctorName": "Dr. James Anderson",
+    "department": "Orthopedics",
+    "specialty": "Joint Replacement",
+    "assignedDate": "2023-08-10T13:00:00Z",
+    "currentAssignmentStatus": "Inactive",
+    "shiftSchedule": "Mon-Wed, 9 AM - 5 PM",
+    "experienceLevel": "Senior",
+    "img": "assets/images/user/user7.jpg"
+  },
+  {
+    "doctorId": "D008",
+    "doctorName": "Dr. Sophia Lee",
+    "department": "Dermatology",
+    "specialty": "Pediatric Dermatology",
+    "assignedDate": "2023-11-15T15:25:00Z",
+    "currentAssignmentStatus": "Active",
+    "shiftSchedule": "Mon-Thu, 9 AM - 4 PM",
+    "experienceLevel": "Junior",
+    "img": "assets/images/user/user8.jpg"
+  },
+  {
+    "doctorId": "D009",
+    "doctorName": "Dr. David Taylor",
+    "department": "Neurology",
+    "specialty": "Parkinson's Disease",
+    "assignedDate": "2024-04-02T08:30:00Z",
+    "currentAssignmentStatus": "Active",
+    "shiftSchedule": "Tue-Fri, 10 AM - 5 PM",
+    "experienceLevel": "Senior",
+    "img": "assets/images/user/user9.jpg"
+  },
+  {
+    "doctorId": "D010",
+    "doctorName": "Dr. Sarah Martinez",
+    "department": "Oncology",
+    "specialty": "Breast Cancer",
+    "assignedDate": "2023-07-25T14:10:00Z",
+    "currentAssignmentStatus": "Active",
+    "shiftSchedule": "Mon-Wed, 9 AM - 3 PM",
+    "experienceLevel": "Consultant",
+    "img": "assets/images/user/user10.jpg"
+  },
+  {
+    "doctorId": "D011",
+    "doctorName": "Dr. Brian White",
+    "department": "Urology",
+    "specialty": "Pediatric Urology",
+    "assignedDate": "2023-11-05T16:20:00Z",
+    "currentAssignmentStatus": "Pending",
+    "shiftSchedule": "Mon-Fri, 8 AM - 4 PM",
+    "experienceLevel": "Junior",
+    "img": "assets/images/user/user11.jpg"
+  },
+  {
+    "doctorId": "D012",
+    "doctorName": "Dr. Rachel King",
+    "department": "Gastroenterology",
+    "specialty": "Inflammatory Bowel Disease",
+    "assignedDate": "2023-12-01T09:35:00Z",
+    "currentAssignmentStatus": "Active",
+    "shiftSchedule": "Mon-Thu, 9 AM - 6 PM",
+    "experienceLevel": "Senior",
+    "img": "assets/images/user/user12.jpg"
+  }
+]

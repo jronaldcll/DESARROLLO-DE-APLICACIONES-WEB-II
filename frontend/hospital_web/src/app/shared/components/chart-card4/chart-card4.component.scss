@@ -1,0 +1,42 @@
+/* chart-card4.component.scss */
+.chart-card4 {
+  .chart-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .statistics {
+    display: flex;
+    gap: 0.5rem;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .stat-item {
+    .count {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #333;
+    }
+
+    .label {
+      font-size: 0.875rem;
+      color: #666;
+    }
+
+    &.male {
+      .count {
+        color: #4f58d2;
+      }
+    }
+
+    &.female {
+      .count {
+        color: #edbe27;
+      }
+    }
+  }
+}

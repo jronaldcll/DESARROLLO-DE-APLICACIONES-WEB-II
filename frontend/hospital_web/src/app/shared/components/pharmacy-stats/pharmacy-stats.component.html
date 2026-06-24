@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Pharmacy Orders</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <apx-chart
+      [series]="chartOptions.series!"
+      [chart]="chartOptions.chart!"
+      [xaxis]="chartOptions.xaxis!"
+      [plotOptions]="chartOptions.plotOptions!"
+      [dataLabels]="chartOptions.dataLabels!"
+      [yaxis]="chartOptions.yaxis!"
+      [colors]="chartOptions.colors!"
+      [tooltip]="chartOptions.tooltip!"
+    ></apx-chart>
+  </mat-card-content>
+</mat-card>

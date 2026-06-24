@@ -1,0 +1,42 @@
+:host {
+  display: block;
+  height: 100%;
+}
+mat-card {
+  height: 100%;
+}
+.resource-card {
+  background: #fdfdfd;
+}
+:host-context(.dark) {
+  .resource-card {
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  .text-muted {
+    color: #96a2b4 !important;
+  }
+  .fw-bold {
+    color: #ffffff;
+  }
+}
+.text-success {
+  color: #4caf50;
+}
+.text-danger {
+  color: #f44336;
+}
+.text-primary {
+  color: #2196f3;
+}
+.text-info {
+  color: #00bcd4;
+}
+.fw-bold {
+  font-weight: 600;
+}
+mat-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}

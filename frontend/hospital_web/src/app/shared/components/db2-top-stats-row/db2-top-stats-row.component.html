@@ -1,0 +1,24 @@
+<div class="row">
+  @for (s of stats; track s.label) {
+    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+      <mat-card class="stat-card glass-card">
+        <mat-card-content class="p-3 pb-0">
+          <div class="d-flex align-items-center mb-3">
+            <div class="icon-shape me-3" [ngClass]="s.color">
+              <mat-icon>{{s.icon}}</mat-icon>
+            </div>
+            <div class="flex-grow-1">
+              <div class="h4 fw-bold mb-0">{{s.value}}</div>
+              <div class="text-muted">{{s.label}}</div>
+            </div>
+          </div>
+          <div
+            class="d-flex justify-content-between align-items-center mt-2 pt-2 border-top border-dark border-opacity-10">
+            <a href="javascript:void(0)" class="small text-decoration-none text-primary">View Details</a>
+            <span class="small text-success fw-bold">{{s.trend}} <mat-icon class="tiny-icon">trending_up</mat-icon></span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>

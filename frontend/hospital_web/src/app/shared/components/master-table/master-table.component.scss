@@ -1,0 +1,25 @@
+// This component uses shared styles from the main application
+// All table styles are inherited from the global styles
+
+// Progress bar styling
+.progress-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-width: 120px;
+
+  mat-progress-bar {
+    flex: 1;
+    height: 8px;
+    border-radius: 4px;
+  }
+
+  .progress-text {
+    font-size: 12px;
+    font-weight: 500;
+    min-width: 35px;
+    text-align: right;
+    color: var(--text-color);
+  }
+}

@@ -1,0 +1,40 @@
+<mat-card class="patient-chart-card">
+  <mat-card-header class="header-menu">
+    <mat-card-title>Patient Chart</mat-card-title>
+  </mat-card-header>
+  <div class="chart-header mt-3">
+    <div class="filter-tabs">
+      @for (tab of tabs; track tab) {
+        <button mat-button [color]="activeTab === tab ? 'primary' : undefined"
+          (click)="setChartData(tab)">
+          {{ tab }}
+        </button>
+      }
+    </div>
+  </div>
+
+  <div class="chart-container">
+    <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [labels]="chartOptions.labels!"
+      [responsive]="chartOptions.responsive!" [colors]="chartOptions.colors!"
+    [legend]="chartOptions.legend!"></apx-chart>
+    <div class=" center-text">
+      <div class="total">{{ total | number }}</div>
+      <div class="label">Total People</div>
+    </div>
+  </div>
+
+  <div class="info-list">
+    @for (label of chartOptions.labels; track label; let i = $index) {
+      <div class="info">
+        <div class="icon" [ngStyle]="{ 'background-color': chartOptions.colors?.[i] }">
+          <mat-icon class="material-icons-outlined">{{ getIcon(label) }}</mat-icon>
+        </div>
+        <div class="text">
+          <span class="label">{{ label }}</span>
+          <span class="value">{{ chartOptions.series?.[i] }}%</span>
+        </div>
+      </div>
+    }
+  </div>
+
+</mat-card>

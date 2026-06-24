@@ -1,0 +1,18 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Hospital Resources</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      @for (res of resources; track res.name) {
+        <div class="col-6 mb-3">
+          <div class="resource-card p-3 border rounded text-center">
+            <mat-icon [ngClass]="res.color">{{res.icon}}</mat-icon>
+            <div class="small text-muted mt-2">{{res.name}}</div>
+            <div class="fw-bold">{{res.value}}</div>
+          </div>
+        </div>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>

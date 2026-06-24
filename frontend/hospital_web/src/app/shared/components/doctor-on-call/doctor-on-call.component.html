@@ -1,0 +1,43 @@
+<mat-card class="doctor-card glass-card">
+  <mat-card-header class="d-flex justify-content-between align-items-center">
+    <mat-card-title>Doctors On-Call</mat-card-title>
+    <button mat-icon-button class="refresh-btn">
+      <mat-icon>refresh</mat-icon>
+    </button>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="doctor-list">
+      <ng-scrollbar style="height: 300px" visibility="hover">
+        @for (doc of doctors; track doc.name) {
+          <div class="doctor-profile">
+            <div class="image-container">
+              <img [src]="doc.image" alt="doctor">
+              <div class="status-indicator" [ngClass]="doc.status === 'Available' ? 'online' : 'busy'"></div>
+            </div>
+            <div class="info">
+              <div class="name">{{ doc.name }}</div>
+              <div class="specialty">{{ doc.specialty }}</div>
+              <div class="status-text" [ngClass]="doc.status === 'Available' ? 'text-success' : 'text-danger'">
+                {{ doc.status }}
+              </div>
+            </div>
+            <div class="actions">
+              <button mat-icon-button class="action-btn call" title="Voice Call">
+                <mat-icon>call</mat-icon>
+              </button>
+              <button mat-icon-button class="action-btn message" title="Send Message">
+                <mat-icon>chat</mat-icon>
+              </button>
+            </div>
+          </div>
+        }
+      </ng-scrollbar>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button class="footer-btn w-100">
+      <mat-icon>person_search</mat-icon>
+      <span>Find Specialized Consultant</span>
+    </button>
+  </mat-card-actions>
+</mat-card>

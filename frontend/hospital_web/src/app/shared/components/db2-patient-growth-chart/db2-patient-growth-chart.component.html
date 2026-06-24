@@ -1,0 +1,16 @@
+<mat-card class="chart-card glass-card">
+  <mat-card-header>
+    <mat-card-title>Patient Inflow Growth</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mt-4">
+    <apx-chart
+      [series]="chartOptions.series!"
+      [chart]="chartOptions.chart!"
+      [xaxis]="chartOptions.xaxis!"
+      [stroke]="chartOptions.stroke!"
+      [markers]="chartOptions.markers!"
+      [colors]="chartOptions.colors!"
+      [tooltip]="chartOptions.tooltip!"
+    ></apx-chart>
+  </mat-card-content>
+</mat-card>

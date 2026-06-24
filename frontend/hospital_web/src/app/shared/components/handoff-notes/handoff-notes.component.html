@@ -1,0 +1,33 @@
+<mat-card>
+  <mat-card-header class="header-style">
+    <mat-card-title>Handoff Notes</mat-card-title>
+    <a mat-button color="primary" href="#" (click)="onAddNote($event)">Add Note</a>
+  </mat-card-header>
+
+  <mat-card-content>
+    <ng-scrollbar style="height: 350px" visibility="hover">
+      <div class="handoff-notes">
+        @for (note of notes(); track note) {
+          <div class="handoff-note">
+            <div class="note-header d-flex justify-content-between align-items-center">
+              <div class="d-flex align-items-center">
+                <mat-icon class="material-icons-outlined note-icon">message</mat-icon>
+                <span class="note-sender">
+                  <img class="avtar-img" [src]="note.img" />
+                  {{ note.sender }}
+                </span>
+              </div>
+              <span class="note-time">{{ note.timestamp }}</span>
+            </div>
+            <div class="note-content">
+              <p>{{ note.message }}</p>
+            </div>
+            <div class="note-footer">
+              <div class="badge" [ngClass]="note.priorityClass">{{ note.priority }}</div>
+            </div>
+          </div>
+        }
+      </div>
+    </ng-scrollbar>
+  </mat-card-content>
+</mat-card>

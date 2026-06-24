@@ -1,0 +1,452 @@
+{
+  "LOGIN": {
+    "TITLE": "Bienvenue sur Smart"
+  },
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "Principal"
+    },
+    "FRONT-OFFICE": {
+      "TEXT": "Accueil",
+      "LIST": {
+        "ADMISSION": "Demande d'admission",
+        "VISITORS": "Registre des visiteurs",
+        "COMPLAINTS": "Réclamations"
+      }
+    },
+    "DASHBOARD": {
+      "TEXT": "Tableau de bord",
+      "LIST": {
+        "DASHBOARD1": "Tableau de bord 1",
+        "DASHBOARD2": "Tableau de bord 2",
+        "DOCTOR-DASHBOARD": "Tableau de bord enseignant",
+        "PATIENT-DASHBOARD": "Tableau de bord étudiant",
+        "LIBRARY-DASHBOARD": "Tableau de bord bibliothèque",
+        "TRANSPORT-DASHBOARD": "Tableau de bord transport"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "Enseignants",
+      "LIST": {
+        "ALL-DOCTORS": "Tous les enseignants",
+        "ADD-DOCTOR": "Ajouter un enseignant",
+        "EDIT-DOCTOR": "Modifier l'enseignant",
+        "ABOUT-DOCTOR": "À propos de l'enseignant",
+        "DOCTOR-TIMETABLE": "Emploi du temps enseignant",
+        "ASSIGN-WARD-DOCTOR": "Assigner un professeur principal"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "Étudiants",
+      "LIST": {
+        "ALL-PATIENTS": "Tous les étudiants",
+        "ADD-PATIENT": "Ajouter un étudiant",
+        "EDIT-PATIENT": "Modifier l'étudiant",
+        "ABOUT-PATIENT": "À propos de l'étudiant",
+        "PATIENT-ATTENDANCE": "Présence des étudiants",
+        "PATIENT-PROMOTION": "Promotion de l'étudiant",
+        "PATIENT-CERTIFICATES": "Certificats des étudiants",
+        "PATIENT-DISCIPLINE": "Discipline des étudiants",
+        "PATIENT-HEALTH-RECORDS": "Dossiers de santé des étudiants",
+        "ID-CARD-GENERATOR": "Générateur de cartes d'identité"
+      }
+    },
+    "ADMISSIONS": {
+      "TEXT": "Admissions",
+      "LIST": {
+        "ADMISSION-ENQUIRIES": "Demandes d'admission",
+        "ONLINE-APPLICATIONS": "Candidatures en ligne",
+        "ENTRANCE-EXAMS": "Examens d'entrée",
+        "MERIT-LIST": "Liste de mérite",
+        "SEAT-ALLOCATION": "Attribution des places"
+      }
+    },
+    "EXAMINATION": {
+      "TEXT": "Examens",
+      "LIST": {
+        "EXAM-TYPES": "Types d'examen",
+        "EXAM-SCHEDULE": "Planning des examens",
+        "HALL-ALLOCATION": "Attribution des salles",
+        "MARKS-ENTRY": "Saisie des notes",
+        "RESULT-GENERATION": "Génération des résultats",
+        "REPORT-CARDS": "Bulletins scolaires",
+        "QUIZ-BUILDER": "Créateur de quiz"
+      }
+    },
+    "COURSES": {
+      "TEXT": "Cours",
+      "LIST": {
+        "ALL-COURSES": "Tous les cours",
+        "ADD-COURSE": "Ajouter un cours",
+        "EDIT-COURSE": "Modifier le cours",
+        "ABOUT-COURSE": "À propos du cours"
+      }
+    },
+    "LIBRARY": {
+      "TEXT": "Bibliothèque",
+      "LIST": {
+        "ALL-LIBRARY": "Toutes les ressources de la bibliothèque",
+        "ADD-LIBRARY": "Ajouter une ressource",
+        "EDIT-LIBRARY": "Modifier une ressource",
+        "BOOK-STATUS": "Statut du livre",
+        "ISSUE-RETURN": "Prêt et retour",
+        "LIBRARY-REPORTS": "Rapports de la bibliothèque"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "Départements",
+      "LIST": {
+        "ALL-DEPARTMENT": "Tous les départements",
+        "ADD-DEPARTMENT": "Ajouter un département",
+        "EDIT-DEPARTMENT": "Modifier le département"
+      }
+    },
+    "STAFF": {
+      "TEXT": "Personnel",
+      "LIST": {
+        "ALL-STAFF": "Tout le personnel",
+        "ADD-STAFF": "Ajouter un membre du personnel",
+        "EDIT-STAFF": "Modifier le membre du personnel",
+        "ABOUT-STAFF": "À propos du personnel",
+        "STAFF-ATTENDANCE": "Présence du personnel"
+      }
+    },
+    "HOLIDAY": {
+      "TEXT": "Jours fériés",
+      "LIST": {
+        "ALL-HOLIDAY": "Tous les jours fériés",
+        "ADD-HOLIDAY": "Ajouter un jour férié",
+        "EDIT-HOLIDAY": "Modifier le jour férié"
+      }
+    },
+    "COMMUNICATION": {
+      "TEXT": "Communication",
+      "LIST": {
+        "NOTICE-BOARD": "Tableau d'affichage",
+        "ANNOUNCEMENTS": "Annonces",
+        "SMS-EMAIL": "SMS / E-mail"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "Rapports",
+      "LIST": {
+        "ACADEMIC-REPORTS": "Rapports académiques",
+        "ATTENDANCE-REPORTS": "Rapports de présence",
+        "FEE-REPORTS": "Rapports de frais",
+        "EXAM-REPORTS": "Rapports d'examen",
+        "CUSTOM-REPORTS": "Rapports personnalisés"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "Paramètres",
+      "LIST": {
+        "INSTITUTE-PROFILE": "Profil de l'institut",
+        "ROLE-PERMISSIONS": "Rôles et permissions",
+        "USER-MANAGEMENT": "Gestion des utilisateurs",
+        "ACADEMIC-RULES": "Règles académiques",
+        "NOTIFICATION-SETTINGS": "Paramètres de notification",
+        "SYSTEM-LOGS": "Journaux système",
+        "BACKUP-RESTORE": "Sauvegarde et restauration",
+        "AI-SETTINGS": "Paramètres IA"
+      }
+    },
+    "FEES": {
+      "TEXT": "Frais",
+      "LIST": {
+        "ALL-FEES": "Tous les frais",
+        "ADD-FEES": "Ajouter des frais",
+        "EDIT-FEES": "Modifier les frais",
+        "FEES-TYPE": "Type de frais",
+        "FEES-DISCOUNT": "Remise sur les frais",
+        "FEE-RECEIPT": "Reçu de paiement"
+      }
+    },
+    "WARD": {
+      "TEXT": "WARDe",
+      "LIST": {
+        "WARD-LIST": "Liste des WARDes",
+        "WARD-TIMETABLE": "Emploi du temps de la WARDe"
+      }
+    },
+    "ACADEMICS": {
+      "TEXT": "Académique",
+      "LIST": {
+        "ACADEMIC-YEAR": "Année académique",
+        "SESSIONS": "Sessions / Semestres",
+        "WARDES": "WARDes",
+        "SUBJECTS": "Matières",
+        "COURSE-CURRICULUM": "Programme d'études",
+        "ASSIGNMENT": "Affectation WARDe & matière",
+        "LESSON-PLANNING": "Planification des leçons"
+      }
+    },
+    "HOSTEL": {
+      "TEXT": "Internat",
+      "LIST": {
+        "ROOM-LIST": "Liste des chambres",
+        "ROOM-TYPE": "Type de chambre",
+        "ALLOCATIONS": "Attributions",
+        "ATTENDANCE": "Présence à l'internat",
+        "HOSTEL-FEES": "Frais d'internat"
+      }
+    },
+    "HR": {
+      "TEXT": "Ressources humaines",
+      "LIST": {
+        "LEAVE-REQUESTS": "Demandes de congé des employés",
+        "LEAVE-BALANCE": "Solde des congés",
+        "LEAVE-TYPES": "Types de congé",
+        "HOLIDAYS": "Jours fériés",
+        "TODAY-ATTENDANCE": "Présence d'aujourd'hui",
+        "ATTENDANCE-DETAIL": "Détail de présence",
+        "ATTENDANCE-SHEET": "Feuille de présence",
+        "EMPLOYEE-SALARY": "Salaire de l'employé",
+        "PAYSLIP": "Bulletin de salaire"
+      }
+    },
+    "DOCTOR": {
+      "TEXT": "Enseignant",
+      "LIST": {
+        "AI-LESSON-PLANNER": "Planificateur de leçons IA",
+        "DASHBOARD": "Tableau de bord",
+        "TODAY-SCHEDULE": "Emploi du temps du jour",
+        "ATTENDANCE-SUMMARY": "Résumé de présence",
+        "ACADEMICS": "Académique",
+        "STUDY-MATERIALS": "Supports pédagogiques",
+        "PATIENTS": "Étudiants",
+        "PATIENT-PERFORMANCE": "Performance des étudiants",
+        "EXAMINATION": "Examens",
+        "GRADE-SUBMISSION": "Soumission des notes",
+        "RESULT-PREVIEW": "Aperçu des résultats",
+        "TIMETABLE": "Emploi du temps",
+        "MY-TIMETABLE": "Mon emploi du temps",
+        "SUBSTITUTION-REQUESTS": "Demandes de remplacement",
+        "COMMUNICATION": "Communication",
+        "MESSAGES": "Messages",
+        "ATTENDANCE": "Présence",
+        "DAILY-ATTENDANCE": "Présence quotidienne",
+        "ATTENDANCE-HISTORY": "Historique de présence",
+        "ATTENDANCE-CALENDAR": "Calendrier de présence",
+        "LEAVE": "Congé",
+        "APPLY-LEAVE": "Demander un congé",
+        "LEAVE-STATUS": "Statut du congé",
+        "MY-PROFILE": "Mon profil",
+        "DOCUMENTS": "Documents",
+        "CHANGE-PASSWORD": "Changer le mot de passe",
+        "LECTURES": "Cours",
+        "LEAVE-REQUEST": "Demande de congé",
+        "EXAM-SCHEDULE": "Planning des examens",
+        "MY-WARDES": "Mes WARDes",
+        "SUBJECTS-TAUGHT": "Matières enseignées",
+        "PROFILE": "Profil",
+        "SETTINGS": "Paramètres"
+      }
+    },
+    "PATIENT": {
+      "TEXT": "Étudiant",
+      "LIST": {
+        "AI-STUDY-COMPANION": "Assistant d'étude IA",
+        "DASHBOARD": "Tableau de bord",
+        "HOMEWORK": "Devoirs",
+        "LEAVE-REQUEST": "Demande de congé",
+        "TIME-TABLE": "Emploi du temps",
+        "UPCOMING-EXAMS": "Examens à venir",
+        "MY-WARD": "Ma WARDe",
+        "MY-SUBJECTS": "Mes matières",
+        "ANNOUNCEMENTS": "Annonces",
+        "ACADEMICS": "Académique",
+        "SYLLABUS": "Programme",
+        "ASSIGNMENTS": "Devoirs",
+        "STUDY-MATERIALS": "Supports d'étude",
+        "ACADEMIC-CALENDAR": "Calendrier académique",
+        "ATTENDANCE": "Présence",
+        "MONTHLY-SUMMARY": "Résumé mensuel",
+        "MY-ATTENDANCE": "Ma présence",
+        "ATTENDANCE-SUMMARY": "Résumé de présence",
+        "ATTENDANCE-CALENDAR": "Calendrier de présence",
+        "FEES": "Frais",
+        "FEE-RECEIPTS": "Reçus de paiement",
+        "DUE-FEES": "Frais dus",
+        "FEE-DETAILS": "Détails des frais",
+        "ONLINE-PAYMENT": "Paiement en ligne",
+        "LIBRARY": "Bibliothèque",
+        "MY-ISSUED-BOOKS": "Mes livres empruntés",
+        "DUE-DATES": "Dates d'échéance",
+        "BOOK-HISTORY": "Historique des livres",
+        "TRANSPORT": "Transport",
+        "MY-ROUTE": "Mon itinéraire",
+        "VEHICLE-DETAILS": "Détails du véhicule",
+        "HOSTEL": "Internat",
+        "ROOM-DETAILS": "Détails de la chambre",
+        "HOSTEL-FEES": "Frais d'internat",
+        "COMPLAINTS": "Réclamations",
+        "EXAMINATION": "Examens",
+        "EXAM-SCHEDULE": "Planning des examens",
+        "HALL-TICKET": "Convocation d'examen",
+        "MARKS": "Notes",
+        "REPORT-CARD": "Bulletin scolaire",
+        "RESULTS": "Résultats",
+        "NOTICES": "Avis",
+        "PROFILE": "Profil",
+        "SETTINGS": "Paramètres"
+      }
+    },
+    "APPS": {
+      "TEXT": "Applications"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendrier"
+    },
+    "TASK": {
+      "TEXT": "Tâche"
+    },
+    "CONTACTS": {
+      "TEXT": "Contacts"
+    },
+    "TRANSPORT": {
+      "TEXT": "Transport",
+      "LIST": {
+        "VEHICLES": "Véhicules",
+        "ROUTES": "Itinéraires",
+        "DRIVERS": "Conducteurs",
+        "PATIENT-ALLOCATION": "Affectation des étudiants",
+        "TRANSPORT-FEES": "Frais de transport"
+      }
+    },
+    "EXTRA": {
+      "RADIOLOGY_RIS": "Radiology (RIS)",
+      "TEST_ORDERING": "Test Ordering",
+      "SCANS_TRACKING": "Scans Tracking",
+      "IMAGING_REPORTS": "Imaging Reports",
+      "TELEMEDICINE": "Telemedicine",
+      "VIDEO_CONSULTATION": "Video Consultation",
+      "VIRTUAL_VISIT_RECORDS": "Virtual Visit Records",
+      "ID_CARD_GENERATOR": "ID Card Generator",
+      "ASSETS_EQUIPMENT": "Assets & Equipment",
+      "EQUIPMENT_LIST": "Equipment List",
+      "MAINTENANCE_SCHEDULE": "Maintenance Schedule",
+      "BREAKDOWN_REPORTING": "Breakdown Reporting",
+      "FEEDBACK": "Feedback",
+      "PATIENT_FEEDBACK": "Patient Feedback",
+      "COMPLAINT_RESOLUTION": "Complaint Resolution",
+      "WASTE_MANAGEMENT": "Waste Management",
+      "BIO_MEDICAL_WASTE": "Bio-medical Waste",
+      "DISPOSAL_LOGS": "Disposal Logs",
+      "QUALITY_COMPLIANCE": "Quality & Compliance",
+      "AUDIT_CHECKLIST": "Audit Checklist",
+      "COMPLIANCE_DOCS": "Compliance Docs",
+      "VISITOR_MANAGEMENT": "Visitor Management",
+      "VISITOR_REGISTRATION": "Visitor Registration",
+      "VISIT_LOGS": "Visit Logs",
+      "REPORTS_ANALYTICS": "Reports & Analytics",
+      "CLINICAL_REPORTS": "Clinical Reports",
+      "FINANCIAL_REPORTS": "Financial Reports",
+      "INVENTORY_REPORTS": "Inventory Reports",
+      "ANALYTICS": "Analytics",
+      "BILLING": "Billing",
+      "MEDICAL_CERTIFICATES": "Medical Certificates",
+      "CONSULTATIONS_NOTE": "Consultations Note",
+      "INVENTORY_REQUESTS": "Inventory Requests",
+      "LAB_REPORTS": "Lab Reports",
+      "PATIENT_RECORDS": "Patient Records",
+      "PRESCRIPTIONS": "Prescriptions",
+      "REFERRALS": "Referrals",
+      "SURGERIES": "Surgeries",
+      "CLINICAL_TASKS": "Clinical Tasks",
+      "LAB_DIAGNOSTIC_REPORTS": "Lab & Diagnostic Reports",
+      "INSURANCE_CLAIMS": "Insurance & Claims",
+      "VACCINATIONS": "Vaccinations",
+      "HEALTH_MONITORING": "Health Monitoring",
+      "FAMILY_MEMBERS": "Family Members",
+      "DOCUMENTS_REPORTS": "Documents & Reports",
+      "EMERGENCY_SUPPORT": "Emergency Support",
+      "HEALTH_PLANS": "Health Plans",
+      "LIFESTYLE": "Lifestyle",
+      "NOTIFICATIONS": "Notifications",
+      "APPS": "Apps",
+      "CALENDAR": "Calendar",
+      "TASK": "Task",
+      "CONTACTS": "Contacts",
+      "EMAIL": "Email",
+      "INBOX": "Inbox",
+      "COMPOSE": "Compose",
+      "READ_EMAIL": "Read Email",
+      "MORE_APPS": "More Apps",
+      "CHAT": "Chat",
+      "CONTACT_GRID": "Contact Grid",
+      "DRAG_DROP": "Drag & Drop",
+      "SUPPORT": "Support",
+      "KANBAN_BOARD": "Kanban Board",
+      "FILE_MANAGER": "File Manager",
+      "NOTIFICATION_CENTER": "Notification Center",
+      "WIDGETS": "Widgets",
+      "CHART_WIDGET": "Chart Widget",
+      "DATA_WIDGET": "Data Widget",
+      "COMPONENTS": "Components",
+      "USER_INTERFACE_UI": "User Interface (UI)",
+      "ALERTS": "Alerts",
+      "BADGES": "Badges",
+      "CHIPS": "Chips",
+      "MODAL": "Modal",
+      "BUTTONS": "Buttons",
+      "EXPANSION_PANEL": "Expansion Panel",
+      "BOTTOM_SHEET": "Bottom Sheet",
+      "DIALOGS": "Dialogs",
+      "CARDS": "Cards",
+      "LABELS": "Labels",
+      "LIST_GROUP": "List Group",
+      "SNACKBAR": "Snackbar",
+      "PRELOADERS": "Preloaders",
+      "PROGRESS_BARS": "Progress Bars",
+      "TABS": "Tabs",
+      "TYPOGRAPHY": "Typography",
+      "HELPER_CLASSES": "Helper Classes",
+      "FORMS": "Forms",
+      "FORM_CONTROLS": "Form Controls",
+      "ADVANCED_CONTROLS": "Advanced Controls",
+      "FORM_EXAMPLES": "Form Examples",
+      "FORM_VALIDATION": "Form Validation",
+      "FORM_WIZARD": "Form Wizard",
+      "EDITORS": "Editors",
+      "TABLES": "Tables",
+      "BASIC_TABLES": "Basic Tables",
+      "MATERIAL_TABLES": "Material Tables",
+      "NGX_DATATABLE": "ngx-datatable",
+      "CHARTS": "Charts",
+      "ECHART": "Echart",
+      "APEX": "Apex",
+      "CHARTJS": "ChartJS",
+      "NGX_CHARTS": "Ngx-Charts",
+      "GAUGE": "Gauge",
+      "TIMELINE": "Timeline",
+      "TIMELINE_1": "Timeline 1",
+      "TIMELINE_2": "Timeline 2",
+      "ICONS": "Icons",
+      "MATERIAL_ICONS": "Material Icons",
+      "FONT_AWESOME": "Font Awesome",
+      "AUTHENTICATION": "Authentication",
+      "SIGN_IN": "Sign In",
+      "SIGN_UP": "Sign Up",
+      "FORGOT_PASSWORD": "Forgot Password",
+      "LOCKED": "Locked",
+      "404_NOT_FOUND": "404 - Not Found",
+      "500_SERVER_ERROR": "500 - Server Error",
+      "2_FACTOR_AUTH": "2-Factor Auth",
+      "MAINTENANCE": "Maintenance",
+      "COMING_SOON": "Coming Soon",
+      "EXTRA_PAGES": "Extra Pages",
+      "PROFILE": "Profile",
+      "PRICING": "Pricing",
+      "INVOICE": "Invoice",
+      "FAQS": "Faqs",
+      "BLANK_PAGE": "Blank Page",
+      "MULTI_LEVEL_MENU": "Multi level Menu",
+      "FIRST": "First",
+      "SECOND": "Second",
+      "SECOND_1": "Second 1",
+      "SECOND_2": "Second 2",
+      "THIRD_1": "third 1",
+      "THIRD": "Third"
+    }
+  }
+}

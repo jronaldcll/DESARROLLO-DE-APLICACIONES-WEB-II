@@ -1,0 +1,452 @@
+{
+  "LOGIN": {
+    "TITLE": "مرحبًا بك في Smart"
+  },
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "الرئيسية"
+    },
+    "FRONT-OFFICE": {
+      "TEXT": "الاستقبال",
+      "LIST": {
+        "ADMISSION": "استفسار القبول",
+        "VISITORS": "سجل الزوار",
+        "COMPLAINTS": "الشكاوى"
+      }
+    },
+    "DASHBOARD": {
+      "TEXT": "لوحة التحكم",
+      "LIST": {
+        "DASHBOARD1": "لوحة التحكم 1",
+        "DASHBOARD2": "لوحة التحكم 2",
+        "DOCTOR-DASHBOARD": "لوحة تحكم المعلم",
+        "PATIENT-DASHBOARD": "لوحة تحكم الطالب",
+        "LIBRARY-DASHBOARD": "لوحة تحكم المكتبة",
+        "TRANSPORT-DASHBOARD": "لوحة تحكم النقل"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "المعلمون",
+      "LIST": {
+        "ALL-DOCTORS": "جميع المعلمين",
+        "ADD-DOCTOR": "إضافة معلم",
+        "EDIT-DOCTOR": "تعديل معلم",
+        "ABOUT-DOCTOR": "عن المعلم",
+        "DOCTOR-TIMETABLE": "جدول المعلم",
+        "ASSIGN-WARD-DOCTOR": "تعيين معلم للصف"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "الطلاب",
+      "LIST": {
+        "ALL-PATIENTS": "جميع الطلاب",
+        "ADD-PATIENT": "إضافة طالب",
+        "EDIT-PATIENT": "تعديل طالب",
+        "ABOUT-PATIENT": "عن الطالب",
+        "PATIENT-ATTENDANCE": "حضور الطالب",
+        "PATIENT-PROMOTION": "ترقية الطالب",
+        "PATIENT-CERTIFICATES": "شهادات الطالب",
+        "PATIENT-DISCIPLINE": "انضباط الطالب",
+        "PATIENT-HEALTH-RECORDS": "السجلات الصحية للطالب",
+        "ID-CARD-GENERATOR": "مولد بطاقة الهوية"
+      }
+    },
+    "ADMISSIONS": {
+      "TEXT": "القبول",
+      "LIST": {
+        "ADMISSION-ENQUIRIES": "استفسارات القبول",
+        "ONLINE-APPLICATIONS": "طلبات التقديم عبر الإنترنت",
+        "ENTRANCE-EXAMS": "اختبارات القبول",
+        "MERIT-LIST": "قائمة الجدارة",
+        "SEAT-ALLOCATION": "تخصيص المقاعد"
+      }
+    },
+    "EXAMINATION": {
+      "TEXT": "الامتحانات",
+      "LIST": {
+        "EXAM-TYPES": "أنواع الامتحانات",
+        "EXAM-SCHEDULE": "جدول الامتحانات",
+        "HALL-ALLOCATION": "تخصيص القاعات",
+        "MARKS-ENTRY": "إدخال الدرجات",
+        "RESULT-GENERATION": "إصدار النتائج",
+        "REPORT-CARDS": "بطاقات النتائج",
+        "QUIZ-BUILDER": "منشئ الاختبارات"
+      }
+    },
+    "COURSES": {
+      "TEXT": "الدورات",
+      "LIST": {
+        "ALL-COURSES": "جميع الدورات",
+        "ADD-COURSE": "إضافة دورة",
+        "EDIT-COURSE": "تعديل دورة",
+        "ABOUT-COURSE": "عن الدورة"
+      }
+    },
+    "LIBRARY": {
+      "TEXT": "المكتبة",
+      "LIST": {
+        "ALL-LIBRARY": "جميع موارد المكتبة",
+        "ADD-LIBRARY": "إضافة مورد للمكتبة",
+        "EDIT-LIBRARY": "تعديل مورد المكتبة",
+        "BOOK-STATUS": "حالة الكتاب",
+        "ISSUE-RETURN": "إعارة وإرجاع",
+        "LIBRARY-REPORTS": "تقارير المكتبة"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "الأقسام",
+      "LIST": {
+        "ALL-DEPARTMENT": "جميع الأقسام",
+        "ADD-DEPARTMENT": "إضافة قسم",
+        "EDIT-DEPARTMENT": "تعديل قسم"
+      }
+    },
+    "STAFF": {
+      "TEXT": "الموظفون",
+      "LIST": {
+        "ALL-STAFF": "جميع الموظفين",
+        "ADD-STAFF": "إضافة موظف",
+        "EDIT-STAFF": "تعديل موظف",
+        "ABOUT-STAFF": "عن الموظف",
+        "STAFF-ATTENDANCE": "حضور الموظفين"
+      }
+    },
+    "HOLIDAY": {
+      "TEXT": "العطلات",
+      "LIST": {
+        "ALL-HOLIDAY": "جميع العطلات",
+        "ADD-HOLIDAY": "إضافة عطلة",
+        "EDIT-HOLIDAY": "تعديل عطلة"
+      }
+    },
+    "COMMUNICATION": {
+      "TEXT": "التواصل",
+      "LIST": {
+        "NOTICE-BOARD": "لوحة الإعلانات",
+        "ANNOUNCEMENTS": "الإعلانات",
+        "SMS-EMAIL": "رسائل SMS / البريد الإلكتروني"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "التقارير",
+      "LIST": {
+        "ACADEMIC-REPORTS": "التقارير الأكاديمية",
+        "ATTENDANCE-REPORTS": "تقارير الحضور",
+        "FEE-REPORTS": "تقارير الرسوم",
+        "EXAM-REPORTS": "تقارير الامتحانات",
+        "CUSTOM-REPORTS": "تقارير مخصصة"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "الإعدادات",
+      "LIST": {
+        "INSTITUTE-PROFILE": "ملف المؤسسة",
+        "ROLE-PERMISSIONS": "الأدوار والصلاحيات",
+        "USER-MANAGEMENT": "إدارة المستخدمين",
+        "ACADEMIC-RULES": "القواعد الأكاديمية",
+        "NOTIFICATION-SETTINGS": "إعدادات الإشعارات",
+        "SYSTEM-LOGS": "سجلات النظام",
+        "BACKUP-RESTORE": "النسخ الاحتياطي والاستعادة",
+        "AI-SETTINGS": "إعدادات الذكاء الاصطناعي"
+      }
+    },
+    "FEES": {
+      "TEXT": "الرسوم",
+      "LIST": {
+        "ALL-FEES": "جميع الرسوم",
+        "ADD-FEES": "إضافة رسوم",
+        "EDIT-FEES": "تعديل الرسوم",
+        "FEES-TYPE": "نوع الرسوم",
+        "FEES-DISCOUNT": "خصم الرسوم",
+        "FEE-RECEIPT": "إيصال الرسوم"
+      }
+    },
+    "WARD": {
+      "TEXT": "الصف",
+      "LIST": {
+        "WARD-LIST": "قائمة الصفوف",
+        "WARD-TIMETABLE": "جدول الصف"
+      }
+    },
+    "ACADEMICS": {
+      "TEXT": "الشؤون الأكاديمية",
+      "LIST": {
+        "ACADEMIC-YEAR": "السنة الأكاديمية",
+        "SESSIONS": "الفصول / الفترات",
+        "WARDES": "الصفوف",
+        "SUBJECTS": "المواد",
+        "COURSE-CURRICULUM": "المنهج الدراسي",
+        "ASSIGNMENT": "تعيين الصف والمواد",
+        "LESSON-PLANNING": "تخطيط الدروس"
+      }
+    },
+    "HOSTEL": {
+      "TEXT": "السكن",
+      "LIST": {
+        "ROOM-LIST": "قائمة الغرف",
+        "ROOM-TYPE": "نوع الغرفة",
+        "ALLOCATIONS": "التخصيصات",
+        "ATTENDANCE": "حضور السكن",
+        "HOSTEL-FEES": "رسوم السكن"
+      }
+    },
+    "HR": {
+      "TEXT": "الموارد البشرية",
+      "LIST": {
+        "LEAVE-REQUESTS": "طلبات إجازة الموظفين",
+        "LEAVE-BALANCE": "رصيد الإجازات",
+        "LEAVE-TYPES": "أنواع الإجازات",
+        "HOLIDAYS": "العطلات",
+        "TODAY-ATTENDANCE": "حضور اليوم",
+        "ATTENDANCE-DETAIL": "تفاصيل الحضور",
+        "ATTENDANCE-SHEET": "سجل الحضور",
+        "EMPLOYEE-SALARY": "راتب الموظف",
+        "PAYSLIP": "قسيمة الراتب"
+      }
+    },
+    "DOCTOR": {
+      "TEXT": "المعلم",
+      "LIST": {
+        "AI-LESSON-PLANNER": "مخطط الدروس بالذكاء الاصطناعي",
+        "DASHBOARD": "لوحة التحكم",
+        "TODAY-SCHEDULE": "جدول اليوم",
+        "ATTENDANCE-SUMMARY": "ملخص الحضور",
+        "ACADEMICS": "الشؤون الأكاديمية",
+        "STUDY-MATERIALS": "المواد الدراسية",
+        "PATIENTS": "الطلاب",
+        "PATIENT-PERFORMANCE": "أداء الطلاب",
+        "EXAMINATION": "الامتحانات",
+        "GRADE-SUBMISSION": "إرسال الدرجات",
+        "RESULT-PREVIEW": "معاينة النتائج",
+        "TIMETABLE": "الجدول",
+        "MY-TIMETABLE": "جدولي",
+        "SUBSTITUTION-REQUESTS": "طلبات الاستبدال",
+        "COMMUNICATION": "التواصل",
+        "MESSAGES": "الرسائل",
+        "ATTENDANCE": "الحضور",
+        "DAILY-ATTENDANCE": "الحضور اليومي",
+        "ATTENDANCE-HISTORY": "سجل الحضور",
+        "ATTENDANCE-CALENDAR": "تقويم الحضور",
+        "LEAVE": "إجازة",
+        "APPLY-LEAVE": "طلب إجازة",
+        "LEAVE-STATUS": "حالة الإجازة",
+        "MY-PROFILE": "ملفي الشخصي",
+        "DOCUMENTS": "المستندات",
+        "CHANGE-PASSWORD": "تغيير كلمة المرور",
+        "LECTURES": "المحاضرات",
+        "LEAVE-REQUEST": "طلب إجازة",
+        "EXAM-SCHEDULE": "جدول الامتحانات",
+        "MY-WARDES": "صفوفي",
+        "SUBJECTS-TAUGHT": "المواد التي أدرسها",
+        "PROFILE": "الملف الشخصي",
+        "SETTINGS": "الإعدادات"
+      }
+    },
+    "PATIENT": {
+      "TEXT": "الطالب",
+      "LIST": {
+        "AI-STUDY-COMPANION": "مساعد الدراسة بالذكاء الاصطناعي",
+        "DASHBOARD": "لوحة التحكم",
+        "HOMEWORK": "الواجبات المنزلية",
+        "LEAVE-REQUEST": "طلب إجازة",
+        "TIME-TABLE": "الجدول",
+        "UPCOMING-EXAMS": "الامتحانات القادمة",
+        "MY-WARD": "صفي",
+        "MY-SUBJECTS": "موادي",
+        "ANNOUNCEMENTS": "الإعلانات",
+        "ACADEMICS": "الشؤون الأكاديمية",
+        "SYLLABUS": "المنهج",
+        "ASSIGNMENTS": "الواجبات",
+        "STUDY-MATERIALS": "المواد الدراسية",
+        "ACADEMIC-CALENDAR": "التقويم الأكاديمي",
+        "ATTENDANCE": "الحضور",
+        "MONTHLY-SUMMARY": "الملخص الشهري",
+        "MY-ATTENDANCE": "حضوري",
+        "ATTENDANCE-SUMMARY": "ملخص الحضور",
+        "ATTENDANCE-CALENDAR": "تقويم الحضور",
+        "FEES": "الرسوم",
+        "FEE-RECEIPTS": "إيصالات الرسوم",
+        "DUE-FEES": "الرسوم المستحقة",
+        "FEE-DETAILS": "تفاصيل الرسوم",
+        "ONLINE-PAYMENT": "الدفع الإلكتروني",
+        "LIBRARY": "المكتبة",
+        "MY-ISSUED-BOOKS": "كتبي المعارة",
+        "DUE-DATES": "تواريخ الاستحقاق",
+        "BOOK-HISTORY": "سجل الكتب",
+        "TRANSPORT": "النقل",
+        "MY-ROUTE": "مساري",
+        "VEHICLE-DETAILS": "تفاصيل المركبة",
+        "HOSTEL": "السكن",
+        "ROOM-DETAILS": "تفاصيل الغرفة",
+        "HOSTEL-FEES": "رسوم السكن",
+        "COMPLAINTS": "الشكاوى",
+        "EXAMINATION": "الامتحانات",
+        "EXAM-SCHEDULE": "جدول الامتحانات",
+        "HALL-TICKET": "بطاقة دخول الامتحان",
+        "MARKS": "الدرجات",
+        "REPORT-CARD": "بطاقة النتائج",
+        "RESULTS": "النتائج",
+        "NOTICES": "الإشعارات",
+        "PROFILE": "الملف الشخصي",
+        "SETTINGS": "الإعدادات"
+      }
+    },
+    "APPS": {
+      "TEXT": "التطبيقات"
+    },
+    "CALENDAR": {
+      "TEXT": "التقويم"
+    },
+    "TASK": {
+      "TEXT": "المهام"
+    },
+    "CONTACTS": {
+      "TEXT": "جهات الاتصال"
+    },
+    "TRANSPORT": {
+      "TEXT": "النقل",
+      "LIST": {
+        "VEHICLES": "المركبات",
+        "ROUTES": "المسارات",
+        "DRIVERS": "السائقون",
+        "PATIENT-ALLOCATION": "تخصيص الطلاب",
+        "TRANSPORT-FEES": "رسوم النقل"
+      }
+    },
+    "EXTRA": {
+      "RADIOLOGY_RIS": "Radiology (RIS)",
+      "TEST_ORDERING": "Test Ordering",
+      "SCANS_TRACKING": "Scans Tracking",
+      "IMAGING_REPORTS": "Imaging Reports",
+      "TELEMEDICINE": "Telemedicine",
+      "VIDEO_CONSULTATION": "Video Consultation",
+      "VIRTUAL_VISIT_RECORDS": "Virtual Visit Records",
+      "ID_CARD_GENERATOR": "ID Card Generator",
+      "ASSETS_EQUIPMENT": "Assets & Equipment",
+      "EQUIPMENT_LIST": "Equipment List",
+      "MAINTENANCE_SCHEDULE": "Maintenance Schedule",
+      "BREAKDOWN_REPORTING": "Breakdown Reporting",
+      "FEEDBACK": "Feedback",
+      "PATIENT_FEEDBACK": "Patient Feedback",
+      "COMPLAINT_RESOLUTION": "Complaint Resolution",
+      "WASTE_MANAGEMENT": "Waste Management",
+      "BIO_MEDICAL_WASTE": "Bio-medical Waste",
+      "DISPOSAL_LOGS": "Disposal Logs",
+      "QUALITY_COMPLIANCE": "Quality & Compliance",
+      "AUDIT_CHECKLIST": "Audit Checklist",
+      "COMPLIANCE_DOCS": "Compliance Docs",
+      "VISITOR_MANAGEMENT": "Visitor Management",
+      "VISITOR_REGISTRATION": "Visitor Registration",
+      "VISIT_LOGS": "Visit Logs",
+      "REPORTS_ANALYTICS": "Reports & Analytics",
+      "CLINICAL_REPORTS": "Clinical Reports",
+      "FINANCIAL_REPORTS": "Financial Reports",
+      "INVENTORY_REPORTS": "Inventory Reports",
+      "ANALYTICS": "Analytics",
+      "BILLING": "Billing",
+      "MEDICAL_CERTIFICATES": "Medical Certificates",
+      "CONSULTATIONS_NOTE": "Consultations Note",
+      "INVENTORY_REQUESTS": "Inventory Requests",
+      "LAB_REPORTS": "Lab Reports",
+      "PATIENT_RECORDS": "Patient Records",
+      "PRESCRIPTIONS": "Prescriptions",
+      "REFERRALS": "Referrals",
+      "SURGERIES": "Surgeries",
+      "CLINICAL_TASKS": "Clinical Tasks",
+      "LAB_DIAGNOSTIC_REPORTS": "Lab & Diagnostic Reports",
+      "INSURANCE_CLAIMS": "Insurance & Claims",
+      "VACCINATIONS": "Vaccinations",
+      "HEALTH_MONITORING": "Health Monitoring",
+      "FAMILY_MEMBERS": "Family Members",
+      "DOCUMENTS_REPORTS": "Documents & Reports",
+      "EMERGENCY_SUPPORT": "Emergency Support",
+      "HEALTH_PLANS": "Health Plans",
+      "LIFESTYLE": "Lifestyle",
+      "NOTIFICATIONS": "Notifications",
+      "APPS": "Apps",
+      "CALENDAR": "Calendar",
+      "TASK": "Task",
+      "CONTACTS": "Contacts",
+      "EMAIL": "Email",
+      "INBOX": "Inbox",
+      "COMPOSE": "Compose",
+      "READ_EMAIL": "Read Email",
+      "MORE_APPS": "More Apps",
+      "CHAT": "Chat",
+      "CONTACT_GRID": "Contact Grid",
+      "DRAG_DROP": "Drag & Drop",
+      "SUPPORT": "Support",
+      "KANBAN_BOARD": "Kanban Board",
+      "FILE_MANAGER": "File Manager",
+      "NOTIFICATION_CENTER": "Notification Center",
+      "WIDGETS": "Widgets",
+      "CHART_WIDGET": "Chart Widget",
+      "DATA_WIDGET": "Data Widget",
+      "COMPONENTS": "Components",
+      "USER_INTERFACE_UI": "User Interface (UI)",
+      "ALERTS": "Alerts",
+      "BADGES": "Badges",
+      "CHIPS": "Chips",
+      "MODAL": "Modal",
+      "BUTTONS": "Buttons",
+      "EXPANSION_PANEL": "Expansion Panel",
+      "BOTTOM_SHEET": "Bottom Sheet",
+      "DIALOGS": "Dialogs",
+      "CARDS": "Cards",
+      "LABELS": "Labels",
+      "LIST_GROUP": "List Group",
+      "SNACKBAR": "Snackbar",
+      "PRELOADERS": "Preloaders",
+      "PROGRESS_BARS": "Progress Bars",
+      "TABS": "Tabs",
+      "TYPOGRAPHY": "Typography",
+      "HELPER_CLASSES": "Helper Classes",
+      "FORMS": "Forms",
+      "FORM_CONTROLS": "Form Controls",
+      "ADVANCED_CONTROLS": "Advanced Controls",
+      "FORM_EXAMPLES": "Form Examples",
+      "FORM_VALIDATION": "Form Validation",
+      "FORM_WIZARD": "Form Wizard",
+      "EDITORS": "Editors",
+      "TABLES": "Tables",
+      "BASIC_TABLES": "Basic Tables",
+      "MATERIAL_TABLES": "Material Tables",
+      "NGX_DATATABLE": "ngx-datatable",
+      "CHARTS": "Charts",
+      "ECHART": "Echart",
+      "APEX": "Apex",
+      "CHARTJS": "ChartJS",
+      "NGX_CHARTS": "Ngx-Charts",
+      "GAUGE": "Gauge",
+      "TIMELINE": "Timeline",
+      "TIMELINE_1": "Timeline 1",
+      "TIMELINE_2": "Timeline 2",
+      "ICONS": "Icons",
+      "MATERIAL_ICONS": "Material Icons",
+      "FONT_AWESOME": "Font Awesome",
+      "AUTHENTICATION": "Authentication",
+      "SIGN_IN": "Sign In",
+      "SIGN_UP": "Sign Up",
+      "FORGOT_PASSWORD": "Forgot Password",
+      "LOCKED": "Locked",
+      "404_NOT_FOUND": "404 - Not Found",
+      "500_SERVER_ERROR": "500 - Server Error",
+      "2_FACTOR_AUTH": "2-Factor Auth",
+      "MAINTENANCE": "Maintenance",
+      "COMING_SOON": "Coming Soon",
+      "EXTRA_PAGES": "Extra Pages",
+      "PROFILE": "Profile",
+      "PRICING": "Pricing",
+      "INVOICE": "Invoice",
+      "FAQS": "Faqs",
+      "BLANK_PAGE": "Blank Page",
+      "MULTI_LEVEL_MENU": "Multi level Menu",
+      "FIRST": "First",
+      "SECOND": "Second",
+      "SECOND_1": "Second 1",
+      "SECOND_2": "Second 2",
+      "THIRD_1": "third 1",
+      "THIRD": "Third"
+    }
+  }
+}

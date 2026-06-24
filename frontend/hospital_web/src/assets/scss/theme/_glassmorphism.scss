@@ -1,0 +1,1323 @@
+/*
+ *  Document   : _glassmorphism.scss
+ *  Author     : RedStar Template
+ *  Description: Glassmorphism layout style - frosted glass effect for Cliniva
+ */
+
+:root {
+  --glass-bg-start: #e0c3fc;
+  --glass-bg-end: #8ec5fc;
+}
+
+// ==========================================
+// Glassmorphism System Overlay
+// ==========================================
+
+// 1. Dynamic Background for the Body (Only applied when layout-glassmorphism is active)
+body.layout-glassmorphism {
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    var(--glass-bg-start) 0%,
+    var(--glass-bg-end) 100%
+  ) !important;
+  background-attachment: fixed !important;
+
+  // 2. Core Glassmorphism Placeholder
+  %glass-panel {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05) !important;
+    border-radius: 20px !important;
+  }
+
+  // 3. Apply to Cards and Modals
+  .card,
+  .modal-content {
+    @extend %glass-panel;
+
+    .card-header,
+    .card-footer,
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      background-color: transparent !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .modal-footer {
+      border-bottom: none !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+  }
+
+  // Mat card support
+  .mat-mdc-card {
+    @extend %glass-panel;
+  }
+
+  // 4. Apply to Sidebar
+  .sidebar,
+  #leftsidebar {
+    @extend %glass-panel;
+    border-radius: 0 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.5) !important;
+  }
+
+  // 4.5 Apply to Settings Sidebar
+  .settingSidebar {
+    background: rgba(255, 255, 255, 0.7) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: -10px 0 30px rgba(31, 38, 135, 0.1) !important;
+    border-radius: 0 !important;
+
+    .setting-panel-header {
+      background: rgba(255, 255, 255, 0.3) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+      box-shadow: none !important;
+    }
+
+    .settingSidebar-body {
+      background: transparent !important;
+    }
+
+    .settingPanelToggle {
+      background: rgba(103, 119, 239, 0.8) !important;
+      backdrop-filter: blur(10px) !important;
+    }
+  }
+
+  // 5. Apply to Header/Navbar (high specificity to override theme files)
+  nav.navbar,
+  nav.navbar.active,
+  .navbar {
+    background: rgba(255, 255, 255, 0.45) !important;
+    background-color: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05) !important;
+    border-radius: 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+  }
+
+  // 5.5 Navbar header (logo area)
+  .navbar-header {
+    background-color: transparent !important;
+    background: transparent !important;
+  }
+
+  // Logo text color for glassmorphism
+  .logo-name {
+    color: #374151 !important;
+  }
+
+  // 6. Apply to Section / Content Area
+  .section-body {
+    background: transparent !important;
+  }
+
+  .content {
+    background: transparent !important;
+  }
+
+  // 7. Apply to Bootstrap Tables
+  .table {
+    background: rgba(255, 255, 255, 0.35) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-radius: 12px;
+    overflow: hidden;
+    border-collapse: separate !important;
+
+    thead tr th {
+      background-color: rgba(255, 255, 255, 0.35) !important;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3) !important;
+      border-top: none !important;
+      color: #374151 !important;
+    }
+
+    tbody tr {
+      background-color: transparent !important;
+
+      td {
+        background-color: transparent !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-top: none !important;
+      }
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        td {
+          background-color: transparent !important;
+        }
+      }
+    }
+
+    th,
+    td {
+      border-color: rgba(255, 255, 255, 0.2) !important;
+    }
+  }
+
+  .table-bordered {
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+
+    th,
+    td {
+      border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+  }
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+  }
+
+  .table-hover tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+  }
+
+  // 7.2 Angular Material Table
+  .mat-mdc-table {
+    background: transparent !important;
+    background-color: transparent !important;
+
+    .mat-mdc-header-row {
+      background-color: rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .mat-mdc-row {
+      background-color: transparent !important;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.15) !important;
+      }
+    }
+
+    .mat-mdc-cell {
+      border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+      color: #374151 !important;
+    }
+
+    .mat-mdc-header-cell {
+      border-bottom-color: rgba(255, 255, 255, 0.3) !important;
+      color: #374151 !important;
+      background-color: transparent !important;
+    }
+
+    .mat-mdc-footer-row {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+    }
+  }
+
+  // customHeader variant
+  .mat-mdc-table.customHeader {
+    .mat-mdc-header-row {
+      background-color: rgba(255, 255, 255, 0.35) !important;
+    }
+  }
+
+  // advance-table overrides
+  .advance-table {
+    .mat-mdc-cell {
+      border-bottom-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    .mat-mdc-header-cell {
+      border-bottom-color: rgba(255, 255, 255, 0.3) !important;
+    }
+  }
+
+  // 7.3 NGX Datatable
+  .ngx-datatable.material {
+    background: rgba(255, 255, 255, 0.35) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    box-shadow: none !important;
+
+    .datatable-header {
+      .datatable-header-cell {
+        background: rgba(255, 255, 255, 0.25) !important;
+        color: #374151 !important;
+      }
+
+      .resize-handle {
+        border-right: solid 1px rgba(255, 255, 255, 0.3) !important;
+      }
+    }
+
+    .datatable-body {
+      .datatable-body-row {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
+
+        .datatable-body-cell {
+          color: #374151 !important;
+        }
+
+        &:hover,
+        &:hover .datatable-row-group {
+          background-color: rgba(255, 255, 255, 0.2) !important;
+        }
+      }
+
+      .datatable-row-group {
+        background: transparent !important;
+      }
+    }
+
+    .datatable-body-cell,
+    .datatable-header-cell {
+      border-color: rgba(255, 255, 255, 0.15) !important;
+    }
+
+    .datatable-footer {
+      background: rgba(255, 255, 255, 0.2) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+      color: #374151 !important;
+
+      .datatable-pager a {
+        color: #374151 !important;
+      }
+    }
+  }
+
+  // 7.4 Table header bars
+  .ngxTableHeader {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+
+    .header-buttons-left input.search-field {
+      background: rgba(255, 255, 255, 0.5) !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    }
+
+    h2 {
+      color: #374151 !important;
+    }
+  }
+
+  .materialTableHeader {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(10px) !important;
+
+    .header-buttons-left input.search-field {
+      background: rgba(255, 255, 255, 0.5) !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    }
+
+    h2 {
+      color: #374151 !important;
+    }
+  }
+
+  // 7.5 Mat paginator
+  .mat-mdc-paginator {
+    background: transparent !important;
+  }
+
+  // NGX Datatable (detailed overrides)
+  ::ng-deep .modern-datatable {
+    background: transparent !important;
+
+    .datatable-header {
+      background: rgba(255, 255, 255, 0.2) !important;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .datatable-body {
+      background: transparent !important;
+
+      .datatable-body-row {
+        background: rgba(255, 255, 255, 0.05) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+
+        &:hover {
+          background: rgba(255, 255, 255, 0.2) !important;
+        }
+
+        &.active {
+          background: rgba(255, 255, 255, 0.35) !important;
+        }
+      }
+    }
+
+    .datatable-footer {
+      background: rgba(255, 255, 255, 0.1) !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+  }
+
+  // Search elements
+  .search-container .search-input {
+    background: rgba(132, 171, 255, 0.07) !important;
+    border: 1px solid #acbad5 !important;
+  }
+
+  // Header Search Element Overrides
+  .navbar .form-inline .search-element {
+    .form-control {
+      background: rgba(255, 255, 255, 0.3) !important;
+      border: 1px solid rgba(255, 255, 255, 0.6) !important;
+      border-right: none !important;
+      margin-right: 0 !important;
+      color: #374151 !important;
+
+      &::placeholder {
+        color: rgba(55, 65, 81, 0.6) !important;
+      }
+
+      &:focus {
+        background: rgba(255, 255, 255, 0.5) !important;
+        border-color: rgba(255, 255, 255, 0.6) !important;
+        box-shadow: none !important;
+      }
+    }
+    .btn {
+      background: rgba(255, 255, 255, 0.3) !important;
+      border: 1px solid rgba(255, 255, 255, 0.6) !important;
+      border-left: none !important;
+      color: #374151 !important;
+    }
+  }
+
+  // 8. Apply to Form Controls (Light Mode default)
+  .form-control,
+  .form-select,
+  .input-group-text {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    border: 1px solid rgba(255, 255, 255, 0.6) !important;
+    border-radius: 8px;
+    color: #374151;
+    transition: all 0.3s ease;
+
+    &:focus {
+      background-color: rgba(255, 255, 255, 0.7) !important;
+      border-color: #6777ef !important;
+      box-shadow: 0 0 0 0.2rem rgba(103, 119, 239, 0.25) !important;
+    }
+
+    &::placeholder {
+      color: rgba(55, 65, 81, 0.6);
+    }
+  }
+
+  // Solid background for select dropdown options
+  .form-select option {
+    background-color: #ffffff;
+    color: #374151;
+  }
+
+  // Calendar
+  .fc-theme-standard td,
+  .fc-theme-standard th {
+    border: 1px solid #c1c1c1 !important;
+  }
+
+  // Sidebar menu items
+  .sidebar .menu .list {
+    background: transparent !important;
+  }
+
+  .sidebar .menu .list a {
+    color: #374151 !important;
+  }
+
+  .sidebar .menu .list a:hover,
+  .sidebar .menu .list a.active {
+    background: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  // List group items
+  .list-group-item {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  // Breadcrumb
+  .breadcrumb {
+    background: transparent !important;
+  }
+
+  // Dropdowns
+  .dropdown-menu {
+    background: rgba(255, 255, 255, 0.85) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1) !important;
+  }
+
+  // Info boxes
+  .info-box5 {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  }
+
+  // Progress bars container
+  .progress {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+  }
+
+  // Mat drawer
+  .mat-drawer {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(20px) !important;
+  }
+
+  .mat-drawer-container {
+    background: transparent !important;
+  }
+
+  // ==========================================
+  // 9. Dark Mode Support
+  // ==========================================
+  &.dark {
+    background: linear-gradient(135deg, #111827 0%, #374151 100%) !important;
+    background-attachment: fixed !important;
+
+    .card,
+    .modal-content,
+    .mat-mdc-card,
+    .sidebar,
+    #leftsidebar,
+    .table {
+      background: rgba(15, 23, 42, 0.55) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    }
+
+    // Dark Mode Navbar (high specificity)
+    nav.navbar,
+    nav.navbar.active,
+    .navbar {
+      background: rgba(15, 23, 42, 0.55) !important;
+      background-color: rgba(15, 23, 42, 0.55) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .navbar-header {
+      background-color: transparent !important;
+      background: transparent !important;
+    }
+
+    .logo-name {
+      color: #e5e7eb !important;
+    }
+
+    // Dark Mode Settings Sidebar
+    .settingSidebar {
+      background: rgba(15, 23, 42, 0.7) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3) !important;
+
+      .setting-panel-header {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #e5e7eb !important;
+      }
+
+      .settingPanelToggle {
+        background: rgba(103, 119, 239, 0.7) !important;
+      }
+
+      .rightSetting p {
+        color: #e5e7eb !important;
+      }
+    }
+
+    // Dark Mode Table Overrides
+    .table {
+      background: rgba(15, 23, 42, 0.45) !important;
+
+      thead tr th {
+        background-color: rgba(0, 0, 0, 0.25) !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+        color: #e5e7eb !important;
+      }
+
+      tbody tr {
+        background-color: transparent !important;
+
+        td {
+          background-color: transparent !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+          color: #e5e7eb !important;
+        }
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.2) !important;
+        }
+      }
+
+      th,
+      td {
+        border-color: rgba(255, 255, 255, 0.08) !important;
+      }
+    }
+
+    .table-bordered {
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      th,
+      td {
+        border: 1px solid rgba(255, 255, 255, 0.08) !important;
+      }
+    }
+
+    // Dark Mode Material Table
+    .mat-mdc-table {
+      background: transparent !important;
+      background-color: transparent !important;
+
+      .mat-mdc-header-row {
+        background-color: rgba(0, 0, 0, 0.25) !important;
+      }
+
+      .mat-mdc-row {
+        background-color: transparent !important;
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.2) !important;
+        }
+      }
+
+      .mat-mdc-cell {
+        border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+        color: #e5e7eb !important;
+      }
+
+      .mat-mdc-header-cell {
+        border-bottom-color: rgba(255, 255, 255, 0.1) !important;
+        color: #e5e7eb !important;
+        background-color: transparent !important;
+      }
+    }
+
+    .mat-mdc-paginator {
+      background: transparent !important;
+      color: #e5e7eb !important;
+    }
+
+    // Dark Mode NGX Datatable
+    .ngx-datatable.material {
+      background: rgba(15, 23, 42, 0.45) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+
+      .datatable-header .datatable-header-cell {
+        background: rgba(0, 0, 0, 0.25) !important;
+        color: #e5e7eb !important;
+      }
+
+      .datatable-body .datatable-body-row {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+
+        .datatable-body-cell {
+          color: #e5e7eb !important;
+        }
+
+        &:hover,
+        &:hover .datatable-row-group {
+          background-color: rgba(0, 0, 0, 0.25) !important;
+        }
+      }
+
+      .datatable-body .datatable-row-group {
+        background: transparent !important;
+      }
+
+      .datatable-body-cell,
+      .datatable-header-cell {
+        border-color: rgba(255, 255, 255, 0.08) !important;
+      }
+
+      .datatable-footer {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #e5e7eb !important;
+
+        .datatable-pager a {
+          color: #e5e7eb !important;
+        }
+      }
+    }
+
+    // Dark mode NGX Datatable (modern-datatable component-scoped)
+    ::ng-deep .modern-datatable {
+      .datatable-header {
+        background: rgba(0, 0, 0, 0.3) !important;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.1) !important;
+      }
+
+      .datatable-body {
+        .datatable-body-row {
+          background: rgba(0, 0, 0, 0.15) !important;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+
+          &:hover {
+            background: rgba(0, 0, 0, 0.3) !important;
+          }
+
+          &.active {
+            background: rgba(0, 0, 0, 0.4) !important;
+          }
+        }
+      }
+
+      .datatable-footer {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border-top: 1px solid rgba(255, 255, 255, 0.1) !important;
+      }
+    }
+
+    // Dark Mode Table header bars
+    .ngxTableHeader,
+    .materialTableHeader {
+      background-color: rgba(0, 0, 0, 0.25) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+
+      .header-buttons-left input.search-field {
+        background: rgba(0, 0, 0, 0.3) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        color: #e5e7eb !important;
+      }
+
+      h2 {
+        color: #e5e7eb !important;
+      }
+    }
+
+    // Dark Mode Header Search Element Overrides
+    .navbar .form-inline .search-element {
+      .form-control {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-right: none !important;
+        margin-right: 0 !important;
+        color: #e5e7eb !important;
+
+        &::placeholder {
+          color: rgba(229, 231, 235, 0.6) !important;
+        }
+
+        &:focus {
+          background: rgba(0, 0, 0, 0.4) !important;
+          border-color: rgba(255, 255, 255, 0.1) !important;
+          box-shadow: none !important;
+        }
+      }
+      .btn {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-left: none !important;
+        color: #e5e7eb !important;
+      }
+    }
+
+    // Dark Mode Form Controls
+    .form-control,
+    .form-select,
+    .input-group-text {
+      background-color: rgba(0, 0, 0, 0.2) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #e5e7eb !important;
+
+      &:focus {
+        background-color: rgba(0, 0, 0, 0.4) !important;
+        border-color: rgba(103, 119, 239, 0.5) !important;
+      }
+
+      &::placeholder {
+        color: rgba(229, 231, 235, 0.6) !important;
+      }
+
+      option {
+        background-color: #1f2937 !important;
+        color: #e5e7eb !important;
+      }
+    }
+
+    // Dark Mode Sidebar menu items
+    .sidebar .menu .list a {
+      color: #e5e7eb !important;
+    }
+
+    .sidebar .menu .list a:hover,
+    .sidebar .menu .list a.active {
+      background: rgba(0, 0, 0, 0.25) !important;
+    }
+
+    // Dark Mode Dropdown
+    .dropdown-menu {
+      background: rgba(15, 23, 42, 0.85) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    // Dark Mode List Group
+    .list-group-item {
+      background: rgba(0, 0, 0, 0.2) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+      color: #e5e7eb !important;
+    }
+
+    // Dark Mode Mat drawer
+    .mat-drawer {
+      background: rgba(15, 23, 42, 0.55) !important;
+    }
+
+    // Dark Mode NGX Datatable
+    .ngx-datatable.material {
+      background: rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .ngx-datatable.material .datatable-header .datatable-header-cell {
+      background: rgba(0, 0, 0, 0.25) !important;
+    }
+
+    // Smart Insights (Chat-like part) Dark Mode
+    .insight-card {
+      background: rgba(15, 23, 42, 0.55) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+
+      .insight-wrapper {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.05) !important;
+
+        &:hover {
+          background: rgba(0, 0, 0, 0.3) !important;
+        }
+      }
+
+      .insight-bullet {
+        background: rgba(0, 0, 0, 0.3) !important;
+      }
+
+      .ai-badge {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.1) !important;
+      }
+    }
+
+    // Chat Widget Dark Mode
+    .chat {
+      .chat-history {
+        .message {
+          &.my-message {
+            background: rgba(103, 119, 239, 0.3) !important;
+            color: #fff !important;
+          }
+          &.other-message {
+            background: rgba(255, 255, 255, 0.1) !important;
+            color: #e5e7eb !important;
+          }
+        }
+      }
+      .chat-message {
+        background: rgba(0, 0, 0, 0.2) !important;
+      }
+    }
+
+    // Resource Monitor Dark Mode
+    .resource-card {
+      background: rgba(0, 0, 0, 0.2) !important;
+      border-color: rgba(255, 255, 255, 0.05) !important;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.3) !important;
+      }
+    }
+
+    // Welcome Banner Dark Mode
+    .welcome-banner {
+      background: rgba(15, 23, 42, 0.55) !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+
+      h2,
+      .small,
+      p,
+      .summary-chip,
+      .h6,
+      .tiny-text {
+        color: #e5e7eb !important;
+      }
+
+      .summary-chip {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.05) !important;
+      }
+
+      .icon-box {
+        background: rgba(255, 255, 255, 0.1) !important;
+        mat-icon {
+          color: #e5e7eb !important;
+        }
+      }
+    }
+
+    // Todo/Task List Dark Mode
+    .task-list {
+      background: transparent !important;
+      border-color: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    .task-box {
+      background: rgba(0, 0, 0, 0.2) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+      color: #e5e7eb !important;
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.3) !important;
+      }
+    }
+
+    // Nurse Dashboard Stat Cards Dark Mode
+    .stat-card {
+      background: rgba(15, 23, 42, 0.55) !important;
+      color: #e5e7eb !important;
+
+      h2,
+      p {
+        color: #e5e7eb !important;
+      }
+
+      &.bg-primary,
+      &.bg-success,
+      &.bg-info,
+      &.bg-warning {
+        background: rgba(15, 23, 42, 0.55) !important;
+      }
+
+      .icon-holder {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+        mat-icon {
+          color: #e5e7eb !important;
+        }
+      }
+    }
+
+    // Nurse Dashboard Elements Dark Mode
+    .vital-card,
+    .handoff-note,
+    .iv-item,
+    .feedback-item {
+      background: rgba(0, 0, 0, 0.2) !important;
+      border-color: rgba(255, 255, 255, 0.05) !important;
+      color: #e5e7eb !important;
+    }
+
+    // Critical Alerts Dark Mode
+    .critical-alerts-card {
+      .alert-item {
+        background: rgba(0, 0, 0, 0.2) !important;
+        border-color: rgba(255, 255, 255, 0.05) !important;
+        color: #e5e7eb !important;
+
+        &.new-alert {
+          background: rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .alert-time {
+          color: rgba(229, 231, 235, 0.6) !important;
+        }
+      }
+    }
+  }
+
+  // ==========================================
+  // 10. Specific Component Overrides (Light Mode)
+  // ==========================================
+
+  // Smart Insights (Chat-like part)
+  .insight-card {
+    @extend %glass-panel;
+    background: rgba(255, 255, 255, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+
+    .insight-wrapper {
+      background: rgba(255, 255, 255, 0.01) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      backdrop-filter: blur(5px);
+
+      &:hover {
+        background: rgba(255, 255, 255, 0.4) !important;
+      }
+    }
+
+    .insight-bullet {
+      background: rgba(255, 255, 255, 0.5) !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .ai-badge {
+      background: rgba(255, 255, 255, 0.3) !important;
+      border-color: rgba(255, 255, 255, 0.4) !important;
+    }
+  }
+
+  // Chat Widget
+  .chat {
+    @extend %glass-panel;
+    background: rgba(255, 255, 255, 0.4) !important;
+
+    .chat-header {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+    }
+
+    .chat-history {
+      .message {
+        backdrop-filter: blur(5px);
+        &.my-message {
+          background: rgba(103, 119, 239, 0.2) !important;
+          color: #2c3e50 !important;
+          &:after {
+            border-bottom-color: rgba(103, 119, 239, 0.2) !important;
+          }
+        }
+        &.other-message {
+          background: rgba(255, 255, 255, 0.3) !important;
+          color: #2c3e50 !important;
+          &:after {
+            border-bottom-color: rgba(255, 255, 255, 0.3) !important;
+          }
+        }
+      }
+    }
+
+    .chat-message {
+      border-top: 1px solid rgba(255, 255, 255, 0.3) !important;
+      background: rgba(255, 255, 255, 0.2) !important;
+    }
+  }
+
+  // Todo/Task List
+  .task-list {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+    border-radius: 12px !important;
+  }
+
+  .task-box {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+    color: #374151 !important;
+    backdrop-filter: blur(5px);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.4) !important;
+    }
+  }
+
+  .task-handle {
+    color: rgba(55, 65, 81, 0.5) !important;
+  }
+
+  // Nurse Dashboard Stat Cards
+  .stat-card {
+    @extend %glass-panel;
+    background: rgba(255, 255, 255, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    color: #374151 !important;
+
+    h2,
+    p {
+      color: #374151 !important;
+    }
+
+    .icon-holder {
+      background-color: rgba(255, 255, 255, 0.3) !important;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    &.bg-primary {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .icon-holder mat-icon {
+        color: #3f51b5 !important;
+      }
+      .icon-holder {
+        background-color: rgba(63, 81, 181, 0.1) !important;
+      }
+    }
+    &.bg-success {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .icon-holder mat-icon {
+        color: #4caf50 !important;
+      }
+      .icon-holder {
+        background-color: rgba(76, 175, 80, 0.1) !important;
+      }
+    }
+    &.bg-info {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .icon-holder mat-icon {
+        color: #03a9f4 !important;
+      }
+      .icon-holder {
+        background-color: rgba(3, 169, 244, 0.1) !important;
+      }
+    }
+    &.bg-warning {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .icon-holder mat-icon {
+        color: #ff9800 !important;
+      }
+      .icon-holder {
+        background-color: rgba(255, 152, 0, 0.1) !important;
+      }
+    }
+  }
+
+  // Nurse Dashboard Elements
+  .vital-card,
+  .handoff-note,
+  .iv-item,
+  .feedback-item {
+    background: rgba(255, 255, 255, 0.01) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(5px);
+    color: #374151 !important;
+  }
+
+  // Critical Alerts
+  .critical-alerts-card {
+    .alert-item {
+      background: rgba(255, 255, 255, 0.01) !important;
+      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+      backdrop-filter: blur(5px);
+      color: #374151 !important;
+
+      &.new-alert {
+        background: rgba(255, 255, 255, 0.02) !important;
+        border-color: rgba(255, 255, 255, 0.4) !important;
+      }
+
+      .alert-time {
+        color: rgba(55, 65, 81, 0.6) !important;
+      }
+    }
+  }
+
+  // Resource Monitor
+  .resource-card {
+    background: rgba(255, 255, 255, 0.25) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(5px);
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.4) !important;
+    }
+  }
+
+  // Welcome Banner
+  .welcome-banner {
+    @extend %glass-panel;
+    background: rgba(255, 255, 255, 0.45) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1) !important;
+
+    h2,
+    .small,
+    p {
+      color: #374151 !important;
+    }
+
+    .summary-chip {
+      background: rgba(255, 255, 255, 0.3) !important;
+      border: 1px solid rgba(255, 255, 255, 0.4) !important;
+      color: #374151 !important;
+
+      .h6,
+      .tiny-text {
+        color: #374151 !important;
+      }
+    }
+
+    .icon-box {
+      background: rgba(103, 119, 239, 0.2) !important;
+      mat-icon {
+        color: #6777ef !important;
+      }
+    }
+
+    .huge-icon {
+      color: #6777ef !important;
+      opacity: 0.1 !important;
+    }
+  }
+
+  .lecture-list {
+    background: rgba(255, 255, 255, 0.25) !important;
+  }
+  .app-list {
+    background: rgba(255, 255, 255, 0.25) !important;
+  }
+  .metric-card {
+    background: rgba(255, 255, 255, 0.25) !important;
+  }
+
+  // Premium KPI Cards Glassmorphism Overrides
+  .kpi-card {
+    background: rgba(255, 255, 255, 0.45) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    color: #374151 !important;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.05) !important;
+
+    .kpi-title,
+    .kpi-value,
+    .kpi-sub {
+      color: #374151 !important;
+    }
+
+    .kpi-sub span.material-icons-outlined {
+      color: inherit !important;
+    }
+
+    /* Override gradients to use themed glass icon containers */
+    &.bg-gradient-teal {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .kpi-icon-box {
+        background: rgba(2, 170, 176, 0.15) !important;
+        color: #02aab0 !important;
+        border: 1px solid rgba(2, 170, 176, 0.2) !important;
+      }
+    }
+
+    &.bg-gradient-blue {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .kpi-icon-box {
+        background: rgba(42, 82, 152, 0.15) !important;
+        color: #2a5298 !important;
+        border: 1px solid rgba(42, 82, 152, 0.2) !important;
+      }
+    }
+
+    &.bg-gradient-orange {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .kpi-icon-box {
+        background: rgba(245, 175, 25, 0.15) !important;
+        color: #f5af19 !important;
+        border: 1px solid rgba(245, 175, 25, 0.2) !important;
+      }
+    }
+
+    &.bg-gradient-red {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .kpi-icon-box {
+        background: rgba(237, 33, 58, 0.15) !important;
+        color: #ed213a !important;
+        border: 1px solid rgba(237, 33, 58, 0.2) !important;
+      }
+    }
+
+    &.bg-gradient-purple {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .kpi-icon-box {
+        background: rgba(101, 78, 163, 0.15) !important;
+        color: #654ea3 !important;
+        border: 1px solid rgba(101, 78, 163, 0.2) !important;
+      }
+    }
+
+    &.bg-gradient-green {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .kpi-icon-box {
+        background: rgba(17, 153, 142, 0.15) !important;
+        color: #11998e !important;
+        border: 1px solid rgba(17, 153, 142, 0.2) !important;
+      }
+    }
+
+    &.bg-gradient-pink {
+      background: rgba(255, 255, 255, 0.45) !important;
+      .kpi-icon-box {
+        background: rgba(255, 65, 108, 0.15) !important;
+        color: #ff416c !important;
+        border: 1px solid rgba(255, 65, 108, 0.2) !important;
+      }
+    }
+  }
+
+  /* Dark mode overrides within Glassmorphism */
+  &.dark {
+    .kpi-card {
+      background: rgba(15, 23, 42, 0.55) !important;
+      border: 1px solid rgba(255, 255, 255, 0.1) !important;
+      color: #e5e7eb !important;
+      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
+
+      .kpi-title,
+      .kpi-value,
+      .kpi-sub {
+        color: #e5e7eb !important;
+      }
+
+      &.bg-gradient-teal {
+        background: rgba(15, 23, 42, 0.55) !important;
+        .kpi-icon-box {
+          background: rgba(0, 205, 172, 0.15) !important;
+          color: #00cdac !important;
+          border: 1px solid rgba(0, 205, 172, 0.25) !important;
+        }
+      }
+
+      &.bg-gradient-blue {
+        background: rgba(15, 23, 42, 0.55) !important;
+        .kpi-icon-box {
+          background: rgba(42, 82, 152, 0.15) !important;
+          color: #38bdf8 !important;
+          border: 1px solid rgba(42, 82, 152, 0.25) !important;
+        }
+      }
+
+      &.bg-gradient-orange {
+        background: rgba(15, 23, 42, 0.55) !important;
+        .kpi-icon-box {
+          background: rgba(245, 175, 25, 0.15) !important;
+          color: #f5af19 !important;
+          border: 1px solid rgba(245, 175, 25, 0.25) !important;
+        }
+      }
+
+      &.bg-gradient-red {
+        background: rgba(15, 23, 42, 0.55) !important;
+        .kpi-icon-box {
+          background: rgba(237, 33, 58, 0.15) !important;
+          color: #ff7675 !important;
+          border: 1px solid rgba(237, 33, 58, 0.25) !important;
+        }
+      }
+
+      &.bg-gradient-purple {
+        background: rgba(15, 23, 42, 0.55) !important;
+        .kpi-icon-box {
+          background: rgba(188, 101, 224, 0.15) !important;
+          color: #bc65e0 !important;
+          border: 1px solid rgba(188, 101, 224, 0.25) !important;
+        }
+      }
+
+      &.bg-gradient-green {
+        background: rgba(15, 23, 42, 0.55) !important;
+        .kpi-icon-box {
+          background: rgba(56, 239, 125, 0.15) !important;
+          color: #38ef7d !important;
+          border: 1px solid rgba(56, 239, 125, 0.25) !important;
+        }
+      }
+
+      &.bg-gradient-pink {
+        background: rgba(15, 23, 42, 0.55) !important;
+        .kpi-icon-box {
+          background: rgba(255, 75, 43, 0.15) !important;
+          color: #ff4b2b !important;
+          border: 1px solid rgba(255, 75, 43, 0.25) !important;
+        }
+      }
+    }
+  }
+}
+

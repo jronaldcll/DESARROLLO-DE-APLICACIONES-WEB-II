@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Patient Satisfaction</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <apx-chart
+      [series]="chartOptions.series!"
+      [chart]="chartOptions.chart!"
+      [plotOptions]="chartOptions.plotOptions!"
+      [labels]="chartOptions.labels!"
+      [stroke]="chartOptions.stroke!"
+      [fill]="chartOptions.fill!"
+    ></apx-chart>
+    <div class="text-center mt-2">
+      <h4 class="mb-0">95%</h4>
+      <p class="text-muted">Positive Feedback from 1,200+ patients</p>
+    </div>
+  </mat-card-content>
+</mat-card>

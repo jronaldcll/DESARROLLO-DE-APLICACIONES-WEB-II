@@ -1,0 +1,41 @@
+<mat-card class="health-card glass-card shadow-lg">
+  <div class="card-overlay" [ngClass]="advisory.title.includes('Heat') ? 'heat-theme' : 'cool-theme'"></div>
+  <mat-card-header class="z-index-1">
+    <div class="header-top w-100 d-flex justify-content-between">
+      <mat-card-title class="text-white m-0">Live Advisory</mat-card-title>
+      <div class="location-box text-white opacity-75 small">
+        <mat-icon class="small-icon">location_on</mat-icon>
+        <span>Hospital Campus</span>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content class="z-index-1 mt-4 text-white">
+    <div class="main-stats d-flex align-items-center mb-4">
+      <div class="weather-icon-lg">
+        <mat-icon>{{ advisory.title.includes('Heat') ? 'wb_sunny' : 'ac_unit' }}</mat-icon>
+      </div>
+      <div class="temp-group">
+        <div class="display-3 fw-bold">{{ advisory.temp }}</div>
+        <div class="humidity-pill">
+          <mat-icon>water_drop</mat-icon>
+          <span>{{ advisory.humidity }} Humidity</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="advisory-box mt-4 mb-4">
+      <div class="advisory-title d-flex align-items-center">
+        <mat-icon class="me-2">campaign</mat-icon>
+        <span>{{ advisory.title }}</span>
+      </div>
+      <p class="advisory-text">{{ advisory.tip }}</p>
+      <div class="update-time small opacity-50">Last updated: 5 mins ago</div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions class="z-index-1 p-0">
+    <button mat-button class="action-footer w-100">
+      <span>Read Safety Guidelines</span>
+      <mat-icon>open_in_new</mat-icon>
+    </button>
+  </mat-card-actions>
+</mat-card>

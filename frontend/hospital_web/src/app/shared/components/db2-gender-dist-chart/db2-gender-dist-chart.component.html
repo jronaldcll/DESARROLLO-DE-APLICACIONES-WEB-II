@@ -1,0 +1,10 @@
+<mat-card class="chart-card glass-card h-100">
+  <mat-card-header>
+    <mat-card-title>Patient Distribution</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mt-4">
+    <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [labels]="chartOptions.labels!"
+      [legend]="chartOptions.legend!" [plotOptions]="chartOptions.plotOptions!"
+      [colors]="chartOptions.colors!"></apx-chart>
+  </mat-card-content>
+</mat-card>

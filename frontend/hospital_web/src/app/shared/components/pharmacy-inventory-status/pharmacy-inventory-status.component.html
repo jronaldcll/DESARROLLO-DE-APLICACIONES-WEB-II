@@ -1,0 +1,36 @@
+<mat-card class="pharmacy-card h-100">
+  <mat-card-header>
+    <mat-card-title>Stock Intelligence</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="p-0">
+    <div class="inventory-container">
+      <ng-scrollbar style="height: 300px" visibility="hover">
+        @for (s of stocks; track s.name) {
+          <div
+            class="inventory-card p-3 border-bottom border-dark border-opacity-10 transition-all">
+            <div class="d-flex align-items-center">
+              <div class="stock-icon-container me-3" [ngClass]="'bg-' + s.color + '-subtle'">
+                <mat-icon [ngClass]="'text-' + s.color">{{ s.name.includes('Mask') ? 'masks' : s.name.includes('Syringe')
+                  ? 'colorize' : 'medication' }}</mat-icon>
+              </div>
+              <div class="flex-grow-1">
+                <div class="d-flex justify-content-between">
+                  <span class="fw-500 text-dark">{{s.name}}</span>
+                  <span class="small fw-bold" [ngClass]="'text-' + s.color">{{s.stock}} {{s.unit}}</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-1">
+                  <span class="tiny-text text-muted uppercase">Status: <span class="fw-bold">{{s.status}}</span></span>
+                  <div class="mini-dots d-flex">
+                    <span class="dot" [ngClass]="s.stock > 100 ? 'active' : ''"></span>
+                    <span class="dot" [ngClass]="s.stock > 50 ? 'active' : ''"></span>
+                    <span class="dot" [ngClass]="s.stock > 0 ? 'active' : ''"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </ng-scrollbar>
+    </div>
+  </mat-card-content>
+</mat-card>

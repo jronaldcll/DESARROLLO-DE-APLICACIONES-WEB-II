@@ -1,0 +1,65 @@
+<div class="auth-container modern-auth position-relative overflow-hidden">
+  <!-- Dynamic Animated Background -->
+  <div class="bg-layer">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="auth-form-section w-100 h-100 d-flex justify-content-center align-items-center px-3 position-relative z-index-10">
+    <div class="premium-glass-card">
+      <div class="card-content text-center">
+        <!-- Icon -->
+        <div class="auth-icon-wrapper mb-4">
+          <div class="icon-circle">
+            <mat-icon>security</mat-icon>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h2 class="auth-title mb-2">Two-Step Verification</h2>
+          <p class="auth-subtitle text-muted">
+            We've sent a 6-digit code to your registered email.<br/>
+            Please enter it below to verify your identity.
+          </p>
+        </div>
+
+        <form class="validate-form mt-4" [formGroup]="authForm" (ngSubmit)="onSubmit()">
+          <div class="otp-input-group d-flex justify-content-center gap-3 mb-5">
+            <input type="text" maxlength="1" class="premium-otp-input" formControlName="digit1"
+              id="digit1" (keyup)="moveToNext($event, 'digit2', '')" autocomplete="off" autofocus>
+            <input type="text" maxlength="1" class="premium-otp-input" formControlName="digit2"
+              id="digit2" (keyup)="moveToNext($event, 'digit3', 'digit1')" autocomplete="off">
+            <input type="text" maxlength="1" class="premium-otp-input" formControlName="digit3"
+              id="digit3" (keyup)="moveToNext($event, 'digit4', 'digit2')" autocomplete="off">
+            <input type="text" maxlength="1" class="premium-otp-input" formControlName="digit4"
+              id="digit4" (keyup)="moveToNext($event, 'digit5', 'digit3')" autocomplete="off">
+            <input type="text" maxlength="1" class="premium-otp-input" formControlName="digit5"
+              id="digit5" (keyup)="moveToNext($event, 'digit6', 'digit4')" autocomplete="off">
+            <input type="text" maxlength="1" class="premium-otp-input" formControlName="digit6"
+              id="digit6" (keyup)="moveToNext($event, '', 'digit5')" autocomplete="off">
+          </div>
+
+          <button mat-flat-button color="primary" class="premium-auth-btn w-100" [disabled]="!authForm.valid" type="submit">
+            <span>Verify Identity</span>
+            <mat-icon class="ms-2">arrow_forward</mat-icon>
+          </button>
+        </form>
+
+        <div class="resend-section mt-4 pt-3 border-top">
+          <p class="mb-2 text-muted">Didn't receive the code?</p>
+          <button mat-button color="primary" class="resend-btn font-weight-bold">
+            Resend Code
+          </button>
+        </div>
+
+        <div class="back-link-wrapper mt-4">
+          <a routerLink="/authentication/signin" class="back-to-login">
+            <mat-icon class="me-2">keyboard_backspace</mat-icon>
+            Back to login
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

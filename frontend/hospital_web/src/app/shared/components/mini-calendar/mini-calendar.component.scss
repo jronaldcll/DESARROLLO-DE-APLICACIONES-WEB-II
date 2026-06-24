@@ -1,0 +1,111 @@
+app-mini-calendar {
+  .calendar-wrapper {
+    max-width: 400px;
+    margin: 0px 10px;
+
+    .mat-calendar-body-cell-container {
+      padding-top: 0% !important;
+      padding-bottom: 0% !important;
+    }
+
+    .mat-calendar-body-cell {
+      position: relative;
+      padding: 0;
+    }
+
+    .mat-calendar-body-cell-content {
+      z-index: 1;
+      position: relative;
+    }
+
+    .dot-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2px;
+      position: absolute;
+      bottom: 2px;
+      left: 0;
+      right: 0;
+      pointer-events: auto;
+      z-index: 2;
+      top: unset !important;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    .dot-surgery {
+      background-color: #4a6cf7;
+    }
+
+    .dot-polyclinic {
+      background-color: #e74c3c;
+    }
+
+    .dot-evaluation {
+      background-color: #27ae60;
+    }
+
+    .legend {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-bottom: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+    }
+
+    .mat-calendar-body-cell.has-events .mat-calendar-body-cell-content {
+      font-weight: 600;
+    }
+
+    .mat-calendar-body-cell {
+      min-height: 40px;
+    }
+
+    .custom-tooltip {
+      position: absolute;
+      bottom: 120%;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: #fff;
+      padding: 15px 8px;
+      font-size: 12px;
+      border-radius: 4px;
+      white-space: nowrap;
+      z-index: 100;
+      display: none;
+      pointer-events: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+.dark {
+  app-mini-calendar {
+    .calendar-wrapper {
+      .mat-calendar-body-cell-content.mat-focus-indicator {
+        color: #fff;
+      }
+      .mat-calendar-table-header th {
+        color: #fff;
+      }
+      .mat-mdc-button:not(:disabled) {
+        color: #fff;
+      }
+    }
+  }
+}

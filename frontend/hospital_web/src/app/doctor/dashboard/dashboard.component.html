@@ -1,0 +1,371 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="'Doctor Dashboard'" [items]="[]" [active_item]="'Dashboard'"></app-breadcrumb>
+    </div>
+    <div class="row">
+      <div class="col-lg-8 col-md-12 order-lg-1 order-2">
+        <app-doc-welcome-card></app-doc-welcome-card>
+        <div class="row kpi-cards">
+          <!-- Appointments KPI -->
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+            <mat-card class="kpi-card appointments-card">
+              <mat-card-content>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <div>
+                    <h6 class="m-0">Appointments</h6>
+                    <p class="text-muted m-0">Today’s Summary</p>
+                  </div>
+                  <mat-icon class="appointments-icon">schedule</mat-icon>
+                </div>
+                <div class="appointments-chart">
+                  <apx-chart [series]="appointmentsChartOptions.series!" [chart]="appointmentsChartOptions.chart!"
+                    [labels]="appointmentsChartOptions.labels!" [colors]="appointmentsChartOptions.colors!"
+                    [legend]="appointmentsChartOptions.legend!" [dataLabels]="appointmentsChartOptions.dataLabels!">
+                  </apx-chart>
+                </div>
+                <div class="appointments-breakdown mt-2">
+                  <div class="breakdown-item">
+                    <span class="dot scheduled"></span>
+                    <span>Scheduled: 28</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="dot completed"></span>
+                    <span>Completed: 24</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="dot cancelled"></span>
+                    <span>Cancelled: 4</span>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+          <!-- Doctor Performance KPI -->
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+            <mat-card class="kpi-card performance-card">
+              <mat-card-content>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div>
+                    <h6 class="m-0">Performance</h6>
+                    <p class="text-muted m-0">Daily metrics</p>
+                  </div>
+                  <mat-icon class="performance-icon">trending_up</mat-icon>
+                </div>
+                <div class="performance-chart mt-2">
+                  <apx-chart [series]="performanceChartOptions.series!" [chart]="performanceChartOptions.chart!"
+                    [colors]="performanceChartOptions.colors!" [plotOptions]="performanceChartOptions.plotOptions!"
+                    [xaxis]="performanceChartOptions.xaxis!" [tooltip]="performanceChartOptions.tooltip!">
+                  </apx-chart>
+                </div>
+                <div class="performance-metrics">
+                  <div class="metric">
+                    <span class="metric-label">Avg. Consultation</span>
+                    <span class="metric-value">18 min</span>
+                  </div>
+                  <div class="metric">
+                    <span class="metric-label">Patients/Day</span>
+                    <span class="metric-value">24</span>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+
+          <!-- Revenue KPI -->
+          <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 mb-4">
+            <mat-card class="kpi-card revenue-card">
+              <mat-card-content>
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <div>
+                    <h6 class="m-0">Today's Revenue</h6>
+                    <h3 class="revenue-amount">$4,250</h3>
+                  </div>
+                  <mat-icon class="revenue-icon">attach_money</mat-icon>
+                </div>
+                <div class="revenue-chart">
+                  <apx-chart [series]="revenueChartOptions.series!" [chart]="revenueChartOptions.chart!"
+                    [colors]="revenueChartOptions.colors!" [stroke]="revenueChartOptions.stroke!"
+                    [xaxis]="revenueChartOptions.xaxis!" [tooltip]="revenueChartOptions.tooltip!">
+                  </apx-chart>
+                </div>
+                <div class="revenue-breakdown mt-2">
+                  <div class="breakdown-item">
+                    <span class="dot walk-in"></span>
+                    <span>Walk-ins: $1,850</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="dot follow-up"></span>
+                    <span>Follow-ups: $1,200</span>
+                  </div>
+                  <div class="breakdown-item">
+                    <span class="dot online"></span>
+                    <span>Online: $1,200</span>
+                  </div>
+                </div>
+              </mat-card-content>
+            </mat-card>
+          </div>
+        </div>
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Patients Survay</mat-card-title>
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="header-dropdown">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>add_circle_outline</mat-icon>
+                <span>Add</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Delete</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>refresh</mat-icon>
+                <span>Refresh</span>
+              </button>
+            </mat-menu>
+          </mat-card-header>
+          <mat-card-content>
+            <apx-chart [series]="areaChartOptions.series!" [chart]="areaChartOptions.chart!"
+              [xaxis]="areaChartOptions.xaxis!" [yaxis]="areaChartOptions.yaxis!" [colors]="areaChartOptions.colors!"
+              [stroke]="areaChartOptions.stroke!" [legend]="areaChartOptions.legend!" [grid]="areaChartOptions.grid!"
+              [tooltip]="areaChartOptions.tooltip!" [dataLabels]="areaChartOptions.dataLabels!"></apx-chart>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Right side: Doctor details -->
+      <div class="col-lg-4 col-md-12 order-lg-2 order-1">
+        <mat-card class="doctor-details-card">
+          <div class="p-4 rounded h-100 d-flex flex-column align-items-center">
+            <img src="assets/images/user/doctor.jpg" alt="Dr. Jackson Santos" class="rounded-circle mb-3"
+              style="width: 150px; height: 150px; object-fit: cover;">
+            <h4 class="text-primary">Dr. Ashton Cox</h4>
+            <p class="text-muted text-center">Orthopedics - Restar Hospital</p>
+            <hr class="w-100">
+
+            <div class="dashboard-container">
+              <mat-card class="card patient-limit-card">
+                <div class="patient-limit-card-header">
+                  <div>
+                    <h6>3,897 Patients</h6>
+                    <p>8,000 Patients Limit</p>
+                  </div>
+                  <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!"
+                    [plotOptions]="chartOptions.plotOptions!" [labels]="chartOptions.labels!"
+                    [colors]="chartOptions.colors!"></apx-chart>
+                </div>
+              </mat-card>
+
+              <div class="row stat-cards-container">
+                <div class="col-md-6">
+                  <div class="card-aqua text-center">
+                    <div class="">
+                      <p class="label">Surgery</p>
+                      <h4 class="value">578</h4>
+
+                      <p class="label mt-3">Patients</p>
+                      <h4 class="value">4,257</h4>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class=" card-orange text-center">
+                    <div class="">
+                      <p class="label">Consultation</p>
+                      <h4 class="value">387</h4>
+
+                      <p class="label mt-3">Appointment</p>
+                      <h4 class="value">1,243</h4>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-card>
+        <app-mini-calendar></app-mini-calendar>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Task Hours</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <app-project-hours></app-project-hours>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title> Appointments</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <div class="doc-file-type">
+                <app-appointment-widget [appointments]="appointmentList"></app-appointment-widget>
+              </div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <app-emergency-list [cases]="emergencyCases"></app-emergency-list>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <app-todays-appointment></app-todays-appointment>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Appointment Review</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <apx-chart [series]="radialChartOptions.series!" [chart]="radialChartOptions.chart!"
+              [plotOptions]="radialChartOptions.plotOptions!" [labels]="radialChartOptions.labels!"></apx-chart>
+            <div class="text-center p-t-20">
+              <div class="chart-note">
+                <span class="dot bg-orange"></span>
+                <span>Face To Face</span>
+              </div>
+              <div class="chart-note">
+                <span class="dot bg-indigo"></span>
+                <span>E-Consult</span>
+              </div>
+              <div class="chart-note msr-0">
+                <span class="dot bg-green"></span>
+                <span>Available</span>
+              </div>
+            </div>
+            <div class="text-center p-t-20">
+              <button mat-stroked-button color="primary">Modify Availability</button>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Todo List</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 370px" visibility="hover">
+              <app-todo-widget [todos]="tasks" (todoToggled)="onTodoToggled($event)"
+                (todosUpdated)="onTodosUpdated($event)">
+              </app-todo-widget>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Doctor Status</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 370px" visibility="hover">
+              <app-emp-status></app-emp-status>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <div class="card">
+          <div class="header">
+            <h2>Number Of Patients</h2>
+          </div>
+          <div class="body">
+            <apx-chart [series]="linechartOptions.series!" [chart]="linechartOptions.chart!"
+              [dataLabels]="linechartOptions.dataLabels!" [plotOptions]="linechartOptions.plotOptions!"
+              [yaxis]="linechartOptions.yaxis!" [legend]="linechartOptions.legend!" [fill]="linechartOptions.fill!"
+              [colors]="linechartOptions.colors!" [stroke]="linechartOptions.stroke!"
+              [tooltip]="linechartOptions.tooltip!" [xaxis]="linechartOptions.xaxis!" [grid]="linechartOptions.grid!">
+            </apx-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Upcoming Surgeries & Procedures</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 360px" visibility="hover">
+              <table mat-table [dataSource]="upcomingSurgeries" class="surgery-table w-100">
+                <!-- Patient Column -->
+                <ng-container matColumnDef="patient">
+                  <th mat-header-cell *matHeaderCellDef>Patient</th>
+                  <td mat-cell *matCellDef="let surgery">
+                    <div class="d-flex align-items-center">
+                      <img [src]="surgery.patientImg" class="patient-img me-2" alt="patient">
+                      <div>
+                        <div class="patient-name">{{surgery.patientName}}</div>
+                        <div class="patient-id">ID: {{surgery.patientId}}</div>
+                      </div>
+                    </div>
+                  </td>
+                </ng-container>
+
+                <!-- Surgery Type Column -->
+                <ng-container matColumnDef="surgeryType">
+                  <th mat-header-cell *matHeaderCellDef>Surgery Type</th>
+                  <td mat-cell *matCellDef="let surgery">{{surgery.surgeryType}}</td>
+                </ng-container>
+
+                <!-- Date Column -->
+                <ng-container matColumnDef="date">
+                  <th mat-header-cell *matHeaderCellDef>Date & Time</th>
+                  <td mat-cell *matCellDef="let surgery">{{surgery.date}} | {{surgery.time}}</td>
+                </ng-container>
+
+                <!-- Doctor Column -->
+                <ng-container matColumnDef="doctor">
+                  <th mat-header-cell *matHeaderCellDef>Doctor</th>
+                  <td mat-cell *matCellDef="let surgery">{{surgery.doctor}}</td>
+                </ng-container>
+
+                <!-- Status Column -->
+                <ng-container matColumnDef="status">
+                  <th mat-header-cell *matHeaderCellDef>Status</th>
+                  <td mat-cell *matCellDef="let surgery">
+                    <span class="status-badge" [ngClass]="surgery.statusClass">{{surgery.status}}</span>
+                  </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="surgeryDisplayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: surgeryDisplayedColumns;"></tr>
+              </table>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <app-feedback-widget [feedbackData]="patientFeedback" title="Patient Feedback" scoreLabel="Overall Rating">
+        </app-feedback-widget>
+      </div>
+    </div>
+  </div>
+</section>

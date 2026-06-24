@@ -1,0 +1,24 @@
+<mat-card class="bed-occupancy-widget">
+  <div class="bed-occupancy-header">
+    <div>
+      <span class="title">Bed Occupancy</span>
+      <span class="subtitle">({{ occupiedBeds() }}/{{ totalBeds() }})</span>
+    </div>
+    <a class="details-link" href="#">Details</a>
+  </div>
+  <div class="bed-occupancy-chart">
+    <apx-chart [series]="barSeries" [chart]="barChartOptions.chart" [xaxis]="barChartOptions.xaxis"
+      [colors]="barChartOptions.colors" [plotOptions]="barChartOptions.plotOptions"
+      [dataLabels]="barChartOptions.dataLabels" [tooltip]="barChartOptions.tooltip" [grid]="barChartOptions.grid"
+    [legend]="barChartOptions.legend" style="width: 100%; min-height: 220px;"></apx-chart>
+  </div>
+  <div class="bed-occupancy-legend">
+    @for (item of legendItems; track item) {
+      <div class="legend-item">
+        <span class="legend-dot" [ngStyle]="{'background': item.color}"></span>
+        <span class="legend-label">{{ item.label }}</span>
+      </div>
+    }
+  </div>
+
+</mat-card>

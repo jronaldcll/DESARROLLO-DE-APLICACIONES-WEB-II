@@ -1,0 +1,33 @@
+.schedule-list {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 5px;
+  vertical-align: middle;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #f6f4ff;
+}
+.standard-name {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  &.colorStyle1 {
+    background: #ffe4e6;
+    color: #ff4081;
+  }
+  &.colorStyle2 {
+    background: #d0d2ff;
+    color: #4049ff;
+  }
+  &.colorStyle3 {
+    background: #ffe8be;
+    color: #ffa400;
+  }
+  &.colorStyle4 {
+    background: #dfeee6;
+    color: #198754;
+  }
+}

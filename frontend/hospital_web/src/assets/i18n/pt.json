@@ -1,0 +1,452 @@
+{
+  "LOGIN": {
+    "TITLE": "Bem-vindo ao Smart"
+  },
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "Principal"
+    },
+    "FRONT-OFFICE": {
+      "TEXT": "Recepção",
+      "LIST": {
+        "ADMISSION": "Consulta de admissão",
+        "VISITORS": "Livro de visitantes",
+        "COMPLAINTS": "Reclamações"
+      }
+    },
+    "DASHBOARD": {
+      "TEXT": "Painel",
+      "LIST": {
+        "DASHBOARD1": "Painel 1",
+        "DASHBOARD2": "Painel 2",
+        "DOCTOR-DASHBOARD": "Painel do professor",
+        "PATIENT-DASHBOARD": "Painel do aluno",
+        "LIBRARY-DASHBOARD": "Painel da biblioteca",
+        "TRANSPORT-DASHBOARD": "Painel de transporte"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "Professores",
+      "LIST": {
+        "ALL-DOCTORS": "Todos os professores",
+        "ADD-DOCTOR": "Adicionar professor",
+        "EDIT-DOCTOR": "Editar professor",
+        "ABOUT-DOCTOR": "Sobre o professor",
+        "DOCTOR-TIMETABLE": "Horário do professor",
+        "ASSIGN-WARD-DOCTOR": "Designar professor da turma"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "Alunos",
+      "LIST": {
+        "ALL-PATIENTS": "Todos os alunos",
+        "ADD-PATIENT": "Adicionar aluno",
+        "EDIT-PATIENT": "Editar aluno",
+        "ABOUT-PATIENT": "Sobre o aluno",
+        "PATIENT-ATTENDANCE": "Frequência do aluno",
+        "PATIENT-PROMOTION": "Promoção do aluno",
+        "PATIENT-CERTIFICATES": "Certificados do aluno",
+        "PATIENT-DISCIPLINE": "Disciplina do aluno",
+        "PATIENT-HEALTH-RECORDS": "Registros de saúde do aluno",
+        "ID-CARD-GENERATOR": "Gerador de cartão de identificação"
+      }
+    },
+    "ADMISSIONS": {
+      "TEXT": "Admissões",
+      "LIST": {
+        "ADMISSION-ENQUIRIES": "Consultas de admissão",
+        "ONLINE-APPLICATIONS": "Inscrições online",
+        "ENTRANCE-EXAMS": "Exames de admissão",
+        "MERIT-LIST": "Lista de WARDificação",
+        "SEAT-ALLOCATION": "Alocação de vagas"
+      }
+    },
+    "EXAMINATION": {
+      "TEXT": "Exames",
+      "LIST": {
+        "EXAM-TYPES": "Tipos de exame",
+        "EXAM-SCHEDULE": "Cronograma de exames",
+        "HALL-ALLOCATION": "Alocação de salas",
+        "MARKS-ENTRY": "Lançamento de notas",
+        "RESULT-GENERATION": "Geração de resultados",
+        "REPORT-CARDS": "Boletins",
+        "QUIZ-BUILDER": "Criador de questionários"
+      }
+    },
+    "COURSES": {
+      "TEXT": "Cursos",
+      "LIST": {
+        "ALL-COURSES": "Todos os cursos",
+        "ADD-COURSE": "Adicionar curso",
+        "EDIT-COURSE": "Editar curso",
+        "ABOUT-COURSE": "Sobre o curso"
+      }
+    },
+    "LIBRARY": {
+      "TEXT": "Biblioteca",
+      "LIST": {
+        "ALL-LIBRARY": "Todos os recursos da biblioteca",
+        "ADD-LIBRARY": "Adicionar recurso da biblioteca",
+        "EDIT-LIBRARY": "Editar recurso da biblioteca",
+        "BOOK-STATUS": "Status do livro",
+        "ISSUE-RETURN": "Empréstimo e devolução",
+        "LIBRARY-REPORTS": "Relatórios da biblioteca"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "Departamentos",
+      "LIST": {
+        "ALL-DEPARTMENT": "Todos os departamentos",
+        "ADD-DEPARTMENT": "Adicionar departamento",
+        "EDIT-DEPARTMENT": "Editar departamento"
+      }
+    },
+    "STAFF": {
+      "TEXT": "Funcionários",
+      "LIST": {
+        "ALL-STAFF": "Todos os funcionários",
+        "ADD-STAFF": "Adicionar funcionário",
+        "EDIT-STAFF": "Editar funcionário",
+        "ABOUT-STAFF": "Sobre o funcionário",
+        "STAFF-ATTENDANCE": "Frequência do funcionário"
+      }
+    },
+    "HOLIDAY": {
+      "TEXT": "Feriados",
+      "LIST": {
+        "ALL-HOLIDAY": "Todos os feriados",
+        "ADD-HOLIDAY": "Adicionar feriado",
+        "EDIT-HOLIDAY": "Editar feriado"
+      }
+    },
+    "COMMUNICATION": {
+      "TEXT": "Comunicação",
+      "LIST": {
+        "NOTICE-BOARD": "Quadro de avisos",
+        "ANNOUNCEMENTS": "Anúncios",
+        "SMS-EMAIL": "SMS / E-mail"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "Relatórios",
+      "LIST": {
+        "ACADEMIC-REPORTS": "Relatórios acadêmicos",
+        "ATTENDANCE-REPORTS": "Relatórios de frequência",
+        "FEE-REPORTS": "Relatórios de taxas",
+        "EXAM-REPORTS": "Relatórios de exames",
+        "CUSTOM-REPORTS": "Relatórios personalizados"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "Configurações",
+      "LIST": {
+        "INSTITUTE-PROFILE": "Perfil da instituição",
+        "ROLE-PERMISSIONS": "Funções e permissões",
+        "USER-MANAGEMENT": "Gerenciamento de usuários",
+        "ACADEMIC-RULES": "Regras acadêmicas",
+        "NOTIFICATION-SETTINGS": "Configurações de notificação",
+        "SYSTEM-LOGS": "Logs do sistema",
+        "BACKUP-RESTORE": "Backup e restauração",
+        "AI-SETTINGS": "Configurações de IA"
+      }
+    },
+    "FEES": {
+      "TEXT": "Taxas",
+      "LIST": {
+        "ALL-FEES": "Todas as taxas",
+        "ADD-FEES": "Adicionar taxa",
+        "EDIT-FEES": "Editar taxa",
+        "FEES-TYPE": "Tipo de taxa",
+        "FEES-DISCOUNT": "Desconto de taxa",
+        "FEE-RECEIPT": "Recibo de pagamento"
+      }
+    },
+    "WARD": {
+      "TEXT": "Turma",
+      "LIST": {
+        "WARD-LIST": "Lista de turmas",
+        "WARD-TIMETABLE": "Horário da turma"
+      }
+    },
+    "ACADEMICS": {
+      "TEXT": "Acadêmico",
+      "LIST": {
+        "ACADEMIC-YEAR": "Ano acadêmico",
+        "SESSIONS": "Sessões / Semestres",
+        "WARDES": "Turmas",
+        "SUBJECTS": "Disciplinas",
+        "COURSE-CURRICULUM": "Currículo do curso",
+        "ASSIGNMENT": "Atribuição de turma e disciplina",
+        "LESSON-PLANNING": "Planejamento de aulas"
+      }
+    },
+    "HOSTEL": {
+      "TEXT": "Alojamento",
+      "LIST": {
+        "ROOM-LIST": "Lista de quartos",
+        "ROOM-TYPE": "Tipo de quarto",
+        "ALLOCATIONS": "Alocações",
+        "ATTENDANCE": "Frequência no alojamento",
+        "HOSTEL-FEES": "Taxas de alojamento"
+      }
+    },
+    "HR": {
+      "TEXT": "Recursos Humanos",
+      "LIST": {
+        "LEAVE-REQUESTS": "Solicitações de licença dos funcionários",
+        "LEAVE-BALANCE": "Saldo de licença",
+        "LEAVE-TYPES": "Tipos de licença",
+        "HOLIDAYS": "Feriados",
+        "TODAY-ATTENDANCE": "Frequência de hoje",
+        "ATTENDANCE-DETAIL": "Detalhe de frequência",
+        "ATTENDANCE-SHEET": "Folha de frequência",
+        "EMPLOYEE-SALARY": "Salário do funcionário",
+        "PAYSLIP": "Holeri­te"
+      }
+    },
+    "DOCTOR": {
+      "TEXT": "Professor",
+      "LIST": {
+        "AI-LESSON-PLANNER": "Planejador de aulas com IA",
+        "DASHBOARD": "Painel",
+        "TODAY-SCHEDULE": "Horário de hoje",
+        "ATTENDANCE-SUMMARY": "Resumo de frequência",
+        "ACADEMICS": "Acadêmico",
+        "STUDY-MATERIALS": "Materiais de estudo",
+        "PATIENTS": "Alunos",
+        "PATIENT-PERFORMANCE": "Desempenho do aluno",
+        "EXAMINATION": "Exames",
+        "GRADE-SUBMISSION": "Envio de notas",
+        "RESULT-PREVIEW": "Prévia de resultados",
+        "TIMETABLE": "Horário",
+        "MY-TIMETABLE": "Meu horário",
+        "SUBSTITUTION-REQUESTS": "Solicitações de substituição",
+        "COMMUNICATION": "Comunicação",
+        "MESSAGES": "Mensagens",
+        "ATTENDANCE": "Frequência",
+        "DAILY-ATTENDANCE": "Frequência diária",
+        "ATTENDANCE-HISTORY": "Histórico de frequência",
+        "ATTENDANCE-CALENDAR": "Calendário de frequência",
+        "LEAVE": "Licença",
+        "APPLY-LEAVE": "Solicitar licença",
+        "LEAVE-STATUS": "Status da licença",
+        "MY-PROFILE": "Meu perfil",
+        "DOCUMENTS": "Documentos",
+        "CHANGE-PASSWORD": "Alterar senha",
+        "LECTURES": "Aulas",
+        "LEAVE-REQUEST": "Solicitação de licença",
+        "EXAM-SCHEDULE": "Cronograma de exames",
+        "MY-WARDES": "Minhas turmas",
+        "SUBJECTS-TAUGHT": "Disciplinas ministradas",
+        "PROFILE": "Perfil",
+        "SETTINGS": "Configurações"
+      }
+    },
+    "PATIENT": {
+      "TEXT": "Aluno",
+      "LIST": {
+        "AI-STUDY-COMPANION": "Assistente de estudos com IA",
+        "DASHBOARD": "Painel",
+        "HOMEWORK": "Tarefas",
+        "LEAVE-REQUEST": "Solicitação de licença",
+        "TIME-TABLE": "Horário",
+        "UPCOMING-EXAMS": "Próximos exames",
+        "MY-WARD": "Minha turma",
+        "MY-SUBJECTS": "Minhas disciplinas",
+        "ANNOUNCEMENTS": "Anúncios",
+        "ACADEMICS": "Acadêmico",
+        "SYLLABUS": "Programa",
+        "ASSIGNMENTS": "Atividades",
+        "STUDY-MATERIALS": "Materiais de estudo",
+        "ACADEMIC-CALENDAR": "Calendário acadêmico",
+        "ATTENDANCE": "Frequência",
+        "MONTHLY-SUMMARY": "Resumo mensal",
+        "MY-ATTENDANCE": "Minha frequência",
+        "ATTENDANCE-SUMMARY": "Resumo de frequência",
+        "ATTENDANCE-CALENDAR": "Calendário de frequência",
+        "FEES": "Taxas",
+        "FEE-RECEIPTS": "Recibos de pagamento",
+        "DUE-FEES": "Taxas pendentes",
+        "FEE-DETAILS": "Detalhes das taxas",
+        "ONLINE-PAYMENT": "Pagamento online",
+        "LIBRARY": "Biblioteca",
+        "MY-ISSUED-BOOKS": "Meus livros emprestados",
+        "DUE-DATES": "Datas de vencimento",
+        "BOOK-HISTORY": "Histórico de livros",
+        "TRANSPORT": "Transporte",
+        "MY-ROUTE": "Minha rota",
+        "VEHICLE-DETAILS": "Detalhes do veículo",
+        "HOSTEL": "Alojamento",
+        "ROOM-DETAILS": "Detalhes do quarto",
+        "HOSTEL-FEES": "Taxas de alojamento",
+        "COMPLAINTS": "Reclamações",
+        "EXAMINATION": "Exames",
+        "EXAM-SCHEDULE": "Cronograma de exames",
+        "HALL-TICKET": "Cartão de exame",
+        "MARKS": "Notas",
+        "REPORT-CARD": "Boletim",
+        "RESULTS": "Resultados",
+        "NOTICES": "Avisos",
+        "PROFILE": "Perfil",
+        "SETTINGS": "Configurações"
+      }
+    },
+    "APPS": {
+      "TEXT": "Aplicativos"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendário"
+    },
+    "TASK": {
+      "TEXT": "Tarefa"
+    },
+    "CONTACTS": {
+      "TEXT": "Contatos"
+    },
+    "TRANSPORT": {
+      "TEXT": "Transporte",
+      "LIST": {
+        "VEHICLES": "Veículos",
+        "ROUTES": "Rotas",
+        "DRIVERS": "Motoristas",
+        "PATIENT-ALLOCATION": "Alocação de alunos",
+        "TRANSPORT-FEES": "Taxas de transporte"
+      }
+    },
+    "EXTRA": {
+      "RADIOLOGY_RIS": "Radiology (RIS)",
+      "TEST_ORDERING": "Test Ordering",
+      "SCANS_TRACKING": "Scans Tracking",
+      "IMAGING_REPORTS": "Imaging Reports",
+      "TELEMEDICINE": "Telemedicine",
+      "VIDEO_CONSULTATION": "Video Consultation",
+      "VIRTUAL_VISIT_RECORDS": "Virtual Visit Records",
+      "ID_CARD_GENERATOR": "ID Card Generator",
+      "ASSETS_EQUIPMENT": "Assets & Equipment",
+      "EQUIPMENT_LIST": "Equipment List",
+      "MAINTENANCE_SCHEDULE": "Maintenance Schedule",
+      "BREAKDOWN_REPORTING": "Breakdown Reporting",
+      "FEEDBACK": "Feedback",
+      "PATIENT_FEEDBACK": "Patient Feedback",
+      "COMPLAINT_RESOLUTION": "Complaint Resolution",
+      "WASTE_MANAGEMENT": "Waste Management",
+      "BIO_MEDICAL_WASTE": "Bio-medical Waste",
+      "DISPOSAL_LOGS": "Disposal Logs",
+      "QUALITY_COMPLIANCE": "Quality & Compliance",
+      "AUDIT_CHECKLIST": "Audit Checklist",
+      "COMPLIANCE_DOCS": "Compliance Docs",
+      "VISITOR_MANAGEMENT": "Visitor Management",
+      "VISITOR_REGISTRATION": "Visitor Registration",
+      "VISIT_LOGS": "Visit Logs",
+      "REPORTS_ANALYTICS": "Reports & Analytics",
+      "CLINICAL_REPORTS": "Clinical Reports",
+      "FINANCIAL_REPORTS": "Financial Reports",
+      "INVENTORY_REPORTS": "Inventory Reports",
+      "ANALYTICS": "Analytics",
+      "BILLING": "Billing",
+      "MEDICAL_CERTIFICATES": "Medical Certificates",
+      "CONSULTATIONS_NOTE": "Consultations Note",
+      "INVENTORY_REQUESTS": "Inventory Requests",
+      "LAB_REPORTS": "Lab Reports",
+      "PATIENT_RECORDS": "Patient Records",
+      "PRESCRIPTIONS": "Prescriptions",
+      "REFERRALS": "Referrals",
+      "SURGERIES": "Surgeries",
+      "CLINICAL_TASKS": "Clinical Tasks",
+      "LAB_DIAGNOSTIC_REPORTS": "Lab & Diagnostic Reports",
+      "INSURANCE_CLAIMS": "Insurance & Claims",
+      "VACCINATIONS": "Vaccinations",
+      "HEALTH_MONITORING": "Health Monitoring",
+      "FAMILY_MEMBERS": "Family Members",
+      "DOCUMENTS_REPORTS": "Documents & Reports",
+      "EMERGENCY_SUPPORT": "Emergency Support",
+      "HEALTH_PLANS": "Health Plans",
+      "LIFESTYLE": "Lifestyle",
+      "NOTIFICATIONS": "Notifications",
+      "APPS": "Apps",
+      "CALENDAR": "Calendar",
+      "TASK": "Task",
+      "CONTACTS": "Contacts",
+      "EMAIL": "Email",
+      "INBOX": "Inbox",
+      "COMPOSE": "Compose",
+      "READ_EMAIL": "Read Email",
+      "MORE_APPS": "More Apps",
+      "CHAT": "Chat",
+      "CONTACT_GRID": "Contact Grid",
+      "DRAG_DROP": "Drag & Drop",
+      "SUPPORT": "Support",
+      "KANBAN_BOARD": "Kanban Board",
+      "FILE_MANAGER": "File Manager",
+      "NOTIFICATION_CENTER": "Notification Center",
+      "WIDGETS": "Widgets",
+      "CHART_WIDGET": "Chart Widget",
+      "DATA_WIDGET": "Data Widget",
+      "COMPONENTS": "Components",
+      "USER_INTERFACE_UI": "User Interface (UI)",
+      "ALERTS": "Alerts",
+      "BADGES": "Badges",
+      "CHIPS": "Chips",
+      "MODAL": "Modal",
+      "BUTTONS": "Buttons",
+      "EXPANSION_PANEL": "Expansion Panel",
+      "BOTTOM_SHEET": "Bottom Sheet",
+      "DIALOGS": "Dialogs",
+      "CARDS": "Cards",
+      "LABELS": "Labels",
+      "LIST_GROUP": "List Group",
+      "SNACKBAR": "Snackbar",
+      "PRELOADERS": "Preloaders",
+      "PROGRESS_BARS": "Progress Bars",
+      "TABS": "Tabs",
+      "TYPOGRAPHY": "Typography",
+      "HELPER_CLASSES": "Helper Classes",
+      "FORMS": "Forms",
+      "FORM_CONTROLS": "Form Controls",
+      "ADVANCED_CONTROLS": "Advanced Controls",
+      "FORM_EXAMPLES": "Form Examples",
+      "FORM_VALIDATION": "Form Validation",
+      "FORM_WIZARD": "Form Wizard",
+      "EDITORS": "Editors",
+      "TABLES": "Tables",
+      "BASIC_TABLES": "Basic Tables",
+      "MATERIAL_TABLES": "Material Tables",
+      "NGX_DATATABLE": "ngx-datatable",
+      "CHARTS": "Charts",
+      "ECHART": "Echart",
+      "APEX": "Apex",
+      "CHARTJS": "ChartJS",
+      "NGX_CHARTS": "Ngx-Charts",
+      "GAUGE": "Gauge",
+      "TIMELINE": "Timeline",
+      "TIMELINE_1": "Timeline 1",
+      "TIMELINE_2": "Timeline 2",
+      "ICONS": "Icons",
+      "MATERIAL_ICONS": "Material Icons",
+      "FONT_AWESOME": "Font Awesome",
+      "AUTHENTICATION": "Authentication",
+      "SIGN_IN": "Sign In",
+      "SIGN_UP": "Sign Up",
+      "FORGOT_PASSWORD": "Forgot Password",
+      "LOCKED": "Locked",
+      "404_NOT_FOUND": "404 - Not Found",
+      "500_SERVER_ERROR": "500 - Server Error",
+      "2_FACTOR_AUTH": "2-Factor Auth",
+      "MAINTENANCE": "Maintenance",
+      "COMING_SOON": "Coming Soon",
+      "EXTRA_PAGES": "Extra Pages",
+      "PROFILE": "Profile",
+      "PRICING": "Pricing",
+      "INVOICE": "Invoice",
+      "FAQS": "Faqs",
+      "BLANK_PAGE": "Blank Page",
+      "MULTI_LEVEL_MENU": "Multi level Menu",
+      "FIRST": "First",
+      "SECOND": "Second",
+      "SECOND_1": "Second 1",
+      "SECOND_2": "Second 2",
+      "THIRD_1": "third 1",
+      "THIRD": "Third"
+    }
+  }
+}

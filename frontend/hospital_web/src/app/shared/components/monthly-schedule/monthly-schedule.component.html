@@ -1,0 +1,52 @@
+<mat-card class="monthly-schedule-card">
+  <mat-card-header class="header-menu">
+    <mat-card-title>
+      Appointments
+    </mat-card-title>
+    <div class="month-label"> {{ currentDate | date: 'MMMM yyyy' }}</div>
+  </mat-card-header>
+  <div class="date-strip">
+    <button matIconButton disabled (click)="prevDay()" [disabled]="currentDate.getDate() === 1">
+      <mat-icon>navigate_before</mat-icon>
+    </button>
+    <div class="dates-scroll">
+      @for (day of daysInMonth; track day) {
+        <div class="date-item" [class.selected]="isSelected(day)"
+          (click)="selectDate(day)" #dateItemRefs>
+          <div class="day-label">{{ getDayOfWeek(day) }}</div>
+          <div class="date-number">{{ day }}</div>
+        </div>
+      }
+    </div>
+    <button matIconButton disabled (click)="nextDay()" [disabled]="currentDate.getDate() === daysInMonth.length">
+      <mat-icon>navigate_next</mat-icon>
+    </button>
+  </div>
+  <div class="activity-count">
+    {{ activities.length }} appointment{{ activities.length === 1 ? '' : 's' }} today
+  </div>
+  <div class="activity-list">
+    @for (act of activities; track act) {
+      <div class="activity-row">
+        <div class="activity-color" [style.background]="act.color || '#00bcd4'"></div>
+        <div class="activity-info">
+          <div class="activity-title">
+            {{ act.patientName || act.title }} <!-- Patient name -->
+          </div>
+          <div class="activity-type">
+            {{ act.type }}
+          </div>
+          @if (act.doctorName) {
+            <div class="activity-doctor">
+              👨‍⚕️ {{ act.doctorName }}
+            </div>
+          }
+        </div>
+        <div class="activity-time">{{ act.time }}</div>
+      </div>
+    }
+    @if (activities.length === 0) {
+      <div class="no-activity">No appointments today.</div>
+    }
+  </div>
+</mat-card>

@@ -1,0 +1,36 @@
+::ng-deep {
+  .global-search-dialog {
+    mat-dialog-container {
+      padding: 0 !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      overflow: visible !important;
+    }
+  }
+
+  .global-search-backdrop {
+    background: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(8px) !important;
+    -webkit-backdrop-filter: blur(8px) !important;
+  }
+}
+
+.nav-notification-icons {
+  margin: 0 5px;
+  
+  i {
+    font-size: 24px;
+    transition: all 0.3s ease;
+  }
+
+  &:hover i {
+    color: #6777ef;
+    transform: scale(1.1);
+  }
+}
+
+::ng-deep body.horizontal-layout {
+  .collapse-menu-icon {
+    display: none !important;
+  }
+}

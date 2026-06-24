@@ -1,0 +1,67 @@
+<mat-card class="insight-card overflow-hidden">
+  <div class="card-gradient-overlay"></div>
+  <mat-card-header class="custom-header">
+    <div mat-card-avatar class="ai-avatar-container">
+      <div class="pulse-ring"></div>
+      <mat-icon class="ai-icon">auto_awesome</mat-icon>
+    </div>
+    <div class="header-text">
+      <mat-card-title class="main-title">AI Smart Insights</mat-card-title>
+      <mat-card-subtitle class="sub-title">Powered by Generative Intelligence</mat-card-subtitle>
+    </div>
+    <div class="header-actions">
+      <button mat-icon-button (click)="generateInsights()" [disabled]="isLoading()" matTooltip="Refresh Analysis"
+        class="refresh-btn">
+        <mat-icon [class.spinning]="isLoading()">refresh</mat-icon>
+      </button>
+    </div>
+  </mat-card-header>
+
+  <mat-card-content class="content-container">
+    <ng-scrollbar style="height: 350px" visibility="hover">
+      <!-- Loading State -->
+      @if (isLoading()) {
+        <div class="loading-wrapper">
+          @for (i of [1,2,3]; track i) {
+            <div class="shimmer-item">
+              <div class="shimmer-icon"></div>
+              <div class="shimmer-lines">
+                <div class="line long"></div>
+                <div class="line short"></div>
+              </div>
+            </div>
+          }
+          <p class="analyzing-text">AI is processing real-time clinic data...</p>
+        </div>
+      }
+
+      <!-- Insights List -->
+      @if (!isLoading() && insights().length > 0) {
+        <div [@listAnimation]="insights().length" class="insights-list">
+          @for (insight of insights(); track insight) {
+            <div class="insight-wrapper">
+              <div class="insight-bullet">
+                <mat-icon>bolt</mat-icon>
+              </div>
+              <div class="insight-content">
+                <p class="insight-text">{{ insight }}</p>
+              </div>
+            </div>
+          }
+          <div class="ai-badge mt-3">
+            <mat-icon>verified</mat-icon>
+            <span>High Confidence Prediction</span>
+          </div>
+        </div>
+      }
+
+      <!-- Empty State -->
+      @if (!isLoading() && insights().length === 0) {
+        <div class="empty-state">
+          <mat-icon class="empty-icon">analytics</mat-icon>
+          <p>No insights found. Click refresh to begin analysis.</p>
+        </div>
+      }
+    </ng-scrollbar>
+  </mat-card-content>
+</mat-card>

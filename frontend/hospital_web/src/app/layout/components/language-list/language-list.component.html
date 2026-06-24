@@ -1,0 +1,19 @@
+<button mat-icon-button [matMenuTriggerFor]="languagemenu" class="lang-dropdown nav-notification-icons">
+  @if (flagvalue() !== undefined) {
+    <img [src]="flagvalue()" height="16">
+  } @else {
+    <img [src]="defaultFlag()" height="16">
+  }
+</button>
+
+<mat-menu #languagemenu="matMenu" class="lang-item-menu">
+  @for (item of listLang(); track item) {
+    <div class="lang-item">
+      <button mat-menu-item class="dropdown-item lang-item-list" (click)="setLanguage(item)"
+        [ngClass]="{'active': langStoreValue() === item.lang}">
+        <img [src]="item.flag" class="flag-img" height="12">
+        <span class="align-middle">{{item.text}}</span>
+      </button>
+    </div>
+  }
+</mat-menu>

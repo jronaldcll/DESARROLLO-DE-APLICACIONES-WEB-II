@@ -1,0 +1,146 @@
+.monthly-schedule-card {
+  border-radius: 18px;
+
+  .date-strip {
+    display: flex;
+    align-items: center;
+    margin: 1.2rem 0 1rem 0;
+    padding: 0 1rem;
+    .arrow-btn {
+      background: none;
+      border: none;
+      font-size: 1.3rem;
+      color: #90caf9;
+      cursor: pointer;
+      padding: 0 0.5rem;
+      &:disabled {
+        color: #e0e0e0;
+        cursor: default;
+      }
+    }
+    .dates-scroll {
+      display: flex;
+      overflow-x: auto;
+      flex: 1;
+      gap: 0.3rem;
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+      .date-item {
+        min-width: 38px;
+        padding: 0.3rem 0.2rem;
+        border-radius: 10px;
+        text-align: center;
+        cursor: pointer;
+        .day-label {
+          font-size: 0.7rem;
+          color: #b0b0b0;
+        }
+        .date-number {
+          font-size: 1.1rem;
+          font-weight: 600;
+        }
+        &.selected {
+          background: #f2f4ff;
+          .date-number {
+            color: #1976d2;
+          }
+        }
+      }
+    }
+  }
+  .activity-count {
+    font-size: 0.9rem;
+    color: #fd7e14;
+    padding: 0 1rem;
+    font-weight: 500;
+  }
+  .activity-list {
+    margin-top: 0.5rem;
+    height: 280px;
+    overflow-y: auto;
+    padding: 0 1rem;
+    margin-bottom: 15px;
+
+    .activity-row {
+      display: flex;
+      align-items: center;
+      border: 1px solid #dbdbdb;
+      border-radius: 10px;
+      margin-bottom: 0.7rem;
+      padding: 0.7rem 0.7rem 0.7rem 0.4rem;
+      .activity-color {
+        width: 5px;
+        height: 38px;
+        border-radius: 6px;
+        margin-right: 0.5rem;
+        margin-left: 0.5rem;
+      }
+      .activity-info {
+        flex: 1;
+        .activity-title {
+          font-weight: 500;
+          font-size: 1rem;
+        }
+        .activity-type {
+          font-size: 0.75rem;
+          color: #45a1eb;
+          font-weight: 500;
+        }
+        .activity-doctor {
+          font-size: 0.75rem;
+          color: #888;
+          margin-top: 2px;
+        }
+      }
+      .activity-time {
+        font-size: 0.95rem;
+        color: #888;
+        font-weight: 500;
+        min-width: 70px;
+        text-align: right;
+      }
+    }
+    .no-activity {
+      color: #b0b0b0;
+      text-align: center;
+      margin-top: 1.5rem;
+      font-size: 1rem;
+    }
+  }
+}
+::ng-deep .dark {
+  .monthly-schedule-card {
+    .date-strip {
+      .dates-scroll {
+        .date-item {
+          .date-number {
+            color: #96a2b4;
+          }
+          &.selected {
+            background: rgba(255, 255, 255, 0.1) !important;
+            .date-number {
+              color: #ffffff !important;
+            }
+          }
+        }
+      }
+    }
+    .activity-row {
+      background: rgba(255, 255, 255, 0.03) !important;
+      border: 1px solid rgba(255, 255, 255, 0.05) !important;
+      .activity-info {
+        .activity-title {
+          color: #ffffff;
+        }
+        .activity-doctor {
+          color: #96a2b4;
+        }
+      }
+      .activity-time {
+        color: #96a2b4;
+      }
+    }
+  }
+}

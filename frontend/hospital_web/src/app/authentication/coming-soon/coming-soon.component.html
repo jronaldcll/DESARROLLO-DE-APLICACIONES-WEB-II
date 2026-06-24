@@ -1,0 +1,68 @@
+<div class="auth-container modern-auth position-relative overflow-hidden">
+  <!-- Dynamic Animated Background -->
+  <div class="bg-layer">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+
+  <div class="auth-form-section w-100 h-100 d-flex justify-content-center align-items-center px-3 position-relative z-index-10">
+    <div class="premium-glass-card">
+      <div class="card-content text-center">
+        <!-- Icon/Logo Placeholder -->
+        <div class="auth-icon-wrapper mb-4">
+          <div class="icon-circle">
+            <mat-icon>rocket_launch</mat-icon>
+          </div>
+        </div>
+
+        <h2 class="auth-title mb-2">Something Awesome Is Coming</h2>
+        <p class="auth-subtitle text-muted mb-5">
+          We're crafting a new experience. Our website is under construction.<br/>
+          Subscribe to be the first to know when we launch.
+        </p>
+
+        <div class="countdown-wrapper mb-5 d-flex justify-content-center gap-2 gap-sm-3">
+          <div class="time-box">
+            <div class="time-value">{{ days < 10 ? '0' + days : days }}</div>
+            <div class="time-label">Days</div>
+          </div>
+          <div class="time-box">
+            <div class="time-value">{{ hours < 10 ? '0' + hours : hours }}</div>
+            <div class="time-label">Hours</div>
+          </div>
+          <div class="time-box">
+            <div class="time-value">{{ minutes < 10 ? '0' + minutes : minutes }}</div>
+            <div class="time-label">Minutes</div>
+          </div>
+          <div class="time-box">
+            <div class="time-value">{{ seconds < 10 ? '0' + seconds : seconds }}</div>
+            <div class="time-label">Seconds</div>
+          </div>
+        </div>
+
+        <form class="notify-form d-flex flex-column flex-sm-row gap-3 mt-4" (ngSubmit)="notifyMe()">
+          <mat-form-field appearance="outline" class="premium-input flex-grow-1">
+            <mat-label>Enter your email address</mat-label>
+            <input matInput [(ngModel)]="email" name="email" type="email" placeholder="john@example.com" required>
+            <mat-icon matPrefix class="text-muted ms-2 me-2">email</mat-icon>
+          </mat-form-field>
+          <button mat-flat-button color="primary" class="premium-auth-btn notify-btn" type="submit" [disabled]="!email">
+            <span>Notify Me</span>
+            <mat-icon class="ms-2">notifications_active</mat-icon>
+          </button>
+        </form>
+
+        <div class="social-links mt-5 pt-4">
+          <p class="text-muted mb-3 font-weight-medium">Follow our updates</p>
+          <div class="d-flex justify-content-center gap-3">
+            <a href="javascript:void(0)" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+            <a href="javascript:void(0)" class="social-btn"><i class="fab fa-twitter"></i></a>
+            <a href="javascript:void(0)" class="social-btn"><i class="fab fa-instagram"></i></a>
+            <a href="javascript:void(0)" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

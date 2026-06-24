@@ -1,0 +1,106 @@
+.patient-chart-card {
+  .chart-header {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .filter-tabs button {
+    margin: 0 4px;
+  }
+
+  .chart-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .center-text {
+      position: absolute;
+      text-align: center;
+
+      .total {
+        font-size: 20px;
+        font-weight: bold;
+      }
+
+      .label {
+        font-size: 12px;
+        color: #666;
+      }
+    }
+  }
+
+  .info-list {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 16px;
+    padding: 15px 25px;
+
+    .info {
+      display: flex;
+      align-items: center;
+      margin: 0px 20px;
+
+      .icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 12px;
+        margin-left: 12px;
+        color: white;
+      }
+
+      .text {
+        display: flex;
+        flex-direction: column;
+
+        .label {
+          font-size: 13px;
+          padding: 0px;
+        }
+
+        .value {
+          font-weight: 500;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    .info-list {
+      grid-template-columns: 1fr;
+      justify-items: center; // center items inside column
+    }
+  }
+}
+
+:host-context(.dark) {
+  .patient-chart-card {
+    .center-text {
+      .total {
+        color: #ffffff;
+      }
+      .label {
+        color: #96a2b4;
+      }
+    }
+    .info-list {
+      .info {
+        .text {
+          .label {
+            color: #96a2b4;
+          }
+          .value {
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+}

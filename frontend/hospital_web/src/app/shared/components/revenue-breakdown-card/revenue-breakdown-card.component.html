@@ -1,0 +1,36 @@
+<mat-card class="revenue-card glass-card">
+  <mat-card-header>
+    <div class="header-container w-100 d-flex justify-content-between align-items-center">
+      <mat-card-title>Revenue Streams</mat-card-title>
+      <div class="total-revenue">
+        <div class="label">Total Monthly</div>
+        <div class="value">$226,800</div>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="stream-list">
+      @for (s of streams; track s.source) {
+        <div class="stream-item">
+          <div class="stream-top">
+            <div class="stream-identity">
+              <div class="icon-box" [ngClass]="s.icon">
+                <mat-icon>{{s.icon}}</mat-icon>
+              </div>
+              <div class="stream-name">{{s.source}}</div>
+            </div>
+            <div class="stream-value">
+              <div class="amount">{{s.amount}}</div>
+              <div class="percentage">{{s.share}}%</div>
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="progress-rail">
+              <div class="progress-fill" [style.width.%]="s.share" [ngClass]="s.icon"></div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>

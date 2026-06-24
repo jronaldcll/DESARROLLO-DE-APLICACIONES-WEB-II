@@ -1,0 +1,272 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header">
+      <app-breadcrumb [title]="'Dashboard 2'" [items]="['Home']" [active_item]="'Dashboard 2'"></app-breadcrumb>
+    </div>
+
+    <!-- Welcome Banner Section -->
+    <div class="row">
+      <div class="col-12">
+        <app-db2-welcome-banner></app-db2-welcome-banner>
+      </div>
+    </div>
+
+    <!-- Top Stats Section -->
+    <app-db2-top-stats-row></app-db2-top-stats-row>
+
+    <!-- Quick Info Grid -->
+    <app-db2-quick-info-grid></app-db2-quick-info-grid>
+
+    <!-- Main Charts Section -->
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <app-db2-bed-occupancy-chart></app-db2-bed-occupancy-chart>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <app-db2-patient-growth-chart></app-db2-patient-growth-chart>
+      </div>
+    </div>
+
+    <!-- Financial & Dist Section -->
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4">
+        <app-db2-revenue-cards-grid class="h-100"></app-db2-revenue-cards-grid>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4">
+        <app-db2-claims-weekly-chart class="h-100"></app-db2-claims-weekly-chart>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-4">
+        <app-db2-gender-dist-chart class="h-100"></app-db2-gender-dist-chart>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <!-- Bar chart with line -->
+      <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Doctor Performance</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <apx-chart [series]="lineChartOptions.series!" [chart]="lineChartOptions.chart!"
+              [xaxis]="lineChartOptions.xaxis!" [stroke]="lineChartOptions.stroke!" [colors]="lineChartOptions.colors!"
+              [dataLabels]="lineChartOptions.dataLabels!" [legend]="lineChartOptions.legend!"
+              [tooltip]="lineChartOptions.tooltip!" [markers]="lineChartOptions.markers!"
+              [grid]="lineChartOptions.grid!" [yaxis]="lineChartOptions.yaxis!" [title]="lineChartOptions.title!"
+              [fill]="lineChartOptions.fill!">
+            </apx-chart>
+          </mat-card-content>
+        </mat-card>
+
+        <div class="row">
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+            <app-equipment-maintenance></app-equipment-maintenance>
+          </div>
+          <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+            <app-pharmacy-inventory-status></app-pharmacy-inventory-status>
+          </div>
+        </div>
+
+      </div>
+      <!-- line chart -->
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-staff-performance-radar></app-staff-performance-radar>
+        <app-patient-sentiment-meter></app-patient-sentiment-meter>
+      </div>
+    </div>
+    <div class="row clearfix">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-chart-card2 [title]="title" [subtitle]="subtitle"></app-chart-card2>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-chart-card1 [title]="title2" [subtitle]="subtitle2"></app-chart-card1>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-chart-card3 [title]="title3" [subtitle]="subtitle3"></app-chart-card3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="card">
+          <div class="header">
+            <h2>Recent Report</h2>
+            <button mat-icon-button [matMenuTriggerFor]="menu" class="header-dropdown">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item>
+                <mat-icon>add_circle_outline</mat-icon>
+                <span>Add</span>
+              </button>
+              <button mat-menu-item disabled>
+                <mat-icon>delete_outline</mat-icon>
+                <span>Delete</span>
+              </button>
+              <button mat-menu-item>
+                <mat-icon>refresh</mat-icon>
+                <span>Refresh</span>
+              </button>
+            </mat-menu>
+          </div>
+          <div class="body">
+            <div class="row">
+              <div class="col-md-12 col-xl-4 d-flex flex-column">
+                <div class="ml-xl-3">
+                  <p class="fw-bold banner-big-font">$1,17,289</p>
+                  <h4 class="fw-bold banner-big-font2 col-green">Total Income</h4>
+                  <p class="mb-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    Aenean commodo ligula eget dolor.
+                  </p>
+                  <p class="mb-2">Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                    Aenean commodo ligula eget dolor.
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-12 col-xl-8">
+                <div class="row">
+                  <div class="col-md-6">
+                    <p class="font-b-500 font-18 m-b-30">Country Wise Patients</p>
+                    <div class="progress-list m-b-10">
+                      <div class="details">
+                        <div class="title">USA</div>
+                      </div>
+                      <div class="status">
+                        <span>40</span>%
+                      </div>
+                      <div class="progress-xs not-rounded progress">
+                        <div class="progress-bar progress-bar-warning width-per-40" role="progressbar"
+                          aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">40%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="progress-list m-b-10">
+                      <div class="details">
+                        <div class="title">Germany</div>
+                      </div>
+                      <div class="status">
+                        <span>49</span>%
+                      </div>
+                      <div class="progress-xs not-rounded progress">
+                        <div class="progress-bar progress-bar-danger width-per-49" role="progressbar" aria-valuenow="49"
+                          aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">49%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="progress-list m-b-10">
+                      <div class="details">
+                        <div class="title">France</div>
+                      </div>
+                      <div class="status">
+                        <span>65</span>%
+                      </div>
+                      <div class="progress-xs not-rounded progress">
+                        <div class="progress-bar progress-bar-blue width-per-65" role="progressbar" aria-valuenow="65"
+                          aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">65%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="progress-list m-b-10">
+                      <div class="details">
+                        <div class="title">India</div>
+                      </div>
+                      <div class="status">
+                        <span>28</span>%
+                      </div>
+                      <div class="progress-xs not-rounded progress">
+                        <div class="progress-bar progress-bar-success width-per-28" role="progressbar"
+                          aria-valuenow="28" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">28%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="progress-list m-b-10">
+                      <div class="details">
+                        <div class="title">Other</div>
+                      </div>
+                      <div class="status">
+                        <span>16</span>%
+                      </div>
+                      <div class="progress-xs not-rounded progress">
+                        <div class="progress-bar progress-bar-hotpink width-per-16" role="progressbar"
+                          aria-valuenow="16" aria-valuemin="0" aria-valuemax="100">
+                          <span class="sr-only">16%</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 mt-3">
+                    <!-- chart -->
+                    <div class="recent-report__chart">
+                      <canvas baseChart height="120" class="chart" [data]="doughnutChartData" [type]="doughnutChartType"
+                        [options]="doughnutChartOptions">
+                      </canvas>
+                    </div>
+                    <div class="country-chart">
+                      <div class="d-flex justify-content-between mx-xl-5 mt-3">
+                        <div class="chart-note">
+                          <span class="dot dot-product bg-green"></span>
+                          <span>Itely</span>
+                        </div>
+                        <p class="mb-0">$30,289</p>
+                      </div>
+                      <div class="d-flex justify-content-between mx-xl-5 mt-3">
+                        <div class="chart-note">
+                          <span class="dot dot-product bg-orange"></span>
+                          <span>USA</span>
+                        </div>
+                        <p class="mb-0">$25,968</p>
+                      </div>
+                      <div class="d-flex justify-content-between mx-xl-5 mt-3">
+                        <div class="chart-note">
+                          <span class="dot dot-product bg-purple"></span>
+                          <span>India</span>
+                        </div>
+                        <p class="mb-0">$45,278</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <app-dept-discharge-trends class="h-100"></app-dept-discharge-trends>
+      </div>
+      <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <app-admission-source-chart class="h-100"></app-admission-source-chart>
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-blood-reserve-grid class="h-100"></app-blood-reserve-grid>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-revenue-breakdown-card class="h-100"></app-revenue-breakdown-card>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-clinical-event-list class="h-100"></app-clinical-event-list>
+      </div>
+    </div>
+
+    <div class="row mb-4">
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-lab-sample-tracking class="h-100"></app-lab-sample-tracking>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-emergency-contacts class="h-100"></app-emergency-contacts>
+      </div>
+      <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
+        <app-staff-shift-overview class="h-100"></app-staff-shift-overview>
+      </div>
+    </div>
+
+  </div>
+</section>

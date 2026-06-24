@@ -1,0 +1,112 @@
+<div class="settingSidebar" [ngClass]="isOpenSidebar ? 'showSettingPanel' : ''">
+  <a href="javascript:void(0)" class="settingPanelToggle" (click)="toggleRightSidebar()">
+    <app-feather-icons [icon]="'settings'" [class]="'setting-sidebar-icon'"></app-feather-icons>
+  </a>
+  <ng-scrollbar [style.height]="maxHeight + 'px'" visibility="hover">
+    <div class="settingSidebar-body ps-container ps-theme-default">
+      <div class=" fade show active">
+        <div class="setting-panel-header">Setting Panel
+        </div>
+        <div class="p-15 border-bottom rightSetting">
+          <p class="font-medium m-b-10">Select Layout</p>
+          <div class="layout-selection">
+            <div class="layout-card" [ngClass]="{'active': isDarTheme === false}" (click)="lightThemeBtnClick()">
+              <div class="card-inner">
+                <img src="assets/images/light.png" alt="Light">
+                <div class="selection-indicator"><mat-icon>check_circle</mat-icon></div>
+              </div>
+              <div class="layout-label">Light</div>
+            </div>
+            <div class="layout-card" [ngClass]="{'active': isDarTheme === true}" (click)="darkThemeBtnClick()">
+              <div class="card-inner">
+                <img src="assets/images/dark.png" alt="Dark">
+                <div class="selection-indicator"><mat-icon>check_circle</mat-icon></div>
+              </div>
+              <div class="layout-label">Dark</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Glassmorphism Layout Style -->
+        <div class="rightSetting">
+          <p class="font-medium m-b-10">Layout Style</p>
+          <mat-button-toggle-group class="mt-2" [value]="isGlassmorphism ? 'glassmorphism' : 'solid'">
+            <mat-button-toggle (click)="layoutStyleBtnClick('solid')" value="solid">Solid</mat-button-toggle>
+            <mat-button-toggle (click)="layoutStyleBtnClick('glassmorphism')"
+              value="glassmorphism">Glass</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+
+        <!-- Glassmorphism Background Color Picker -->
+        <div class="p-15 border-bottom rightSetting" [ngClass]="{'section-disabled': !isGlassmorphism || isDarTheme}">
+          <p class="font-medium m-b-10">Glass Background</p>
+          <div class="theme-setting-options">
+            <ul class="choose-theme list-unstyled mb-0">
+              @for (option of glassBgOptions; track option.name) {
+              <li [ngClass]="{'active': selectedGlassBgColor === option.name}" (click)="selectGlassBgColor(option)">
+                <div class="glass-color-pill"
+                  [style.background]="'linear-gradient(135deg, ' + option.start + ' 0%, ' + option.end + ' 100%)'">
+                </div>
+              </li>
+              }
+            </ul>
+          </div>
+        </div>
+
+        <div class="rightSetting">
+          <p class="font-medium m-b-10">Sidebar Menu Color</p>
+          <mat-button-toggle-group class="mt-2" [value]="isDarkSidebar ? 'dark' : 'light'">
+            <mat-button-toggle (click)="lightSidebarBtnClick()" value="light">Light</mat-button-toggle>
+            <mat-button-toggle (click)="darkSidebarBtnClick()" value="dark">Dark</mat-button-toggle>
+          </mat-button-toggle-group>
+        </div>
+        <div class="p-15 border-bottom rightSetting" [ngClass]="{'section-disabled': isGlassmorphism}">
+          <p class="font-medium m-b-10">Color Theme</p>
+          <div class="theme-setting-options">
+            <ul class="choose-theme list-unstyled mb-0">
+              <li data-theme="white" [ngClass]="{'active': selectedBgColor === 'white'}" (click)="selectTheme('white')">
+                <div class="white"></div>
+              </li>
+              <li data-theme="black" [ngClass]="{'active': selectedBgColor === 'black'}" (click)="selectTheme('black')">
+                <div class="black"></div>
+              </li>
+              <li data-theme="purple" [ngClass]="{'active': selectedBgColor === 'purple'}"
+                (click)="selectTheme('purple')">
+                <div class="purple"></div>
+              </li>
+              <li data-theme="orange" [ngClass]="{'active': selectedBgColor === 'orange'}"
+                (click)="selectTheme('orange')">
+                <div class="orange"></div>
+              </li>
+              <li data-theme="cyan" [ngClass]="{'active': selectedBgColor === 'cyan'}" (click)="selectTheme('cyan')">
+                <div class="cyan"></div>
+              </li>
+              <li data-theme="green" [ngClass]="{'active': selectedBgColor === 'green'}" (click)="selectTheme('green')">
+                <div class="green"></div>
+              </li>
+              <li data-theme="blue" [ngClass]="{'active': selectedBgColor === 'blue'}" (click)="selectTheme('blue')">
+                <div class="blue"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="rightSetting">
+          <p class="font-medium m-b-10">RTL Layout</p>
+          <mat-slide-toggle class="mt-2" [checked]="isRtl" (change)="switchDirection($event)"></mat-slide-toggle>
+          <div class="rtl-direction-label">
+            <span>LTR</span>
+            <span>RTL</span>
+          </div>
+        </div>
+        <div class="rightSetting mt-3">
+          <p class="font-medium m-b-10">Horizontal Layout</p>
+          <mat-slide-toggle class="mt-2" [checked]="isHorizontal" (change)="switchLayout($event)"></mat-slide-toggle>
+          <div class="rtl-direction-label">
+            <span>Vertical</span>
+            <span>Horizontal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </ng-scrollbar>
+</div>

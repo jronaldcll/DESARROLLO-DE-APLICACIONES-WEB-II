@@ -1,0 +1,26 @@
+@use "@angular/material" as mat;
+:host ::ng-deep .adminBtn {
+  @include mat.button-overrides(
+    (
+      filled-container-color: #0b8400,
+      filled-label-text-color: #ffffff,
+    )
+  );
+}
+:host ::ng-deep .doctorBtn {
+  @include mat.button-overrides(
+    (
+      filled-container-color: #fd7e14,
+      filled-label-text-color: #ffffff,
+    )
+  );
+}
+
+:host ::ng-deep .patientBtn {
+  @include mat.button-overrides(
+    (
+      filled-container-color: #0d6efd,
+      filled-label-text-color: #ffffff,
+    )
+  );
+}

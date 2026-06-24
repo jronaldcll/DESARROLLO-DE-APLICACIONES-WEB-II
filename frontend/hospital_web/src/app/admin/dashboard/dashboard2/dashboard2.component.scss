@@ -1,0 +1,83 @@
+:host-context(.dark) {
+  .banner-big-font {
+    color: #ffffff !important;
+  }
+  .banner-big-font2 {
+    color: #e0e0e0 !important;
+  }
+  .recent-report {
+    &__chart {
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 10px;
+      padding: 10px;
+    }
+  }
+  .country-chart {
+    p {
+      color: #ffffff !important;
+    }
+    .chart-note {
+      color: #96a2b4;
+    }
+  }
+  .progress-list {
+    .title {
+      color: #ced4da !important;
+    }
+    .status {
+      color: #ffffff !important;
+    }
+  }
+
+  // Custom deep styles for child components using glass-card
+  ::ng-deep {
+    .dark {
+      .glass-card {
+        background: rgba(30, 35, 50, 0.7) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37) !important;
+
+        mat-card-title,
+        .mat-mdc-card-title,
+        .h4,
+        .fw-bold {
+          color: #ffffff !important;
+        }
+        .text-muted {
+          color: #96a2b4 !important;
+        }
+        .mat-icon {
+          color: #96a2b4;
+        }
+      }
+
+      .card {
+        background: #1a202e !important;
+        .header {
+          h2 {
+            color: #ffffff !important;
+          }
+        }
+        .body {
+          color: #96a2b4 !important;
+          p {
+            color: #96a2b4;
+          }
+          .font-b-500 {
+            color: #ffffff !important;
+          }
+        }
+      }
+    }
+  }
+
+  // Apex Charts labels
+  ::ng-deep .apexcharts-canvas {
+    .apexcharts-xaxis-label,
+    .apexcharts-yaxis-label,
+    .apexcharts-legend-text {
+      fill: #96a2b4 !important;
+    }
+  }
+}

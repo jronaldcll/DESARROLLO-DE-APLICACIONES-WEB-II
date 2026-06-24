@@ -1,0 +1,34 @@
+<button mat-button [matMenuTriggerFor]="profilemenu">
+    <div class="user-profile-img">
+        <span>{{userName()}}</span>
+        <img [src]="userImg()" class="user_img" width="32" height="32" alt="User">
+    </div>
+</button>
+
+<mat-menu #profilemenu="matMenu" class="profile-menu">
+    <div class="noti-list">
+        <div class="menu">
+            <div class="user_dw_menu">
+                <button mat-menu-item class="user-item-list" (click)="onAccountClick()">
+                    <app-feather-icons [icon]="'user'" [class]="'user-menu-icons'"></app-feather-icons>
+                    Account
+                </button>
+
+                <button mat-menu-item class="user-item-list" (click)="onInboxClick()">
+                    <app-feather-icons [icon]="'mail'" [class]="'user-menu-icons'"></app-feather-icons>
+                    Inbox
+                </button>
+
+                <button mat-menu-item class="user-item-list" (click)="onSettingsClick()">
+                    <app-feather-icons [icon]="'settings'" [class]="'user-menu-icons'"></app-feather-icons>
+                    Settings
+                </button>
+
+                <button mat-menu-item class="user-item-list" (click)="onLogoutClick()">
+                    <app-feather-icons [icon]="'log-out'" [class]="'user-menu-icons'"></app-feather-icons>
+                    Logout
+                </button>
+            </div>
+        </div>
+    </div>
+</mat-menu>

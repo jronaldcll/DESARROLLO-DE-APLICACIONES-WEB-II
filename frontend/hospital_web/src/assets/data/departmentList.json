@@ -1,0 +1,73 @@
+[{
+    "id": "001",
+    "d_no": "1",
+    "d_name": "Gynecologist",
+    "description": "Investigates and treats..",
+    "d_date": "2021-02-25T14:22:18Z",
+    "d_head": "Dr.Sarah Smith",
+    "status":"Active"
+  },
+  {
+    "id": "002",
+    "d_no": "2",
+    "d_name": "Gastroenterology",
+    "description": "This department investigates..",
+    "d_date": "2021-02-25T14:22:18Z",
+    "d_head": "Dr.Angelica Ramos",
+    "status":"Active"
+  },
+  {
+    "id": "003",
+    "d_no": "3",
+    "d_name": "Nephrology",
+    "description": "Monitors and assesses..",
+    "d_date": "2021-02-25T14:22:18Z",
+    "d_head": "Dr.Cara Stevens",
+    "status":"Active"
+  },
+  {
+    "id": "004",
+    "d_no": "4",
+    "d_name": "Cardiology",
+    "description": "Provides medical care..",
+    "d_date": "2021-02-25T14:22:18Z",
+    "d_head": "Dr.Eva Willis",
+    "status":"Inactive"
+  },
+  {
+    "id": "005",
+    "d_no": "5",
+    "d_name": "Pharmacy",
+    "description": "Responsible for drugs..",
+    "d_date": "2021-02-25T14:22:18Z",
+    "d_head": "Dr.Jacob Ryan",
+    "status":"Active"
+  },
+  {
+    "id": "006",
+    "d_no": "6",
+    "d_name": "Physiotherapy",
+    "description": "Physiotherapists work..",
+    "d_date": "2021-02-25T14:22:18Z",
+    "d_head": "Dr.Megha Trivedi",
+    "status":"Active"
+  },
+  {
+    "id": "007",
+    "d_no": "7",
+    "d_name": "Orthopaedics",
+    "description": "Treats conditions related..",
+    "d_date": "2021-02-25T14:22:18Z",
+    "d_head": "Dr.Sarah Smith",
+    "status":"Inactive"
+  },
+  {
+    "id": "008",
+    "d_no": "8",
+    "d_name": "Human Resources",
+    "description": "Role is to provide..",
+    "d_date": "2021-02-25T14:22:18Z",
+    "d_head": "Angelica Ramos",
+    "status":"Active"
+  }
+]

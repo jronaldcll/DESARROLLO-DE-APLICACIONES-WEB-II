@@ -1,0 +1,21 @@
+<mat-card class="radar-card glass-card">
+  <mat-card-header>
+    <mat-card-title>Top Performer Metrics</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="p-0 text-center">
+    <div class="performer-profile mb-1">
+      <img src="assets/images/user/user4.jpg" class="rounded-circle border border-2 border-primary p-1" width="80" alt="Top Performer">
+      <div class="fw-bold mt-2 h6 mb-0">Dr. Sarah Smith</div>
+      <div class="small text-muted">Neurology Dept</div>
+    </div>
+    <apx-chart
+      [series]="chartOptions.series!"
+      [chart]="chartOptions.chart!"
+      [xaxis]="chartOptions.xaxis!"
+      [stroke]="chartOptions.stroke!"
+      [fill]="chartOptions.fill!"
+      [colors]="chartOptions.colors!"
+      [tooltip]="chartOptions.tooltip!"
+    ></apx-chart>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,452 @@
+{
+  "LOGIN": {
+    "TITLE": "欢迎使用 Smart"
+  },
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "主页"
+    },
+    "FRONT-OFFICE": {
+      "TEXT": "前台",
+      "LIST": {
+        "ADMISSION": "入学咨询",
+        "VISITORS": "访客登记",
+        "COMPLAINTS": "投诉"
+      }
+    },
+    "DASHBOARD": {
+      "TEXT": "仪表板",
+      "LIST": {
+        "DASHBOARD1": "仪表板 1",
+        "DASHBOARD2": "仪表板 2",
+        "DOCTOR-DASHBOARD": "教师仪表板",
+        "PATIENT-DASHBOARD": "学生仪表板",
+        "LIBRARY-DASHBOARD": "图书馆仪表板",
+        "TRANSPORT-DASHBOARD": "交通仪表板"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "教师",
+      "LIST": {
+        "ALL-DOCTORS": "所有教师",
+        "ADD-DOCTOR": "添加教师",
+        "EDIT-DOCTOR": "编辑教师",
+        "ABOUT-DOCTOR": "关于教师",
+        "DOCTOR-TIMETABLE": "教师课表",
+        "ASSIGN-WARD-DOCTOR": "分配班主任"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "学生",
+      "LIST": {
+        "ALL-PATIENTS": "所有学生",
+        "ADD-PATIENT": "添加学生",
+        "EDIT-PATIENT": "编辑学生",
+        "ABOUT-PATIENT": "关于学生",
+        "PATIENT-ATTENDANCE": "学生出勤",
+        "PATIENT-PROMOTION": "学生升级",
+        "PATIENT-CERTIFICATES": "学生证书",
+        "PATIENT-DISCIPLINE": "学生纪律",
+        "PATIENT-HEALTH-RECORDS": "学生健康记录",
+        "ID-CARD-GENERATOR": "证件生成器"
+      }
+    },
+    "ADMISSIONS": {
+      "TEXT": "招生",
+      "LIST": {
+        "ADMISSION-ENQUIRIES": "招生咨询",
+        "ONLINE-APPLICATIONS": "在线申请",
+        "ENTRANCE-EXAMS": "入学考试",
+        "MERIT-LIST": "成绩排名",
+        "SEAT-ALLOCATION": "名额分配"
+      }
+    },
+    "EXAMINATION": {
+      "TEXT": "考试",
+      "LIST": {
+        "EXAM-TYPES": "考试类型",
+        "EXAM-SCHEDULE": "考试安排",
+        "HALL-ALLOCATION": "考场分配",
+        "MARKS-ENTRY": "成绩录入",
+        "RESULT-GENERATION": "生成成绩",
+        "REPORT-CARDS": "成绩单",
+        "QUIZ-BUILDER": "测验创建器"
+      }
+    },
+    "COURSES": {
+      "TEXT": "课程",
+      "LIST": {
+        "ALL-COURSES": "所有课程",
+        "ADD-COURSE": "添加课程",
+        "EDIT-COURSE": "编辑课程",
+        "ABOUT-COURSE": "关于课程"
+      }
+    },
+    "LIBRARY": {
+      "TEXT": "图书馆",
+      "LIST": {
+        "ALL-LIBRARY": "所有图书馆资源",
+        "ADD-LIBRARY": "添加图书馆资源",
+        "EDIT-LIBRARY": "编辑图书馆资源",
+        "BOOK-STATUS": "图书状态",
+        "ISSUE-RETURN": "借阅与归还",
+        "LIBRARY-REPORTS": "图书馆报告"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "部门",
+      "LIST": {
+        "ALL-DEPARTMENT": "所有部门",
+        "ADD-DEPARTMENT": "添加部门",
+        "EDIT-DEPARTMENT": "编辑部门"
+      }
+    },
+    "STAFF": {
+      "TEXT": "员工",
+      "LIST": {
+        "ALL-STAFF": "所有员工",
+        "ADD-STAFF": "添加员工",
+        "EDIT-STAFF": "编辑员工",
+        "ABOUT-STAFF": "关于员工",
+        "STAFF-ATTENDANCE": "员工出勤"
+      }
+    },
+    "HOLIDAY": {
+      "TEXT": "假期",
+      "LIST": {
+        "ALL-HOLIDAY": "所有假期",
+        "ADD-HOLIDAY": "添加假期",
+        "EDIT-HOLIDAY": "编辑假期"
+      }
+    },
+    "COMMUNICATION": {
+      "TEXT": "沟通",
+      "LIST": {
+        "NOTICE-BOARD": "公告栏",
+        "ANNOUNCEMENTS": "公告",
+        "SMS-EMAIL": "短信 / 电子邮件"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "报告",
+      "LIST": {
+        "ACADEMIC-REPORTS": "学术报告",
+        "ATTENDANCE-REPORTS": "出勤报告",
+        "FEE-REPORTS": "费用报告",
+        "EXAM-REPORTS": "考试报告",
+        "CUSTOM-REPORTS": "自定义报告"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "设置",
+      "LIST": {
+        "INSTITUTE-PROFILE": "机构简介",
+        "ROLE-PERMISSIONS": "角色与权限",
+        "USER-MANAGEMENT": "用户管理",
+        "ACADEMIC-RULES": "学术规则",
+        "NOTIFICATION-SETTINGS": "通知设置",
+        "SYSTEM-LOGS": "系统日志",
+        "BACKUP-RESTORE": "备份与恢复",
+        "AI-SETTINGS": "AI 设置"
+      }
+    },
+    "FEES": {
+      "TEXT": "费用",
+      "LIST": {
+        "ALL-FEES": "所有费用",
+        "ADD-FEES": "添加费用",
+        "EDIT-FEES": "编辑费用",
+        "FEES-TYPE": "费用类型",
+        "FEES-DISCOUNT": "费用折扣",
+        "FEE-RECEIPT": "费用收据"
+      }
+    },
+    "WARD": {
+      "TEXT": "班级",
+      "LIST": {
+        "WARD-LIST": "班级列表",
+        "WARD-TIMETABLE": "班级课表"
+      }
+    },
+    "ACADEMICS": {
+      "TEXT": "学术",
+      "LIST": {
+        "ACADEMIC-YEAR": "学年",
+        "SESSIONS": "学期",
+        "WARDES": "班级",
+        "SUBJECTS": "科目",
+        "COURSE-CURRICULUM": "课程大纲",
+        "ASSIGNMENT": "班级与科目分配",
+        "LESSON-PLANNING": "课程计划"
+      }
+    },
+    "HOSTEL": {
+      "TEXT": "宿舍",
+      "LIST": {
+        "ROOM-LIST": "房间列表",
+        "ROOM-TYPE": "房间类型",
+        "ALLOCATIONS": "分配",
+        "ATTENDANCE": "宿舍出勤",
+        "HOSTEL-FEES": "宿舍费用"
+      }
+    },
+    "HR": {
+      "TEXT": "人力资源",
+      "LIST": {
+        "LEAVE-REQUESTS": "员工请假申请",
+        "LEAVE-BALANCE": "请假余额",
+        "LEAVE-TYPES": "请假类型",
+        "HOLIDAYS": "假期",
+        "TODAY-ATTENDANCE": "今日出勤",
+        "ATTENDANCE-DETAIL": "出勤详情",
+        "ATTENDANCE-SHEET": "出勤表",
+        "EMPLOYEE-SALARY": "员工薪资",
+        "PAYSLIP": "工资单"
+      }
+    },
+    "DOCTOR": {
+      "TEXT": "教师",
+      "LIST": {
+        "AI-LESSON-PLANNER": "AI 课程规划",
+        "DASHBOARD": "仪表板",
+        "TODAY-SCHEDULE": "今日安排",
+        "ATTENDANCE-SUMMARY": "出勤汇总",
+        "ACADEMICS": "学术",
+        "STUDY-MATERIALS": "学习资料",
+        "PATIENTS": "学生",
+        "PATIENT-PERFORMANCE": "学生表现",
+        "EXAMINATION": "考试",
+        "GRADE-SUBMISSION": "提交成绩",
+        "RESULT-PREVIEW": "成绩预览",
+        "TIMETABLE": "课表",
+        "MY-TIMETABLE": "我的课表",
+        "SUBSTITUTION-REQUESTS": "代课申请",
+        "COMMUNICATION": "沟通",
+        "MESSAGES": "消息",
+        "ATTENDANCE": "出勤",
+        "DAILY-ATTENDANCE": "每日出勤",
+        "ATTENDANCE-HISTORY": "出勤记录",
+        "ATTENDANCE-CALENDAR": "出勤日历",
+        "LEAVE": "请假",
+        "APPLY-LEAVE": "申请请假",
+        "LEAVE-STATUS": "请假状态",
+        "MY-PROFILE": "我的资料",
+        "DOCUMENTS": "文件",
+        "CHANGE-PASSWORD": "修改密码",
+        "LECTURES": "课程",
+        "LEAVE-REQUEST": "请假申请",
+        "EXAM-SCHEDULE": "考试安排",
+        "MY-WARDES": "我的班级",
+        "SUBJECTS-TAUGHT": "授课科目",
+        "PROFILE": "个人资料",
+        "SETTINGS": "设置"
+      }
+    },
+    "PATIENT": {
+      "TEXT": "学生",
+      "LIST": {
+        "AI-STUDY-COMPANION": "AI 学习助手",
+        "DASHBOARD": "仪表板",
+        "HOMEWORK": "作业",
+        "LEAVE-REQUEST": "请假申请",
+        "TIME-TABLE": "课表",
+        "UPCOMING-EXAMS": "即将考试",
+        "MY-WARD": "我的班级",
+        "MY-SUBJECTS": "我的科目",
+        "ANNOUNCEMENTS": "公告",
+        "ACADEMICS": "学术",
+        "SYLLABUS": "教学大纲",
+        "ASSIGNMENTS": "作业任务",
+        "STUDY-MATERIALS": "学习资料",
+        "ACADEMIC-CALENDAR": "学术日历",
+        "ATTENDANCE": "出勤",
+        "MONTHLY-SUMMARY": "月度汇总",
+        "MY-ATTENDANCE": "我的出勤",
+        "ATTENDANCE-SUMMARY": "出勤汇总",
+        "ATTENDANCE-CALENDAR": "出勤日历",
+        "FEES": "费用",
+        "FEE-RECEIPTS": "费用收据",
+        "DUE-FEES": "待缴费用",
+        "FEE-DETAILS": "费用详情",
+        "ONLINE-PAYMENT": "在线支付",
+        "LIBRARY": "图书馆",
+        "MY-ISSUED-BOOKS": "我的借阅图书",
+        "DUE-DATES": "到期日期",
+        "BOOK-HISTORY": "借阅记录",
+        "TRANSPORT": "交通",
+        "MY-ROUTE": "我的路线",
+        "VEHICLE-DETAILS": "车辆详情",
+        "HOSTEL": "宿舍",
+        "ROOM-DETAILS": "房间详情",
+        "HOSTEL-FEES": "宿舍费用",
+        "COMPLAINTS": "投诉",
+        "EXAMINATION": "考试",
+        "EXAM-SCHEDULE": "考试安排",
+        "HALL-TICKET": "准考证",
+        "MARKS": "成绩",
+        "REPORT-CARD": "成绩单",
+        "RESULTS": "结果",
+        "NOTICES": "通知",
+        "PROFILE": "个人资料",
+        "SETTINGS": "设置"
+      }
+    },
+    "APPS": {
+      "TEXT": "应用"
+    },
+    "CALENDAR": {
+      "TEXT": "日历"
+    },
+    "TASK": {
+      "TEXT": "任务"
+    },
+    "CONTACTS": {
+      "TEXT": "联系人"
+    },
+    "TRANSPORT": {
+      "TEXT": "交通",
+      "LIST": {
+        "VEHICLES": "车辆",
+        "ROUTES": "路线",
+        "DRIVERS": "司机",
+        "PATIENT-ALLOCATION": "学生分配",
+        "TRANSPORT-FEES": "交通费用"
+      }
+    },
+    "EXTRA": {
+      "RADIOLOGY_RIS": "Radiology (RIS)",
+      "TEST_ORDERING": "Test Ordering",
+      "SCANS_TRACKING": "Scans Tracking",
+      "IMAGING_REPORTS": "Imaging Reports",
+      "TELEMEDICINE": "Telemedicine",
+      "VIDEO_CONSULTATION": "Video Consultation",
+      "VIRTUAL_VISIT_RECORDS": "Virtual Visit Records",
+      "ID_CARD_GENERATOR": "ID Card Generator",
+      "ASSETS_EQUIPMENT": "Assets & Equipment",
+      "EQUIPMENT_LIST": "Equipment List",
+      "MAINTENANCE_SCHEDULE": "Maintenance Schedule",
+      "BREAKDOWN_REPORTING": "Breakdown Reporting",
+      "FEEDBACK": "Feedback",
+      "PATIENT_FEEDBACK": "Patient Feedback",
+      "COMPLAINT_RESOLUTION": "Complaint Resolution",
+      "WASTE_MANAGEMENT": "Waste Management",
+      "BIO_MEDICAL_WASTE": "Bio-medical Waste",
+      "DISPOSAL_LOGS": "Disposal Logs",
+      "QUALITY_COMPLIANCE": "Quality & Compliance",
+      "AUDIT_CHECKLIST": "Audit Checklist",
+      "COMPLIANCE_DOCS": "Compliance Docs",
+      "VISITOR_MANAGEMENT": "Visitor Management",
+      "VISITOR_REGISTRATION": "Visitor Registration",
+      "VISIT_LOGS": "Visit Logs",
+      "REPORTS_ANALYTICS": "Reports & Analytics",
+      "CLINICAL_REPORTS": "Clinical Reports",
+      "FINANCIAL_REPORTS": "Financial Reports",
+      "INVENTORY_REPORTS": "Inventory Reports",
+      "ANALYTICS": "Analytics",
+      "BILLING": "Billing",
+      "MEDICAL_CERTIFICATES": "Medical Certificates",
+      "CONSULTATIONS_NOTE": "Consultations Note",
+      "INVENTORY_REQUESTS": "Inventory Requests",
+      "LAB_REPORTS": "Lab Reports",
+      "PATIENT_RECORDS": "Patient Records",
+      "PRESCRIPTIONS": "Prescriptions",
+      "REFERRALS": "Referrals",
+      "SURGERIES": "Surgeries",
+      "CLINICAL_TASKS": "Clinical Tasks",
+      "LAB_DIAGNOSTIC_REPORTS": "Lab & Diagnostic Reports",
+      "INSURANCE_CLAIMS": "Insurance & Claims",
+      "VACCINATIONS": "Vaccinations",
+      "HEALTH_MONITORING": "Health Monitoring",
+      "FAMILY_MEMBERS": "Family Members",
+      "DOCUMENTS_REPORTS": "Documents & Reports",
+      "EMERGENCY_SUPPORT": "Emergency Support",
+      "HEALTH_PLANS": "Health Plans",
+      "LIFESTYLE": "Lifestyle",
+      "NOTIFICATIONS": "Notifications",
+      "APPS": "Apps",
+      "CALENDAR": "Calendar",
+      "TASK": "Task",
+      "CONTACTS": "Contacts",
+      "EMAIL": "Email",
+      "INBOX": "Inbox",
+      "COMPOSE": "Compose",
+      "READ_EMAIL": "Read Email",
+      "MORE_APPS": "More Apps",
+      "CHAT": "Chat",
+      "CONTACT_GRID": "Contact Grid",
+      "DRAG_DROP": "Drag & Drop",
+      "SUPPORT": "Support",
+      "KANBAN_BOARD": "Kanban Board",
+      "FILE_MANAGER": "File Manager",
+      "NOTIFICATION_CENTER": "Notification Center",
+      "WIDGETS": "Widgets",
+      "CHART_WIDGET": "Chart Widget",
+      "DATA_WIDGET": "Data Widget",
+      "COMPONENTS": "Components",
+      "USER_INTERFACE_UI": "User Interface (UI)",
+      "ALERTS": "Alerts",
+      "BADGES": "Badges",
+      "CHIPS": "Chips",
+      "MODAL": "Modal",
+      "BUTTONS": "Buttons",
+      "EXPANSION_PANEL": "Expansion Panel",
+      "BOTTOM_SHEET": "Bottom Sheet",
+      "DIALOGS": "Dialogs",
+      "CARDS": "Cards",
+      "LABELS": "Labels",
+      "LIST_GROUP": "List Group",
+      "SNACKBAR": "Snackbar",
+      "PRELOADERS": "Preloaders",
+      "PROGRESS_BARS": "Progress Bars",
+      "TABS": "Tabs",
+      "TYPOGRAPHY": "Typography",
+      "HELPER_CLASSES": "Helper Classes",
+      "FORMS": "Forms",
+      "FORM_CONTROLS": "Form Controls",
+      "ADVANCED_CONTROLS": "Advanced Controls",
+      "FORM_EXAMPLES": "Form Examples",
+      "FORM_VALIDATION": "Form Validation",
+      "FORM_WIZARD": "Form Wizard",
+      "EDITORS": "Editors",
+      "TABLES": "Tables",
+      "BASIC_TABLES": "Basic Tables",
+      "MATERIAL_TABLES": "Material Tables",
+      "NGX_DATATABLE": "ngx-datatable",
+      "CHARTS": "Charts",
+      "ECHART": "Echart",
+      "APEX": "Apex",
+      "CHARTJS": "ChartJS",
+      "NGX_CHARTS": "Ngx-Charts",
+      "GAUGE": "Gauge",
+      "TIMELINE": "Timeline",
+      "TIMELINE_1": "Timeline 1",
+      "TIMELINE_2": "Timeline 2",
+      "ICONS": "Icons",
+      "MATERIAL_ICONS": "Material Icons",
+      "FONT_AWESOME": "Font Awesome",
+      "AUTHENTICATION": "Authentication",
+      "SIGN_IN": "Sign In",
+      "SIGN_UP": "Sign Up",
+      "FORGOT_PASSWORD": "Forgot Password",
+      "LOCKED": "Locked",
+      "404_NOT_FOUND": "404 - Not Found",
+      "500_SERVER_ERROR": "500 - Server Error",
+      "2_FACTOR_AUTH": "2-Factor Auth",
+      "MAINTENANCE": "Maintenance",
+      "COMING_SOON": "Coming Soon",
+      "EXTRA_PAGES": "Extra Pages",
+      "PROFILE": "Profile",
+      "PRICING": "Pricing",
+      "INVOICE": "Invoice",
+      "FAQS": "Faqs",
+      "BLANK_PAGE": "Blank Page",
+      "MULTI_LEVEL_MENU": "Multi level Menu",
+      "FIRST": "First",
+      "SECOND": "Second",
+      "SECOND_1": "Second 1",
+      "SECOND_2": "Second 2",
+      "THIRD_1": "third 1",
+      "THIRD": "Third"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.satisfaction-card {
+  .satisfaction-score {
+    .score-value {
+      font-size: 36px;
+      font-weight: 500;
+      color: #4caf50;
+    }
+
+    .score-stars {
+      color: #ffc107;
+      font-size: 24px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 2px;
+
+      .star-icon,
+      .star-icon-half,
+      .star-icon-empty {
+        width: auto;
+        height: auto;
+      }
+
+      .star-icon-empty {
+        color: #e0e0e0;
+      }
+    }
+
+    .score-label {
+      font-size: 14px;
+      color: #757575;
+      margin-top: 5px;
+    }
+  }
+
+  .satisfaction-chart {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,452 @@
+{
+  "LOGIN": {
+    "TITLE": "Smart में आपका स्वागत है"
+  },
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "मुख्य"
+    },
+    "FRONT-OFFICE": {
+      "TEXT": "फ्रंट ऑफिस",
+      "LIST": {
+        "ADMISSION": "प्रवेश पूछताछ",
+        "VISITORS": "आगंतुक रजिस्टर",
+        "COMPLAINTS": "शिकायतें"
+      }
+    },
+    "DASHBOARD": {
+      "TEXT": "डैशबोर्ड",
+      "LIST": {
+        "DASHBOARD1": "डैशबोर्ड 1",
+        "DASHBOARD2": "डैशबोर्ड 2",
+        "DOCTOR-DASHBOARD": "शिक्षक डैशबोर्ड",
+        "PATIENT-DASHBOARD": "छात्र डैशबोर्ड",
+        "LIBRARY-DASHBOARD": "पुस्तकालय डैशबोर्ड",
+        "TRANSPORT-DASHBOARD": "परिवहन डैशबोर्ड"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "शिक्षक",
+      "LIST": {
+        "ALL-DOCTORS": "सभी शिक्षक",
+        "ADD-DOCTOR": "शिक्षक जोड़ें",
+        "EDIT-DOCTOR": "शिक्षक संपादित करें",
+        "ABOUT-DOCTOR": "शिक्षक के बारे में",
+        "DOCTOR-TIMETABLE": "शिक्षक समय-सारणी",
+        "ASSIGN-WARD-DOCTOR": "कक्षा शिक्षक नियुक्त करें"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "छात्र",
+      "LIST": {
+        "ALL-PATIENTS": "सभी छात्र",
+        "ADD-PATIENT": "छात्र जोड़ें",
+        "EDIT-PATIENT": "छात्र संपादित करें",
+        "ABOUT-PATIENT": "छात्र के बारे में",
+        "PATIENT-ATTENDANCE": "छात्र उपस्थिति",
+        "PATIENT-PROMOTION": "छात्र पदोन्नति",
+        "PATIENT-CERTIFICATES": "छात्र प्रमाणपत्र",
+        "PATIENT-DISCIPLINE": "छात्र अनुशासन",
+        "PATIENT-HEALTH-RECORDS": "छात्र स्वास्थ्य रिकॉर्ड",
+        "ID-CARD-GENERATOR": "आईडी कार्ड जनरेटर"
+      }
+    },
+    "ADMISSIONS": {
+      "TEXT": "प्रवेश",
+      "LIST": {
+        "ADMISSION-ENQUIRIES": "प्रवेश पूछताछ",
+        "ONLINE-APPLICATIONS": "ऑनलाइन आवेदन",
+        "ENTRANCE-EXAMS": "प्रवेश परीक्षा",
+        "MERIT-LIST": "मेरिट सूची",
+        "SEAT-ALLOCATION": "सीट आवंटन"
+      }
+    },
+    "EXAMINATION": {
+      "TEXT": "परीक्षाएँ",
+      "LIST": {
+        "EXAM-TYPES": "परीक्षा प्रकार",
+        "EXAM-SCHEDULE": "परीक्षा कार्यक्रम",
+        "HALL-ALLOCATION": "कक्ष आवंटन",
+        "MARKS-ENTRY": "अंक प्रविष्टि",
+        "RESULT-GENERATION": "परिणाम तैयार करना",
+        "REPORT-CARDS": "रिपोर्ट कार्ड",
+        "QUIZ-BUILDER": "क्विज़ निर्माता"
+      }
+    },
+    "COURSES": {
+      "TEXT": "पाठ्यक्रम",
+      "LIST": {
+        "ALL-COURSES": "सभी पाठ्यक्रम",
+        "ADD-COURSE": "पाठ्यक्रम जोड़ें",
+        "EDIT-COURSE": "पाठ्यक्रम संपादित करें",
+        "ABOUT-COURSE": "पाठ्यक्रम के बारे में"
+      }
+    },
+    "LIBRARY": {
+      "TEXT": "पुस्तकालय",
+      "LIST": {
+        "ALL-LIBRARY": "सभी पुस्तकालय संसाधन",
+        "ADD-LIBRARY": "पुस्तकालय संसाधन जोड़ें",
+        "EDIT-LIBRARY": "पुस्तकालय संसाधन संपादित करें",
+        "BOOK-STATUS": "पुस्तक स्थिति",
+        "ISSUE-RETURN": "जारी/वापसी",
+        "LIBRARY-REPORTS": "पुस्तकालय रिपोर्ट"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "विभाग",
+      "LIST": {
+        "ALL-DEPARTMENT": "सभी विभाग",
+        "ADD-DEPARTMENT": "विभाग जोड़ें",
+        "EDIT-DEPARTMENT": "विभाग संपादित करें"
+      }
+    },
+    "STAFF": {
+      "TEXT": "कर्मचारी",
+      "LIST": {
+        "ALL-STAFF": "सभी कर्मचारी",
+        "ADD-STAFF": "कर्मचारी जोड़ें",
+        "EDIT-STAFF": "कर्मचारी संपादित करें",
+        "ABOUT-STAFF": "कर्मचारी के बारे में",
+        "STAFF-ATTENDANCE": "कर्मचारी उपस्थिति"
+      }
+    },
+    "HOLIDAY": {
+      "TEXT": "छुट्टियाँ",
+      "LIST": {
+        "ALL-HOLIDAY": "सभी छुट्टियाँ",
+        "ADD-HOLIDAY": "छुट्टी जोड़ें",
+        "EDIT-HOLIDAY": "छुट्टी संपादित करें"
+      }
+    },
+    "COMMUNICATION": {
+      "TEXT": "संचार",
+      "LIST": {
+        "NOTICE-BOARD": "सूचना पट्ट",
+        "ANNOUNCEMENTS": "घोषणाएँ",
+        "SMS-EMAIL": "एसएमएस / ईमेल"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "रिपोर्ट",
+      "LIST": {
+        "ACADEMIC-REPORTS": "शैक्षणिक रिपोर्ट",
+        "ATTENDANCE-REPORTS": "उपस्थिति रिपोर्ट",
+        "FEE-REPORTS": "शुल्क रिपोर्ट",
+        "EXAM-REPORTS": "परीक्षा रिपोर्ट",
+        "CUSTOM-REPORTS": "कस्टम रिपोर्ट"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "सेटिंग्स",
+      "LIST": {
+        "INSTITUTE-PROFILE": "संस्थान प्रोफ़ाइल",
+        "ROLE-PERMISSIONS": "भूमिकाएँ और अनुमतियाँ",
+        "USER-MANAGEMENT": "उपयोगकर्ता प्रबंधन",
+        "ACADEMIC-RULES": "शैक्षणिक नियम",
+        "NOTIFICATION-SETTINGS": "सूचना सेटिंग्स",
+        "SYSTEM-LOGS": "सिस्टम लॉग",
+        "BACKUP-RESTORE": "बैकअप और पुनर्स्थापना",
+        "AI-SETTINGS": "एआई सेटिंग्स"
+      }
+    },
+    "FEES": {
+      "TEXT": "शुल्क",
+      "LIST": {
+        "ALL-FEES": "सभी शुल्क",
+        "ADD-FEES": "शुल्क जोड़ें",
+        "EDIT-FEES": "शुल्क संपादित करें",
+        "FEES-TYPE": "शुल्क प्रकार",
+        "FEES-DISCOUNT": "शुल्क छूट",
+        "FEE-RECEIPT": "शुल्क रसीद"
+      }
+    },
+    "WARD": {
+      "TEXT": "कक्षा",
+      "LIST": {
+        "WARD-LIST": "कक्षा सूची",
+        "WARD-TIMETABLE": "कक्षा समय-सारणी"
+      }
+    },
+    "ACADEMICS": {
+      "TEXT": "शैक्षणिक",
+      "LIST": {
+        "ACADEMIC-YEAR": "शैक्षणिक वर्ष",
+        "SESSIONS": "सत्र / सेमेस्टर",
+        "WARDES": "कक्षाएँ",
+        "SUBJECTS": "विषय",
+        "COURSE-CURRICULUM": "पाठ्यक्रम संरचना",
+        "ASSIGNMENT": "कक्षा और विषय आवंटन",
+        "LESSON-PLANNING": "पाठ योजना"
+      }
+    },
+    "HOSTEL": {
+      "TEXT": "छात्रावास",
+      "LIST": {
+        "ROOM-LIST": "कमरा सूची",
+        "ROOM-TYPE": "कमरा प्रकार",
+        "ALLOCATIONS": "आवंटन",
+        "ATTENDANCE": "छात्रावास उपस्थिति",
+        "HOSTEL-FEES": "छात्रावास शुल्क"
+      }
+    },
+    "HR": {
+      "TEXT": "मानव संसाधन",
+      "LIST": {
+        "LEAVE-REQUESTS": "कर्मचारी अवकाश अनुरोध",
+        "LEAVE-BALANCE": "अवकाश शेष",
+        "LEAVE-TYPES": "अवकाश प्रकार",
+        "HOLIDAYS": "छुट्टियाँ",
+        "TODAY-ATTENDANCE": "आज की उपस्थिति",
+        "ATTENDANCE-DETAIL": "उपस्थिति विवरण",
+        "ATTENDANCE-SHEET": "उपस्थिति शीट",
+        "EMPLOYEE-SALARY": "कर्मचारी वेतन",
+        "PAYSLIP": "वेतन पर्ची"
+      }
+    },
+    "DOCTOR": {
+      "TEXT": "शिक्षक",
+      "LIST": {
+        "AI-LESSON-PLANNER": "एआई पाठ योजनाकार",
+        "DASHBOARD": "डैशबोर्ड",
+        "TODAY-SCHEDULE": "आज का कार्यक्रम",
+        "ATTENDANCE-SUMMARY": "उपस्थिति सारांश",
+        "ACADEMICS": "शैक्षणिक",
+        "STUDY-MATERIALS": "अध्ययन सामग्री",
+        "PATIENTS": "छात्र",
+        "PATIENT-PERFORMANCE": "छात्र प्रदर्शन",
+        "EXAMINATION": "परीक्षाएँ",
+        "GRADE-SUBMISSION": "अंक जमा करना",
+        "RESULT-PREVIEW": "परिणाम पूर्वावलोकन",
+        "TIMETABLE": "समय-सारणी",
+        "MY-TIMETABLE": "मेरी समय-सारणी",
+        "SUBSTITUTION-REQUESTS": "प्रतिस्थापन अनुरोध",
+        "COMMUNICATION": "संचार",
+        "MESSAGES": "संदेश",
+        "ATTENDANCE": "उपस्थिति",
+        "DAILY-ATTENDANCE": "दैनिक उपस्थिति",
+        "ATTENDANCE-HISTORY": "उपस्थिति इतिहास",
+        "ATTENDANCE-CALENDAR": "उपस्थिति कैलेंडर",
+        "LEAVE": "अवकाश",
+        "APPLY-LEAVE": "अवकाश के लिए आवेदन करें",
+        "LEAVE-STATUS": "अवकाश स्थिति",
+        "MY-PROFILE": "मेरी प्रोफ़ाइल",
+        "DOCUMENTS": "दस्तावेज़",
+        "CHANGE-PASSWORD": "पासवर्ड बदलें",
+        "LECTURES": "व्याख्यान",
+        "LEAVE-REQUEST": "अवकाश अनुरोध",
+        "EXAM-SCHEDULE": "परीक्षा कार्यक्रम",
+        "MY-WARDES": "मेरी कक्षाएँ",
+        "SUBJECTS-TAUGHT": "पढ़ाए गए विषय",
+        "PROFILE": "प्रोफ़ाइल",
+        "SETTINGS": "सेटिंग्स"
+      }
+    },
+    "PATIENT": {
+      "TEXT": "छात्र",
+      "LIST": {
+        "AI-STUDY-COMPANION": "एआई अध्ययन सहायक",
+        "DASHBOARD": "डैशबोर्ड",
+        "HOMEWORK": "गृहकार्य",
+        "LEAVE-REQUEST": "अवकाश अनुरोध",
+        "TIME-TABLE": "समय-सारणी",
+        "UPCOMING-EXAMS": "आगामी परीक्षाएँ",
+        "MY-WARD": "मेरी कक्षा",
+        "MY-SUBJECTS": "मेरे विषय",
+        "ANNOUNCEMENTS": "घोषणाएँ",
+        "ACADEMICS": "शैक्षणिक",
+        "SYLLABUS": "पाठ्यक्रम",
+        "ASSIGNMENTS": "असाइनमेंट",
+        "STUDY-MATERIALS": "अध्ययन सामग्री",
+        "ACADEMIC-CALENDAR": "शैक्षणिक कैलेंडर",
+        "ATTENDANCE": "उपस्थिति",
+        "MONTHLY-SUMMARY": "मासिक सारांश",
+        "MY-ATTENDANCE": "मेरी उपस्थिति",
+        "ATTENDANCE-SUMMARY": "उपस्थिति सारांश",
+        "ATTENDANCE-CALENDAR": "उपस्थिति कैलेंडर",
+        "FEES": "शुल्क",
+        "FEE-RECEIPTS": "शुल्क रसीदें",
+        "DUE-FEES": "बकाया शुल्क",
+        "FEE-DETAILS": "शुल्क विवरण",
+        "ONLINE-PAYMENT": "ऑनलाइन भुगतान",
+        "LIBRARY": "पुस्तकालय",
+        "MY-ISSUED-BOOKS": "मेरी जारी की गई पुस्तकें",
+        "DUE-DATES": "देय तिथियाँ",
+        "BOOK-HISTORY": "पुस्तक इतिहास",
+        "TRANSPORT": "परिवहन",
+        "MY-ROUTE": "मेरा मार्ग",
+        "VEHICLE-DETAILS": "वाहन विवरण",
+        "HOSTEL": "छात्रावास",
+        "ROOM-DETAILS": "कमरा विवरण",
+        "HOSTEL-FEES": "छात्रावास शुल्क",
+        "COMPLAINTS": "शिकायतें",
+        "EXAMINATION": "परीक्षाएँ",
+        "EXAM-SCHEDULE": "परीक्षा कार्यक्रम",
+        "HALL-TICKET": "प्रवेश पत्र",
+        "MARKS": "अंक",
+        "REPORT-CARD": "रिपोर्ट कार्ड",
+        "RESULTS": "परिणाम",
+        "NOTICES": "सूचनाएँ",
+        "PROFILE": "प्रोफ़ाइल",
+        "SETTINGS": "सेटिंग्स"
+      }
+    },
+    "APPS": {
+      "TEXT": "ऐप्स"
+    },
+    "CALENDAR": {
+      "TEXT": "कैलेंडर"
+    },
+    "TASK": {
+      "TEXT": "कार्य"
+    },
+    "CONTACTS": {
+      "TEXT": "संपर्क"
+    },
+    "TRANSPORT": {
+      "TEXT": "परिवहन",
+      "LIST": {
+        "VEHICLES": "वाहन",
+        "ROUTES": "मार्ग",
+        "DRIVERS": "चालक",
+        "PATIENT-ALLOCATION": "छात्र आवंटन",
+        "TRANSPORT-FEES": "परिवहन शुल्क"
+      }
+    },
+    "EXTRA": {
+      "RADIOLOGY_RIS": "Radiology (RIS)",
+      "TEST_ORDERING": "Test Ordering",
+      "SCANS_TRACKING": "Scans Tracking",
+      "IMAGING_REPORTS": "Imaging Reports",
+      "TELEMEDICINE": "Telemedicine",
+      "VIDEO_CONSULTATION": "Video Consultation",
+      "VIRTUAL_VISIT_RECORDS": "Virtual Visit Records",
+      "ID_CARD_GENERATOR": "ID Card Generator",
+      "ASSETS_EQUIPMENT": "Assets & Equipment",
+      "EQUIPMENT_LIST": "Equipment List",
+      "MAINTENANCE_SCHEDULE": "Maintenance Schedule",
+      "BREAKDOWN_REPORTING": "Breakdown Reporting",
+      "FEEDBACK": "Feedback",
+      "PATIENT_FEEDBACK": "Patient Feedback",
+      "COMPLAINT_RESOLUTION": "Complaint Resolution",
+      "WASTE_MANAGEMENT": "Waste Management",
+      "BIO_MEDICAL_WASTE": "Bio-medical Waste",
+      "DISPOSAL_LOGS": "Disposal Logs",
+      "QUALITY_COMPLIANCE": "Quality & Compliance",
+      "AUDIT_CHECKLIST": "Audit Checklist",
+      "COMPLIANCE_DOCS": "Compliance Docs",
+      "VISITOR_MANAGEMENT": "Visitor Management",
+      "VISITOR_REGISTRATION": "Visitor Registration",
+      "VISIT_LOGS": "Visit Logs",
+      "REPORTS_ANALYTICS": "Reports & Analytics",
+      "CLINICAL_REPORTS": "Clinical Reports",
+      "FINANCIAL_REPORTS": "Financial Reports",
+      "INVENTORY_REPORTS": "Inventory Reports",
+      "ANALYTICS": "Analytics",
+      "BILLING": "Billing",
+      "MEDICAL_CERTIFICATES": "Medical Certificates",
+      "CONSULTATIONS_NOTE": "Consultations Note",
+      "INVENTORY_REQUESTS": "Inventory Requests",
+      "LAB_REPORTS": "Lab Reports",
+      "PATIENT_RECORDS": "Patient Records",
+      "PRESCRIPTIONS": "Prescriptions",
+      "REFERRALS": "Referrals",
+      "SURGERIES": "Surgeries",
+      "CLINICAL_TASKS": "Clinical Tasks",
+      "LAB_DIAGNOSTIC_REPORTS": "Lab & Diagnostic Reports",
+      "INSURANCE_CLAIMS": "Insurance & Claims",
+      "VACCINATIONS": "Vaccinations",
+      "HEALTH_MONITORING": "Health Monitoring",
+      "FAMILY_MEMBERS": "Family Members",
+      "DOCUMENTS_REPORTS": "Documents & Reports",
+      "EMERGENCY_SUPPORT": "Emergency Support",
+      "HEALTH_PLANS": "Health Plans",
+      "LIFESTYLE": "Lifestyle",
+      "NOTIFICATIONS": "Notifications",
+      "APPS": "Apps",
+      "CALENDAR": "Calendar",
+      "TASK": "Task",
+      "CONTACTS": "Contacts",
+      "EMAIL": "Email",
+      "INBOX": "Inbox",
+      "COMPOSE": "Compose",
+      "READ_EMAIL": "Read Email",
+      "MORE_APPS": "More Apps",
+      "CHAT": "Chat",
+      "CONTACT_GRID": "Contact Grid",
+      "DRAG_DROP": "Drag & Drop",
+      "SUPPORT": "Support",
+      "KANBAN_BOARD": "Kanban Board",
+      "FILE_MANAGER": "File Manager",
+      "NOTIFICATION_CENTER": "Notification Center",
+      "WIDGETS": "Widgets",
+      "CHART_WIDGET": "Chart Widget",
+      "DATA_WIDGET": "Data Widget",
+      "COMPONENTS": "Components",
+      "USER_INTERFACE_UI": "User Interface (UI)",
+      "ALERTS": "Alerts",
+      "BADGES": "Badges",
+      "CHIPS": "Chips",
+      "MODAL": "Modal",
+      "BUTTONS": "Buttons",
+      "EXPANSION_PANEL": "Expansion Panel",
+      "BOTTOM_SHEET": "Bottom Sheet",
+      "DIALOGS": "Dialogs",
+      "CARDS": "Cards",
+      "LABELS": "Labels",
+      "LIST_GROUP": "List Group",
+      "SNACKBAR": "Snackbar",
+      "PRELOADERS": "Preloaders",
+      "PROGRESS_BARS": "Progress Bars",
+      "TABS": "Tabs",
+      "TYPOGRAPHY": "Typography",
+      "HELPER_CLASSES": "Helper Classes",
+      "FORMS": "Forms",
+      "FORM_CONTROLS": "Form Controls",
+      "ADVANCED_CONTROLS": "Advanced Controls",
+      "FORM_EXAMPLES": "Form Examples",
+      "FORM_VALIDATION": "Form Validation",
+      "FORM_WIZARD": "Form Wizard",
+      "EDITORS": "Editors",
+      "TABLES": "Tables",
+      "BASIC_TABLES": "Basic Tables",
+      "MATERIAL_TABLES": "Material Tables",
+      "NGX_DATATABLE": "ngx-datatable",
+      "CHARTS": "Charts",
+      "ECHART": "Echart",
+      "APEX": "Apex",
+      "CHARTJS": "ChartJS",
+      "NGX_CHARTS": "Ngx-Charts",
+      "GAUGE": "Gauge",
+      "TIMELINE": "Timeline",
+      "TIMELINE_1": "Timeline 1",
+      "TIMELINE_2": "Timeline 2",
+      "ICONS": "Icons",
+      "MATERIAL_ICONS": "Material Icons",
+      "FONT_AWESOME": "Font Awesome",
+      "AUTHENTICATION": "Authentication",
+      "SIGN_IN": "Sign In",
+      "SIGN_UP": "Sign Up",
+      "FORGOT_PASSWORD": "Forgot Password",
+      "LOCKED": "Locked",
+      "404_NOT_FOUND": "404 - Not Found",
+      "500_SERVER_ERROR": "500 - Server Error",
+      "2_FACTOR_AUTH": "2-Factor Auth",
+      "MAINTENANCE": "Maintenance",
+      "COMING_SOON": "Coming Soon",
+      "EXTRA_PAGES": "Extra Pages",
+      "PROFILE": "Profile",
+      "PRICING": "Pricing",
+      "INVOICE": "Invoice",
+      "FAQS": "Faqs",
+      "BLANK_PAGE": "Blank Page",
+      "MULTI_LEVEL_MENU": "Multi level Menu",
+      "FIRST": "First",
+      "SECOND": "Second",
+      "SECOND_1": "Second 1",
+      "SECOND_2": "Second 2",
+      "THIRD_1": "third 1",
+      "THIRD": "Third"
+    }
+  }
+}

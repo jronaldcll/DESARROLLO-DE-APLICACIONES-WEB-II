@@ -1,0 +1,43 @@
+<mat-card class="emergency-card glass-card">
+  <mat-card-header>
+    <div class="header-container w-100 d-flex justify-content-between align-items-center">
+      <mat-card-title>Emergency Directory</mat-card-title>
+      <div class="sos-badge">
+        <span class="sos-icon"><mat-icon>priority_high</mat-icon></span>
+        <span class="sos-text">SOS</span>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="contact-list">
+      <ng-scrollbar style="height: 280px" visibility="hover">
+        @for (contact of contacts; track contact.dept) {
+          <div class="contact-item">
+            <div class="dept-icon-box"
+              [ngClass]="{
+                'bg-red': contact.dept.includes('Emergency'), 
+                'bg-blue': contact.dept.includes('Blood'), 
+                'bg-gray': contact.dept.includes('Security'), 
+                'bg-orange': contact.dept.includes('Ambulance'),
+                'bg-indigo': contact.dept.includes('Lab'),
+                'bg-deep-orange': contact.dept.includes('Fire')
+              }">
+              <mat-icon>{{ contact.dept.includes('Blood') ? 'bloodtype' : contact.dept.includes('Security') ? 'security' :
+                contact.dept.includes('Ambulance') ? 'airport_shuttle' : contact.dept.includes('Fire') ? 'fire_truck' : contact.dept.includes('Lab') ? 'biotech' : 'emergency' }}</mat-icon>
+            </div>
+            <div class="contact-details">
+              <div class="dept-name">{{ contact.dept }}</div>
+              <div class="phone-wrap">
+                <span class="phone-number">{{ contact.phone }}</span>
+                <span class="ext-badge">EXT {{ contact.ext }}</span>
+              </div>
+            </div>
+            <button mat-mini-fab color="warn" class="call-action">
+              <mat-icon>call</mat-icon>
+            </button>
+          </div>
+        }
+      </ng-scrollbar>
+    </div>
+  </mat-card-content>
+</mat-card>

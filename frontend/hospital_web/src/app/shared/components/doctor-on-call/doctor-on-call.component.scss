@@ -1,0 +1,186 @@
+:host {
+  display: block;
+}
+
+.doctor-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.doctor-profile {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 5px;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transform: scale(1.02);
+
+    .actions {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+
+.image-container {
+  position: relative;
+  margin-right: 15px;
+
+  img {
+    width: 50px;
+    height: 50px;
+    border-radius: 14px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 2px solid white;
+
+  &.online {
+    background: #4caf50;
+    box-shadow: 0 0 0 rgba(76, 175, 80, 0.4);
+    animation: statusPulse 2s infinite;
+  }
+
+  &.busy {
+    background: #f44336;
+  }
+}
+
+@keyframes statusPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(76, 175, 80, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+
+.info {
+  flex-grow: 1;
+
+  .name {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 2px;
+  }
+
+  .specialty {
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 2px;
+  }
+
+  .status-text {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.text-success {
+  color: #4caf50;
+}
+.text-danger {
+  color: #f44336;
+}
+
+.actions {
+  display: flex;
+  gap: 4px;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: all 0.3s ease;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  background: #f0f4f8;
+  border-radius: 8px;
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+  }
+
+  &.call {
+    color: #2196f3;
+  }
+  &.message {
+    color: #673ab7;
+  }
+
+  &:hover {
+    background: #e1e8ef;
+  }
+}
+
+.footer-btn {
+  padding: 12px;
+  color: #2196f3;
+  font-weight: 600;
+  border-radius: 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  mat-icon {
+    font-size: 18px;
+    margin-right: 8px;
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+:host-context(.dark) {
+  .doctor-profile {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  .image-container .status-indicator {
+    border-color: #1a202e;
+  }
+  .info {
+    .name {
+      color: #ffffff;
+    }
+    .specialty {
+      color: #96a2b4;
+    }
+  }
+  .action-btn {
+    background: rgba(255, 255, 255, 0.05);
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  .footer-btn {
+    border-top-color: rgba(255, 255, 255, 0.05);
+    color: #2196f3;
+  }
+}

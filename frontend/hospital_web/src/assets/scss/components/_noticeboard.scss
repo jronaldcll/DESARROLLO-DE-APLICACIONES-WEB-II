@@ -1,0 +1,25 @@
+.notice-board {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-align: start;
+  -webkit-box-align: start;
+  align-items: flex-start;
+  .notice-body {
+    font-size: 13px;
+    padding: 0px 0px 5px 10px;
+    p {
+      margin-bottom: 0px;
+    }
+    .notice-heading {
+      margin: 5px 0px 0px 0px;
+    }
+  }
+  .table-img {
+    margin-top: 10px;
+    .notice-object {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

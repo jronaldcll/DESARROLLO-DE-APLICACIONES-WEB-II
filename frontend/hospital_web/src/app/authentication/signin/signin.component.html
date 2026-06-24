@@ -1,0 +1,103 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <div class="card-content">
+      <!-- Left side - Form -->
+      <div class="form-section">
+        <div class="form-content">
+          <h2 class="title">Sign in</h2>
+          <p class="subtitle">Enter your credentials to log in</p>
+
+          <div class="d-flex justify-content-between lbl-alert m-b-30">
+            <div>
+              <button mat-flat-button class="adminBtn" (click)="adminSet();">Admin</button>
+            </div>
+            <div>
+              <button mat-flat-button class="doctorBtn" (click)="doctorSet();">Doctor</button>
+            </div>
+            <div>
+              <button mat-flat-button class="patientBtn" (click)="patientSet();">Patient</button>
+            </div>
+          </div>
+
+          <form [formGroup]="authForm" (ngSubmit)="onSubmit()" class="auth-form">
+            <!-- Username Field -->
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Username</mat-label>
+              <input matInput formControlName="username" placeholder="Enter your username" />
+              @if (authForm.get('username')?.hasError('required')) {
+              <mat-error>
+                Username is required
+              </mat-error>
+              }
+            </mat-form-field>
+
+            <!-- Password Field -->
+            <mat-form-field appearance="outline" class="form-field">
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="password"
+                placeholder="Enter your password" />
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                [attr.aria-pressed]="hide" type="button">
+                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              @if (authForm.get('password')?.hasError('required')) {
+              <mat-error>
+                Password is required
+              </mat-error>
+              }
+            </mat-form-field>
+
+            <!-- Remember Me & Forgot Password -->
+            <div class="remember-forgot">
+              <mat-checkbox [(ngModel)]="rememberMe" [ngModelOptions]="{standalone: true}" name="rememberMe">
+                Remember me
+              </mat-checkbox>
+              <a routerLink="/authentication/forgot-password" class="forgot-password-link">Forgot Password?</a>
+            </div>
+
+            <!-- Login Button -->
+            <button mat-raised-button type="submit" class="create-btn" [disabled]="authForm.invalid || loading">
+              @if (loading) {
+              <mat-spinner diameter="20" class="btn-spinner"></mat-spinner>
+              }
+              @if (!loading) {
+              <span>Login</span>
+              }
+            </button>
+
+            <!-- Error Message -->
+            @if (error) {
+            <div class="error-message">
+              {{ error }}
+            </div>
+            }
+          </form>
+
+          <!-- Signup Link -->
+          <div class="login-link">
+            <span>Don't have an account? </span>
+            <a routerLink="/authentication/signup" class="login-text">Sign up</a>
+          </div>
+
+          <!-- Social Login -->
+          <div class="social-login">
+            <button mat-icon-button class="social-btn google-btn" (click)="signInWithGoogle()">
+              <img src="assets/images/pages/google.svg" alt="Google login" width="24" height="24" />
+            </button>
+            <button mat-icon-button class="social-btn facebook-btn" (click)="signInWithFacebook()">
+              <img src="assets/images/pages/facebook.svg" alt="Facebook login" width="24" height="24" />
+            </button>
+            <button mat-icon-button class="social-btn apple-btn" (click)="signInWithApple()">
+              <img src="assets/images/pages/apple.svg" alt="Apple login" width="24" height="24" />
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right side image -->
+      <div class="right-side-section">
+        <img src="assets/images/pages/bg-01.png" alt="Login" class="right-side-image" />
+      </div>
+    </div>
+  </mat-card>
+</div>

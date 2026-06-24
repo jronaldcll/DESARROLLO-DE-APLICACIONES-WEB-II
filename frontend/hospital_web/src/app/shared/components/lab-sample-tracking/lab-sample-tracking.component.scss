@@ -1,0 +1,199 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.sample-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.sample-item {
+  padding-bottom: 25px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+.sample-header {
+  margin-bottom: 25px;
+}
+
+.test-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: #2d3436;
+}
+
+.patient-name {
+  font-size: 12px;
+  color: #b2bec3;
+  font-weight: 500;
+
+  .divider {
+    margin: 0 5px;
+    opacity: 0.5;
+  }
+}
+
+.sample-badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+
+  &.status-ready {
+    background: rgba(46, 204, 113, 0.1);
+    color: #27ae60;
+  }
+
+  &.status-processing {
+    background: rgba(52, 152, 219, 0.1);
+    color: #2980b9;
+    animation: fadeInOut 2s infinite;
+  }
+
+  &.status-collected {
+    background: rgba(149, 165, 166, 0.1);
+    color: #7f8c8d;
+  }
+}
+
+.pipeline-container {
+  padding: 0 10px;
+}
+
+.pipeline-track {
+  height: 4px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 2px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.pipeline-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: linear-gradient(90deg, #3498db, #2ecc71);
+  border-radius: 2px;
+  transition: width 1s ease-in-out;
+}
+
+.step-point {
+  position: relative;
+  top: -6px;
+  z-index: 2;
+
+  .point-inner {
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 3px solid #dfe6e9;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+
+  .step-label {
+    position: absolute;
+    top: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    font-weight: 700;
+    color: #b2bec3;
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+
+  &.completed {
+    .point-inner {
+      background: #3498db;
+      border-color: #3498db;
+      box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.2);
+    }
+
+    .step-label {
+      color: #3498db;
+    }
+  }
+
+  &.active {
+    .point-inner {
+      background: white;
+      border-color: #3498db;
+      animation: pulseBlue 2s infinite;
+    }
+  }
+
+  &:last-child.completed {
+    .point-inner {
+      background: #2ecc71;
+      border-color: #2ecc71;
+      box-shadow: 0 0 0 4px rgba(46, 204, 113, 0.2);
+    }
+    .step-label {
+      color: #2ecc71;
+    }
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes pulseBlue {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(52, 152, 219, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+:host-context(.dark) {
+  .sample-item {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+  }
+  .test-name {
+    color: #ffffff;
+  }
+  .pipeline-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .step-point {
+    .point-inner {
+      background: #1a202e;
+      border-color: #404755;
+    }
+    &.completed .point-inner {
+        background: #3498db;
+    }
+    &.active .point-inner {
+        background: #1a202e;
+        border-color: #3498db;
+    }
+    &:last-child.completed .point-inner {
+        background: #2ecc71;
+    }
+  }
+}

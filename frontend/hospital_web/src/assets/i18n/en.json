@@ -1,0 +1,437 @@
+{
+  "MENUITEMS": {
+    "MAIN": {
+      "TEXT": "Main"
+    },
+    "DASHBOARD": {
+      "TEXT": "Dashboard",
+      "LIST": {
+        "DASHBOARD1": "Dashboard 1",
+        "DASHBOARD2": "Dashboard 2",
+        "DOCTOR-DASHBOARD": "Doctor Dashboard",
+        "PATIENT-DASHBOARD": "Patient Dashboard",
+        "NURSE-DASHBOARD": "Nurse Dashboard"
+      }
+    },
+    "APPOINTMENTS": {
+      "TEXT": "Appointments",
+      "LIST": {
+        "APPOINTMENT-CALENDAR": "Appointment Calendar",
+        "VIEW-APPOINTMENT": "View Appointment",
+        "BOOK-APPOINTMENT": "Book Appointment",
+        "EDIT-APPOINTMENT": "Edit Appointment"
+      }
+    },
+    "DOCTORS": {
+      "TEXT": "Doctors",
+      "LIST": {
+        "ALL-DOCTOR": "All Doctors",
+        "ADD-DOCTOR": "Add Doctor",
+        "EDIT-DOCTOR": "Edit Doctor",
+        "ASSIGN-DEPARTMENT": "Assign Department",
+        "SHIFT-MANAGEMENT": "Shift Management",
+        "PROFILE": "Doctor Profile"
+      }
+    },
+    "STAFF": {
+      "TEXT": "Staff",
+      "LIST": {
+        "ALL-STAFF": "All Staff",
+        "ADD-STAFF": "Add Staff",
+        "EDIT-STAFF": "Edit Staff",
+        "PROFILE": "Staff Profile"
+      }
+    },
+    "PATIENTS": {
+      "TEXT": "Patients",
+      "LIST": {
+        "ALL-PATIENT": "All Patients",
+        "ADD-PATIENT": "Add Patient",
+        "EDIT-PATIENT": "Edit Patient",
+        "PATIENT-RECORDS": "Patient Records",
+        "PROFILE": "Patient Profile"
+      }
+    },
+    "ROOMS": {
+      "TEXT": "Room Allotment",
+      "LIST": {
+        "ALLOTED-ROOMS": "Alloted Rooms",
+        "NEW-ALLOTMENT": "New Allotment",
+        "EDIT-ALLOTMENT": "Edit Allotment",
+        "ROOMS-BY-DEPARTMENT": "Rooms By Department",
+        "ADD-ROOM": "Add Room"
+      }
+    },
+    "ACCOUNTS": {
+      "TEXT": "Accounts",
+      "LIST": {
+        "BILL-LIST": "Bill List",
+        "ADD-BILL": "Add Bill",
+        "INCOME": "Income",
+        "EXPENSES": "Expenses",
+        "INCOME-REPORT": "Income Report",
+        "INVOICE": "Invoice"
+      }
+    },
+    "RECORDS": {
+      "TEXT": "Records",
+      "LIST": {
+        "BIRTH-RECORDS": "Birth Records",
+        "DEATH-RECORDS": "Death Records"
+      }
+    },
+    "AMBULANCE": {
+      "TEXT": "Ambulance",
+      "LIST": {
+        "AMBULANCE-CALL-LIST": "Ambulance Call List",
+        "AMBULANCE-LIST": "Ambulance List"
+      }
+    },
+    "PHARMACY": {
+      "TEXT": "Pharmacy",
+      "LIST": {
+        "MEDICINE-LIST": "Medicine List",
+        "ADD-MEDICINE": "Add Medicine"
+      }
+    },
+    "BLOOD-BANK": {
+      "TEXT": "Blood Bank",
+      "LIST": {
+        "BLOOD-STOCK": "Blood Stock",
+        "BLOOD-DONOR": "Blood Donor",
+        "BLOOD-ISSUED": "Blood Issued"
+      }
+    },
+    "DEPARTMENTS": {
+      "TEXT": "Departments",
+      "LIST": {
+        "DEPARTMENT-LIST": "Department List",
+        "ADD-DEPARTMENT": "Add Department"
+      }
+    },
+    "INVENTORY": {
+      "TEXT": "Inventory",
+      "LIST": {
+        "ITEM-STOCK-LIST": "Item Stock List",
+        "ISSUED-ITEMS": "Issued Items",
+        "PURCHASE-ORDERS": "Purchase Orders",
+        "SUPPLIER-LIST": "Supplier List",
+        "REORDER-ALERTS": "Reorder Alerts",
+        "INVENTORY-DASHBOARD": "Inventory Dashboard",
+        "CATEGORY-MANAGEMENT": "Category Management"
+      }
+    },
+    "HR": {
+      "TEXT": "Human Resources",
+      "LIST": {
+        "LEAVE-REQUESTS": "Leave Requests",
+        "LEAVE-BALANCE": "Leave Balance",
+        "LEAVE-TYPES": "Leave Types",
+        "HOLIDAYS": "Holidays",
+        "TODAY-ATTENDANCE": "Today's Attendance",
+        "EMP-ATTENDANCE": "Employee Attendance",
+        "ATTENDANCE-SHEET": "Attendance Sheet",
+        "EMPLOYEE-SALARY": "Employee Salary",
+        "PAYSLIP": "Payslip"
+      }
+    },
+    "INSURANCE": {
+      "TEXT": "Insurance",
+      "LIST": {
+        "PATIENT-INSURANCE": "Patient Insurance",
+        "NEW-CLAIM": "New Claim",
+        "CLAIM-STATUS": "Claim Status",
+        "INSURANCE-PROVIDER": "Insurance Provider"
+      }
+    },
+    "DOCTOR": {
+      "DASHBOARD": "Dashboard",
+      "APPOINTMENTS": "Appointments",
+      "DOCTORS": "Doctors",
+      "PATIENTS": "Patients",
+      "SETTINGS": "Settings",
+      "CHAT": "Chat"
+    },
+    "PATIENT": {
+      "TEXT": "Patient",
+      "DASHBOARD": "Dashboard",
+      "APPOINTMENTS": {
+        "TEXT": "Appointments",
+        "LIST": {
+          "BOOK-APPOINTMENT": "Book Appointment",
+          "TODAY": "Today Appointments",
+          "UPCOMING": "Upcoming Appointments",
+          "PAST": "Past Appointments"
+        }
+      },
+      "PRESCRIPTIONS": "Prescriptions",
+      "MEDICAL-RECORD": "Medical Record",
+      "BILLING": "Billing",
+      "CHAT": "Chat",
+      "SETTINGS": "Settings"
+    },
+    "APPS": {
+      "TEXT": "-- Apps"
+    },
+    "CALENDAR": {
+      "TEXT": "Calendar"
+    },
+    "TASK": {
+      "TEXT": "Task"
+    },
+    "CONTACTS": {
+      "TEXT": "Contacts"
+    },
+    "LABORATORY": {
+      "TEXT": "Laboratory",
+      "LIST": {
+        "TEST-CATALOG": "Test Catalog",
+        "TEST-REQUESTS": "Test Requests",
+        "SAMPLE-COLLECTION": "Sample Collection",
+        "TECHNICIAN-ASSIGNMENT": "Technician Assignment",
+        "RESULT-ENTRY": "Result Entry",
+        "LAB-REPORTS": "Lab Reports"
+      }
+    },
+    "EMR": {
+      "TEXT": "EMR/EHR",
+      "LIST": {
+        "PATIENT-ENCOUNTERS": "Patient Encounters",
+        "CLINICAL-NOTES": "Clinical Notes",
+        "TREATMENT-PLANS": "Treatment Plans",
+        "MEDICATION-HISTORY": "Medication History",
+        "PATIENT-DOCUMENTS": "Patient Documents"
+      }
+    },
+    "NURSING": {
+      "TEXT": "Nursing",
+      "LIST": {
+        "DOCTOR-ORDERS": "Doctor Orders",
+        "NURSING-NOTES": "Nursing Notes",
+        "MAR": "Medication Administration Record",
+        "VITALS-MONITORING": "Vitals Monitoring"
+      }
+    },
+    "OPERATION-THEATRE": {
+      "TEXT": "Operation Theatre",
+      "LIST": {
+        "SCHEDULING": "OT Scheduling",
+        "PRE-OP-ASSESSMENT": "Pre-Op Assessment",
+        "POST-OP-NOTES": "Post-Op Notes",
+        "SURGERY-RECORDS": "Surgery Records",
+        "OT-INVENTORY": "OT Inventory"
+      }
+    },
+    "DISCHARGE": {
+      "TEXT": "Discharge",
+      "LIST": {
+        "WORKFLOW": "Workflow",
+        "SUMMARY-CREATION": "Summary Creation",
+        "CLEARANCE": "Clearance"
+      }
+    },
+    "DOCUMENTS-CONSENT": {
+      "TEXT": "Documents & Consent",
+      "LIST": {
+        "UPLOAD": "Upload Documents",
+        "CONSENT-TEMPLATES": "Consent Templates",
+        "SIGNED-CONSENT": "Signed Consent"
+      }
+    },
+    "WASTE-MANAGEMENT": {
+      "TEXT": "Waste Management",
+      "LIST": {
+        "TRACKING": "Tracking",
+        "DISPOSAL-LOGS": "Disposal Logs"
+      }
+    },
+    "FEEDBACK": {
+      "TEXT": "Feedback",
+      "LIST": {
+        "PATIENT-FEEDBACK": "Patient Feedback",
+        "COMPLAINTS": "Complaints"
+      }
+    },
+    "SETTINGS": {
+      "TEXT": "Settings",
+      "LIST": {
+        "GENERAL": "General",
+        "OPERATIONS": "Operations",
+        "BILLING": "Billing",
+        "ROLES": "Roles",
+        "NOTIFICATIONS": "notifications",
+        "AI-SETTINGS": "AI Settings"
+      }
+    },
+    "TELEMEDICINE": {
+      "TEXT": "Telemedicine",
+      "LIST": {
+        "SCHEDULE": "Schedule",
+        "HISTORY": "History"
+      }
+    },
+    "VISITOR-MANAGEMENT": {
+      "TEXT": "Visitor Management",
+      "LIST": {
+        "REGISTRATION": "Registration",
+        "LOGS": "Logs"
+      }
+    },
+    "REPORTS": {
+      "TEXT": "Reports",
+      "LIST": {
+        "CLINICAL": "Clinical",
+        "FINANCIAL": "Financial",
+        "INVENTORY": "Inventory",
+        "CUSTOM-BUILDER": "Custom Builder"
+      }
+    },
+    "RADIOLOGY": {
+      "TEXT": "Radiology",
+      "LIST": {
+        "TEST-ORDERING": "Test Ordering",
+        "SCANS-TRACKING": "Scans Tracking",
+        "IMAGING-REPORTS": "Imaging Reports",
+        "PACS-INTEGRATION": "PACS Integration"
+      }
+    },
+    "EXTRA": {
+      "RADIOLOGY_RIS": "Radiology (RIS)",
+      "TEST_ORDERING": "Test Ordering",
+      "SCANS_TRACKING": "Scans Tracking",
+      "IMAGING_REPORTS": "Imaging Reports",
+      "TELEMEDICINE": "Telemedicine",
+      "VIDEO_CONSULTATION": "Video Consultation",
+      "VIRTUAL_VISIT_RECORDS": "Virtual Visit Records",
+      "ID_CARD_GENERATOR": "ID Card Generator",
+      "ASSETS_EQUIPMENT": "Assets & Equipment",
+      "EQUIPMENT_LIST": "Equipment List",
+      "MAINTENANCE_SCHEDULE": "Maintenance Schedule",
+      "BREAKDOWN_REPORTING": "Breakdown Reporting",
+      "FEEDBACK": "Feedback",
+      "PATIENT_FEEDBACK": "Patient Feedback",
+      "COMPLAINT_RESOLUTION": "Complaint Resolution",
+      "WASTE_MANAGEMENT": "Waste Management",
+      "BIO_MEDICAL_WASTE": "Bio-medical Waste",
+      "DISPOSAL_LOGS": "Disposal Logs",
+      "QUALITY_COMPLIANCE": "Quality & Compliance",
+      "AUDIT_CHECKLIST": "Audit Checklist",
+      "COMPLIANCE_DOCS": "Compliance Docs",
+      "VISITOR_MANAGEMENT": "Visitor Management",
+      "VISITOR_REGISTRATION": "Visitor Registration",
+      "VISIT_LOGS": "Visit Logs",
+      "REPORTS_ANALYTICS": "Reports & Analytics",
+      "CLINICAL_REPORTS": "Clinical Reports",
+      "FINANCIAL_REPORTS": "Financial Reports",
+      "INVENTORY_REPORTS": "Inventory Reports",
+      "ANALYTICS": "Analytics",
+      "BILLING": "Billing",
+      "MEDICAL_CERTIFICATES": "Medical Certificates",
+      "CONSULTATIONS_NOTE": "Consultations Note",
+      "INVENTORY_REQUESTS": "Inventory Requests",
+      "LAB_REPORTS": "Lab Reports",
+      "PATIENT_RECORDS": "Patient Records",
+      "PRESCRIPTIONS": "Prescriptions",
+      "REFERRALS": "Referrals",
+      "SURGERIES": "Surgeries",
+      "CLINICAL_TASKS": "Clinical Tasks",
+      "LAB_DIAGNOSTIC_REPORTS": "Lab & Diagnostic Reports",
+      "INSURANCE_CLAIMS": "Insurance & Claims",
+      "VACCINATIONS": "Vaccinations",
+      "HEALTH_MONITORING": "Health Monitoring",
+      "FAMILY_MEMBERS": "Family Members",
+      "DOCUMENTS_REPORTS": "Documents & Reports",
+      "EMERGENCY_SUPPORT": "Emergency Support",
+      "HEALTH_PLANS": "Health Plans",
+      "LIFESTYLE": "Lifestyle",
+      "NOTIFICATIONS": "Notifications",
+      "APPS": "Apps",
+      "CALENDAR": "Calendar",
+      "TASK": "Task",
+      "CONTACTS": "Contacts",
+      "EMAIL": "Email",
+      "INBOX": "Inbox",
+      "COMPOSE": "Compose",
+      "READ_EMAIL": "Read Email",
+      "MORE_APPS": "More Apps",
+      "CHAT": "Chat",
+      "CONTACT_GRID": "Contact Grid",
+      "DRAG_DROP": "Drag & Drop",
+      "SUPPORT": "Support",
+      "KANBAN_BOARD": "Kanban Board",
+      "FILE_MANAGER": "File Manager",
+      "NOTIFICATION_CENTER": "Notification Center",
+      "WIDGETS": "Widgets",
+      "CHART_WIDGET": "Chart Widget",
+      "DATA_WIDGET": "Data Widget",
+      "COMPONENTS": "Components",
+      "USER_INTERFACE_UI": "User Interface (UI)",
+      "ALERTS": "Alerts",
+      "BADGES": "Badges",
+      "CHIPS": "Chips",
+      "MODAL": "Modal",
+      "BUTTONS": "Buttons",
+      "EXPANSION_PANEL": "Expansion Panel",
+      "BOTTOM_SHEET": "Bottom Sheet",
+      "DIALOGS": "Dialogs",
+      "CARDS": "Cards",
+      "LABELS": "Labels",
+      "LIST_GROUP": "List Group",
+      "SNACKBAR": "Snackbar",
+      "PRELOADERS": "Preloaders",
+      "PROGRESS_BARS": "Progress Bars",
+      "TABS": "Tabs",
+      "TYPOGRAPHY": "Typography",
+      "HELPER_CLASSES": "Helper Classes",
+      "FORMS": "Forms",
+      "FORM_CONTROLS": "Form Controls",
+      "ADVANCED_CONTROLS": "Advanced Controls",
+      "FORM_EXAMPLES": "Form Examples",
+      "FORM_VALIDATION": "Form Validation",
+      "FORM_WIZARD": "Form Wizard",
+      "EDITORS": "Editors",
+      "TABLES": "Tables",
+      "BASIC_TABLES": "Basic Tables",
+      "MATERIAL_TABLES": "Material Tables",
+      "NGX_DATATABLE": "ngx-datatable",
+      "CHARTS": "Charts",
+      "ECHART": "Echart",
+      "APEX": "Apex",
+      "CHARTJS": "ChartJS",
+      "NGX_CHARTS": "Ngx-Charts",
+      "GAUGE": "Gauge",
+      "TIMELINE": "Timeline",
+      "TIMELINE_1": "Timeline 1",
+      "TIMELINE_2": "Timeline 2",
+      "ICONS": "Icons",
+      "MATERIAL_ICONS": "Material Icons",
+      "FONT_AWESOME": "Font Awesome",
+      "AUTHENTICATION": "Authentication",
+      "SIGN_IN": "Sign In",
+      "SIGN_UP": "Sign Up",
+      "FORGOT_PASSWORD": "Forgot Password",
+      "LOCKED": "Locked",
+      "404_NOT_FOUND": "404 - Not Found",
+      "500_SERVER_ERROR": "500 - Server Error",
+      "2_FACTOR_AUTH": "2-Factor Auth",
+      "MAINTENANCE": "Maintenance",
+      "COMING_SOON": "Coming Soon",
+      "EXTRA_PAGES": "Extra Pages",
+      "PROFILE": "Profile",
+      "PRICING": "Pricing",
+      "INVOICE": "Invoice",
+      "FAQS": "Faqs",
+      "BLANK_PAGE": "Blank Page",
+      "KNOWLEDGE_BASE": "Knowledge Base",
+      "TERMS_CONDITIONS": "Terms & Conditions",
+      "PRIVACY_POLICY": "Privacy Policy",
+      "MULTI_LEVEL_MENU": "Multi level Menu",
+      "FIRST": "First",
+      "SECOND": "Second",
+      "SECOND_1": "Second 1",
+      "SECOND_2": "Second 2",
+      "THIRD_1": "third 1",
+      "THIRD": "Third"
+    }
+  }
+}

@@ -1,0 +1,415 @@
+.settingSidebar {
+  background: #fff;
+  position: fixed;
+  height: 100%;
+  width: 280px;
+  top: 62px;
+  right: -280px;
+  z-index: 999;
+  transition: 0.3s ease-in;
+  box-shadow:
+    0 2px 5px rgba(0, 0, 0, 0.16),
+    0 2px 10px rgba(0, 0, 0, 0.12);
+
+  .settingPanelToggle {
+    background: linear-gradient(135deg, #6777ef 0%, #4e66e8 100%);
+    padding: 15px;
+    color: #fff;
+    position: absolute;
+    top: 30%;
+    left: -48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px 0 0 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: linear-gradient(135deg, #5668e0 0%, #3f57d9 100%);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .setting-sidebar-icon .feather {
+      height: 20px;
+      width: 20px;
+      stroke-width: 2.5px;
+    }
+  }
+
+  &.showSettingPanel {
+    right: 0;
+    animation: slideInRight 0.3s ease-out forwards;
+  }
+
+  @keyframes slideInRight {
+    from {
+      transform: translateX(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  .settingSidebar-body {
+    position: relative;
+    height: 100%;
+  }
+
+  /* Section animations */
+  .p-15,
+  .rightSetting {
+    animation: fadeInUp 0.4s ease-out forwards;
+    opacity: 0;
+  }
+
+  .p-15:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+
+  .rightSetting:nth-of-type(1) {
+    animation-delay: 0.2s;
+  }
+
+  .p-15:nth-child(4) {
+    animation-delay: 0.3s;
+  }
+
+  .rightSetting:nth-of-type(2) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      transform: translateY(20px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .settingSidebar-tab {
+    display: flex;
+
+    .nav-item {
+      width: 33.33%;
+      text-align: center;
+
+      .nav-link {
+        padding: 15px 12px;
+        color: #6a7a8c;
+        border-bottom: 3px solid transparent;
+
+        &.active {
+          border-bottom: 3px solid #2962ff;
+          color: #2962ff;
+        }
+
+        &:hover {
+          border-bottom: 3px solid #2962ff;
+          color: #2962ff;
+        }
+      }
+    }
+  }
+
+  .theme-setting-options {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+
+  ul.choose-theme {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+  }
+
+  ul.choose-theme li {
+    display: inline-block;
+    transition: all 0.2s ease;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+    }
+
+    &.active {
+      transform: scale(1.15);
+    }
+  }
+
+  ul.choose-theme li div {
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+
+  ul.choose-theme li div.purple {
+    background: #6777ef;
+    -webkit-box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  ul.choose-theme li div.orange {
+    background: #ffa117;
+    -webkit-box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  ul.choose-theme li div.cyan {
+    background: #3dc7be;
+    -webkit-box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  ul.choose-theme li div.green {
+    background: #4caf4f;
+    -webkit-box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  ul.choose-theme li div.red {
+    background: #ea5455;
+    -webkit-box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  ul.choose-theme li div.white {
+    background: #ece8e8;
+    -webkit-box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  ul.choose-theme li div.black {
+    background: #343a40;
+    -webkit-box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+  ul.choose-theme li div.blue {
+    background: #03a9f3;
+    -webkit-box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 4px 3px 6px 0 rgba(0, 0, 0, 0.2);
+  }
+
+  ul.choose-theme li.active div {
+    border: 2px solid #fff;
+    box-shadow:
+      0 0 0 2px #6777ef,
+      0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  ul.choose-theme li.active div::after {
+    content: "\f00c";
+    color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 9px;
+    position: absolute;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .setting-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 20px;
+    color: #3f4254;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    background: linear-gradient(to right, #f8f9fa, #f1f2f6);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    position: relative;
+  }
+
+  .disk-server-setting {
+    .progress {
+      height: 8px;
+    }
+
+    p {
+      font-weight: bold;
+      margin: 0;
+      border-bottom: 1px solid #eee;
+      font-size: 14px;
+      text-align: left;
+      padding-bottom: 5px;
+    }
+  }
+
+  .rt-sidebar-last-ele {
+    margin-bottom: 70px !important;
+  }
+
+  /* Glassmorphism color pills */
+  ul.choose-theme li .glass-color-pill {
+    border-radius: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: pointer;
+  }
+
+  ul.choose-theme li.active .glass-color-pill {
+    border: 2px solid #fff;
+    box-shadow:
+      0 0 0 2px #6777ef,
+      0 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  ul.choose-theme li.active .glass-color-pill::after {
+    content: "\f00c";
+    color: #fff;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 9px;
+    position: absolute;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Disabled section (e.g. glass bg when not in glassmorphism mode) */
+  .section-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+    user-select: none;
+    filter: grayscale(0.6);
+    position: relative;
+    transition: all 0.3s ease;
+  }
+}
+.hiddenradio {
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.hiddenradio [type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* IMAGE STYLES */
+.hiddenradio [type="radio"] + img {
+  cursor: pointer;
+  height: auto;
+  width: 100%;
+  border-radius: 8px;
+  border: 3px solid #e6eef8;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* CHECKED STYLES */
+.hiddenradio [type="radio"]:checked + img {
+  border-color: #6777ef;
+  box-shadow: 0 4px 12px rgba(103, 119, 239, 0.3);
+  transform: translateY(-2px);
+}
+
+.hiddenradio .flex-col {
+  width: 180px;
+  transition: all 0.3s ease;
+}
+
+.hiddenradio .text-md {
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+@media only screen and (max-width: 1199px) {
+  .settingSidebar {
+    width: 250px;
+    right: -250px;
+
+    .settingPanelToggle {
+      left: -42px;
+      width: 42px;
+      height: 42px;
+    }
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  .settingSidebar {
+    top: 60px;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .settingSidebar {
+    width: 230px;
+    right: -230px;
+    top: 56px;
+
+    .settingPanelToggle {
+      top: 20%;
+      left: -38px;
+      width: 38px;
+      height: 38px;
+
+      .setting-sidebar-icon .feather {
+        height: 18px;
+        width: 18px;
+      }
+    }
+
+    .hiddenradio .flex-col {
+      width: 100px;
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .settingSidebar {
+    width: 100%;
+    right: -100%;
+
+    &.showSettingPanel {
+      right: 0;
+    }
+
+    .settingPanelToggle {
+      top: 15%;
+    }
+
+    ul.choose-theme li div {
+      height: 28px;
+      width: 28px;
+    }
+  }
+}

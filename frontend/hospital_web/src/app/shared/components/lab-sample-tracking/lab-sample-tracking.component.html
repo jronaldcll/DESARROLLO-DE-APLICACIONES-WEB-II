@@ -1,0 +1,49 @@
+<mat-card class="lab-card glass-card">
+  <mat-card-header>
+    <div class="header-container w-100 d-flex justify-content-between align-items-center">
+      <mat-card-title>Diagnostics Pipeline</mat-card-title>
+      <button mat-icon-button class="text-muted"><mat-icon>refresh</mat-icon></button>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="sample-list">
+      <ng-scrollbar style="height: 270px" visibility="hover">
+        @for (s of samples; track s.id) {
+          <div class="sample-item">
+            <div class="sample-header d-flex justify-content-between align-items-center">
+              <div class="sample-info">
+                <div class="test-name">{{s.test}}</div>
+                <div class="patient-name">{{s.patient}} <span class="divider">|</span> ID: {{s.id}}</div>
+              </div>
+              <div class="sample-badge"
+                [ngClass]="{'status-ready': s.step === 2, 'status-processing': s.step === 1, 'status-collected': s.step === 0}">
+                {{s.step === 2 ? 'Ready' : s.step === 1 ? 'Processing' : 'Collected'}}
+              </div>
+            </div>
+
+            <div class="pipeline-container">
+              <div class="pipeline-track">
+                <div class="pipeline-progress" [style.width.%]="(s.step / 2) * 100"></div>
+
+                <div class="step-point" [ngClass]="{'completed': s.step >= 0, 'active': s.step === 0}">
+                  <div class="point-inner"></div>
+                  <span class="step-label">Collected</span>
+                </div>
+
+                <div class="step-point" [ngClass]="{'completed': s.step >= 1, 'active': s.step === 1}">
+                  <div class="point-inner"></div>
+                  <span class="step-label">Processing</span>
+                </div>
+
+                <div class="step-point" [ngClass]="{'completed': s.step >= 2, 'active': s.step === 2}">
+                  <div class="point-inner"></div>
+                  <span class="step-label">Ready</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        }
+      </ng-scrollbar>
+    </div>
+  </mat-card-content>
+</mat-card>

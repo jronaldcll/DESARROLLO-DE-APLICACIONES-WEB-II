@@ -1,0 +1,30 @@
+<mat-card class="admission-card glass-card">
+  <mat-card-header>
+    <mat-card-title>Admission Channels</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mt-2">
+    <div class="row align-items-center">
+      <div class="col-6">
+        <apx-chart [series]="chartOptions.series!" [chart]="chartOptions.chart!" [labels]="chartOptions.labels!"
+          [legend]="chartOptions.legend!" [dataLabels]="chartOptions.dataLabels!"
+          [colors]="chartOptions.colors!"></apx-chart>
+      </div>
+      <div class="col-6">
+        <div class="channel-list">
+          <div class="channel-item mb-2 d-flex align-items-center">
+            <span class="dot bg-danger me-2"></span>
+            <span class="c-label">Emergency (44%)</span>
+          </div>
+          <div class="channel-item mb-2 d-flex align-items-center">
+            <span class="dot bg-primary me-2"></span>
+            <span class="c-label">OPD (33%)</span>
+          </div>
+          <div class="channel-item d-flex align-items-center">
+            <span class="dot bg-warning me-2"></span>
+            <span class="c-label">Other (13%)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

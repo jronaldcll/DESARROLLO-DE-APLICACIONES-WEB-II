@@ -1,0 +1,461 @@
+.stat-card {
+  border-radius: 8px;
+  color: white;
+
+  .icon-holder {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon {
+      font-size: 28px;
+      width: 28px;
+      height: 28px;
+    }
+  }
+
+  .stat-content {
+    h2 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 500;
+    }
+
+    p {
+      margin: 0;
+      opacity: 0.8;
+    }
+  }
+
+  .bg-primary {
+    background: linear-gradient(45deg, #3f51b5, #5c6bc0);
+  }
+
+  .bg-success {
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+  }
+
+  .bg-info {
+    background: linear-gradient(45deg, #03a9f4, #29b6f6);
+  }
+
+  .bg-warning {
+    background: linear-gradient(45deg, #ff9800, #ffb74d);
+  }
+}
+
+// Patient Vitals Card Styles
+.vital-card {
+  background-color: #e9f2ff;
+  border-radius: 8px;
+  padding: 15px;
+  height: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.header-style {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.table-img {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+// Responsive table styles
+.table-scroll {
+  overflow-x: auto;
+  width: 100%;
+  display: block;
+  -webkit-overflow-scrolling: touch;
+}
+
+.responsive_table {
+  min-width: 100%;
+  overflow-x: auto;
+}
+
+.responsive_table table {
+  width: 100%;
+  min-width: 600px; /* Ensure table has minimum width to force scrolling on small screens */
+}
+
+@media (max-width: 767px) {
+  .mobile-label {
+    width: 100px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  /* Keep the table in its original format with horizontal scrolling */
+  .advance-table .mdc-data-table__row {
+    display: table-row;
+  }
+
+  .advance-table .mdc-data-table__header-row {
+    display: table-row;
+  }
+
+  /* Hide mobile labels in horizontal scroll mode */
+  .mobile-label {
+    display: none;
+  }
+}
+
+// Task list styles
+.nurse-task-list {
+  .task-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .task-content {
+      flex: 1;
+
+      h4 {
+        margin: 0 0 5px 0;
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      &.completed {
+        h4 {
+          text-decoration: line-through;
+          color: #9e9e9e;
+        }
+      }
+
+      &.in-progress {
+        h4 {
+          font-weight: 600;
+          color: #2196f3;
+        }
+      }
+
+      .task-meta {
+        display: flex;
+        gap: 15px;
+        font-size: 12px;
+
+        .task-category {
+          color: #757575;
+        }
+
+        .task-priority {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+// Equipment icon
+.equipment-icon {
+  color: #607d8b;
+  margin-right: 5px;
+}
+
+// IV/Drip Monitoring Card Styles
+.iv-card {
+  .iv-container {
+    padding: 10px;
+
+    .iv-item {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #4caf50;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.col-orange {
+        border-left-color: #ff9800;
+      }
+
+      &.col-red {
+        border-left-color: #f44336;
+      }
+
+      .iv-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .patient-img {
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-right: 5px;
+        }
+
+        .iv-patient {
+          font-weight: 500;
+
+          .room-number {
+            font-size: 12px;
+            font-weight: normal;
+            color: #757575;
+          }
+        }
+
+        .iv-status {
+          font-size: 12px;
+          font-weight: 500;
+          padding: 2px 8px;
+          border-radius: 12px;
+
+          &.col-green {
+            background-color: rgba(76, 175, 80, 0.1);
+          }
+
+          &.col-orange {
+            background-color: rgba(255, 152, 0, 0.1);
+          }
+
+          &.col-red {
+            background-color: rgba(244, 67, 54, 0.1);
+          }
+        }
+      }
+
+      .iv-content {
+        margin-bottom: 10px;
+
+        .iv-medication {
+          margin-bottom: 5px;
+        }
+
+        .iv-times {
+          display: flex;
+          justify-content: space-between;
+          font-size: 12px;
+          color: #757575;
+          margin-bottom: 10px;
+        }
+
+        .iv-progress {
+          margin-bottom: 10px;
+
+          .progress-label {
+            font-size: 12px;
+            color: #757575;
+            display: block;
+            margin-top: 5px;
+            text-align: right;
+          }
+        }
+
+        .iv-nurse {
+          font-size: 12px;
+          color: #757575;
+        }
+      }
+
+      .iv-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 5px;
+      }
+    }
+  }
+}
+
+// Emergency Call / Quick Contact Card Styles
+.emergency-card {
+  .emergency-container {
+    padding: 10px;
+
+    .emergency-section {
+      margin-bottom: 20px;
+      text-align: center;
+
+      .emergency-button {
+        padding: 15px 30px;
+        font-size: 18px;
+        font-weight: 500;
+
+        mat-icon {
+          font-size: 24px;
+          height: 24px;
+          width: 24px;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    .contacts-section {
+      .contact-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .contact-info {
+          display: flex;
+          align-items: center;
+
+          mat-icon {
+            font-size: 24px;
+            height: 24px;
+            width: 24px;
+            margin-right: 15px;
+            color: #607d8b;
+          }
+
+          .contact-details {
+            .contact-name {
+              font-weight: 500;
+              font-size: 15px;
+            }
+
+            .contact-role {
+              font-size: 12px;
+              color: #757575;
+            }
+          }
+        }
+
+        .contact-actions {
+          display: flex;
+          align-items: center;
+
+          .availability-indicator {
+            font-size: 12px;
+            padding: 2px 8px;
+            border-radius: 12px;
+            margin-right: 10px;
+
+            &.available {
+              background-color: rgba(76, 175, 80, 0.1);
+              color: #4caf50;
+            }
+
+            &.unavailable {
+              background-color: rgba(158, 158, 158, 0.1);
+              color: #9e9e9e;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Patient Satisfaction / Feedback Widget Styles
+.feedback-card {
+  .feedback-container {
+    padding: 10px;
+
+    .feedback-item {
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .feedback-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .patient-name {
+          font-weight: 500;
+          font-size: 16px;
+        }
+
+        .feedback-date {
+          font-size: 12px;
+          color: #757575;
+        }
+      }
+
+      .rating-stars {
+        margin-bottom: 10px;
+
+        mat-icon {
+          font-size: 20px;
+          width: 20px;
+          height: 20px;
+
+          &.star-filled {
+            color: #ffc107;
+          }
+
+          &.star-empty {
+            color: #e0e0e0;
+          }
+        }
+      }
+
+      .feedback-comment {
+        font-style: italic;
+        margin-bottom: 10px;
+        line-height: 1.4;
+      }
+
+      .feedback-meta {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #757575;
+      }
+    }
+  }
+}
+
+::ng-deep .dark {
+  .vital-card {
+    background-color: #141a27;
+  }
+  .critical-alerts-card .alert-item {
+    &.new-alert {
+      background-color: #141a27 !important;
+    }
+  }
+  .critical-alerts-card .alert-item {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+  }
+  .nurse-task-list .task-item {
+    border-bottom: 1px solid #2a3040 !important;
+  }
+  .handoff-notes .handoff-note {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+  }
+  .iv-card .iv-container .iv-item {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+  }
+  .feedback-card .feedback-container .feedback-item {
+    background-color: rgba(255, 255, 255, 0.03) !important;
+  }
+}

@@ -1,0 +1,30 @@
+<div class="auth-container">
+  <mat-card class="auth-card">
+    <div class="card-content">
+      <!-- Left Side Image -->
+      <div class="right-side-section">
+        <img src="assets/images/pages/bg-04.png" alt="404" class="right-side-image" />
+      </div>
+
+      <!-- Right Side - Content -->
+      <div class="form-section">
+        <div class="form-content text-center">
+          <h1 class="error-header">404</h1>
+          <p class="error-subheader">Looks like you're lost</p>
+          <p class="error-subheader2">The page you are looking for is not available!</p>
+
+          <!-- Go to Home Button -->
+          <button mat-raised-button color="accent" class="create-btn mt-4" (click)="goToHome()">
+            Go To Home Page
+          </button>
+
+          <!-- Help Link -->
+          <div class="login-link mt-4">
+            <span>Need help? </span>
+            <a routerLink="/authentication/signin" class="login-text">Sign in</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

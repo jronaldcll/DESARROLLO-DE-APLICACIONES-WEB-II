@@ -1,0 +1,17 @@
+<mat-card class="chart-card glass-card">
+  <mat-card-header>
+    <mat-card-title>Bed Utilization Trends</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="mt-4">
+    <apx-chart
+      [series]="chartOptions.series!"
+      [chart]="chartOptions.chart!"
+      [xaxis]="chartOptions.xaxis!"
+      [plotOptions]="chartOptions.plotOptions!"
+      [legend]="chartOptions.legend!"
+      [grid]="chartOptions.grid!"
+      [colors]="chartOptions.colors!"
+      [tooltip]="chartOptions.tooltip!"
+    ></apx-chart>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,19 @@
+<div class="chart-card6 card" [ngStyle]="{'background-color': cardBackgroundColor}">
+    <div class="clearfix">
+        <div class="card-icon" [ngStyle]="{'background': iconBg()}">
+            <i class="material-icons align-middle">{{ icon() }}</i>
+        </div>
+        <div class="card-right">
+            <div>
+                <p class="float-end font-b-500">{{ cardTitle() }}</p>
+            </div>
+            <div class="m-r-10 m-l-10">
+                <h6 class="font-weight-bold float-end mb-0">{{ cardValue() }}</h6>
+            </div>
+        </div>
+    </div>
+    <apx-chart [series]="chartOptions().series || []" [chart]="chartOptions().chart || { type: 'line', height: 350 }" [xaxis]="chartOptions().xaxis || { categories: [] }"
+        [yaxis]="chartOptions().yaxis || []" [colors]="chartOptions().colors || []" [stroke]="chartOptions().stroke || { curve: 'smooth' }"
+        [legend]="chartOptions().legend || { show: false }" [tooltip]="chartOptions().tooltip || { enabled: true }" [dataLabels]="chartOptions().dataLabels || { enabled: false }">
+    </apx-chart>
+</div>

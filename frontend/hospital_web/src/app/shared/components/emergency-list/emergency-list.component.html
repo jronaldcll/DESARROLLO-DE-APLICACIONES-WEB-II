@@ -1,0 +1,31 @@
+<mat-card class="emergency-card">
+  <mat-card-header class="emergency-header">
+    <mat-card-title>
+      <mat-icon class="emergency-icon">warning</mat-icon>
+      Emergency Cases
+    </mat-card-title>
+    <span class="emergency-count">{{ cases().length }}</span>
+  </mat-card-header>
+
+  <mat-card-content>
+    <ng-scrollbar style="height: 340px" visibility="hover">
+      <div class="emergency-list">
+        @for (c of cases(); track c) {
+          <div class="emergency-item">
+            <div class="patient-info">
+              <span class="patient-name">{{ c.patientName }}</span>
+              <span class="case-type" [ngClass]="c.caseType">{{ c.caseDescription }}</span>
+            </div>
+            <span class="time-ago">{{ c.timeAgo }}</span>
+          </div>
+        }
+      </div>
+    </ng-scrollbar>
+
+    <div class="text-center mt-3">
+      <button mat-button color="primary" class="view-all-btn">
+        View All Emergency Cases
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

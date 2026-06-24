@@ -1,0 +1,74 @@
+.emergency-card {
+  border-radius: 8px;
+  overflow: hidden;
+
+  .emergency-header {
+    background-color: rgba(244, 67, 54, 0.1);
+    padding: 10px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .emergency-icon {
+      color: #f44336;
+      margin-right: 8px;
+    }
+
+    .emergency-count {
+      background-color: #f44336;
+      color: white;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 500;
+    }
+  }
+
+  .emergency-list {
+    .emergency-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #eee;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .patient-info {
+        display: flex;
+        flex-direction: column;
+
+        .patient-name {
+          font-weight: 500;
+        }
+
+        .case-type {
+          font-size: 12px;
+          padding: 2px 8px;
+          border-radius: 12px;
+          display: inline-block;
+          margin-top: 4px;
+
+          &.critical {
+            background-color: rgba(244, 67, 54, 0.1);
+            color: #f44336;
+          }
+
+          &.urgent {
+            background-color: rgba(255, 152, 0, 0.1);
+            color: #ff9800;
+          }
+        }
+      }
+
+      .time-ago {
+        font-size: 12px;
+        color: #757575;
+      }
+    }
+  }
+}

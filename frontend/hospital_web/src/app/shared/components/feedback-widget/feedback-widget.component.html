@@ -1,0 +1,30 @@
+<mat-card class="satisfaction-card">
+  <mat-card-header class="header-style">
+    <mat-card-title>{{ title() }}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="satisfaction-score text-center mb-3">
+      <div class="score-value">{{ feedbackData().score || 0 }}</div>
+      <div class="score-stars">
+        @for (star of fullStars; track $index; let i = $index) {
+        <mat-icon class="star-icon">star</mat-icon>
+        }
+        @if (hasHalfStar) {
+        <mat-icon class="star-icon-half">star_half</mat-icon>
+        }
+        @for (star of emptyStars; track 'empty-' + $index; let i = $index) {
+        <mat-icon class="star-icon-empty">star_border</mat-icon>
+        }
+      </div>
+      <div class="score-label">{{ scoreLabel() }}</div>
+    </div>
+    @if (satisfactionChartOptions) {
+    <div class="satisfaction-chart">
+      <apx-chart [series]="satisfactionChartOptions.series!" [chart]="satisfactionChartOptions.chart!"
+        [labels]="satisfactionChartOptions.labels!" [colors]="satisfactionChartOptions.colors!"
+        [plotOptions]="satisfactionChartOptions.plotOptions!" [legend]="satisfactionChartOptions.legend!">
+      </apx-chart>
+    </div>
+    }
+  </mat-card-content>
+</mat-card>

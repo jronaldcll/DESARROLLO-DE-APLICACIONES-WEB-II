@@ -1,0 +1,127 @@
+:host {
+  display: block;
+}
+
+.summary-pill {
+  background: #f0f4f8;
+  padding: 6px 14px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  .total-count {
+    font-size: 14px;
+    font-weight: 700;
+    color: #333;
+  }
+
+  .label {
+    font-size: 10px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+}
+
+.ward-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ward-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.ward-info {
+  display: flex;
+  align-items: center;
+}
+
+.ward-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.primary-icon {
+  background: rgba(33, 150, 243, 0.1);
+  color: #2196f3;
+}
+.accent-icon {
+  background: rgba(255, 152, 0, 0.1);
+  color: #ff9800;
+}
+.warn-icon {
+  background: rgba(244, 67, 54, 0.1);
+  color: #f44336;
+}
+
+.ward-details {
+  flex-grow: 1;
+
+  .ward-name {
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .ward-count {
+    font-size: 12px;
+    color: #888;
+  }
+}
+
+.ward-percentage {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.primary {
+  color: #2196f3;
+}
+.accent {
+  color: #ff9800;
+}
+.warn {
+  color: #f44336;
+}
+
+.progress-wrapper {
+  padding-left: 48px;
+}
+
+.custom-progress {
+  height: 6px;
+  background: #eee;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.primary-gradient {
+  background: linear-gradient(90deg, #64b5f6, #2196f3);
+}
+.accent-gradient {
+  background: linear-gradient(90deg, #ffb74d, #ff9800);
+}
+.warn-gradient {
+  background: linear-gradient(90deg, #ff5252, #f44336);
+}

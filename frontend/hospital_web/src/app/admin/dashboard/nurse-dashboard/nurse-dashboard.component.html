@@ -1,0 +1,560 @@
+<section class="content">
+  <div class="content-block">
+    <div class="block-header">
+      <!-- breadcrumb -->
+      <app-breadcrumb [title]="'Nurse Dashboard'" [items]="[]" [active_item]="'Nurse Dashboard'"></app-breadcrumb>
+    </div>
+
+    <!-- Stats Cards -->
+    <div class="row">
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <mat-card class="stat-card bg-primary">
+          <mat-card-content>
+            <div class="d-flex align-items-center">
+              <div class="icon-holder">
+                <mat-icon>people</mat-icon>
+              </div>
+              <div class="stat-content ms-3">
+                <h2>{{totalPatients}}</h2>
+                <p>Patients Today</p>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <mat-card class="stat-card bg-success">
+          <mat-card-content>
+            <div class="d-flex align-items-center">
+              <div class="icon-holder">
+                <mat-icon>hotel</mat-icon>
+              </div>
+              <div class="stat-content ms-3">
+                <h2>{{availableBeds}}</h2>
+                <p>Available Beds</p>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <mat-card class="stat-card bg-info">
+          <mat-card-content>
+            <div class="d-flex align-items-center">
+              <div class="icon-holder">
+                <mat-icon>medical_services</mat-icon>
+              </div>
+              <div class="stat-content ms-3">
+                <h2>{{assignedNurses}}</h2>
+                <p>Assigned Nurses</p>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <mat-card class="stat-card bg-warning">
+          <mat-card-content>
+            <div class="d-flex align-items-center">
+              <div class="icon-holder">
+                <mat-icon>timer</mat-icon>
+              </div>
+              <div class="stat-content ms-3">
+                <h2>{{avgResponseTime}}</h2>
+                <p>Avg. Response Time</p>
+              </div>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- Charts Row -->
+    <div class="row mb-4">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex">
+        <app-bed-occupancy class="w-100"></app-bed-occupancy>
+      </div>
+      <!-- Critical Alerts Widget -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 d-flex">
+        <app-critical-alerts [alerts]="criticalAlerts" (acknowledge)="markAlertAsRead($event)"
+          (viewDetails)="onViewAlert($event)" class="w-100"></app-critical-alerts>
+      </div>
+    </div>
+
+    <!-- Patient Vitals Card -->
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Patient Vitals Monitoring</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <mat-form-field appearance="outline" style="width: 200px;">
+              <mat-label>Select Patient</mat-label>
+              <mat-select [(value)]="selectedPatientId" (selectionChange)="onPatientChange($event.value)">
+                @for (patient of patientVitals; track patient) {
+                <mat-option [value]="patient.patientId">
+                  {{patient.patientName}}
+                </mat-option>
+                }
+              </mat-select>
+            </mat-form-field>
+            @if (selectedPatientVitals) {
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <div class="vital-card">
+                  <div class="vital-header">
+                    <h6>Heart Rate</h6>
+                    <span [ngClass]="heartRateClass">
+                      {{ selectedPatientVitals.heartRate }} bpm
+                    </span>
+                  </div>
+                  <div class="vitals-chart">
+                    <apx-chart [series]="heartRateSeries" [chart]="sparklineOptions.chart!" [colors]="heartRateColor"
+                      [stroke]="sparklineOptions.stroke!" [tooltip]="sparklineOptions.tooltip!">
+                    </apx-chart>
+                  </div>
+                  <div class="vital-footer">
+                    <small>Normal Range: 60-100 bpm</small>
+                  </div>
+                </div>
+              </div>
+              <!-- Temperature -->
+              <div class="col-md-3 col-sm-6">
+                <div class="vital-card">
+                  <div class="vital-header">
+                    <h6>Temperature</h6>
+                    <span [ngClass]="temperatureClass">
+                      {{ selectedPatientVitals.temperature }}°C
+                    </span>
+                  </div>
+                  <div class="vitals-chart">
+                    <apx-chart [series]="temperatureSeries" [chart]="sparklineOptions.chart!"
+                      [colors]="temperatureColor" [stroke]="sparklineOptions.stroke!"
+                      [tooltip]="sparklineOptions.tooltip!">
+                    </apx-chart>
+                  </div>
+                  <div class="vital-footer">
+                    <small>Normal Range: 36.5-37.5°C</small>
+                  </div>
+                </div>
+              </div>
+              <!-- O2 -->
+              <div class="col-md-3 col-sm-6">
+                <div class="vital-card">
+                  <div class="vital-header">
+                    <h6>O₂ Saturation</h6>
+                    <span [ngClass]="oxygenClass">
+                      {{ selectedPatientVitals.oxygenSaturation }}%
+                    </span>
+                  </div>
+                  <div class="vitals-chart">
+                    <apx-chart [series]="oxygenSeries" [chart]="sparklineOptions.chart!" [colors]="oxygenColor"
+                      [stroke]="sparklineOptions.stroke!" [tooltip]="sparklineOptions.tooltip!">
+                    </apx-chart>
+                  </div>
+                  <div class="vital-footer">
+                    <small>Normal Range: 95-100%</small>
+                  </div>
+                </div>
+              </div>
+              <!-- Respiration -->
+              <div class="col-md-3 col-sm-6">
+                <div class="vital-card">
+                  <div class="vital-header">
+                    <h6>Respiration Rate</h6>
+                    <span [ngClass]="respirationClass">
+                      {{ selectedPatientVitals.respirationRate }} bpm
+                    </span>
+                  </div>
+                  <div class="vitals-chart">
+                    <apx-chart [series]="respirationSeries" [chart]="sparklineOptions.chart!"
+                      [colors]="respirationColor" [stroke]="sparklineOptions.stroke!"
+                      [tooltip]="sparklineOptions.tooltip!">
+                    </apx-chart>
+                  </div>
+                  <div class="vital-footer">
+                    <small>Normal Range: 12-20 bpm</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            }
+
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+    <!-- Task Management Widgets Row -->
+    <div class="row clearfix">
+      <!-- Pending Tasks Checklist Widget -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Pending Tasks Checklist</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">Add Task</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 350px" visibility="hover">
+              <div class="nurse-task-list">
+                @for (task of pendingTasks; track task) {
+                <div class="task-item">
+                  <div class="d-flex align-items-center">
+                    <mat-checkbox [(ngModel)]="task.isCompleted" (change)="updateTaskStatus(task)" color="primary">
+                    </mat-checkbox>
+                    <div class="ms-3 task-content"
+                      [ngClass]="{'completed': task.isCompleted, 'in-progress': task.inProgress && !task.isCompleted}">
+                      <h4>{{task.taskName}}</h4>
+                      <div class="d-flex task-meta">
+                        <span class="task-category">{{task.category}}</span>
+                        <span [ngClass]="task.priorityClass" class="task-priority">{{task.priority}} Priority</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="task-actions">
+                    <button mat-icon-button [color]="task.inProgress ? 'accent' : ''" matTooltip="Mark as In Progress"
+                      (click)="toggleInProgress(task)" [disabled]="task.isCompleted">
+                      <mat-icon class="material-icons-outlined">av_timer</mat-icon>
+                    </button>
+                  </div>
+                </div>
+                }
+              </div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Handoff Notes Widget -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <app-handoff-notes [notes]="handoffNotes"></app-handoff-notes>
+      </div>
+    </div>
+
+    <!-- Today's Medication Schedule Widget -->
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Today's Medication Schedule</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <div style="height: 350px; overflow: hidden;">
+              <ng-scrollbar visibility="hover">
+                <div class="responsive_table">
+                  <div class="table-scroll">
+                    <table mat-table [dataSource]="medicationSchedules" class="mat-cell advance-table">
+                      <!-- Patient Name Column -->
+                      <ng-container matColumnDef="patientName">
+                        <th mat-header-cell *matHeaderCellDef>Patient Name</th>
+                        <td mat-cell *matCellDef="let medication">
+                          <span class="mobile-label">Patient Name:</span>
+                          {{medication.patientName}}
+                        </td>
+                      </ng-container>
+
+                      <!-- Medication Name Column -->
+                      <ng-container matColumnDef="medicationName">
+                        <th mat-header-cell *matHeaderCellDef>Medication</th>
+                        <td mat-cell *matCellDef="let medication">
+                          <span class="mobile-label">Medication:</span>
+                          {{medication.medicationName}}
+                        </td>
+                      </ng-container>
+
+                      <!-- Dosage Column -->
+                      <ng-container matColumnDef="dosage">
+                        <th mat-header-cell *matHeaderCellDef>Dosage</th>
+                        <td mat-cell *matCellDef="let medication">
+                          <span class="mobile-label">Dosage:</span>
+                          {{medication.dosage}}
+                        </td>
+                      </ng-container>
+
+                      <!-- Time Column -->
+                      <ng-container matColumnDef="time">
+                        <th mat-header-cell *matHeaderCellDef>Time</th>
+                        <td mat-cell *matCellDef="let medication">
+                          <span class="mobile-label">Time:</span>
+                          {{medication.time}}
+                        </td>
+                      </ng-container>
+
+                      <!-- Status Column -->
+                      <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef>Status</th>
+                        <td mat-cell *matCellDef="let medication">
+                          <span class="mobile-label">Status:</span>
+                          <span [ngClass]="medication.statusClass">{{medication.status}}</span>
+                        </td>
+                      </ng-container>
+
+                      <tr mat-header-row *matHeaderRowDef="medicationDisplayedColumns; sticky: true"></tr>
+                      <tr mat-row *matRowDef="let row; columns: medicationDisplayedColumns;"></tr>
+                    </table>
+                  </div>
+                </div>
+              </ng-scrollbar>
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <!-- Tables Row -->
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Admitted Patients</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <div class="responsive_table">
+                <table mat-table [dataSource]="patientData" class="mat-cell advance-table">
+                  <!-- Patient Name Column -->
+                  <ng-container matColumnDef="name">
+                    <th mat-header-cell *matHeaderCellDef>Patient Name</th>
+                    <td mat-cell *matCellDef="let patient">
+                      <div class="d-flex align-items-center">
+                        <img [src]="patient.image" class="table-img" alt="image" />
+                        <span class="ms-2">{{patient.name}}</span>
+                      </div>
+                    </td>
+                  </ng-container>
+
+                  <!-- Age Column -->
+                  <ng-container matColumnDef="age">
+                    <th mat-header-cell *matHeaderCellDef>Age</th>
+                    <td mat-cell *matCellDef="let patient">{{patient.age}}</td>
+                  </ng-container>
+
+                  <!-- Room Number Column -->
+                  <ng-container matColumnDef="roomNumber">
+                    <th mat-header-cell *matHeaderCellDef>Room/Bed</th>
+                    <td mat-cell *matCellDef="let patient">{{patient.roomNumber}}</td>
+                  </ng-container>
+
+                  <!-- Condition Column -->
+                  <ng-container matColumnDef="condition">
+                    <th mat-header-cell *matHeaderCellDef>Condition</th>
+                    <td mat-cell *matCellDef="let patient">
+                      <span [ngClass]="patient.conditionClass">{{patient.condition}}</span>
+                    </td>
+                  </ng-container>
+
+                  <!-- Assigned Doctor Column -->
+                  <ng-container matColumnDef="assignedDoctor">
+                    <th mat-header-cell *matHeaderCellDef>Assigned Doctor</th>
+                    <td mat-cell *matCellDef="let patient">{{patient.assignedDoctor}}</td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="patientDisplayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: patientDisplayedColumns;"></tr>
+                </table>
+              </div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Medication & Tasks Schedule</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 400px" visibility="hover">
+              <div class="responsive_table">
+                <table mat-table [dataSource]="nurseTasks" class="mat-cell advance-table">
+                  <!-- Patient Name Column -->
+                  <ng-container matColumnDef="patientName">
+                    <th mat-header-cell *matHeaderCellDef>Patient</th>
+                    <td mat-cell *matCellDef="let task">{{task.patientName}}</td>
+                  </ng-container>
+
+                  <!-- Task Type Column -->
+                  <ng-container matColumnDef="taskType">
+                    <th mat-header-cell *matHeaderCellDef>Type</th>
+                    <td mat-cell *matCellDef="let task">{{task.taskType}}</td>
+                  </ng-container>
+
+                  <!-- Task Description Column -->
+                  <ng-container matColumnDef="taskDescription">
+                    <th mat-header-cell *matHeaderCellDef>Description</th>
+                    <td mat-cell *matCellDef="let task">{{task.taskDescription}}</td>
+                  </ng-container>
+
+                  <!-- Time Column -->
+                  <ng-container matColumnDef="time">
+                    <th mat-header-cell *matHeaderCellDef>Time</th>
+                    <td mat-cell *matCellDef="let task">{{task.time}}</td>
+                  </ng-container>
+
+                  <!-- Status Column -->
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                    <td mat-cell *matCellDef="let task">
+                      <span [ngClass]="task.statusClass">{{task.status}}</span>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="taskDisplayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: taskDisplayedColumns;"></tr>
+                </table>
+              </div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+
+
+
+    <div class="row clearfix">
+      <!-- IV/Drip Monitoring Card -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <mat-card class="iv-card">
+          <mat-card-header class="header-style">
+            <mat-card-title>IV/Drip Monitoring</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">Add New</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 350px" visibility="hover">
+              <div class="iv-container">
+                @for (iv of ivDrips; track iv) {
+                <div class="iv-item" [ngClass]="iv.statusClass">
+                  <div class="iv-header">
+                    <div class="d-flex align-items-center">
+                      <img class="patient-img" [src]="iv.img">
+                      <div class="iv-patient">
+                        <div>{{iv.patientName}}</div>
+                        <div class="room-number">{{iv.roomNumber}}</div>
+                      </div>
+                    </div>
+                    <div class="iv-status" [ngClass]="iv.statusClass">
+                      {{iv.status === 'normal' ? 'Normal' : iv.status === 'attention' ? 'Attention' : 'Overdue'}}
+                    </div>
+                  </div>
+                  <div class="iv-content">
+                    <div class="iv-medication">
+                      <span>{{iv.medication}}</span> ({{iv.concentration}})
+                    </div>
+                    <div class="iv-times">
+                      <div>Started: {{iv.startTime}}</div>
+                      <div>Next Change: {{iv.nextChangeTime}}</div>
+                    </div>
+                    <div class="iv-progress">
+                      <mat-progress-bar
+                        [color]="iv.status === 'normal' ? 'primary' : iv.status === 'attention' ? 'accent' : 'warn'"
+                        [value]="iv.percentRemaining"></mat-progress-bar>
+                      <span class="progress-label">{{iv.percentRemaining}}% remaining</span>
+                    </div>
+                    <div class="iv-nurse">Assigned: {{iv.assignedNurse}}</div>
+                  </div>
+                </div>
+                }
+              </div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+      <!-- Patient Satisfaction / Feedback Widget -->
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <mat-card class="feedback-card">
+          <mat-card-header class="header-style">
+            <mat-card-title>Patient Satisfaction & Feedback</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">View All</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 350px" visibility="hover">
+              <div class="feedback-container">
+                @for (feedback of patientFeedback; track feedback) {
+                <div class="feedback-item">
+                  <div class="feedback-header">
+                    <div class="patient-name">{{feedback.patientName}}</div>
+                    <div class="feedback-date">{{feedback.date | date:'mediumDate'}}</div>
+                  </div>
+                  <div class="rating-stars">
+                    @for (star of getStarArray(feedback.rating); track $index) {
+                    <mat-icon class="star-filled">star</mat-icon>
+                    }
+                    @for (star of getEmptyStarArray(feedback.rating); track $index) {
+                    <mat-icon class="star-empty">star_border</mat-icon>
+                    }
+                  </div>
+                  <div class="feedback-comment">"{{feedback.comment}}"</div>
+                  <div class="feedback-meta">
+                    <div class="department">Department: {{feedback.department}}</div>
+                    <div class="nurse-name">Nurse: {{feedback.nurseName}}</div>
+                  </div>
+                </div>
+                }
+              </div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+    <!-- Equipment Requests Widget -->
+    <div class="row clearfix">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <mat-card>
+          <mat-card-header class="header-style">
+            <mat-card-title>Equipment Requests</mat-card-title>
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault();">New Request</a>
+          </mat-card-header>
+          <mat-card-content>
+            <ng-scrollbar style="height: 350px" visibility="hover">
+              <div class="responsive_table">
+                <table mat-table [dataSource]="equipmentRequests" class="mat-cell advance-table">
+                  <!-- Equipment Name Column -->
+                  <ng-container matColumnDef="equipmentName">
+                    <th mat-header-cell *matHeaderCellDef>Equipment</th>
+                    <td mat-cell *matCellDef="let request">
+                      <div class="d-flex align-items-center">
+                        <mat-icon class="equipment-icon">medical_services</mat-icon>
+                        <span class="ms-2">{{request.equipmentName}}</span>
+                      </div>
+                    </td>
+                  </ng-container>
+
+                  <!-- Requesting Person Column -->
+                  <ng-container matColumnDef="requestingPerson">
+                    <th mat-header-cell *matHeaderCellDef>Requested By</th>
+                    <td mat-cell *matCellDef="let request">
+                      <div>
+                        <span>{{request.requestingPerson}}</span>
+                        <br>
+                        <small class="text-muted">{{request.department}}</small>
+                      </div>
+                    </td>
+                  </ng-container>
+
+                  <!-- Reason Column -->
+                  <ng-container matColumnDef="reason">
+                    <th mat-header-cell *matHeaderCellDef>Reason</th>
+                    <td mat-cell *matCellDef="let request">{{request.reason}}</td>
+                  </ng-container>
+
+                  <!-- Status Column -->
+                  <ng-container matColumnDef="status">
+                    <th mat-header-cell *matHeaderCellDef>Status</th>
+                    <td mat-cell *matCellDef="let request">
+                      <span [ngClass]="request.statusClass">{{request.status}}</span>
+                    </td>
+                  </ng-container>
+
+                  <tr mat-header-row *matHeaderRowDef="equipmentDisplayedColumns; sticky: true"></tr>
+                  <tr mat-row *matRowDef="let row; columns: equipmentDisplayedColumns;"></tr>
+                </table>
+              </div>
+            </ng-scrollbar>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+</section>

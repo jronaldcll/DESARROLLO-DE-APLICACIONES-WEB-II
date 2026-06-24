@@ -1,0 +1,53 @@
+<mat-card class="review-card glass-card">
+  <mat-card-header class="d-flex justify-content-between align-items-center">
+    <mat-card-title>Patient Voice</mat-card-title>
+    <div class="overall-rating">
+      <span class="rating-val">4.8</span>
+      <div class="stars-static">
+        @for (s of [1,2,3,4]; track s) {
+          <mat-icon class="text-warning small-icon">star</mat-icon>
+        }
+        <mat-icon class="text-warning small-icon">star_half</mat-icon>
+      </div>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="testimonial-container">
+      <ng-scrollbar style="height: 325px" visibility="hover">
+        @for (review of reviews; track review.name) {
+          <div class="testimonial-card">
+            <div class="quote-icon">
+              <mat-icon>format_quote</mat-icon>
+            </div>
+            <p class="review-text">"{{ review.text }}"</p>
+            <div class="review-footer">
+              <div class="author-info">
+                <div class="avatar-sm" [style.background-color]="review.name === 'Alice Johnson' ? '#e1f5fe' : '#f3e5f5'">
+                  {{ review.name.charAt(0) }}
+                </div>
+                <div class="author-details">
+                  <div class="name">{{ review.name }}</div>
+                  <div class="stars">
+                    @for (s of getStars(review.rating); track $index) {
+                      <mat-icon class="text-warning micro-icon">star</mat-icon>
+                    }
+                  </div>
+                </div>
+              </div>
+              <div class="verified-badge">
+                <mat-icon>verified</mat-icon>
+                <span>Verified Patient</span>
+              </div>
+            </div>
+          </div>
+        }
+      </ng-scrollbar>
+    </div>
+  </mat-card-content>
+  <mat-card-footer>
+    <button mat-button class="feedback-btn w-100">
+      <span>Submit Your Feedback</span>
+      <mat-icon>rate_review</mat-icon>
+    </button>
+  </mat-card-footer>
+</mat-card>

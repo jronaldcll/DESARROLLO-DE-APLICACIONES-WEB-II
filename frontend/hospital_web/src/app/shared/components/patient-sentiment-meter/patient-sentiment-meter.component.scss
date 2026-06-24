@@ -1,0 +1,36 @@
+:host {
+  display: block;
+}
+.sentiment-icon {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+}
+.text-success {
+  color: #4caf50 !important;
+}
+.text-primary {
+  color: #2196f3 !important;
+}
+.text-warning {
+  color: #ff9800 !important;
+}
+.text-danger {
+  color: #f44336 !important;
+}
+.sentiment-box {
+  transition: background 0.2s;
+  &:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
+.fw-bold {
+  font-weight: 600;
+}
+.mt-4 {
+  margin-top: 1.5rem !important;
+}
+.col-3 {
+  flex: 0 0 auto;
+  width: 25%;
+}

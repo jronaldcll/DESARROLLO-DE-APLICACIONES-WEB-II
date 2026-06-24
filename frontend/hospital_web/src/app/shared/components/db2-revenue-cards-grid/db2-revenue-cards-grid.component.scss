@@ -1,0 +1,73 @@
+:host {
+  display: block;
+  height: 100%;
+}
+.revenue-item {
+  transition: all 0.3s;
+  &:hover {
+    transform: scale(1.02);
+  }
+}
+.fw-bold {
+  font-weight: 700;
+}
+.text-blue {
+  color: #2196f3 !important;
+}
+.text-green {
+  color: #4caf50 !important;
+}
+.text-orange {
+  color: #ff9800 !important;
+}
+.text-purple {
+  color: #9c27b0 !important;
+}
+.text-success {
+  color: #4caf50 !important;
+}
+.text-danger {
+  color: #f44336 !important;
+}
+
+.blue-light {
+  background: rgba(33, 150, 243, 0.05);
+}
+.green-light {
+  background: rgba(76, 175, 80, 0.05);
+}
+.orange-light {
+  background: rgba(255, 152, 0, 0.05);
+}
+.purple-light {
+  background: rgba(156, 39, 176, 0.05);
+}
+
+.g-3 {
+  --bs-gutter-x: 1rem;
+  --bs-gutter-y: 1rem;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.col-6 {
+  flex: 0 0 auto;
+  width: 50%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+
+:host-context(.dark) {
+  .h4,
+  .h6 {
+    color: #ffffff;
+  }
+  .text-muted {
+    color: #96a2b4 !important;
+  }
+}

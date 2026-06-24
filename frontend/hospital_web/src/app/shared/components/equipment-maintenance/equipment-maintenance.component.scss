@@ -1,0 +1,133 @@
+:host {
+  display: block;
+  height: 100%;
+}
+.maintenance-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  transition: background 0.3s;
+  &:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  mat-icon {
+    font-size: 20px;
+    color: white;
+    height: 20px;
+    width: 20px;
+  }
+}
+.primary-glow {
+  background: #2196f3;
+  box-shadow: 0 4px 12px rgba(33, 150, 243, 0.3);
+}
+.accent-glow {
+  background: #ff9800;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.3);
+}
+.warn-glow {
+  background: #f44336;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+}
+.progress-track {
+  height: 6px;
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.progress-fill {
+  height: 100%;
+  border-radius: 10px;
+  transition: width 1s ease-in-out;
+}
+.bg-success {
+  background-color: #4caf50 !important;
+}
+.bg-warning {
+  background-color: #ff9800 !important;
+}
+.bg-danger {
+  background-color: #f44336 !important;
+}
+.text-success {
+  color: #4caf50 !important;
+}
+.text-warning {
+  color: #ff9800 !important;
+}
+.text-danger {
+  color: #f44336 !important;
+}
+.bg-success-subtle {
+  background-color: rgba(76, 175, 80, 0.1) !important;
+}
+.bg-warning-subtle {
+  background-color: rgba(255, 152, 0, 0.1) !important;
+}
+.bg-danger-subtle {
+  background-color: rgba(244, 67, 54, 0.1) !important;
+}
+.transition-hover {
+  cursor: pointer;
+  transition: transform 0.2s;
+  &:hover {
+    transform: translateX(5px);
+  }
+}
+.custom-progress {
+  height: 8px;
+  border-radius: 4px;
+}
+.small-icon {
+  font-size: 14px;
+  width: 14px;
+  height: 14px;
+}
+.fw-bold {
+  font-weight: 600;
+}
+.text-primary {
+  color: #2196f3 !important;
+}
+.text-warn {
+  color: #f44336 !important;
+}
+.text-accent {
+  color: #ff9800 !important;
+}
+.mb-4 {
+  margin-bottom: 1.5rem !important;
+}
+.me-1 {
+  margin-right: 0.25rem !important;
+}
+
+:host-context(.dark) {
+  mat-card-title {
+    color: #ffffff;
+  }
+  .maintenance-item {
+    border-bottom-color: rgba(255, 255, 255, 0.05);
+    &:hover {
+      background: rgba(255, 255, 255, 0.05);
+    }
+  }
+  .text-dark {
+    color: #ffffff !important;
+  }
+  .text-muted {
+    color: #96a2b4 !important;
+  }
+  .progress-track {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}

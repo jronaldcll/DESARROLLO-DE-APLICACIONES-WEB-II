@@ -1,0 +1,33 @@
+<mat-card class="ward-card glass-card">
+  <mat-card-header class="d-flex justify-content-between align-items-center">
+    <mat-card-title>Ward Occupancy</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="ward-list">
+      @for (ward of wards; track ward.name) {
+        <div class="ward-item">
+          <div class="ward-info">
+            <div class="ward-icon" [ngClass]="ward.color + '-icon'">
+              <mat-icon>{{ ward.name === 'ICU' ? 'emergency' : ward.name === 'General Ward' ? 'bed' : ward.name ===
+                'Pediatric' ? 'child_care' : 'pregnant_woman' }}</mat-icon>
+            </div>
+            <div class="ward-details">
+              <div class="ward-name">{{ ward.name }}</div>
+              <div class="ward-count">{{ ward.occupied }} of {{ ward.total }} occupied</div>
+            </div>
+            <div class="ward-percentage" [ngClass]="ward.color">
+              {{ calculateProgress(ward.occupied, ward.total) | number: '1.0-0' }}%
+            </div>
+          </div>
+          <div class="progress-wrapper">
+            <div class="custom-progress">
+              <div class="progress-bar" [style.width.%]="calculateProgress(ward.occupied, ward.total)"
+                [ngClass]="ward.color + '-gradient'">
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,18 @@
+<mat-card>
+    <mat-card-header class="header-menu">
+        <mat-card-title>Attendance</mat-card-title>
+        <mat-form-field appearance="outline" class="header-form-field">
+            <mat-select [(value)]="classValue" (selectionChange)="updateChart()">
+                <mat-option value="class1">Class 1</mat-option>
+                <mat-option value="class2">Class 2</mat-option>
+                <mat-option value="class3">Class 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card-header>
+    <mat-card-content>
+        <apx-chart [series]="attendanceChartOptions.series!" [chart]="attendanceChartOptions.chart!"
+            [xaxis]="attendanceChartOptions.xaxis!" [yaxis]="attendanceChartOptions.yaxis!"
+            [fill]="attendanceChartOptions.fill!" [tooltip]="attendanceChartOptions.tooltip!"
+            [plotOptions]="attendanceChartOptions.plotOptions!" />
+    </mat-card-content>
+</mat-card>

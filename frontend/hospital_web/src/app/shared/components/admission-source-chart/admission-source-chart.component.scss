@@ -1,0 +1,45 @@
+:host {
+  display: block;
+  height: 100%;
+}
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.bg-danger {
+  background-color: #f44336 !important;
+}
+.bg-primary {
+  background-color: #2196f3 !important;
+}
+.bg-warning {
+  background-color: #ff9800 !important;
+}
+.me-2 {
+  margin-right: 0.5rem !important;
+}
+.c-label {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.col-6 {
+  width: 50%;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+:host-context(.dark) {
+  mat-card-title {
+    color: #ffffff;
+  }
+  .c-label {
+    color: #ffffff;
+  }
+  .text-muted {
+    color: #96a2b4 !important;
+  }
+}

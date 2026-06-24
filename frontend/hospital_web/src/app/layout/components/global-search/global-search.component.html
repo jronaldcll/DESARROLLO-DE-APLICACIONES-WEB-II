@@ -1,0 +1,51 @@
+<div class="search-overlay">
+  <div class="search-header">
+    <mat-icon class="search-icon">search</mat-icon>
+    <input type="text" 
+           #searchInput
+           placeholder="Search for patients, doctors, or pages (Ctrl+K)..." 
+           [(ngModel)]="searchQuery" 
+           (input)="onSearch()"
+           (keydown)="handleKeydown($event)">
+    <div class="kbd-hint" (click)="close()">ESC</div>
+  </div>
+
+  <div class="search-body">
+    @if (results.length > 0) {
+      <div class="results-list">
+        @for (item of results; track item.title; let i = $index) {
+          <div class="result-item" [ngClass]="{'active': selectedIndex === i}" (click)="navigateTo(item.route)">
+            <div class="result-icon-box" [ngClass]="item.category.toLowerCase()">
+              <mat-icon>{{item.icon}}</mat-icon>
+            </div>
+            <div class="result-content">
+              <div class="result-title">{{item.title}}</div>
+              <div class="result-meta">
+                <span class="category">{{item.category}}</span>
+                @if (item.description) {
+                  <span class="separator">•</span>
+                  <span class="description">{{item.description}}</span>
+                }
+              </div>
+            </div>
+            <mat-icon class="arrow-icon">chevron_right</mat-icon>
+          </div>
+        }
+      </div>
+    } @else {
+      <div class="no-results">
+        <mat-icon>search_off</mat-icon>
+        <p>No results found for "{{searchQuery}}"</p>
+      </div>
+    }
+  </div>
+
+  <div class="search-footer">
+    <div class="footer-hint">
+      <span class="kbd">↵</span> to select
+    </div>
+    <div class="footer-hint">
+      <span class="kbd">↑↓</span> to navigate
+    </div>
+  </div>
+</div>

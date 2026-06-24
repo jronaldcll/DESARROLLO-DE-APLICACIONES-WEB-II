@@ -1,0 +1,241 @@
+.dashboard-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 16px;
+  margin-top: 10px;
+
+  .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100px;
+
+    &.patient-limit-card {
+      grid-column: span 2;
+      border-radius: 20px;
+      .patient-limit-card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-radius: 10px;
+        padding: 20px;
+
+        h2 {
+          margin: 0;
+        }
+
+        p {
+          margin: 0;
+          color: #777;
+        }
+      }
+    }
+  }
+
+  .stat-cards-container {
+    .card-aqua,
+    .card-orange {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height: 180px;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+    }
+
+    .card-aqua {
+      background: #f1fcfc;
+
+      .text-primary {
+        color: #20b2aa;
+      }
+    }
+
+    .card-orange {
+      background: #fff7f2;
+
+      .text-warning {
+        color: #f5a623;
+      }
+    }
+
+    .label {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 500;
+      color: #666;
+    }
+
+    .value {
+      font-size: 20px;
+      font-weight: bold;
+    }
+  }
+}
+
+.kpi-card {
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  height: 100%;
+  margin-bottom: 0px;
+
+  &.performance-card {
+    .performance-icon {
+      background-color: rgba(76, 175, 80, 0.1);
+      color: #4caf50;
+      border-radius: 50%;
+    }
+
+    .performance-metrics {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+
+      .metric {
+        display: flex;
+        flex-direction: column;
+
+        .metric-label {
+          font-size: 12px;
+        }
+
+        .metric-value {
+          font-size: 20px;
+          font-weight: 600;
+          color: #4caf50;
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+
+  &.revenue-card {
+    .revenue-icon {
+      background-color: rgba(33, 150, 243, 0.1);
+      color: #2196f3;
+      border-radius: 50%;
+    }
+
+    .revenue-amount {
+      color: #2196f3;
+      margin-top: 10px;
+      margin-bottom: 0px;
+    }
+
+    .revenue-breakdown {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      .breakdown-item {
+        display: flex;
+        align-items: center;
+        font-size: 12px;
+
+        .dot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          margin-right: 5px;
+
+          &.walk-in {
+            background-color: #4caf50;
+          }
+          &.follow-up {
+            background-color: #2196f3;
+          }
+          &.online {
+            background-color: #9c27b0;
+          }
+        }
+      }
+    }
+  }
+
+  &.appointments-card {
+    .appointments-icon {
+      background-color: rgba(255, 135, 7, 0.3);
+      color: #ff8707;
+      border-radius: 50%;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+
+    .dot.scheduled {
+      background-color: #42a5f5; // Blue
+    }
+
+    .dot.completed {
+      background-color: #66bb6a; // Green
+    }
+
+    .dot.cancelled {
+      background-color: #ef5350; // Red
+    }
+  }
+}
+
+// Surgery Table
+.surgery-table {
+  .patient-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .patient-name {
+    font-weight: 500;
+  }
+
+  .patient-id {
+    font-size: 12px;
+    color: #757575;
+  }
+
+  .status-badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+
+    &.status-scheduled {
+      background-color: rgba(33, 150, 243, 0.1);
+      color: #2196f3;
+    }
+
+    &.status-urgent {
+      background-color: rgba(244, 67, 54, 0.1);
+      color: #f44336;
+    }
+
+    &.status-delayed {
+      background-color: rgba(255, 152, 0, 0.1);
+      color: #ff9800;
+    }
+  }
+}
+
+.dark {
+  .dashboard-container .card.patient-limit-card .patient-limit-card-header {
+    background: rgba(255, 255, 255, 0.03);
+  }
+  .stat-cards-container {
+    .card-aqua {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .card-orange {
+      background: rgba(255, 255, 255, 0.03);
+    }
+  }
+  .kpi-card {
+    background-color: #1a202e !important;
+  }
+}

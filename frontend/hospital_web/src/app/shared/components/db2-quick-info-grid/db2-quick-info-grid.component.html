@@ -1,0 +1,15 @@
+<div class="row">
+  @for (item of items; track item.label) {
+    <div class="col-xl-2 col-lg-4 col-md-4 col-6">
+      <mat-card class="info-card glass-card text-center">
+        <mat-card-content class="p-3">
+          <div class="icon-circle mx-auto mb-2" [ngClass]="item.color">
+            <mat-icon>{{item.icon}}</mat-icon>
+          </div>
+          <div class="text-muted mb-1 text-truncate">{{item.label}}</div>
+          <div class="h5 fw-bold mb-0">{{item.value}}</div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  }
+</div>

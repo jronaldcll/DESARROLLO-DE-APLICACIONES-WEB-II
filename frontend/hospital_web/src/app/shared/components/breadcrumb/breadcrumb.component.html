@@ -1,0 +1,18 @@
+<div class="modern-breadcrumb-container">
+    <h4 class="page-title">{{title()}}</h4>
+    <ul class="custom-breadcrumb">
+        <li class="breadcrumb-item home-item">
+            <a [routerLink]="'/admin/dashboard/main'" class="breadcrumb-link home-link" aria-label="Home">
+                <i-feather name="home" class="breadcrumb-icon"></i-feather>
+            </a>
+        </li>
+        @for (item of items(); track item) {
+        <li class="breadcrumb-item">
+            <span class="item-text">{{item}}</span>
+        </li>
+        }
+        <li class="breadcrumb-item active">
+            <span class="item-text">{{active_item()}}</span>
+        </li>
+    </ul>
+</div>

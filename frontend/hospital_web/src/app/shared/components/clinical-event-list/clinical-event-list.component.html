@@ -1,0 +1,38 @@
+<mat-card class="event-card glass-card">
+  <mat-card-header>
+    <div class="header-container w-100 d-flex justify-content-between align-items-center">
+      <mat-card-title>Upcoming Events</mat-card-title>
+      <button mat-button class="view-all-btn">View All</button>
+    </div>
+  </mat-card-header>
+  <mat-card-content>
+    <div class="event-list">
+      @for (e of events; track e.title) {
+        <div class="event-item">
+          <div class="event-date-container">
+            <div class="date-orb" [ngClass]="e.type === 'Educational' ? 'bg-info-gradient' : 'bg-warning-gradient'">
+              <span class="day">{{ (e.date.includes(',') ? e.date.split(',')[1].trim().split(' ')[0] : e.date.split('
+                ')[0]) }}</span>
+              <span class="month">{{ (e.date.includes(',') ? e.date.split(',')[0].substring(0,3) : 'May') }}</span>
+            </div>
+
+          </div>
+          <div class="event-details">
+            <div class="event-type">{{e.type}}</div>
+            <div class="event-title">{{e.title}}</div>
+            <div class="event-meta">
+              <span class="meta-item"><mat-icon>schedule</mat-icon> {{e.date.includes(',') ? e.date.split(',')[1] :
+                e.date}}</span>
+              <span class="meta-item"><mat-icon>location_on</mat-icon> {{e.loc}}</span>
+            </div>
+          </div>
+          <div class="event-action">
+            <button mat-icon-button class="action-btn">
+              <mat-icon>arrow_forward</mat-icon>
+            </button>
+          </div>
+        </div>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>

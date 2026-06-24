@@ -1,0 +1,110 @@
+:host {
+  display: block;
+}
+.welcome-card {
+  background: linear-gradient(135deg, #becfff 0%, #ffebdb 100%);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+}
+.card-body {
+  position: relative;
+  z-index: 2;
+}
+.banner-img {
+  max-height: 200px;
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.1));
+  transform: scale(1.1);
+  margin-top: -10px;
+}
+.stat-card {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  border-radius: 16px;
+  padding: 10px 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.05);
+  }
+}
+.stat-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+}
+.stat-value {
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 600;
+}
+
+/* Decorative Shapes */
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 1;
+}
+.shape-1 {
+  width: 200px;
+  height: 200px;
+  background: rgba(33, 150, 243, 0.1);
+  top: -100px;
+  left: -50px;
+}
+.shape-2 {
+  width: 300px;
+  height: 300px;
+  background: rgba(103, 58, 183, 0.1);
+  bottom: -150px;
+  right: -50px;
+}
+
+:host-context(.dark) {
+  .welcome-card {
+    background: linear-gradient(135deg, #1a202e, #1a202e) !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+  .stat-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  .welcome-card h2,
+  .welcome-card .text-dark {
+    color: #ffffff !important;
+  }
+  .welcome-card .text-secondary,
+  .welcome-card .text-muted {
+    color: #96a2b4 !important;
+  }
+}

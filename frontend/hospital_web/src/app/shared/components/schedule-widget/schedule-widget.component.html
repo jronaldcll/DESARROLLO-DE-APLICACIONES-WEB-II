@@ -1,0 +1,56 @@
+<div class="schedule-container">
+  <div class="schedule-line"></div>
+
+  @for (item of scheduleItems(); track trackByFn($index, item)) {
+    <div class="schedule-item" [class]="'type-' + item.type"
+      [class.active]="isCurrentlyActive(item)">
+      <div class="schedule-dot" [class]="'dot-' + item.type">
+        @if (showIcons()) {
+          <mat-icon class="schedule-icon">
+            {{ item.icon || getTypeIcon(item.type) }}
+          </mat-icon>
+        }
+      </div>
+      <div class="schedule-card">
+        <div class="time-block" [class]="'time-' + item.type">
+          <span class="time-text">{{ getTimeRange(item) }}</span>
+        </div>
+        <div class="schedule-content">
+          <div class="content-header">
+            <h4 class="schedule-title">{{ item.title }}</h4>
+            <mat-chip class="type-chip" [class]="'chip-' + item.type">
+              {{ item.type | titlecase }}
+            </mat-chip>
+          </div>
+          @if (item.subtitle) {
+            <p class="schedule-subtitle">
+              {{ item.subtitle }}
+            </p>
+          }
+          @if (item.location || item.description) {
+            <div class="schedule-meta">
+              @if (item.location) {
+                <div class="location">
+                  <mat-icon class="meta-icon">place</mat-icon>
+                  <span>{{ item.location }}</span>
+                </div>
+              }
+              @if (item.description && !compactView()) {
+                <p class="description">
+                  {{ item.description }}
+                </p>
+              }
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  }
+
+  @if (scheduleItems().length === 0) {
+    <div class="empty-state">
+      <mat-icon class="empty-icon">event_available</mat-icon>
+      <p class="empty-text">No scheduled items for today</p>
+    </div>
+  }
+</div>

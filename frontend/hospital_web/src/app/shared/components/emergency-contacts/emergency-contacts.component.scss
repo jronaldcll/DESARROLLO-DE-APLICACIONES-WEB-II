@@ -1,0 +1,181 @@
+:host {
+  display: block;
+  height: 100%;
+}
+
+.sos-badge {
+  display: flex;
+  align-items: center;
+  background: #ff4757;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 20px;
+  gap: 4px;
+  box-shadow: 0 4px 10px rgba(255, 71, 87, 0.3);
+  animation: pulseSOS 2s infinite;
+
+  .sos-icon mat-icon {
+    font-size: 14px;
+    width: 14px;
+    height: 14px;
+    font-weight: 900;
+  }
+
+  .sos-text {
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+}
+
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  margin-bottom: 5px;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-3px);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+
+    .call-action {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.dept-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin-right: 15px;
+
+  mat-icon {
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+  }
+
+  &.bg-red {
+    background: linear-gradient(135deg, #ff4757, #ff6b81);
+  }
+  &.bg-blue {
+    background: linear-gradient(135deg, #2f3542, #57606f);
+  }
+  &.bg-gray {
+    background: linear-gradient(135deg, #747d8c, #a4b0be);
+  }
+  &.bg-orange {
+    background: linear-gradient(135deg, #ffa502, #ff7f50);
+  }
+  &.bg-indigo {
+    background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+  }
+  &.bg-deep-orange {
+    background: linear-gradient(135deg, #e67e22, #f39c12);
+  }
+}
+
+.contact-details {
+  flex-grow: 1;
+
+  .dept-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: #2d3436;
+    margin-bottom: 2px;
+  }
+
+  .phone-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .phone-number {
+    font-size: 13px;
+    font-weight: 600;
+    color: #3498db;
+  }
+
+  .ext-badge {
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+    color: #636e72;
+    text-transform: uppercase;
+  }
+}
+
+.call-action {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.security-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #7f8c8d;
+  font-size: 11px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  mat-icon {
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    color: #2ecc71;
+  }
+}
+
+@keyframes pulseSOS {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 71, 87, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 71, 87, 0);
+  }
+}
+
+:host-context(.dark) {
+  .contact-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    &:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+  }
+  .contact-details {
+    .dept-name {
+      color: #ffffff;
+    }
+    .ext-badge {
+      background: rgba(255, 255, 255, 0.05);
+      color: #96a2b4;
+    }
+  }
+  .security-note {
+    border-top-color: rgba(255, 255, 255, 0.05);
+    color: #96a2b4;
+  }
+}
